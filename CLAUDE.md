@@ -1,0 +1,194 @@
+# Upvine — Proje rehberi (Claude Code ve geliştiriciler için)
+
+Çok kiracılı, otomatik SEO içerik platformu. Tam ürün tanımı: [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md).
+Fazlar ve ilerleme: [docs/phases/](docs/phases/). **Her fazın sonunda dur, özet ver, onay bekle.**
+
+## Komutlar
+
+| Komut | Ne yapar |
+|---|---|
+| `pnpm dev` | API (4000), worker (site analizi, konu önerisi, ücretsiz analiz, makale üretimi, yayın, editör yardımcısı, dakikalık zamanlayıcı) ve web (5173) birlikte. Web, `/api` isteklerini API'ye proxy'ler |
+| `pnpm db:migrate` / `pnpm db:migrate:down` | Umzug migration'ları (veritabanı yoksa utf8mb4 ile oluşturur) |
+| `pnpm db:seed` | Demo kullanıcı `demo@upvine.local` / `demo-password-123` ve superadmin `admin@upvine.local` / `admin-password-123` |
+| `pnpm admin:grant <e-posta>` | Mevcut bir kullanıcıyı superadmin yapar (admin paneli: `/admin`) |
+| `pnpm lint` | ESLint + ham renk kodu kontrolü (`scripts/check-raw-colors.ts`) |
+| `pnpm typecheck` | Tüm paketlerde `tsc --noEmit` (web: önce `react-router typegen`) |
+| `pnpm i18n:check` | 5 dilde eksik/fazla/boş anahtar ve `{{değişken}}` farkı kontrolü |
+| `pnpm test` | Vitest: birim (config, seo, ai, web) + API ve worker entegrasyon (gerçek MySQL test veritabanı `MYSQL_TEST_DATABASE`, her çalıştırmada sıfırlanır; Gemini ve dış siteler sahte) |
+| `pnpm --filter @upvine/api test:unit` | Sadece veritabanı gerektirmeyen API birim testleri |
+| `pnpm test:e2e` | Playwright + axe. Kendi API (4100), web (5174), worker'ı (sahte site + sahte yapay zekâ, `E2E_FAKE_EXTERNALS`), kuyruk öneki (`upvine-e2e`) ve veritabanını (`<MYSQL_DATABASE>_e2e`, her seferinde sıfırdan + seed) kurar; `pnpm dev` açıkken de çalışır, geliştirme verisine dokunmaz. Mailpit açık olmalı |
+| `pnpm build` | API/worker: esbuild → `dist/`; web: React Router → `build/` |
+
+## Klasör yapısı
+
+```
+apps/api        Express 5 REST API (routes → controllers → services → repositories)
+apps/worker     BullMQ worker'ları: `site-analysis` (+ `sync-posts`, `gsc-sync`, `ai-visibility`), `content` (+ dakikalık tick), `free-analysis`, `assist` (bölüm yeniden yazımı); bilgi grafiği (satori); src/testing: e2e sahteleri
+apps/web        React Router v8 framework mode: /{locale}/* SSR, /app/* ve /admin/* sadece istemci
+                (dev: scripts/web-dev.mjs sarmalayıcısı; tip kontrolü: scripts/web-typegen.mjs)
+packages/config env doğrulama (Zod), arayüz dilleri, içerik dilleri, paketler/kotalar
+packages/db     Sequelize modelleri, Umzug migration'ları, repository'ler, kiracı koruması, seed, VectorStore (embedding BLOB + cosine)
+packages/shared Paylaşılan Zod şemaları (form + API), hata kodları, çerez adları
+packages/email  React Email şablonları (5 dil) + Mailer arayüzü (SMTP / bellek)
+packages/ui     Tasarım token'ları (tokens.css), Tailwind v4 tema, Radix tabanlı bileşenler, RichTextEditor (Tiptap)
+packages/ai     AIProvider, Gemini (`@google/genai`), Redis hız sınırlayıcı + günlük bütçe, sürümlü prompt'lar, FakeAIProvider
+packages/seo    SSRF korumalı HTTP (undici), tarayıcı, 25 teknik kontrol, makale araçları (temizleme, içindekiler, SEO skoru, schema, Markdown); src/testing: sahte siteler + yayın hedefleri
+packages/publishers  Publisher arayüzü: WordPress, Ghost, Shopify, Webflow, Wix, webhook (HMAC); AES-256-GCM kimlik bilgisi şifreleme
+packages/keywords    KeywordProvider + DataForSEO Labs (anahtar yoksa NoKeywordProvider)
+packages/billing     Faz 3'e kadar iskelet
+locales/{en,de,es,fr,tr}/*.json  Tüm arayüz, hata ve e-posta metinleri
+scripts/        i18n kontrolü, ham renk kontrolü, Vite/Vitest alias üretici
+docker/         Dockerfile (Faz 0 iskeleti) ve MySQL init
+```
+
+## Mimari kurallar
+
+- **Katmanlar:** route → controller (sadece HTTP) → service (iş mantığı) → repository (Sequelize). Controller'da iş mantığı yok.
+- **Hata formatı:** `{ error: { code, message, details?, requestId } }`. `AppError(code)` fırlat; mesajı error handler `locales/*/errors.json`'dan kullanıcının diline çevirir. Yeni kod: `packages/shared/src/errors.ts` + `apps/api/src/lib/errors.ts` (HTTP durumu) + 5 dilde `errors.json`.
+- **Dil:** API isteğinde sıra `x-locale` başlığı > `upvine_locale` çerezi > Accept-Language. Web istemcisi `x-locale` gönderir. E-postalar kullanıcının profil dilinde.
+- **Kiracı izolasyonu:** Organizasyona bağlı her repository metodu `orgId` alır. Ek koruma: `applyTenantGuard(Model, keys)` — `where` içinde kapsam anahtarı yoksa sorgu `TenantGuardError` fırlatır. Bilinçli tüm-kiracı sorguları sadece `withoutTenantGuard(() => ...)` ile. Yeni kiracı modellerinde guard'ı uygula ve `apps/api/test/tenant-guard.test.ts`'e test ekle.
+- **Şema değişikliği = migration.** `sync()` asla. Yeni migration: `packages/db/src/migrations/YYYY_MM_DD_NNNN_ad.ts` + `migrations/index.ts` listesine ekle (glob yok; esbuild paketlemesiyle uyumlu). PK: `CHAR(36)` UUID v7, `underscored`, `created_at/updated_at`, silinebilir kullanıcı verisinde `paranoid`.
+- **Dış servisler arayüz arkasında** (`AIProvider`, `BillingProvider`, `Publisher`, `KeywordProvider`, `Mailer`, `VectorStore`). Testlerde sahteleri (`MemoryMailer`, `FakeAIProvider`...).
+- **Kimlik doğrulama:** access JWT (HS256, 15 dk) sadece bellekte; refresh token opak, DB'de SHA-256 hash, `httpOnly; Secure; SameSite=Strict; Path=/api/v1/auth` çerezde, her kullanımda rotasyon, yeniden kullanımda aile iptali. Refresh/logout double-submit CSRF (`upvine_csrf` çerezi + `x-csrf-token`). İstemci yenilemeyi Web Locks ile sekmeler arası tekilleştirir.
+- **Admin (`/api/v1/admin/*`, `/admin`):** `requireAuth` + `requireSuperadmin`; yetki her istekte veritabanından okunur. Tüm kiracıları kapsayan sorgular sadece `adminRepository`'de (`withoutTenantGuard`). Her admin işlemi `audit_logs`'a yazılır. Verisi henüz olmayan bölümler (abonelik, iade, fatura, kuyruk, YZ maliyeti, bayraklar) ilgili fazda dolacak boş durum sayfalarıdır.
+- **Kullanıcının gözünden görüntüleme:** `POST /admin/users/:id/impersonate` 30 dk geçerli, refresh token'sız bir access token verir (`act.sub` = admin). Bu token'la sadece okuma yapılabilir (`impersonation_read_only`) ve admin uç noktalarına erişilemez. İstemcide refresh çerezi admininki kaldığı için çıkış = `refreshSession()`.
+- **Siteler ve analiz** (`/api/v1/sites`, `/api/v1/content`): site eklenince `analyze` işi kuyruğa atılır (HTTP isteğinde tarama/yapay zekâ yok). Worker: tarama → 25 kontrol (`site_audits`) → sayfalar (`existing_pages`) → marka profili (Gemini, yoksa sezgisel). Konu önerisi ayrı iş (`topics`). İlerleme `sites.analysis_status/phase`, `topics_status` alanlarında; web 2 sn'de bir sorgular. Kullanıcının düzenlediği marka profili (`source: user`) yeniden analizde ezilmez.
+- **Sihirbaz** (`/app/onboarding`): adım `sites.onboarding_step`'te saklanır, kaldığı yerden devam eder. Bitince (`POST /sites/:id/onboarding/complete`) konulara sitenin saat diliminde yayın tarihi atanır (yeni sitede ilk 4 hafta haftada en fazla 3). Kurulumdan sonra eklenen/önerilen konular takvimin sonuna yerleşir (`scheduleUnplanned` + `planPublishDates({ after })`, `@upvine/shared`). Dakikalık tick, önümüzdeki 4 haftada `postsPerWeek × 4` konu yoksa eksik kadar konu önerir (`planningTick`, site başına günde bir).
+- **Paket hakları** (`@upvine/config`: `orgArticleLimit`, `orgFeatures`, `orgSiteLimit`): admin'in verdiği özel makale hakkı > `ARTICLE_QUOTA_OVERRIDE` > paket > deneme. Admin panelinden ödemesiz paket (`plan_source: complimentary`, isteğe bağlı bitiş tarihi; dolunca deneme) — `PUT /admin/organizations/:id/entitlements`. Paketsiz (deneme) hesap Growth özellikleriyle, ayda 3 yazı ve 1 siteyle çalışır.
+- **Yapay zekâ:** sadece `@upvine/ai` üzerinden (`createAIProvider`). Model adları `.env`'de. Her çağrı `ai_usage_logs`'a yazılır (worker'da iş başına organizasyon). Hata kodları: `not_configured`, `rate_limited`, `budget_exceeded`, `unavailable` (yeniden denenir), `blocked`, `invalid_output`. Prompt değişikliği = yeni sürüm dosyası (`prompts/*.v2.ts`).
+- **Makale hattı** (worker `content` kuyruğu, `generate`): araştırma (Google Search grounding) → yazım (tek yapılandırılmış çağrı, marka sesi, iç linkler, SSS) → bilgi doğrulama (grounding; düzeltilen cümle değiştirilir, doğrulanamayan çıkarılır) → temizleme + içindekiler + kaynaklar → SEO skoru (75 altıysa bir iyileştirme turu) → kapak → JSON-LD. Onay modunda `review` + e-posta; otomatik modda eşiği geçerse `scheduled`. Aylık hak: paket yoksa deneme (3), yeniden yazım hak tüketmez ama yazı başına 3 kezle sınırlı (bölüm yeniden yazımı 20).
+- **Yayın** (`publish` + dakikalık `tick`): `scheduled` ve zamanı gelmiş yazılar, site bağlıysa yayınlanır; bağlı değilse "yayına hazır" bekler (indirme: HTML/Markdown görseller gömülü, ZIP görseller dosya). Kimlik bilgileri `site_credentials`'ta şifreli; tarayıcıya asla dönmez, webhook imza anahtarı sadece oluşturulurken bir kez gösterilir. Bağlantı testinde bulunan değerler (Shopify blog, Wix yazar) `ConnectionInfo.update` ile kimlik bilgisine eklenir. Yeni hedef: `Publisher` + `createPublisher` + `@upvine/seo/testing` sahtesi + `CONNECTION_KINDS`.
+- **Editör** (`PUT /content/:id/article`): gövde tarayıcıda Tiptap'te düzenlenir; türetilen her şey (temizleme, içindekiler, SSS → FAQPage, JSON-LD, SEO skoru) sunucuda yeniden hesaplanır. Her kayıt/üretim/geri dönüş `article_versions`'a sürüm olarak yazılır; eşzamanlı kayıt `baseVersion` ile yakalanır. Bölüm yeniden yazımı `assist` kuyruğunda (istemci sorgular), sonuç kaydedilmez, editörde yerine konur.
+- **Mevcut yazılar** (`sync-posts`, `GET/POST /sites/:id/posts`): bağlantı kurulunca ve elle; `Publisher.listPosts` (şimdilik WordPress). Yazılar `existing_pages`'e `source: cms` olarak, SEO sorunlarıyla (`auditPost`) yazılır; iç link ve tekrar korumasına katılır. Yazım öncesi son kontrol: konu bir blog yazısıyla aynıysa (cosine ≥ 0,94, vektör yoksa Jaccard) yazılmaz (`duplicate_post`, `content_items.duplicate_of_url`); kullanıcı "Yine de yaz" derse adres dolu olduğu için kontrol atlanır.
+- **İçerik yenileme** (`POST /sites/:id/posts/:postId/refresh`, `/sites/:id/refreshes/:id[/apply|/revert|/dismiss]`): öneri `assist` kuyruğunda (`refresh`, `refresh.v1`); yazı `Publisher.getPost` ile `context=edit` okunur, ham içerik (`content_refreshes.original.raw`) geri alma için saklanır. Uygulama API'de, kullanıcı onayıyla (`updatePost`: başlık + gövde); öneriden sonra sitede değişmiş yazıya uygulanmaz (`post_changed`). Meta başlık/açıklama REST'te yazılamıyor: kullanıcı kopyalar. Aylık hak: `refreshesPerMonth` (başarısızlar sayılmaz). Liste: Search Console'da trafiği düşen yazılar önce.
+- **Kapak sırası:** görsel modeli → sitenin konuya en yakın sayfasının görseli (`existing_pages.image_url`, site geneli görsel elenir) → marka renklerinden soyut kapak. Kullanıcı kendi kapağını yükleyebilir (`PUT /content/:id/cover`, ham görsel gövdesi + `?alt=`; oran korunur, en fazla 1600 px, WebP; `source: user`) ve bu kapak yeniden üretimde korunur.
+- **Sonuçlar** (`/sites/:id/search-console`, `/results/overview`, `/results/keywords`, `/visibility`): Search Console OAuth (`webmasters.readonly`, çevrimdışı; refresh token şifreli `gsc_connections`'ta), dönüş `/api/v1/connections/search-console/callback` (imzalı state, `purpose: gsc`). Siteye uyan mülk otomatik (`sc-domain:` önce), yoksa kullanıcı seçer. Worker `gsc-sync`: ilk 90 gün, sonra son 10 gün; `gsc_daily_metrics`'te `page = query = ''` satırı günün toplamı. Genel bakış: son 28 gün / önceki 28 gün, kazanım = ≥3 sıra ya da ilk 10'a giriş. AI görünürlük (`ai-visibility`): ~12 müşteri sorusu (marka adı yok), grounding ile, kota yoksa modelin bilgisiyle (`grounded: false`, arayüzde belirtilir). Dakikalık tick: Search Console günde bir, AI görünürlük haftada bir (bir kez başlatılmış sitelerde).
+- **Anlamsal benzerlik:** embedding'ler (`gemini-embedding-001`, 768 boyut, normalize) `existing_pages.embedding` ve `content_items.embedding`'de Float32 BLOB; hesap `VectorStore` + `cosine` ile uygulamada. Konu tekrarı ≥ 0,94 (ürün/kategori sayfasıyla 0,96), iç link ≥ 0,75. Yapay zekâ yoksa kelime benzerliğine (Jaccard) düşülür.
+- **Ücretsiz analiz** (`/api/v1/free-analyses`, oturumsuz): IP başına günde 3, alan adı başına 24 saat önbellek, IP sadece anahtarlı hash olarak saklanır, Turnstile anahtarı varsa zorunlu. Rapor paylaşım token'ıyla açılır (`noindex`), PDF = yazdırma görünümü.
+- **Yasal sayfalar** (`/{dil}/legal/:slug`, `/pricing`, `/about`, `/contact`): metinler `apps/web/app/legal/{tr,en}/*.md` (sınırlı Markdown, HTML üretmez; `{{companyName}}` gibi yer tutucular). Satıcı bilgileri `LEGAL_*` ortam değişkenlerinden sadece sunucuda (`company.server.ts`, yerleşim loader'ı); boşsa sayfada `[Şirket unvanı]`. Türkçe bağlayıcı; de/es/fr'de İngilizce sürüm + not. Metin değişikliği = `Son güncelleme` tarihi de değişir.
+- **Dış adreslere istek** sadece `createSafeHttpClient` ile (SSRF: her bağlantıda DNS sonucu genel adres mi kontrol edilir, yönlendirmeler dahil).
+- **Gizli bilgiler** sadece `.env`; şema `packages/config/src/env.ts`, örnek `.env.example` — ikisi her zaman senkron.
+
+## Tasarım kuralları (PROJECT_SPEC Bölüm 6 — kabul kriteri)
+
+- Renkler sadece token: `bg-primary`, `text-ink-muted`, `bg-growth-soft`... Tailwind varsayılan paleti **kapalı** (`--color-*: initial`), ham hex/rgb sadece `packages/ui/src/tokens.css` ve `packages/email/src/theme.ts`'te. `pnpm lint` ihlali yakalar.
+- Kobalt (`primary`) = eylem; yeşil (`growth`) sadece iyi haber; amber (`warning`) sadece dikkat. Yumuşak zeminde metin için `*-text` token'ları (`growth-text`, `danger-text`) — kontrast AA.
+- Her ekranda **tek** `primary` buton. Diğerleri `secondary` / `ghost`.
+- Durum asla sadece renkle verilmez: `StatusBadge` (renk + ikon + metin) tek kaynaktır.
+- Boş durum = açıklama + tek sonraki adım (`EmptyState`). Yükleme = `Skeleton`, beyaz ekran yok.
+- Form: `Field` (label zorunlu, hata `aria-live`), doğrulama `mode: 'onBlur'`, Zod şeması `packages/shared`'dan. Hata mesajları i18n anahtarı (`validation.*`).
+- Dokunma hedefi ≥ 44 px (`min-h-11`), görünür odak halkası, `prefers-reduced-motion`.
+- Panel menüsü en fazla 5 öğe; mobilde alt navigasyon. Her ekran 375 px'te ve Almanca'da taşmadan çalışmalı (e2e `expectNoHorizontalOverflow`).
+- Yeni bileşen → `packages/ui` + `/dev/ui` vitrinine ekle (axe testi her iki temada çalışır).
+- Metin kodda değil, `locales/{dil}/*.json`'da. Çoğul ekinden (`_one/_other`) kaçın; dillerin çoğul kuralları farklı. Fransızcada `? ! : ;` öncesi bölünmez boşluk.
+
+## Kararlar
+
+| Tarih | Karar | Gerekçe |
+|---|---|---|
+| 2026-10-08 | **Node 24 LTS** (`.nvmrc`), pnpm 11 (corepack) | Node 20 EOL. |
+| 2026-10-08 | **React Router v8** (spec v7 diyor) | v8 = v7 + future flag'ler varsayılan; aynı framework mode. Yeni projede güncel major. |
+| 2026-10-08 | **TypeScript 6.0**, TS 7 değil | typescript-eslint `<6.1` destekliyor. |
+| 2026-10-08 | **Express 5** | Async hataları yerleşik yakalar; güncel major. |
+| 2026-10-08 | Zod 4, Vite 8, Tailwind 4, Vitest 5, ESLint 10 | Güncel kararlı sürümler. |
+| 2026-10-08 | **ioredis 5.11** (6.0 değil) | 6.0 çok yeni; BullMQ ioredis ≥5 destekliyor. |
+| 2026-10-08 | React Email: `react-email` paketi | `@react-email/components` deprecated. |
+| 2026-10-08 | Google OAuth ek kütüphanesiz (fetch + jose) | Authorization code + PKCE + state; ID token doğrudan Google token uç noktasından HTTPS ile alındığı için imza doğrulaması gerekmez (Google OIDC dokümanı), `iss/aud/exp` kontrol edilir. Doğrulanmamış Google e-postası mevcut hesaba bağlanmaz. |
+| 2026-10-08 | **D: sürücüsü exFAT → symlink yok.** `nodeLinker: hoisted` + workspace paketleri npm bağımlılığı değil, `tsconfig.base.json` `paths` alias'ı | pnpm workspace link'leri exFAT'ta oluşturulamıyor. tsx/esbuild/tsc `paths`'i doğrudan okur; Vite/Vitest için `scripts/workspace-aliases.ts` aynı haritadan alias üretir. Yeni paket: `paths`'e ekle, `package.json`'a `workspace:*` **ekleme**. NTFS'e taşınırsa standart workspace bağımlılıklarına dönülebilir. |
+| 2026-10-08 | Yerel altyapı: MySQL 8.0 servisi (3306), Memurai (Redis 7.4 uyumlu, 6379), Laragon Mailpit | Docker kurulu değil. `docker-compose.yml` Docker'lı ortamlar ve CI eşdeğeri için hazır. |
+| 2026-10-08 | pnpm `minimumReleaseAge` politikası açık bırakıldı | Tedarik zinciri güvenliği: 1 günden yeni sürümler kurulmaz; istisna eklemek yerine bir önceki sürüm seçilir. |
+| 2026-10-08 | Kayıttan sonra e-posta doğrulanmadan giriş serbest, panelde amber şerit | "10 dakikada ilk taslak" hedefi. Doğrulama gerektiren işlemler `email_not_verified` döner (ilgili fazlarda). |
+| 2026-10-08 | Aynı e-postayla kayıtta `email_taken` döner | Kullanılabilirlik > e-posta varlığını gizleme. Şifre sıfırlama ise her zaman aynı yanıtı verir. Rate limit ile sınırlı. |
+| 2026-10-08 | Rate limit Redis'e erişemezse istekleri geçirir (`passOnStoreError`) | Redis kesintisi girişleri kilitlemesin; hata loglanır. |
+| 2026-10-08 | Soft-delete'li `users.email` benzersiz kalır | Silinen hesap 30 gün sonra kalıcı silinir (GDPR, Faz 7); bu sürede aynı e-postayla yeni kayıt açılamaz. |
+| 2026-10-08 | Panel dili URL'de değil, çerez + profilde | Halka açık sayfalar `/{locale}/...` (SEO); panel tek URL. |
+| 2026-10-08 | Hata mesajlarında soft zemin için `--danger-text` token'ı eklendi | `#DC2626` `#FEE2E2` üstünde 4,0:1 (AA altı); axe yakaladı. |
+| 2026-10-08 | Geçici logo: Lucide `Sprout` ikonu + kelime marka | Özgün marka kimliği tasarlanana kadar; başka SaaS'tan kopya değil. |
+| 2026-10-09 | **Admin paneli Faz 6'dan öne alındı** (kullanıcı isteği) | Genel bakış, kullanıcılar, organizasyonlar, denetim kaydı ve görüntüleme modu şimdi; abonelik/kuyruk/YZ maliyeti bölümleri verisi geldikçe. |
+| 2026-10-09 | Superadmin sadece CLI (`pnpm admin:grant`) ya da başka bir admin tarafından atanır; admin kendi yetkisini kaldıramaz | Son adminin kilitlenmesini ve kazara yetki kaybını önler. |
+| 2026-10-09 | Rate limit production dışında 20 kat gevşek | Geliştirme ve e2e her çalıştırmada yeni kayıt açıyor; gerçek limitler sadece production'da. |
+| 2026-10-09 | **`@react-router/dev` yamalı** (`patches/`) | exFAT/Windows'ta typegen klasör silme/oluşturma `ENOTEMPTY`/`EPERM` ile dev sunucusunu düşürüyordu: işlemler yeniden denenir, izleme modunda hata uyarıya çevrilir. Sürüm yükseltirken yamayı yeniden üretin. |
+| 2026-10-09 | E2E testleri yalıtılmış sunucu + veritabanıyla çalışır | Önceden `pnpm dev` sunucularını yeniden kullanıp geliştirme veritabanına test kullanıcısı yazıyordu. |
+| 2026-10-09 | E-posta şablonlarında `@jsxImportSource react` pragması | `tsx` (API dev) JSX ayarını tsconfig'ten almıyordu; kayıt e-postası `React is not defined` ile düşüyordu. |
+| 2026-10-09 | İstemcide dil başına ayrı i18n örneği | Render sırasında `changeLanguage` çağırmak "setState in render" uyarısı ve kaybolan yönlendirmeler yaratıyordu. |
+| 2026-10-09 | **Faz 1'in çekirdeği ve Faz 2 sihirbazı öne alındı** (kullanıcı isteği: "site eklenebilmeli, analiz edilebilmeli") | Site ekleme, tarama + 25 kontrol, marka profili, konu önerisi, takvim, site sağlığı raporu şimdi. Halka açık ücretsiz analiz sayfası/PDF/paylaşım linki, DataForSEO, embedding tabanlı konu tekrarı, içerik üretimi ve ödeme adımı sonraki adımlar. |
+| 2026-10-09 | Gemini modelleri: `gemini-3.5-flash-lite` (fast), `gemini-3.6-flash` (quality), `gemini-embedding-001` | ai.google.dev/gemini-api/docs/models kararlı modeller. 2026-10-10: `gemini-3.8-flash` ve `3.7-flash` yoğunluk nedeniyle 503 / 150 sn yanıtsız kaldı, `3.6-flash` 2 sn'de yanıt verdi. Strateji: hızlı 503'te bir kez daha, zaman aşımı/429'da beklemeden `fast` modele. |
+| 2026-10-09 | `models.generateContent` (Interactions API değil) | Google yeni projelere Interactions API'yi öneriyor ama `generateContent` "tam destekli"; SDK tipleri, `responseJsonSchema` ve `usageMetadata` hazır. Sağlayıcı arayüzün arkasında, geçiş tek dosya. |
+| 2026-10-09 | BullMQ **6.3.11** | 6.3.12 bir günden yeni (`minimumReleaseAge`). |
+| 2026-10-09 | `QUEUE_PREFIX` (varsayılan `upvine`, e2e `upvine-e2e`) | Dev ve e2e worker'ları aynı Redis'te birbirinin işini kapıyordu. |
+| 2026-10-09 | Konu tekrarı şimdilik kelime benzerliği (Jaccard ≥ 0,6) + aynı anahtar kelime | Embedding (cosine 0,85, `VectorStore`) içerik üretimiyle birlikte. |
+| 2026-10-09 | Analiz yapay zekâsız da tamamlanır | Anahtar yok/bütçe doldu/servis yoğun: marka özeti taramadan (og:site_name, title, meta description); konu önerisi kapalı, kullanıcı kendi konusunu ekler. |
+| 2026-10-09 | Ağ hatasında analiz 4 kez denenir (üstel, 15 sn'den); HTML olmayan/engelli/5xx adres denenmez | Geçici kesintide kullanıcı boşuna "başarısız" görmesin; kalıcı hatada hemen anlaşılır mesaj. |
+| 2026-10-09 | Kiracı koruması `Op.and` içini ve sütun adlarını (`organization_id`) da tanır | Sequelize paranoid modellerde update/destroy `where`'i `Op.and` ile sarıyor, destroy hook'tan önce sütun adına çeviriyor; doğru filtreli sorgular reddediliyordu. `Op.or` bilinçli olarak sayılmaz. |
+| 2026-10-09 | Kısa formlarda (site adresi, konu ekleme) doğrulama gönderimde | Alan terk edilince çıkan hata mesajı düğmeyi kaydırıp tıklamayı boşa düşürüyordu. Uzun formlarda `onBlur` kalır. |
+| 2026-10-09 | Tüm formlar `method="post"` | Sayfa hydrate olmadan gönderilirse tarayıcı GET yapıp şifreyi adres çubuğuna yazıyordu. |
+| 2026-10-09 | Anahtar kelimeler dile duyarlı küçük harfle saklanır (`normalizeTerm`) | `"İ".toLowerCase()` = `"i̇"` (birleşik nokta); tekrar kontrolü ve tekil indeks bozuluyordu. |
+| 2026-10-09 | E2E worker'ı Playwright `webServer` değil `global-setup` başlatır | Kapatma süreç ağacıyla (`taskkill /T`, tam yol) yapılır; webServer olarak Windows'ta kapanmıyordu. |
+| 2026-10-10 | **Ödeme adımı ertelendi; ücretsiz analiz ve içerik/yayın hattı öne alındı** (kullanıcı isteği) | Paket seçilmemiş organizasyonlar deneme hakkıyla (ayda 3 yazı) çalışır. `ARTICLE_QUOTA_OVERRIDE` sadece geliştirme için. |
+| 2026-10-10 | Makale başına 3-4 yapay zekâ çağrısı (araştırma, yazım, doğrulama, gerekirse iyileştirme) + kapak denemesi | Ücretsiz katman limitleri düşük (Bölüm 9). Bölüm bölüm yazım yerine tek yapılandırılmış çağrı; 28 dil için bölüm etiketleri (içindekiler, SSS, kaynaklar) modelden. |
+| 2026-10-10 | Kapak: görsel modeli, olmazsa marka renklerinde metinsiz soyut kapak (`sharp`, WebP) | Bu anahtarın ücretsiz katmanında görsel kotası 0 (429). Kota hatasından sonra görsel modeli 1 saat denenmez. İnfografik (satori) sonraki adım. |
+| 2026-10-10 | Görseller şimdilik veritabanında (`article_images.data`, MEDIUMBLOB) | R2 tanımlı değil; görsel yayında müşterinin CMS medya kütüphanesine yüklenir. 30 gün sonra silme işi + R2, canlıya geçişte. |
+| 2026-10-10 | Bilgi doğrulama yanıtı metin içinde JSON (grounding + yapılandırılmış çıktı birlikte sadece Gemini 3 önizlemede) | Ayrıştırılamazsa `checked: false`: yazı otomatik yayınlanmaz, incelemede uyarı gösterilir. |
+| 2026-10-10 | WordPress: uygulama şifresi (elle) + tek tıkla yetkilendirme (`authorize-application.php`) | Tek tıkla akış HTTPS dönüş adresi istiyor (WordPress kuralı); yerelde sadece elle giriş. Yoast/Rank Math meta alanları REST'te açık değil: WordPress eklentisiyle (Faz 5). |
+| 2026-10-10 | Webhook imzası: `sha256=HMAC(secret, "${timestamp}.${body}")`, 5 dk tolerans | Tekrar saldırısına karşı zaman damgası imzaya dahil; alıcı örneği `verifyWebhook`. |
+| 2026-10-10 | PDF = tarayıcının yazdırma görünümü | Sunucuda headless tarayıcı yok; rapor sayfası yazdırmaya uygun (`print:hidden`). E-postada PDF yerine rapor linki. |
+| 2026-10-10 | Ücretsiz analizde IP ham saklanmaz (`sha256(ip:JWT_ACCESS_SECRET)`) | GDPR/KVKK: kötüye kullanım sayımı için yeterli. |
+| 2026-10-10 | Metin çıkarımında blok öğeler arasına boşluk | `iki</p><p>üç` tek kelime sayılıyordu (kelime sayısı, yoğunluk, ince içerik kontrolü). |
+| 2026-10-10 | Google Search grounding isteğe bağlı | Bu anahtarın ücretsiz katmanında grounding kotası yok (tüm modellerde 429). Araştırma notsuz devam eder, bilgi doğrulama "doğrulanamadı" işaretlenir (otomatik yayın yok), ücretsiz analizde rakip bölümü boş kalır. 429'dan sonra grounding 1 saat denenmez. |
+| 2026-10-10 | Gemini çağrılarına zaman aşımı (`AI_REQUEST_TIMEOUT_MS`, 120 sn) | Yoğunlukta model hiç yanıt vermeyebiliyor; iş sonsuza kadar asılı kalıyordu. |
+| 2026-10-10 | **iyzico dışındaki kalanlar öne alındı** (kullanıcı isteği) | Editör, sürüm geçmişi, bölüm yeniden yazımı, bilgi grafiği, ZIP, takvimde sürükle-bırak, DataForSEO, embedding tabanlı tekrar koruması, Ghost/Shopify/Webflow/Wix. |
+| 2026-10-10 | **Tiptap 3** (StarterKit + TableKit), editör `packages/ui`'da | StarterKit v3 link ve altı çizgiyi içeriyor. Editör sadece yayınlanabilir biçimleri sunar; içindekiler editörde gösterilmez, kaydederken sunucuda üretilir. |
+| 2026-10-10 | Sürüm başına tam kopya (`article_versions`), makale başına en fazla 50 | Fark (diff) saklamaktan basit; yazılar küçük. Eski sürüme dönüş geçmişi silmez, yeni sürüm olur. |
+| 2026-10-10 | Bölüm yeniden yazımı ayrı `assist` kuyruğunda, istemci 1,5 sn'de bir sorgular | API'de yapay zekâ çağrısı yok kuralı korunur; `content` kuyruğu (eşzamanlılık 1) makale yazarken bekletmesin. |
+| 2026-10-10 | Bilgi grafiği: satori + **sharp** (resvg değil), Inter WOFF (`@fontsource/inter`) | satori yazıyı yol olarak gömüyor, sharp zaten kurulu; ek yerel bağımlılık yok. satori WOFF2 desteklemiyor. Arapça, İbranice, Hintçe, CJK, Tay için font yok: bilgi grafiği üretilmez. |
+| 2026-10-10 | Makale prompt'u `article.v2` (v1 + `keyTakeaways`) | Bilgi grafiği için ayrı yapay zekâ çağrısı yok. Diğer adımlar v1'de. |
+| 2026-10-10 | Takvim: `@dnd-kit/core` 6 (`@dnd-kit/react` 0.x değil), `pointerWithin` | Kararlı sürüm. Takvimde hedef, işaretçinin altındaki gün. Klavye için sürükleme yerine "Tarihi değiştir" penceresi (ızgarada ok tuşuyla sürükleme anlamsız). Izgara ve dar ekran listesi aynı anda render edilmez (aynı gün kimliğiyle iki bırakma hedefi oluyordu). |
+| 2026-10-10 | Embedding: `gemini-embedding-001`, `SEMANTIC_SIMILARITY`, 768 boyut | Ücretsiz katmanda çalışıyor. 3072 dışı boyutlar normalize gelmiyor (Gemini dokümanı), biz normalize ediyoruz. `gemini-embedding-2` vektörleri uyumsuz: geçişte yeniden hesap gerekir. Redis önbelleği henüz yok (site başına birkaç yüz vektör, sorgu hızlı). |
+| 2026-10-10 | DataForSEO Labs `keyword_overview/live`, konum = 2000 + ISO 3166 sayısal kod | Ülke seçilmemişse ya da hata olursa yapay zekâ tahmini "tahmini" etiketiyle kalır; analiz/konu önerisi durmaz. |
+| 2026-10-10 | Ghost: içerik tek HTML kartı (`kg-card-begin: html`) | Ghost'un HTML → Lexical dönüşümü tabloları ve içindekileri kaybediyor; kart kayıpsız. |
+| 2026-10-10 | Shopify: Dev Dashboard uygulaması (client credentials, 24 saatlik token) + eski `shpat_` token | 1 Ocak 2026'dan beri yönetim panelinde özel uygulama oluşturulamıyor (Shopify dokümanı). Client credentials sadece aynı organizasyondaki mağazada çalışır: müşteri kendi uygulamasını oluşturur. Upvine'ın kendi uygulamasıyla OAuth, Partner kaydı + HTTPS gerektiriyor (sonraki adım). API sürümü `2026-07`. |
+| 2026-10-10 | Webflow: kullanıcı alan eşlemesi, token sadece bağlantı anında | Koleksiyon alanları siteden siteye farklı (spec). Keşif uç noktası token'ı saklamaz; bağlantıda eşleme koleksiyonun güncel alanlarıyla doğrulanır (zorunlu alanların hepsi eşlenmeli). |
+| 2026-10-10 | Wix: site sahibinin API anahtarı + site kimliği; HTML → Ricos Wix dönüştürücüsüyle | Wix gövdeyi Ricos istiyor; dönüştürücü 30.000 karakter sınırlı, aşarsa Markdown'dan. Yazar bir site üyesi olmalı (Wix kuralı): ilk üye. Bilgi grafiği Wix'te gönderilmez (Ricos dış görseli kabul etmiyor). OAuth uygulaması sonraki adım. |
+| 2026-10-10 | **Mevcut yazılar ve site görselleriyle kapak öne alındı** (kullanıcı geri bildirimi) | Site bağlanınca eski yazılarla hiçbir şey olmuyordu; kapakta "paketinizde yok" yanıltıcıydı (asıl sebep Gemini ücretsiz katmanında görsel kotası 0). Yenileme önerisi + uygulama Faz 5'te kalır. |
+| 2026-10-10 | Tarama kotasının yarısı sitemap'e (yazı sitemap'leri önce, sırayla) | E-ticaret sitelerinde menü/kategori linkleri 25 sayfanın hepsini tüketiyor, blog yazıları hiç görülmüyordu. |
+| 2026-10-10 | Mevcut yazı denetimi kurala dayalı (yapay zekâsız), meta açıklama Yoast'tan ya da sayfanın kendisinden | Yüzlerce yazıda yapay zekâ çağrısı ücretsiz katman limitini tüketir. Meta açıklama bilinmiyorsa (sayfa okunamadı) o kontrol atlanır: yanlış alarm yok. |
+| 2026-10-10 | Site görseli kapak eşiği cosine ≥ 0,72; aynı görsel sayfaların ≥ %30'unda (en az 3) varsa elenir | Alakasız aynı dil başlıklar ~0,68. Site geneli og:image genelde logo/varsayılan paylaşım görseli. SVG kabul edilmez (dış kaynak/betik riski). |
+| 2026-10-10 | Kapak elle yüklenebilir; görsel kırpılmaz, ham gövdeyle (multipart yok) | Kullanıcı şimdilik kapakları kendisi hazırlıyor. Kırpmak kullanıcının tasarımını bozar. Ham gövde ek bağımlılık (multer) gerektirmez; `sharp` API'ye de eklendi. |
+| 2026-10-12 | **Sonuçlar: Genel bakış, Anahtar kelimeler, AI görünürlük öne alındı** (kullanıcı isteği; Faz 4) | Search Console OAuth + günlük metrikler, anahtar kelime tablosu (plan + Search Console), AI görünürlük. DataForSEO SERP takibi, URL Inspection ve haftalık e-posta raporu sonraki adım. |
+| 2026-10-12 | Search Console girişle aynı Google OAuth istemcisi, ayrı dönüş adresi (`GOOGLE_GSC_REDIRECT_URI`) | Tek istemci yönetimi kolay; kapsam sadece bağlantı anında istenir. İzin ekranı "Testing" durumundaysa refresh token 7 gün geçerli: `revoked` hatası + "Yeniden bağla". |
+| 2026-10-12 | Günün toplamı ayrı satır (`page = query = ''`) | Search Console sayfa/sorgu kırılımında anonim sorguları vermiyor; toplamlar kırılımdan hesaplanırsa gösterim eksik çıkar. |
+| 2026-10-12 | AI görünürlük: grounding yoksa modelin kendi bilgisi, `grounded` ayrı saklanır | Bu anahtarda Google Search kotası yok. Ölçüm yine yapılır ama arayüzde "web araması olmadan" uyarısı; kota açılınca karşılaştırma ayrılabilir. Alan adı kökü (uzantısız) sadece 8+ harfse aranır ("klinik" gibi kısa kökler yanlış eşleşiyordu). |
+| 2026-10-12 | Paket seçilmemişse (deneme) Growth özellikleri (`planFeatures`) | Ödeme adımı ertelendi; AI görünürlük ve 200 kelime takibi denenebilsin. Starter'da AI görünürlük kapalı (spec). |
+| 2026-10-12 | Grafikler `packages/ui` (`LineChart`, `ColumnChart`), bağımlılıksız SVG | Tek seri: lejant yok, başlık söyler; gösterim ve tıklama farklı ölçekte → çift eksen yerine seri seçici. Her grafikte tablo görünümü, klavye ile gezinme. |
+| 2026-10-12 | Konu tekrarı eşikleri 0,94 (konu/blog yazısı) ve 0,96 (ürün/kategori sayfası); sayfa vektörlerinden site geneli başlık eki atılır | Kullanıcı sitesinde 10 öneriden 1'i kalıyordu: her başlıktaki "- Marka - Şehir Ürün" eki vektöre baskın çıkıp alakasız sayfaları bile 0,80+ benzer yapıyordu; dar nişte farklı konular 0,83-0,87, kendi kategori sayfasıyla 0,89-0,93, gerçek tekrar 0,97-0,99 (ölçüm). |
+| 2026-10-12 | Takvim kendiliğinden dolar (günlük tick) | Konular bitince yazım duruyordu; kurulumdan sonra eklenen konulara tarih atanmıyordu. |
+| 2026-10-12 | Admin'den ödemesiz paket ve özel makale hakkı (kullanıcı isteği) | Ödeme adımı yokken pilot/iş ortağı hesaplarına tam yetki. Ödemeli abonelikte paket admin'den değişmez (sadece ek hak). Her değişiklik denetim kaydında (önce/sonra). |
+| 2026-10-12 | Ana sayfa: hero'da ücretsiz analiz formu + Bölüm 6.6 bölümleri | Analiz tek birincil eylem; panel önizlemesi gerçek UI bileşenleriyle (ekran görüntüsü yerine, temaya uyar). Benzer sitelerin yapısı izlendi, metin/tasarım özgün (spec: kopya yok). Fiyatlar `PLANS`'tan. |
+| 2026-10-12 | **İçerik yenileme ve tekrar koruması öne alındı** (kullanıcı isteği) | Mevcut yazılar okunuyordu ama aynı konu yeniden yazılabiliyordu ve düzeltme önerilmiyordu. Yenileme sadece öneri + onaylı uygulama + geri alma (spec 7.9); otomatik değişiklik yok. |
+| 2026-10-12 | Yenileme önerisi hakkı üretimde sayılır (uygulamada değil) | Her öneri bir yapay zekâ çağrısı; uygulanmayan öneriler de maliyet. Başarısız öneriler sayılmaz. |
+| 2026-10-12 | Yenileme gövdesi WordPress'e düz HTML olarak yazılır (Klasik blok); geri almada ham içerik aynen | Blok işaretlerini yeniden üretmek kırılgan; geri alma `content.raw` ile kayıpsız. Öneri hazırlanırken görseller korunur (`sanitizeRefreshHtml`, sadece http/https `<img>`). |
+| 2026-10-12 | **Yasal metinler şimdi (beta, ödeme kuruluşu başvurusu)**; Türkçe + İngilizce | iyzico başvurusu için yasal sayfalar, fiyatlar, iletişim ve satıcı bilgisi sitede olmalı. de/es/fr çevirisi avukat onaylı TR/EN metinden sonra. Metinler şablondur: **avukat kontrolü gerekli** (spec). |
+| 2026-10-12 | Çerez onayı bandı yok | Sadece zorunlu çerezler (oturum, CSRF, dil, tema); analitik/reklam çerezi yok. Analitik eklenince onay bandı zorunlu (spec 6.6). |
+| 2026-10-12 | Satıcı bilgileri `LEGAL_*` ortam değişkenleri, web sunucusunda çalışma anında | Gizli değil ama ortama göre değişiyor; yeniden derlemeden güncellenebilsin. Geliştirmede `vite.config.ts` kök `.env`'den `process.env`'e aktarır. |
+| 2026-10-13 | **Fiyatlar $29 / $79 / $199** (spec $39 / $89 / $229), Starter ayda 10 yazı (12 değil); fiyatlar KDV hariç, kartta "+KDV" | Kullanıcı kararı: hızlı satış. Giriş paketi psikolojik eşiğin altında, Growth hedef paket (Starter'ın 2,7 katı fiyata 3 kat yazı), Agency çapa. Yıllık = 10 ay. |
+| 2026-10-13 | Yazı başına yeniden yazım sınırı: baştan 3 kez (`content_items.regeneration_count`, sadece başarılı yeniden üretim sayılır), editörde bölüm yeniden yazımı 20 kez (`REGENERATIONS_PER_ARTICLE`, `SECTION_REWRITES_PER_ARTICLE`) | Yeniden yazım aylık hak tüketmiyor; sınırsızken tek yazı için yapay zekâ maliyeti katlanabiliyordu. Hata mesajları artık `details`'teki değerlerle doldurulur (`{{limit}}`). |
+| 2026-10-10 | e2e axe taraması bildirim alanını (`data-sonner-toaster`) hariç tutar | Gelip giden, yığılan bildirimler rastgele kontrast hatası veriyordu. Bildirimler `/dev/ui`'da, animasyon bitince açık ve koyu temada ayrıca denetlenir. |
+
+## Bilinen tuzaklar (bu makine)
+
+- Node sürümü nvm ile seçilir: yönetici PowerShell'de bir kez `nvm use 24.18.0`. PATH değişiklikleri açık terminallere yansımaz; VS Code tamamen kapatılıp açılmalı.
+- Test veritabanı (`MYSQL_TEST_DATABASE`) asıl veritabanıyla aynı olamaz: testler onu her çalıştırmada siler, kod aynı adı reddeder.
+- Web dev sunucusu `apps/web/.dev-running` kilidi bırakır; `pnpm typecheck` bunu görünce `.react-router` klasörüne dokunmaz (izlenen klasörü silmek exFAT'ta yarım silme yapıyordu). Süreç zorla öldürülürse kalan kilit PID kontrolüyle yok sayılır.
+- Playwright çıktısı yerelde `%TEMP%/upvine-playwright` altına yazılır (exFAT'ta `test-results` klasörü kilitleniyordu).
+- İkinci bir `pnpm dev` açmayın: `web-dev.mjs` artık çalışan sunucuyu görüp çıkar (eskiden kilidini silip `pnpm typecheck`'in tip klasörünü silmesine yol açıyordu). Tip klasörü yine de bozulursa (`Cannot find module './+types/...'`): `pnpm dev`'i kapatıp açın, açılışta yeniden üretilir.
+- `tsx watch` bazen `packages/` altındaki değişikliği almıyor: `apps/api/src/index.ts` veya `apps/worker/src/index.ts`'e dokunmak yeniden yükler.
+- Vite, düzenleme anında henüz olmayan bir dosyayı "yok" diye önbellekleyebilir (500 "Failed to load url"): ilgili dosyaya dokunmak yeter.
+- Playwright Windows'ta süreçleri `taskkill` ile kapatır: `C:\Windows\System32` PATH'te değilse test bittikten sonra takılır.
+
+## Notlar
+
+- **Kalanlar:** ödeme (iyzico; ödeme sayfasında Mesafeli Satış/Ön Bilgilendirme onayı), Shopify/Wix için Upvine'ın kendi uygulamasıyla OAuth, embedding ile konu kümeleri, Yoast/Rank Math (WordPress eklentisi; yenilemede meta yazma dahil), diğer CMS'ler için yazı okuma/yenileme, DataForSEO SERP takibi, URL Inspection (dizinlenme), haftalık e-posta raporu, panelden hesap silme/veri dışa aktarma, yasal metinlerin avukat kontrolü ve de/es/fr çevirisi. Ayrıntı: [docs/phases/PHASE_2.md](docs/phases/PHASE_2.md).
+- **Gemini:** anahtar `.env`'de (`GEMINI_API_KEY`). `AI_RPM_LIMIT=10`, `AI_DAILY_REQUEST_BUDGET=500` başlangıç değerleri; AI Studio'daki gerçek limitlere göre ayarlayın. `gemini-3.8-flash` yoğunlukta 503 verebiliyor (fast modele düşülür).
+- **Gemini ücretsiz katman:** gönderilen veriler Google tarafından ürün geliştirmede kullanılabilir. Müşterilere satış başladığında ücretli katmana geçilmeli; gizlilik politikasında Google alt işlemci olarak belirtilmeli (Faz 1, Faz 6).
+- **iyzico abonelik** merchant hesabında aktif olmalı; sandbox'ta abonelik desteği sınırlı olabilir (Faz 3).
+- Yasal metin şablonları avukat tarafından gözden geçirilmelidir (Faz 6).

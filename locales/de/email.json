@@ -1,0 +1,41 @@
+{
+  "greeting": "Hallo {{name}},",
+  "fallbackLink": "Falls die Schaltfläche nicht funktioniert, kopieren Sie diesen Link in Ihren Browser:",
+  "verifyEmail": {
+    "subject": "Bestätigen Sie Ihre E-Mail-Adresse",
+    "preview": "Ein Klick, um Ihr Upvine-Konto zu bestätigen.",
+    "heading": "Bestätigen Sie Ihre E-Mail-Adresse",
+    "body": "Danke für Ihre Anmeldung bei Upvine. Bitte bestätigen Sie Ihre E-Mail-Adresse, damit wir Ihr Konto schützen können.",
+    "button": "E-Mail-Adresse bestätigen",
+    "expires": "Dieser Link ist {{ttl}} Stunden gültig.",
+    "ignore": "Falls Sie kein Upvine-Konto erstellt haben, können Sie diese E-Mail ignorieren."
+  },
+  "resetPassword": {
+    "subject": "Setzen Sie Ihr Upvine-Passwort zurück",
+    "preview": "Mit diesem Link wählen Sie ein neues Passwort.",
+    "heading": "Neues Passwort wählen",
+    "body": "Wir haben eine Anfrage erhalten, das Passwort Ihres Upvine-Kontos zurückzusetzen.",
+    "button": "Neues Passwort wählen",
+    "expires": "Dieser Link ist {{ttl}} Minuten gültig.",
+    "ignore": "Falls Sie das nicht angefordert haben, können Sie diese E-Mail ignorieren. Ihr Passwort bleibt unverändert."
+  },
+  "greetingPlain": "Hallo,",
+  "articleReady": {
+    "subject": "Ein Artikel wartet auf Ihre Freigabe",
+    "preview": "„{{title}}“ ist bereit zur Prüfung.",
+    "heading": "Ihr neuer Artikel ist fertig",
+    "body": "Wir haben „{{title}}“ fertiggestellt. Die Fakten sind geprüft und der SEO-Wert steht fest. Bitte prüfen Sie den Artikel und geben Sie ihn zur Veröffentlichung frei.",
+    "button": "Artikel prüfen",
+    "expires": "Ohne Ihre Freigabe wird nichts veröffentlicht.",
+    "ignore": "Sie erhalten diese E-Mail, weil Ihre Website im Freigabemodus veröffentlicht. Das können Sie in den Einstellungen ändern."
+  },
+  "freeAnalysis": {
+    "subject": "Ihre kostenlose SEO-Analyse für {{domain}}",
+    "preview": "Website-Gesundheitswert: {{score}} / 100.",
+    "heading": "Ihre Website-Analyse ist fertig",
+    "body": "Hier ist der Bericht für {{domain}}. Website-Gesundheitswert: {{score}} / 100. Der Bericht zeigt, was Sie zuerst beheben sollten und wonach Ihre Kundschaft sucht.",
+    "button": "Bericht öffnen",
+    "expires": "Der Link zum Bericht ist 30 Tage gültig.",
+    "ignore": "Sie erhalten diese E-Mail, weil Sie sie bei Upvine angefordert haben. Werbe-E-Mails senden wir nur mit Ihrer Zustimmung."
+  }
+}

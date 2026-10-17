@@ -1,0 +1,36 @@
+{
+  "name": "upvine",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.21.0",
+  "engines": {
+    "node": ">=24.0.0",
+    "pnpm": ">=11.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint . && pnpm check:tokens",
+    "format": "prettier --write .",
+    "test": "pnpm -r --workspace-concurrency=1 test",
+    "test:e2e": "pnpm --filter @upvine/web test:e2e",
+    "i18n:check": "tsx scripts/i18n-check.ts",
+    "check:tokens": "tsx scripts/check-raw-colors.ts",
+    "db:migrate": "pnpm --filter @upvine/db migrate",
+    "db:migrate:down": "pnpm --filter @upvine/db migrate:down",
+    "db:seed": "pnpm --filter @upvine/db seed",
+    "admin:grant": "pnpm --filter @upvine/db grant-admin"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.0.0",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.1"
+  }
+}

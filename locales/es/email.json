@@ -1,0 +1,41 @@
+{
+  "greeting": "Hola, {{name}}:",
+  "fallbackLink": "Si el botón no funciona, copia este enlace en tu navegador:",
+  "verifyEmail": {
+    "subject": "Confirma tu correo electrónico",
+    "preview": "Un clic para confirmar tu cuenta de Upvine.",
+    "heading": "Confirma tu correo electrónico",
+    "body": "Gracias por registrarte en Upvine. Confirma tu correo electrónico para que podamos mantener tu cuenta segura.",
+    "button": "Confirmar correo",
+    "expires": "Este enlace es válido durante {{ttl}} horas.",
+    "ignore": "Si no creaste una cuenta en Upvine, puedes ignorar este correo."
+  },
+  "resetPassword": {
+    "subject": "Restablece tu contraseña de Upvine",
+    "preview": "Usa este enlace para elegir una contraseña nueva.",
+    "heading": "Elige una contraseña nueva",
+    "body": "Recibimos una solicitud para restablecer la contraseña de tu cuenta de Upvine.",
+    "button": "Elegir contraseña nueva",
+    "expires": "Este enlace es válido durante {{ttl}} minutos.",
+    "ignore": "Si no lo solicitaste, puedes ignorar este correo. Tu contraseña seguirá siendo la misma."
+  },
+  "greetingPlain": "Hola:",
+  "articleReady": {
+    "subject": "Un artículo espera tu aprobación",
+    "preview": "«{{title}}» está listo para revisar.",
+    "heading": "Tu nuevo artículo está listo",
+    "body": "Hemos terminado «{{title}}». Los datos están verificados y la puntuación SEO está lista. Revísalo y apruébalo para publicarlo.",
+    "button": "Revisar el artículo",
+    "expires": "No se publica nada sin tu aprobación.",
+    "ignore": "Recibes este correo porque tu sitio publica en modo de aprobación. Puedes cambiarlo en Ajustes."
+  },
+  "freeAnalysis": {
+    "subject": "Tu análisis SEO gratuito de {{domain}}",
+    "preview": "Puntuación de salud del sitio: {{score}} / 100.",
+    "heading": "El análisis de tu sitio está listo",
+    "body": "Aquí tienes el informe de {{domain}}. Puntuación de salud del sitio: {{score}} / 100. El informe muestra qué corregir primero y qué temas buscan tus clientes.",
+    "button": "Abrir el informe",
+    "expires": "El enlace al informe es válido durante 30 días.",
+    "ignore": "Recibes este correo porque lo pediste en Upvine. No te enviaremos correos de marketing sin tu consentimiento."
+  }
+}

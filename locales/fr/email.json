@@ -1,0 +1,41 @@
+{
+  "greeting": "Bonjour {{name}},",
+  "fallbackLink": "Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :",
+  "verifyEmail": {
+    "subject": "Confirmez votre adresse e-mail",
+    "preview": "Un clic pour confirmer votre compte Upvine.",
+    "heading": "Confirmez votre adresse e-mail",
+    "body": "Merci de vous être inscrit sur Upvine. Veuillez confirmer votre adresse e-mail afin que nous puissions sécuriser votre compte.",
+    "button": "Confirmer l’e-mail",
+    "expires": "Ce lien est valable {{ttl}} heures.",
+    "ignore": "Si vous n’avez pas créé de compte Upvine, vous pouvez ignorer cet e-mail."
+  },
+  "resetPassword": {
+    "subject": "Réinitialisez votre mot de passe Upvine",
+    "preview": "Utilisez ce lien pour choisir un nouveau mot de passe.",
+    "heading": "Choisissez un nouveau mot de passe",
+    "body": "Nous avons reçu une demande de réinitialisation du mot de passe de votre compte Upvine.",
+    "button": "Choisir un nouveau mot de passe",
+    "expires": "Ce lien est valable {{ttl}} minutes.",
+    "ignore": "Si vous n’êtes pas à l’origine de cette demande, ignorez cet e-mail. Votre mot de passe reste inchangé."
+  },
+  "greetingPlain": "Bonjour,",
+  "articleReady": {
+    "subject": "Un article attend votre validation",
+    "preview": "« {{title}} » est prêt à être relu.",
+    "heading": "Votre nouvel article est prêt",
+    "body": "Nous avons terminé « {{title}} ». Les faits sont vérifiés et le score SEO est calculé. Relisez-le et validez-le pour publication.",
+    "button": "Relire l’article",
+    "expires": "Rien n’est publié sans votre validation.",
+    "ignore": "Vous recevez cet e-mail car votre site publie en mode validation. Vous pouvez le modifier dans les Paramètres."
+  },
+  "freeAnalysis": {
+    "subject": "Votre analyse SEO gratuite pour {{domain}}",
+    "preview": "Score de santé du site : {{score}} / 100.",
+    "heading": "L’analyse de votre site est prête",
+    "body": "Voici le rapport pour {{domain}}. Score de santé du site : {{score}} / 100. Le rapport montre quoi corriger en premier et quels sujets vos clients recherchent.",
+    "button": "Ouvrir le rapport",
+    "expires": "Le lien du rapport reste valable 30 jours.",
+    "ignore": "Vous recevez cet e-mail car vous l’avez demandé sur Upvine. Nous n’enverrons pas d’e-mails marketing sans votre accord."
+  }
+}

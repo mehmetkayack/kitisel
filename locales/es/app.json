@@ -1,0 +1,90 @@
+{
+  "userMenu": {
+    "label": "Menú de la cuenta",
+    "settings": "Ajustes de la cuenta",
+    "admin": "Panel de administración"
+  },
+  "verifyBanner": {
+    "text": "Confirma tu correo electrónico. Enviamos un enlace a {{email}}.",
+    "resend": "Reenviar correo",
+    "sent": "Te enviamos un enlace nuevo. Revisa tu bandeja de entrada."
+  },
+  "setup": {
+    "title": "Termina la configuración",
+    "progress": "{{done}} de {{total}} pasos completados",
+    "cta": "Empezar la configuración",
+    "steps": {
+      "analyzed": "Web analizada",
+      "brand": "Perfil de marca aprobado",
+      "connected": "Web conectada",
+      "searchConsole": "Google Search Console conectado",
+      "firstArticle": "Primer artículo aprobado"
+    }
+  },
+  "generation": {
+    "steps": {
+      "research": "Investigando el tema",
+      "draft": "Escribiendo el borrador",
+      "factCheck": "Verificando los datos",
+      "images": "Preparando las imágenes"
+    }
+  },
+  "home": {
+    "title": "Inicio",
+    "greeting": "Te damos la bienvenida, {{name}}",
+    "statusSetup": "Preparemos tu web. La configuración dura unos 10 minutos."
+  },
+  "content": {
+    "title": "Contenidos",
+    "emptyTitle": "Todavía no hay artículos",
+    "emptyBody": "Cuando tu web esté configurada, tus primeros artículos aparecerán aquí, listos para que los revises."
+  },
+  "calendar": {
+    "title": "Calendario",
+    "emptyTitle": "Tu calendario de contenidos está vacío",
+    "emptyBody": "Después de la configuración, planificaremos tus artículos y mostraremos aquí sus fechas de publicación.",
+    "description": "Arrastra una entrada a otro día para cambiar su fecha de publicación. La hora no cambia.",
+    "month": "Mes",
+    "week": "Semana",
+    "viewLabel": "Vista",
+    "today": "Hoy",
+    "prevMonth": "Mes anterior",
+    "nextMonth": "Mes siguiente",
+    "prevWeek": "Semana anterior",
+    "nextWeek": "Semana siguiente",
+    "reschedule": "Cambiar la fecha de «{{title}}»",
+    "rescheduleShort": "Cambiar fecha",
+    "rescheduleTitle": "Cambiar la fecha de publicación",
+    "newDate": "Nueva fecha",
+    "newDateHint": "La hora de publicación no cambia.",
+    "move": "Mover",
+    "moved": "Fecha de publicación actualizada.",
+    "emptyMonth": "No hay entradas planificadas este mes.",
+    "dnd": {
+      "start": "Moviendo «{{title}}».",
+      "over": "«{{title}}» está sobre {{day}}.",
+      "end": "«{{title}}» se movió a {{day}}.",
+      "cancel": "Movimiento cancelado."
+    }
+  },
+  "results": {
+    "title": "Resultados",
+    "emptyTitle": "Aquí verás tus resultados",
+    "emptyBody": "Cuando tus primeros artículos estén publicados, verás cuántas veces los muestra Google y en qué posición aparecen."
+  },
+  "settings": {
+    "title": "Ajustes",
+    "account": {
+      "title": "Tu cuenta",
+      "description": "Tus datos personales y preferencias.",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "languageHint": "Se usa en el panel y en los correos que te enviamos.",
+      "saved": "Tus ajustes se han guardado."
+    }
+  },
+  "impersonation": {
+    "text": "Estás viendo Upvine como {{name}} ({{email}}). Esta vista es de solo lectura.",
+    "exit": "Salir de la vista"
+  }
+}

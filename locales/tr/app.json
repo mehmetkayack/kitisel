@@ -1,0 +1,90 @@
+{
+  "userMenu": {
+    "label": "Hesap menüsü",
+    "settings": "Hesap ayarları",
+    "admin": "Yönetim paneli"
+  },
+  "verifyBanner": {
+    "text": "Lütfen e-posta adresinizi doğrulayın. {{email}} adresine bir bağlantı gönderdik.",
+    "resend": "E-postayı tekrar gönder",
+    "sent": "Yeni bir bağlantı gönderdik. Gelen kutunuzu kontrol edin."
+  },
+  "setup": {
+    "title": "Kurulumu tamamlayın",
+    "progress": "{{total}} adımdan {{done}} tanesi tamamlandı",
+    "cta": "Kuruluma başla",
+    "steps": {
+      "analyzed": "Site analiz edildi",
+      "brand": "Marka profili onaylandı",
+      "connected": "Site bağlandı",
+      "searchConsole": "Google Search Console bağlandı",
+      "firstArticle": "İlk yazı onaylandı"
+    }
+  },
+  "generation": {
+    "steps": {
+      "research": "Konu araştırılıyor",
+      "draft": "Taslak yazılıyor",
+      "factCheck": "Bilgiler doğrulanıyor",
+      "images": "Görseller hazırlanıyor"
+    }
+  },
+  "home": {
+    "title": "Ana Sayfa",
+    "greeting": "Hoş geldiniz, {{name}}",
+    "statusSetup": "Web sitenizi hazırlayalım. Kurulum yaklaşık 10 dakika sürer."
+  },
+  "content": {
+    "title": "İçerikler",
+    "emptyTitle": "Henüz yazınız yok",
+    "emptyBody": "Siteniz kurulduğunda ilk yazılarınız burada, incelemeniz için hazır olarak görünecek."
+  },
+  "calendar": {
+    "title": "Takvim",
+    "emptyTitle": "İçerik takviminiz boş",
+    "emptyBody": "Kurulumdan sonra yazılarınızı planlayıp yayın tarihlerini burada göstereceğiz.",
+    "description": "Yazıları sürükleyip başka bir güne bırakarak yayın tarihini değiştirin. Saat aynı kalır.",
+    "month": "Ay",
+    "week": "Hafta",
+    "viewLabel": "Görünüm",
+    "today": "Bugün",
+    "prevMonth": "Önceki ay",
+    "nextMonth": "Sonraki ay",
+    "prevWeek": "Önceki hafta",
+    "nextWeek": "Sonraki hafta",
+    "reschedule": "\"{{title}}\" yazısının tarihini değiştir",
+    "rescheduleShort": "Tarihi değiştir",
+    "rescheduleTitle": "Yayın tarihini değiştir",
+    "newDate": "Yeni tarih",
+    "newDateHint": "Yayın saati aynı kalır.",
+    "move": "Taşı",
+    "moved": "Yayın tarihi güncellendi.",
+    "emptyMonth": "Bu ay planlanmış yazı yok.",
+    "dnd": {
+      "start": "\"{{title}}\" taşınıyor.",
+      "over": "\"{{title}}\", {{day}} gününün üzerinde.",
+      "end": "\"{{title}}\" {{day}} gününe taşındı.",
+      "cancel": "Taşıma iptal edildi."
+    }
+  },
+  "results": {
+    "title": "Sonuçlar",
+    "emptyTitle": "Sonuçlarınız burada görünecek",
+    "emptyBody": "İlk yazılarınız yayına girdiğinde Google'ın onları kaç kez gösterdiğini ve kaçıncı sırada olduklarını göreceksiniz."
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "account": {
+      "title": "Hesabınız",
+      "description": "Kişisel bilgileriniz ve tercihleriniz.",
+      "name": "Ad",
+      "email": "E-posta",
+      "languageHint": "Panelde ve size gönderdiğimiz e-postalarda kullanılır.",
+      "saved": "Ayarlarınız kaydedildi."
+    }
+  },
+  "impersonation": {
+    "text": "Upvine’ı {{name}} ({{email}}) olarak görüntülüyorsunuz. Bu görünüm salt okunurdur.",
+    "exit": "Görüntülemeden çık"
+  }
+}

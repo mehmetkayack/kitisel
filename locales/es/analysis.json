@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "Análisis SEO gratuito de tu sitio — Upvine",
+    "description": "Revisa 25 aspectos técnicos básicos de SEO, descubre tus mejores oportunidades de palabras clave y tus competidores orgánicos. Gratis, sin registro y listo en un minuto.",
+    "reportTitle": "Análisis SEO de {{domain}} — Upvine"
+  },
+  "form": {
+    "title": "Análisis SEO gratuito de tu sitio web",
+    "subtitle": "Descubre qué corregir primero, qué temas buscan tus clientes y con quién compites en Google.",
+    "label": "Dirección del sitio web",
+    "placeholder": "ejemplo.com",
+    "hint": "La dirección de tu página de inicio.",
+    "submit": "Analizar mi sitio gratis",
+    "note": "No necesitas registrarte. Tu informe está listo en un minuto aproximadamente.",
+    "what1": "25 comprobaciones técnicas con soluciones en lenguaje sencillo",
+    "what2": "Tus 10 mejores oportunidades de palabras clave con número de búsquedas",
+    "what3": "Tus 3 competidores orgánicos e ideas de temas"
+  },
+  "progress": {
+    "title": "Estamos analizando {{domain}}",
+    "body": "Normalmente tarda un minuto. Mantén esta página abierta; el informe aparecerá aquí.",
+    "steps": {
+      "homepage": "Leyendo tu página de inicio",
+      "discover": "Revisando robots.txt y el mapa del sitio",
+      "pages": "Revisando tus páginas y enlaces",
+      "checks": "Haciendo 25 comprobaciones técnicas",
+      "brand": "Entendiendo tu negocio",
+      "keywords": "Buscando oportunidades de palabras clave",
+      "competitors": "Buscando a tus competidores"
+    }
+  },
+  "failed": {
+    "title": "No pudimos analizar este sitio",
+    "retry": "Probar otra dirección"
+  },
+  "report": {
+    "title": "Análisis SEO de {{domain}}",
+    "checkedAt": "Revisado el {{date}}",
+    "pdf": "Descargar PDF",
+    "share": "Copiar enlace para compartir",
+    "copied": "Enlace copiado.",
+    "aiOff": "Las sugerencias de palabras clave y competidores necesitan nuestro servicio de IA, que ahora no está disponible. El informe técnico de abajo está completo.",
+    "brand": {
+      "title": "Lo que entendimos de tu negocio",
+      "products": "Productos y servicios"
+    },
+    "keywords": {
+      "title": "Mejores oportunidades de palabras clave",
+      "body": "Búsquedas de tus clientes en las que tienes posibilidades reales de posicionarte.",
+      "keyword": "Búsqueda",
+      "volume": "Búsquedas al mes",
+      "difficulty": "Competencia",
+      "intent": "Quien busca quiere",
+      "intents": {
+        "informational": "Informarse",
+        "commercial": "Comparar",
+        "transactional": "Comprar",
+        "navigational": "Encontrar un sitio"
+      },
+      "estimated": "Estimación",
+      "estimatedHelp": "Las cifras de búsqueda son estimaciones. Después de registrarte puedes conectar datos reales de palabras clave."
+    },
+    "clusters": {
+      "title": "Grupos de temas sugeridos",
+      "body": "Grupos de artículos relacionados que refuerzan tu autoridad en un tema."
+    },
+    "competitors": {
+      "title": "Tus competidores orgánicos",
+      "body": "Sitios que aparecen en Google para las mismas búsquedas de tus clientes.",
+      "empty": "Esta vez no pudimos identificar competidores."
+    },
+    "technical": {
+      "title": "Salud técnica: 25 comprobaciones"
+    },
+    "email": {
+      "title": "Recibe este informe por correo",
+      "label": "Correo electrónico",
+      "consent": "Envíame también consejos de SEO y novedades de Upvine de vez en cuando (opcional, puedes darte de baja cuando quieras).",
+      "submit": "Enviar el informe",
+      "sent": "Hemos enviado el informe a {{email}}."
+    },
+    "cta": {
+      "title": "Deja que Upvine aplique este plan por ti",
+      "body": "Escribimos, verificamos y publicamos artículos sobre estos temas en tu sitio. Pruébalo gratis 7 días y cancela cuando quieras.",
+      "button": "Aplicar este plan automáticamente: prueba 7 días"
+    }
+  },
+  "home": {
+    "cta": "Obtener un análisis gratuito",
+    "secondary": "Crear una cuenta gratis"
+  }
+}

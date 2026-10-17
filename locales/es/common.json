@@ -1,0 +1,107 @@
+{
+  "appName": "Upvine",
+  "skipToContent": "Ir al contenido principal",
+  "nav": {
+    "label": "Menú principal",
+    "home": "Inicio",
+    "content": "Contenidos",
+    "calendar": "Calendario",
+    "results": "Resultados",
+    "settings": "Ajustes"
+  },
+  "actions": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "continue": "Continuar",
+    "back": "Volver",
+    "close": "Cerrar",
+    "undo": "Deshacer",
+    "retry": "Intentar de nuevo",
+    "signIn": "Iniciar sesión",
+    "signUp": "Crear cuenta",
+    "signOut": "Cerrar sesión"
+  },
+  "language": {
+    "label": "Idioma"
+  },
+  "theme": {
+    "label": "Apariencia",
+    "system": "Sistema",
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
+  "validation": {
+    "required": "Completa este campo.",
+    "email": "Introduce un correo electrónico válido, por ejemplo nombre@ejemplo.com.",
+    "passwordMin": "Usa al menos 10 caracteres.",
+    "passwordMax": "Usa 128 caracteres o menos.",
+    "tooLong": "Es demasiado largo. Acórtalo, por favor.",
+    "siteUrl": "Introduce la dirección de tu sitio web, por ejemplo ejemplo.com.",
+    "time": "Introduce una hora como 10:00.",
+    "pickDay": "Elige al menos un día.",
+    "url": "Introduce una dirección web completa, por ejemplo https://ejemplo.com/contacto.",
+    "topicTitleMin": "El título necesita al menos 5 caracteres.",
+    "appPassword": "Pega la contraseña de aplicación completa (24 caracteres).",
+    "httpsOnly": "La dirección debe empezar por https://.",
+    "tooShort": "Es demasiado corto. Añade un poco más.",
+    "slug": "Usa solo minúsculas, números y guiones, por ejemplo duracion-implante-dental.",
+    "rewriteTooLong": "La parte seleccionada es demasiado larga. Selecciona una parte más pequeña.",
+    "date": "Elige una fecha válida.",
+    "pastDate": "No se puede mover a una fecha pasada. Elige hoy o una fecha posterior.",
+    "ghostKey": "La clave de Admin API debe tener el formato «id:secreto» (cópiala de Ghost).",
+    "shopDomain": "Introduce la dirección myshopify.com de tu tienda, por ejemplo mitienda.myshopify.com.",
+    "shopifyToken": "Pega el token que empieza por «shpat_».",
+    "wixKey": "Pega la clave de API completa.",
+    "wixSiteId": "El ID del sitio debe tener el formato 8-4-4-4-12 caracteres.",
+    "questionMin": "La pregunta debe tener al menos 8 caracteres."
+  },
+  "status": {
+    "planned": "Planificado",
+    "generating": "En preparación",
+    "review": "Esperando tu aprobación",
+    "scheduled": "Listo para publicar",
+    "published": "Publicado",
+    "failed": "Necesita atención"
+  },
+  "loading": "Cargando…",
+  "help": "¿Qué significa esto?",
+  "footer": {
+    "rights": "© {{year}} Upvine. Todos los derechos reservados.",
+    "product": "Upvine",
+    "legal": "Legal",
+    "pricing": "Precios",
+    "freeAnalysis": "Análisis gratuito",
+    "about": "Sobre nosotros",
+    "contact": "Contacto",
+    "payments": "Los pagos se procesan de forma segura a través de la entidad de pago autorizada iyzico. No guardamos los datos de tu tarjeta.",
+    "operatedBy": "Upvine es un servicio de {{company}}."
+  },
+  "notFound": {
+    "title": "No encontramos esta página",
+    "body": "Puede que el enlace esté desactualizado o que la página se haya movido.",
+    "cta": "Ir a la página de inicio"
+  },
+  "errorPage": {
+    "title": "Algo salió mal",
+    "body": "Ya nos han avisado y lo estamos revisando. Inténtalo de nuevo en un momento.",
+    "cta": "Recargar la página"
+  },
+  "editor": {
+    "toolbar": "Formato",
+    "h2": "Título (H2)",
+    "h3": "Subtítulo (H3)",
+    "bold": "Negrita",
+    "italic": "Cursiva",
+    "bulletList": "Lista con viñetas",
+    "orderedList": "Lista numerada",
+    "quote": "Cita",
+    "link": "Añadir enlace",
+    "unlink": "Quitar enlace",
+    "undo": "Deshacer",
+    "redo": "Rehacer",
+    "linkTitle": "Añadir enlace",
+    "linkBody": "El texto seleccionado enlazará a esta dirección. Déjalo vacío para quitar el enlace.",
+    "linkUrl": "Dirección",
+    "linkApply": "Aplicar"
+  }
+}

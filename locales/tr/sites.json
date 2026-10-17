@@ -1,0 +1,676 @@
+{
+  "wizard": {
+    "title": "Sitenizi kurun",
+    "progress": "Adım {{current}} / {{total}}",
+    "back": "Geri",
+    "continue": "Devam et",
+    "steps": {
+      "url": "Web sitesi",
+      "brand": "İşletmeniz",
+      "language": "Dil ve ülke",
+      "tone": "Ses tonu",
+      "topics": "İlk konular",
+      "cms": "Site bağlantısı",
+      "publishing": "Yayın"
+    },
+    "completedTitle": "Kurulum tamamlandı",
+    "completedBody": "İlk konularınız takvimde. Aşağıdan istediğiniz adımı değiştirebilirsiniz.",
+    "edit": "Değiştir",
+    "goHome": "Ana sayfaya git",
+    "completedToast": "Kurulum tamamlandı. İlk konularınız takvime eklendi."
+  },
+  "url": {
+    "title": "Hangi web sitesini büyütelim?",
+    "body": "İşletmenizi anlamak için sitenizin herkese açık sayfalarını okur ve 25 temel teknik SEO kontrolü yaparız. Sitenizde hiçbir şeyi değiştirmeyiz.",
+    "label": "Web sitesi adresi",
+    "placeholder": "ornek.com",
+    "hint": "Ana sayfanızın adresi.",
+    "submit": "Sitemi analiz et"
+  },
+  "analysis": {
+    "title": "Sitenizi okuyoruz",
+    "body": "Bu genellikle bir dakikadan kısa sürer. Bu sayfadan ayrılabilirsiniz; çalışmaya arka planda devam ederiz.",
+    "steps": {
+      "homepage": "Ana sayfanız okunuyor",
+      "discover": "robots.txt ve site haritası kontrol ediliyor",
+      "pages": "Sayfalarınız ve linkleriniz taranıyor",
+      "checks": "25 teknik kontrol yapılıyor",
+      "brand": "İşletme özetiniz yazılıyor"
+    },
+    "queuedSlow": "Analiziniz sırada bekliyor. Yoğun zamanlarda bu birkaç dakika sürebilir.",
+    "failedTitle": "Bu siteyi analiz edemedik",
+    "retry": "Tekrar dene",
+    "changeUrl": "Başka bir adres gir",
+    "errors": {
+      "unreachable": "Bu siteye ulaşamadık. Adresin doğru ve sitenin açık olduğunu kontrol edip tekrar deneyin.",
+      "blocked": "Bu adres özel bir ağı gösteriyor. Lütfen sitenizin herkese açık adresini girin.",
+      "not_html": "Bu adres bir web sayfası açmıyor. Lütfen ana sayfanızın adresini girin.",
+      "http_error": "Siteniz bir hata ile yanıt verdi. Ana sayfanın tarayıcıda açıldığını kontrol edip tekrar deneyin.",
+      "internal": "Bizim tarafımızda bir sorun oluştu. Lütfen birkaç dakika sonra tekrar deneyin.",
+      "stalled": "Analiz yarıda kaldı. \"Tekrar dene\" ile yeniden başlatın."
+    }
+  },
+  "brand": {
+    "title": "İşletmeniz bu mu?",
+    "body": "Bunu sitenizden yola çıkarak yazdık. Doğru olmayan bir şey varsa düzeltin: her yazıda bu bilgileri kullanacağız.",
+    "heuristicNote": "Yapay zekâ yazarımız şu an kullanılamadığı için bu bilgileri sitenizin açıklamasından aldık. Lütfen kontrol edin.",
+    "healthScore": "Site sağlığı puanı",
+    "viewReport": "Raporu gör",
+    "fields": {
+      "brandName": "İşletme veya marka adı",
+      "description": "Ne yapıyorsunuz?",
+      "descriptionHint": "İşletmeniz ve müşterileriniz hakkında iki üç cümle.",
+      "industry": "Sektör",
+      "products": "Ürünler ve hizmetler",
+      "productsHint": "Her satıra bir tane.",
+      "audience": "İdeal müşteri",
+      "audienceHint": "Kime ulaşmak istiyorsunuz?"
+    },
+    "approve": "Doğru, devam et"
+  },
+  "language": {
+    "title": "Müşterileriniz nerede?",
+    "body": "Yazılar bu dilde sıfırdan yazılır, çevrilmez.",
+    "language": "Yazı dili",
+    "languageHint": "Sitenize bakarak önerdik.",
+    "country": "Ana ülke",
+    "countryHint": "Yerel örnekleri ve arama ifadelerini seçmemize yardım eder.",
+    "noCountry": "Tüm dünya veya tek bir ülke değil"
+  },
+  "tone": {
+    "title": "Yazılarınız nasıl bir dille yazılsın?",
+    "body": "Müşterilerinizle konuşma şeklinize en yakın tarzı seçin.",
+    "suggested": "Siteniz için önerilen",
+    "options": {
+      "professional": {
+        "label": "Profesyonel",
+        "example": "Ekibimiz doğru çözümü seçmenize yardımcı olur ve her adımda yanınızda olur."
+      },
+      "friendly": {
+        "label": "Samimi",
+        "example": "Nereden başlayacağınızı bilmiyor musunuz? Merak etmeyin, birlikte adım adım ilerleyelim."
+      },
+      "expert": {
+        "label": "Uzman ve teknik",
+        "example": "Araştırmalar, düzenli bakımın ekipman ömrünü yüzde 30'a kadar uzattığını gösteriyor."
+      },
+      "playful": {
+        "label": "Eğlenceli",
+        "example": "Sıkıcı pazartesilere veda edin: işte gerçekten işe yarayan beş küçük hile."
+      }
+    },
+    "guideline": "Ek talimatlar (isteğe bağlı)",
+    "guidelineHint": "Örneğin: okura doğrudan hitap et, teknik terim kullanma, ücretsiz ön görüşmemizden bahset.",
+    "sample": "Sizin yazdığınız bir metin (isteğe bağlı)",
+    "sampleHint": "Bir blog yazısı veya sayfa metni yapıştırın. Tarzınızı yakalamak için kullanırız."
+  },
+  "topics": {
+    "title": "İlk konularınız",
+    "body": "Müşterilerinizin aradığı konuları seçtik. İstemediklerinizi çıkarın, kendi konularınızı ekleyin.",
+    "generating": "Müşterilerinizin aradığı konular bulunuyor…",
+    "estimated": "Tahmini",
+    "estimatedHelp": "Gerçek anahtar kelime verisi bağlanana kadar arama sayıları tahminidir.",
+    "volume": "Ayda yaklaşık {{value}} arama",
+    "difficulty": {
+      "easy": "Üst sıralara çıkmak kolay",
+      "medium": "Biraz rekabet var",
+      "hard": "Üst sıralara çıkmak zor"
+    },
+    "yours": "Sizin konunuz",
+    "remove": "Çıkar",
+    "removed": "Konu çıkarıldı.",
+    "addTitle": "Kendi konunuzu ekleyin",
+    "addTopic": "Yazı başlığı",
+    "addKeyword": "Ana arama ifadesi",
+    "addKeywordHint": "Biri Google'a ne yazardı?",
+    "add": "Konu ekle",
+    "added": "Konu eklendi.",
+    "more": "Daha fazla konu öner",
+    "empty": "Henüz konu yok. Aşağıdan kendi konunuzu ekleyin.",
+    "aiOff": "Yapay zekâ hizmeti kurulu olmadığı için otomatik konu önerisi kapalı. Kendi konularınızı ekleyebilirsiniz.",
+    "needOne": "Devam etmek için en az bir konu ekleyin.",
+    "selected": "Seçilen konu: {{value}}",
+    "errors": {
+      "ai_not_configured": "Yapay zekâ hizmeti kurulu olmadığı için otomatik konu önerisi kapalı. Kendi konularınızı ekleyebilirsiniz.",
+      "ai_budget": "Otomatik öneriler için bugünkü sınıra ulaştık. Yarın tekrar deneyin veya şimdi kendi konularınızı ekleyin.",
+      "ai_unavailable": "Öneri hizmeti şu an yoğun. Lütfen birkaç dakika sonra tekrar deneyin.",
+      "internal": "Konu önerirken bir sorun oluştu. Lütfen tekrar deneyin.",
+      "stalled": "Konu önerisi yarıda kaldı. \"Tekrar dene\" ile yeniden başlatın; genellikle bir dakikadan kısa sürer."
+    },
+    "retry": "Tekrar dene"
+  },
+  "cms": {
+    "skip": "Şimdilik atla",
+    "skipHint": "Sitenizi daha sonra Ayarlar'dan bağlayabilirsiniz."
+  },
+  "publishing": {
+    "title": "Ne zaman yayınlayalım?",
+    "body": "Yazılarınızı seçtiğiniz günlere ve saate göre planlarız.",
+    "mode": "Yayından önce",
+    "modes": {
+      "approval": {
+        "label": "Her yazıyı ben onaylayayım",
+        "hint": "Önerilir. Bir yazı incelemenize hazır olduğunda size e-posta göndeririz."
+      },
+      "auto": {
+        "label": "Otomatik yayınla",
+        "hint": "Kalite kontrolümüzden geçen yazılar planlanan zamanda yayına girer."
+      }
+    },
+    "days": "Yayın günleri",
+    "daysHint": "Seçtiğiniz her gün bir yazı.",
+    "time": "Saat",
+    "timezone": "Saat dilimi: {{zone}}",
+    "newSiteNote": "Yeni sitelerde ilk ay haftada en fazla 3 yazı yayınlarız. Çok hızlı yayın Google'a doğal görünmeyebilir.",
+    "finish": "Kurulumu tamamla"
+  },
+  "health": {
+    "title": "Site sağlığı",
+    "outOf": "{{score}} / 100",
+    "levels": {
+      "good": "İyi",
+      "fair": "Biraz iyileştirme gerekiyor",
+      "poor": "İlgilenmeniz gerekiyor"
+    },
+    "analyzedAt": "Son kontrol: {{date}}",
+    "pagesCrawled": "Kontrol edilen sayfa: {{value}}",
+    "reanalyze": "Tekrar kontrol et",
+    "reanalyzing": "Sitenizi yeniden kontrol ediyoruz. Bu sayfa kendiliğinden güncellenir.",
+    "status": {
+      "pass": "Sorun yok",
+      "warning": "İyileştirilebilir",
+      "fail": "Sorun var",
+      "not_applicable": "Gerekmiyor"
+    },
+    "groups": {
+      "fail": "Düzeltilmesi gerekenler",
+      "warning": "İyileştirilebilecekler",
+      "pass": "Yolunda olanlar",
+      "not_applicable": "Siteniz için gerekmeyenler"
+    },
+    "howToFix": "Nasıl düzeltilir?",
+    "affected": "Etkilenen sayfa: {{value}}",
+    "pages": {
+      "title": "Kontrol ettiğimiz sayfalar",
+      "url": "Adres",
+      "pageTitle": "Başlık",
+      "words": "Kelime",
+      "duplicate": "Başka bir sayfayla aynı başlık",
+      "noTitle": "Başlık yok"
+    },
+    "emptyTitle": "Site sağlığı raporunuz burada görünecek",
+    "emptyBody": "Web sitenizi ekleyin, 25 temel teknik SEO kontrolünü sizin için yapalım."
+  },
+  "checks": {
+    "https": {
+      "title": "Güvenli bağlantı (HTTPS)",
+      "pass": "Siteniz güvenli HTTPS bağlantısı kullanıyor.",
+      "issue": "Siteniz HTTPS kullanmıyor. Tarayıcılar siteyi “Güvenli değil” diye gösterir ve Google güvenli siteleri tercih eder.",
+      "fix": "Hosting panelinizden ücretsiz SSL sertifikasını açın (genellikle Let's Encrypt adıyla geçer) ve tüm sayfaları https:// adresine yönlendirin."
+    },
+    "http_to_https": {
+      "title": "Güvenli adrese yönlendirme",
+      "pass": "http:// yazan ziyaretçiler güvenli https:// adresine yönlendiriliyor.",
+      "issue": "Sitenizin http:// sürümü https:// adresine yönlenmiyor. Google sitenizin iki kopyasını görebilir.",
+      "fix": "Hosting panelinizde veya site ayarlarınızda http:// adresinden https:// adresine kalıcı (301) yönlendirme ekleyin."
+    },
+    "title": {
+      "title": "Sayfa başlıkları",
+      "pass": "Sayfalarınızın başlıkları var.",
+      "issue": "Bazı sayfaların başlığı yok. Başlık, insanların Google'da tıkladığı mavi yazıdır.",
+      "fix": "Her sayfaya, sayfanın ne anlattığını söyleyen benzersiz bir başlık verin."
+    },
+    "title_length": {
+      "title": "Başlık uzunluğu",
+      "pass": "Başlıklarınızın uzunluğu iyi.",
+      "issue": "Bazı başlıklar 30 karakterden kısa veya 65 karakterden uzun. Google uzun başlıkları kesebilir, kısa başlıklar ise yeri boşa harcar.",
+      "fix": "Ana konunun başa yakın olduğu, yaklaşık 30-65 karakterlik başlıklar yazın."
+    },
+    "meta_description": {
+      "title": "Sayfa açıklamaları",
+      "pass": "Sayfalarınızın Google için açıklamaları var.",
+      "issue": "Bazı sayfaların açıklaması yok. Bu durumda Google başlığınızın altında sayfadan rastgele bir metin gösterir.",
+      "fix": "Her sayfaya kısa bir açıklama (meta açıklama) ekleyin. Çoğu site yönetim panelinde ve SEO eklentisinde bunun için bir alan vardır."
+    },
+    "meta_description_length": {
+      "title": "Açıklama uzunluğu",
+      "pass": "Açıklamalarınızın uzunluğu iyi.",
+      "issue": "Bazı açıklamalar 70 karakterden kısa veya 160 karakterden uzun.",
+      "fix": "Sayfayı anlatan ve tıklamaya davet eden 70-160 karakterlik açıklamalar yazın."
+    },
+    "h1": {
+      "title": "Ana başlık (H1)",
+      "pass": "Her sayfada bir ana başlık var.",
+      "issue": "Bazı sayfalarda ana başlık yok veya birden fazla var. Ana başlık, Google'a sayfanın ne hakkında olduğunu söyler.",
+      "fix": "Her sayfada tam olarak bir H1 başlığı kullanın; bu genellikle sayfada görünen başlıktır."
+    },
+    "heading_structure": {
+      "title": "Alt başlıklar",
+      "pass": "Uzun sayfalarınız alt başlıklarla bölümlere ayrılmış.",
+      "issue": "Bazı uzun sayfalarda alt başlık (H2) yok. Uzun metin blokları hem insanlar hem Google için zor okunur.",
+      "fix": "Uzun sayfaları net H2 alt başlıklarıyla bölümlere ayırın."
+    },
+    "canonical": {
+      "title": "Sayfanın ana adresi (canonical)",
+      "pass": "Sayfalarınız Google'a hangi adresin ana adres olduğunu söylüyor.",
+      "issue": "Bazı sayfalar ana adresini belirtmiyor veya başka bir web sitesini gösteriyor.",
+      "fix": "Her sayfaya kendi ana adresini gösteren bir canonical linki ekleyin. SEO eklentileri bunu genellikle sizin için yapar."
+    },
+    "robots_txt": {
+      "title": "Arama motoru talimatları (robots.txt)",
+      "pass": "robots.txt dosyanız Google'ın sitenizi okumasına izin veriyor.",
+      "issue": "robots.txt dosyanız yok veya tüm sitenizi Google'a kapatıyor.",
+      "fix": "siteniz.com/robots.txt dosyasının var olduğundan ve tüm arama motorları için “Disallow: /” içermediğinden emin olun."
+    },
+    "sitemap": {
+      "title": "Site haritası",
+      "pass": "Sayfalarınızı listeleyen bir site haritası bulduk.",
+      "issue": "Site haritası bulamadık. Site haritası, Google'ın tüm sayfalarınızı bulmasına yardım eder.",
+      "fix": "Bir site haritası oluşturun (çoğu site yönetim paneli ve SEO eklentisi bunu yapar), ardından robots.txt dosyanıza ve Google Search Console'a ekleyin."
+    },
+    "noindex": {
+      "title": "Google'dan gizlenmiş sayfalar (noindex)",
+      "pass": "Kontrol ettiğimiz sayfaların hiçbiri Google'dan gizlenmemiş.",
+      "issue": "Bazı sayfalar Google'a kendilerini arama sonuçlarında göstermemesini söylüyor.",
+      "fix": "Google'da görünmesi gereken sayfalardan “noindex” ayarını kaldırın. Sitenizin görünürlük ayarlarını kontrol edin."
+    },
+    "viewport": {
+      "title": "Mobil uyumluluk",
+      "pass": "Siteniz mobil ekranlar için ayarlanmış.",
+      "issue": "Siteniz mobil ekranlar için ayarlanmamış. Ziyaretçilerin çoğu telefon kullanıyor ve Google önce mobil sürüme bakıyor.",
+      "fix": "Mobil viewport etiketini (width=device-width) ekleyin veya mobil uyumlu bir temaya geçin."
+    },
+    "html_lang": {
+      "title": "Sayfa dili",
+      "pass": "Sayfalarınız hangi dilde yazıldığını belirtiyor.",
+      "issue": "Ana sayfanız hangi dilde yazıldığını belirtmiyor.",
+      "fix": "html etiketine lang özelliği ekleyin, örneğin lang=\"tr\". Tema ayarlarında genellikle bu seçenek bulunur."
+    },
+    "hreflang": {
+      "title": "Dil sürümleri (hreflang)",
+      "pass": "Dil sürümleriniz birbirine doğru bağlanmış.",
+      "issue": "Sitenizde birden fazla dilde sayfa var ama bu sayfalar birbirine doğru şekilde bağlanmamış.",
+      "fix": "Google'ın her ziyaretçiye doğru dil sürümünü göstermesi için hreflang linkleri ekleyin."
+    },
+    "open_graph": {
+      "title": "Sosyal medya önizlemesi",
+      "pass": "Sitenizin linkleri sosyal medyada başlık ve görselle görünüyor.",
+      "issue": "Biri sitenizi paylaştığında sosyal ağlar görsel göstermeyebilir veya yanlış başlık gösterebilir.",
+      "fix": "Open Graph etiketlerini (og:title ve og:image) ekleyin. SEO eklentilerinde genellikle bunun için bir “Sosyal” bölümü vardır."
+    },
+    "structured_data": {
+      "title": "Google için yapılandırılmış bilgi",
+      "pass": "Ana sayfanız Google'a işletmeniz hakkında yapılandırılmış bilgi veriyor.",
+      "issue": "Ana sayfanızda yapılandırılmış bilgi yok veya hatalı. Bu bilgi, Google'ın puanlar ve çalışma saatleri gibi ek bilgileri göstermesine yardım eder.",
+      "fix": "Yapılandırılmış veri ekleyin (Schema.org, örneğin Organization veya LocalBusiness). Pek çok SEO eklentisi bunu yapabilir."
+    },
+    "image_alt": {
+      "title": "Görsel açıklamaları",
+      "pass": "Görsellerinizin açıklamaları var.",
+      "issue": "Bazı görsellerin açıklaması (alt metni) yok. Google ve ekran okuyucular görselde ne olduğunu anlayamaz.",
+      "fix": "Medya kütüphanenizde anlam taşıyan her görsele kısa bir açıklama ekleyin."
+    },
+    "broken_links": {
+      "title": "Kırık linkler",
+      "pass": "Kırık link bulmadık.",
+      "issue": "Sitenizdeki bazı linkler var olmayan sayfalara gidiyor.",
+      "fix": "Bu linkleri güncelleyin veya kaldırın ya da eski adresleri çalışan bir sayfaya yönlendirin."
+    },
+    "duplicate_titles": {
+      "title": "Aynı başlıklar",
+      "pass": "Her sayfanın kendi başlığı var.",
+      "issue": "Bazı sayfalar aynı başlığı kullanıyor, Google bu sayfaları birbirinden ayıramıyor.",
+      "fix": "Her sayfaya benzersiz bir başlık verin."
+    },
+    "duplicate_descriptions": {
+      "title": "Aynı açıklamalar",
+      "pass": "Her sayfanın kendi açıklaması var.",
+      "issue": "Bazı sayfalar aynı açıklamayı kullanıyor.",
+      "fix": "Her sayfa için benzersiz bir açıklama yazın."
+    },
+    "thin_content": {
+      "title": "Kısa sayfalar",
+      "pass": "Sayfalarınızda yeterince metin var.",
+      "issue": "Bazı sayfalarda 300'den az kelime var. Çok kısa sayfalar Google'da nadiren üst sıralara çıkar.",
+      "fix": "Bu sayfalara faydalı bilgiler ekleyin veya birbirine benzeyen kısa sayfaları birleştirin."
+    },
+    "ttfb": {
+      "title": "Sunucu hızı",
+      "pass": "Sunucunuz hızlı yanıt vermeye başlıyor ({{value}} ms).",
+      "issue": "Sunucunuzun yanıt vermeye başlaması {{value}} ms sürüyor. Yavaş sayfalar ziyaretçi ve sıra kaybettirir.",
+      "fix": "Önbelleği açın, bir CDN kullanın veya hosting firmanızdan daha hızlı bir paket isteyin."
+    },
+    "page_size": {
+      "title": "Sayfa boyutu",
+      "pass": "Ana sayfanız hafif ve hızlı yükleniyor.",
+      "issue": "Ana sayfanızın kodu büyük; bu da telefonlarda yavaş açılmasına yol açar.",
+      "fix": "Kullanılmayan eklentileri ve kodları kaldırın, büyük içerikleri doğrudan sayfanın içine koymaktan kaçının."
+    },
+    "favicon": {
+      "title": "Site simgesi (favicon)",
+      "pass": "Sitenizin bir simgesi var.",
+      "issue": "Sitenizin simgesi yok. Google bu simgeyi telefonlarda sonucunuzun yanında gösterir.",
+      "fix": "Site veya tema ayarlarınızdan kare bir site simgesi yükleyin."
+    }
+  },
+  "results": {
+    "tabs": {
+      "overview": "Genel bakış",
+      "articles": "Yazılarım",
+      "keywords": "Anahtar kelimeler",
+      "health": "Site sağlığı",
+      "ai": "AI görünürlük"
+    }
+  },
+  "home": {
+    "continueSetup": "Kuruluma devam et",
+    "healthTitle": "Site sağlığı",
+    "healthLink": "Raporu gör",
+    "upcomingTitle": "Sıradaki yazılar",
+    "upcomingEmpty": "Henüz planlanmış yazı yok. Kurulumda ilk konularınızı seçin.",
+    "statusDone": "Kurulum tamamlandı. İlk yazınız {{date}} için planlandı.",
+    "statusAnalyzing": "{{domain}} analiz ediliyor. Bu genellikle bir dakikadan kısa sürer.",
+    "seeCalendar": "Takvime bak"
+  },
+  "content": {
+    "keyword": "Arama ifadesi",
+    "planned": "Planlanan tarih",
+    "status": "Durum",
+    "notScheduled": "Henüz planlanmadı"
+  },
+  "posts": {
+    "title": "Sitenizdeki yazılar",
+    "summary": "{{total}} yazı okundu; {{withIssues}} tanesinde düzeltilebilecek sorun var. En çok sorunu olanlar en üstte.",
+    "syncedAt": "Son okuma: {{date}}",
+    "meta": "{{words}} kelime · son güncelleme {{date}}",
+    "issueCount": "{{value}} sorunu gör",
+    "noIssues": "Ölçtüğümüz kontrollerde sorun yok.",
+    "opensNewTab": "(yeni sekmede açılır)",
+    "rescan": "Yeniden oku",
+    "syncingShort": "Okunuyor…",
+    "syncing": "Yazılarınız okunuyor. Yazı sayısına göre bir iki dakika sürebilir.",
+    "scan": "Yazılarımı oku",
+    "retry": "Tekrar dene",
+    "showMore": "{{value}} yazı daha göster",
+    "scanTitle": "Mevcut yazılarınızı inceleyelim",
+    "scanBody": "Sitenizdeki yayında yazıları okuyup her birindeki SEO sorunlarını listeleriz. Yazılarınıza dokunmayız.",
+    "noneTitle": "Sitenizde yayında yazı bulamadık",
+    "noneBody": "Blogunuzda yayında yazı olduğunda burada sorunlarıyla birlikte görünecek.",
+    "connectTitle": "Mevcut yazılarınızı görmek için sitenizi bağlayın",
+    "connectBody": "Bağlantıdan sonra yazılarınızı okuyup her birindeki SEO sorunlarını listeleriz.",
+    "connectAction": "Siteyi bağla",
+    "unsupportedTitle": "Bu bağlantıdan yazılar henüz okunamıyor",
+    "unsupportedBody": "Mevcut yazıları şimdilik WordPress sitelerinden okuyabiliyoruz. Diğer platformlar yakında.",
+    "severity": {
+      "high": "Önemli",
+      "medium": "Orta",
+      "low": "Küçük"
+    },
+    "errors": {
+      "not_connected": "Siteniz bağlı değil. Ayarlar'dan bağlayın.",
+      "not_supported": "Bu bağlantıdan yazılar okunamıyor.",
+      "stalled": "Okuma yarıda kaldı. \"Tekrar dene\" ile yeniden başlatın.",
+      "internal": "Yazılarınızı okurken bir sorun oldu. Biraz sonra tekrar deneyin.",
+      "publish_auth_failed": "Siteniz giriş bilgilerimizi kabul etmedi. Ayarlar'dan sitenizi yeniden bağlayın.",
+      "publish_forbidden": "Bağlı kullanıcının yazıları görme yetkisi yok. Editör veya yönetici hesabıyla yeniden bağlayın.",
+      "publish_not_wordpress": "WordPress arayüzüne ulaşamadık. Ayarlar'dan bağlantıyı kontrol edin.",
+      "publish_unreachable": "Sitenize ulaşamadık. Sitenin açık olduğunu kontrol edip tekrar deneyin.",
+      "publish_server_error": "Siteniz hata ile yanıt verdi. Biraz sonra tekrar deneyin."
+    },
+    "issues": {
+      "thin_content": {
+        "title": "İçerik çok kısa ({{value}} kelime)",
+        "fix": "Konuyu derinleştirin: okurun sorabileceği soruları yanıtlayan bölümler ekleyin. Google kısa yazıları nadiren üst sıralara taşır."
+      },
+      "short_content": {
+        "title": "İçerik kısa ({{value}} kelime)",
+        "fix": "Örnekler, adımlar veya sık sorulan sorularla yazıyı 600 kelimenin üzerine çıkarın."
+      },
+      "no_meta_description": {
+        "title": "Meta açıklaması yok",
+        "fix": "SEO eklentinizde (Yoast, Rank Math) yazıya 70-160 karakterlik, tıklamaya davet eden bir açıklama yazın."
+      },
+      "meta_description_length": {
+        "title": "Meta açıklaması uygun uzunlukta değil ({{value}} karakter)",
+        "fix": "Açıklamayı 70-160 karakter arasına getirin; daha uzunu Google'da kesilir."
+      },
+      "title_length": {
+        "title": "Başlık uygun uzunlukta değil ({{value}} karakter)",
+        "fix": "Başlığı 30-65 karakter arasına getirin; önemli kelimeyi başa yakın yazın."
+      },
+      "no_subheadings": {
+        "title": "Alt başlık yok",
+        "fix": "Yazıyı H2 alt başlıklarıyla bölümlere ayırın; hem okumayı hem Google'ın anlamasını kolaylaştırır."
+      },
+      "no_internal_links": {
+        "title": "Sitenizdeki başka sayfalara link yok",
+        "fix": "Konuyla ilgili ürün, kategori veya diğer yazılarınıza 2-3 link ekleyin."
+      },
+      "missing_alt": {
+        "title": "{{value}} görselin açıklaması (alt metni) yok",
+        "fix": "Medya kütüphanesinde her görsele ne gösterdiğini anlatan kısa bir açıklama ekleyin."
+      },
+      "no_images": {
+        "title": "Görsel yok",
+        "fix": "Konuyu anlatan en az bir görsel ekleyin; görselli yazılar daha uzun okunur."
+      },
+      "outdated": {
+        "title": "{{value}} gündür güncellenmemiş",
+        "fix": "Bilgileri, fiyatları ve tarihleri gözden geçirip yazıyı güncelleyin; Google güncel içeriği tercih eder."
+      }
+    },
+    "refreshIntro": "Yazılarınıza siz onaylamadan dokunmayız. \"Güncelleme öner\"e basın; değişiklikleri ve yazının önce/sonra hâlini gösteririz. Uygularsanız tek tıkla geri alabilirsiniz.",
+    "declining": "Trafiği düşüyor",
+    "clicksTrend": "Son 28 günde {{current}} tıklama (önceki 28 gün: {{previous}})",
+    "decliningSummary": "{{value}} yazınızın Google'dan gelen trafiği düşüyor. Bunlar listenin en üstünde; önce bunları güncellemenizi öneririz.",
+    "refresh": {
+      "request": "Güncelleme öner",
+      "generatingShort": "Öneri hazırlanıyor…",
+      "readyBadge": "Öneri hazır",
+      "review": "Öneriyi incele",
+      "appliedBadge": "{{date}} güncellendi",
+      "details": "Ayrıntılar",
+      "usage": "Bu ay {{used}} / {{limit}} güncelleme önerisi kullanıldı.",
+      "title": "Güncelleme önerisi",
+      "generating": "Yazınızı okuyup güncelleme önerisi hazırlıyoruz. Bu bir iki dakika sürebilir; pencereyi kapatabilirsiniz.",
+      "applyNote": "\"Uygula\" yazının başlığını ve içeriğini sitenizde değiştirir. Adresi, tarihi ve kategorileri aynı kalır. İsterseniz sonra geri alabilirsiniz.",
+      "appliedAt": "Öneri {{date}} tarihinde sitenizde uygulandı.",
+      "revertedNote": "Bu öneri geri alındı; yazınız önceki hâline döndü.",
+      "dismissedNote": "Bu öneriyi kapattınız. Yazınıza dokunulmadı.",
+      "scoreLabel": "SEO skoru: önce ve sonra",
+      "scoreHint": "Meta açıklamayı da güncellerseniz",
+      "changesTitle": "Neler değişiyor",
+      "metaTitle": "Meta başlık ve açıklama",
+      "metaHint": "Bunları sitenizde otomatik değiştiremiyoruz. SEO eklentinize (Yoast, Rank Math) kopyalayın.",
+      "fields": {
+        "metaTitle": "Meta başlık",
+        "metaDescription": "Meta açıklama"
+      },
+      "copy": "Kopyala",
+      "copied": "Kopyalandı.",
+      "copyFailed": "Kopyalanamadı. Metni seçip elle kopyalayın.",
+      "compare": "Yazının hâli",
+      "after": "Önerilen",
+      "before": "Şu anki",
+      "dismiss": "Kapat",
+      "apply": "Uygula",
+      "appliedToast": "Yazınız sitenizde güncellendi.",
+      "viewPost": "Yazıyı aç",
+      "revert": "Geri al",
+      "revertedToast": "Yazınız önceki hâline döndü.",
+      "kinds": {
+        "outdated": "Güncel bilgi",
+        "structure": "Yapı",
+        "faq": "SSS",
+        "meta": "Meta",
+        "links": "İç link",
+        "content": "İçerik",
+        "title": "Başlık"
+      },
+      "errors": {
+        "internal": "Öneri hazırlanırken bir sorun oldu. Biraz sonra tekrar deneyin.",
+        "not_found": "Bu yazıyı sitenizde bulamadık. Yazılarınızı yeniden okuyun.",
+        "not_connected": "Siteniz bağlı değil. Ayarlar'dan bağlayın.",
+        "not_supported": "Bu bağlantıda yazılar güncellenemiyor. Şu an WordPress destekleniyor.",
+        "too_long": "Bu yazı otomatik öneri için çok uzun.",
+        "stalled": "Öneri yarıda kaldı. Tekrar deneyin.",
+        "ai_not_configured": "Yapay zekâ hizmeti kurulu olmadığı için öneri hazırlanamıyor.",
+        "ai_budget": "Bugünkü yapay zekâ sınırına ulaştık. Yarın tekrar deneyin.",
+        "ai_blocked": "Yapay zekâ hizmeti bu yazı için öneri vermeyi reddetti.",
+        "ai_invalid_output": "Öneri düzgün çıkmadı. Tekrar deneyin.",
+        "ai_unavailable": "Yapay zekâ hizmeti yoğundu. Birkaç dakika sonra tekrar deneyin."
+      }
+    }
+  },
+  "searchConsole": {
+    "title": "Google Search Console",
+    "description": "Google'da kaç kez göründüğünüzü, tıklamaları ve sıralarınızı panele getirir. Sadece okuma izni ister.",
+    "notConfigured": "Search Console bağlantısı henüz yapılandırılmadı. Yöneticinin Google OAuth istemcisini (.env) tanımlaması gerekiyor.",
+    "connectBody": "Google hesabınızla bağlanın; sitenize uyan Search Console mülkünü otomatik buluruz. Veriler her gün güncellenir.",
+    "connect": "Search Console'u bağla",
+    "reconnect": "Yeniden bağla",
+    "connected": "Bağlı",
+    "account": "Hesap: {{email}}",
+    "syncing": "Veriler alınıyor… İlk seferde son 90 gün alınır, bir iki dakika sürebilir.",
+    "lastSynced": "Son güncelleme: {{date}}",
+    "neverSynced": "Henüz veri alınmadı.",
+    "latestData": "En son veri günü: {{date}} (Google verileri 2-3 gün geriden gelir)",
+    "syncNow": "Şimdi güncelle",
+    "disconnect": "Bağlantıyı kes",
+    "disconnectTitle": "Search Console bağlantısı kesilsin mi?",
+    "disconnectBody": "İzin Google'da da geri alınır ve toplanan Search Console verileri silinir. Daha sonra yeniden bağlayabilirsiniz.",
+    "property": "Search Console mülkü",
+    "domainProperty": "tüm alan adı",
+    "pickBody": "Sitenizle aynı adrese sahip bir mülk bulamadık. Bu siteye ait mülkü seçin.",
+    "useProperty": "Bu mülkü kullan",
+    "noProperties": "{{email}} hesabında doğrulanmış bir Search Console mülkü yok. Sitenizi Search Console'a ekleyip doğruladıktan sonra yeniden bağlayın.",
+    "callback": {
+      "connected": "Search Console bağlandı. Veriler alınıyor.",
+      "pick": "Search Console bağlandı. Sitenize ait mülkü seçin.",
+      "failed": "Search Console bağlanamadı. Lütfen tekrar deneyin.",
+      "rejected": "Google izni verilmedi; bağlantı kurulmadı."
+    },
+    "errors": {
+      "revoked": "Google izninin süresi dolmuş ya da izin geri alınmış. Yeniden bağlamak 30 saniye sürer.",
+      "forbidden": "Bu Google hesabının seçilen mülke erişimi yok. Mülkün sahibi olan hesapla yeniden bağlayın.",
+      "unavailable": "Google şu an yanıt vermiyor. Birazdan otomatik olarak tekrar denenecek.",
+      "rejected": "Google isteği kabul etmedi. Bağlantıyı kesip yeniden bağlamayı deneyin.",
+      "no_property": "Henüz bir mülk seçilmedi.",
+      "stalled": "Güncelleme yarıda kaldı. \"Şimdi güncelle\" ile yeniden başlatın.",
+      "internal": "Veriler alınırken bir sorun oldu. Biraz sonra tekrar deneyin."
+    }
+  },
+  "overview": {
+    "googleTitle": "Google'da görünürlük",
+    "contentTitle": "İçerikleriniz",
+    "period": "{{from}} – {{to}} (önceki 28 günle karşılaştırma)",
+    "metrics": {
+      "impressions": "Gösterim",
+      "clicks": "Tıklama",
+      "position": "Ortalama sıra",
+      "top10": "İlk 10'daki kelime"
+    },
+    "help": {
+      "impressions": "Sitenizin Google arama sonuçlarında kaç kez gösterildiği.",
+      "clicks": "Arama sonuçlarından sitenize kaç kez tıklandığı.",
+      "position": "Göründüğünüz aramalardaki ortalama sıranız. Küçük sayı daha iyidir.",
+      "top10": "Ortalama sırası 10 ya da daha iyi olan arama ifadesi sayısı (Google'ın ilk sayfası).",
+      "aiMention": "Müşterilerinizin sorduğu sorularda yapay zekânın markanızı andığı oran (son ölçüm)."
+    },
+    "change": {
+      "up": "{{value}} arttı",
+      "down": "{{value}} azaldı",
+      "flat": "Değişmedi",
+      "positionUp": "{{value}} sıra yükseldi",
+      "positionDown": "{{value}} sıra düştü"
+    },
+    "chartSeries": "Grafikte gösterilen ölçü",
+    "chartTitle": {
+      "impressions": "Günlük gösterim",
+      "clicks": "Günlük tıklama"
+    },
+    "chartSummary": "Son 28 günde toplam {{value}} {{metric}}.",
+    "showTable": "Tablo olarak göster",
+    "date": "Tarih",
+    "winsTitle": "Son kazanımlar",
+    "noWins": "Henüz belirgin bir sıra yükselişi yok. Yeni yazılar yayınlandıkça burada görünecek.",
+    "win": "\"{{query}}\" aramasında {{from}}. sıradan {{to}}. sıraya çıktınız.",
+    "connectTitle": "Google sonuçlarınızı burada görün",
+    "connectBody": "Search Console'u bağlayın: gösterim, tıklama, sıra ve kazanılan anahtar kelimeler her gün güncellenir.",
+    "syncing": "Search Console verileri alınıyor. Birkaç dakika içinde burada görünecek.",
+    "noData": "Search Console bağlı ama bu mülkte henüz arama verisi yok. Yeni siteler için Google'ın veri toplaması birkaç gün sürebilir.",
+    "loadFailed": "Bu bölüm yüklenemedi. Sayfayı yenileyin.",
+    "content": {
+      "publishedThisMonth": "Bu ay yayınlanan yazı",
+      "waiting": "Onay ya da yayın bekleyen",
+      "averageSeo": "Ortalama SEO skoru",
+      "aiMention": "Yapay zekâda anılma"
+    },
+    "auditScore": "Site sağlığı: {{score}}/100"
+  },
+  "keywords": {
+    "up": "yükseldi",
+    "down": "düştü",
+    "same": "değişmedi",
+    "emptyTitle": "Henüz takip edilen anahtar kelime yok",
+    "emptyBody": "Konu planınıza eklediğiniz kelimeler ve Search Console'da göründüğünüz aramalar burada listelenir.",
+    "columns": {
+      "keyword": "Anahtar kelime",
+      "position": "Sıra",
+      "impressions": "Gösterim",
+      "clicks": "Tıklama",
+      "volume": "Aylık arama",
+      "difficulty": "Zorluk",
+      "page": "Sayfa"
+    },
+    "planned": "Planınızda",
+    "fromGoogle": "Google'dan",
+    "connectBody": "Gerçek sıraları ve gösterimleri görmek için Search Console'u bağlayın. Şimdilik planınızdaki kelimeler listeleniyor.",
+    "connectAction": "Ayarlar'a git",
+    "filterLabel": "Anahtar kelimeleri süz",
+    "filters": {
+      "all": "Tümü",
+      "planned": "Planınızdakiler",
+      "google": "Google'da görünenler"
+    },
+    "count": "{{value}} kelime (paketinizde en fazla {{limit}})",
+    "caption": "Takip edilen anahtar kelimeler",
+    "noneInFilter": "Bu süzgece uyan kelime yok."
+  },
+  "visibility": {
+    "notAsked": "Henüz sorulmadı",
+    "mentioned": "Anıldınız",
+    "notMentioned": "Anılmadınız",
+    "remove": "Soruyu sil: {{question}}",
+    "showAnswer": "Yapay zekânın cevabını göster",
+    "citedFrom": "Kaynak olarak siteniz: {{sources}}",
+    "planTitle": "AI görünürlük Growth ve Agency paketlerinde",
+    "planBody": "Müşterilerinizin yapay zekâya sorduğu sorularda markanızın anılıp anılmadığını haftalık takip etmek için paketinizi yükseltin.",
+    "aiUnavailable": "Yapay zekâ yapılandırılmadığı için AI görünürlük ölçülemiyor.",
+    "running": "Sorular yapay zekâya soruluyor… Bir iki dakika sürebilir.",
+    "startTitle": "Yapay zekâ sizi öneriyor mu?",
+    "startBody": "Müşterilerinizin ChatGPT, Gemini gibi asistanlara soracağı yaklaşık 12 soru hazırlayıp yapay zekâya soruyoruz ve cevapta markanızın anılıp anılmadığına bakıyoruz. Ölçüm her hafta kendiliğinden tekrarlanır.",
+    "start": "Ölçmeye başla",
+    "rate": "Anılma oranı",
+    "rateHelp": "Son ölçümde markanızın ya da sitenizin anıldığı soruların oranı.",
+    "lastChecked": "Son ölçüm: {{date}}. Her hafta tekrarlanır.",
+    "neverChecked": "Sorular henüz sorulmadı.",
+    "runNow": "Şimdi yeniden ölç",
+    "ungrounded": "Son ölçüm web araması olmadan yapıldı: cevaplar yapay zekânın kendi bilgisinden geldi (Google Search kotası yok). Bu, yeni ya da küçük markalar için oranı düşük gösterebilir.",
+    "trendTitle": "Anılma oranı (ölçüm başına)",
+    "trendSummary": "Son ölçümde anılma oranı {{value}}.",
+    "questionsTitle": "Takip edilen sorular",
+    "questionsBody": "Soruları müşterilerinizin ağzından yazın; marka adınızı eklemeyin.",
+    "addLabel": "Yeni soru",
+    "addPlaceholder": "Örn. Ayvalık'ta taş baskı zeytinyağı nereden alınır?",
+    "add": "Soruyu ekle",
+    "limitReached": "En fazla {{value}} soru takip edilebilir.",
+    "errors": {
+      "ai_not_configured": "Yapay zekâ yapılandırılmadığı için ölçüm yapılamadı.",
+      "ai_budget": "Günlük yapay zekâ hakkı doldu. Ölçüm yarın tekrar denenecek.",
+      "ai_unavailable": "Yapay zekâ servisi şu an yoğun. Birazdan \"Şimdi yeniden ölç\" ile tekrar deneyin.",
+      "stalled": "Ölçüm yarıda kaldı. \"Şimdi yeniden ölç\" ile yeniden başlatın.",
+      "internal": "Ölçüm sırasında bir sorun oldu. Biraz sonra tekrar deneyin."
+    }
+  }
+}

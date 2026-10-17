@@ -1,0 +1,77 @@
+diff --git a/dist/typegen-WywajSVn.js b/dist/typegen-WywajSVn.js
+index 1fd1a2a70a21b938adf5441353f95ecdc1aa5acd..0728c59123068705e99fa7303e4d589864052df8 100644
+--- a/dist/typegen-WywajSVn.js
++++ b/dist/typegen-WywajSVn.js
+@@ -823,13 +823,23 @@ const { green, red } = colors;
+ async function clearRouteModuleAnnotations(ctx) {
+ 	await fs$1.rm(Path.join(typesDirectory(ctx), Path.basename(ctx.config.appDirectory)), {
+ 		recursive: true,
+-		force: true
++		force: true,
++		maxRetries: 10,
++		retryDelay: 100
+ 	});
+ }
++async function retryFs(fn) {
++	for (let attempt = 0;; attempt++) try {
++		return await fn();
++	} catch (err) {
++		if (attempt >= 10 || !["EPERM", "EBUSY", "ENOENT", "ENOTEMPTY"].includes(err?.code)) throw err;
++		await new Promise((r) => setTimeout(r, 100));
++	}
++}
+ async function write(...files) {
+ 	return Promise.all(files.map(async ({ filename, content }) => {
+-		await fs$1.mkdir(Path.dirname(filename), { recursive: true });
+-		await fs$1.writeFile(filename, content);
++		await retryFs(() => fs$1.mkdir(Path.dirname(filename), { recursive: true }));
++		await retryFs(() => fs$1.writeFile(filename, content));
+ 	}));
+ }
+ async function run(rootDirectory, { mode, rsc }) {
+@@ -841,7 +851,9 @@ async function run(rootDirectory, { mode, rsc }) {
+ 	});
+ 	await fs$1.rm(typesDirectory(ctx), {
+ 		recursive: true,
+-		force: true
++		force: true,
++		maxRetries: 10,
++		retryDelay: 100
+ 	});
+ 	await write(generateServerBuild(ctx), ...generateRoutes(ctx));
+ }
+@@ -854,9 +866,15 @@ async function watch(rootDirectory, { mode, logger, rsc }) {
+ 	});
+ 	await fs$1.rm(typesDirectory(ctx), {
+ 		recursive: true,
+-		force: true
++		force: true,
++		maxRetries: 10,
++		retryDelay: 100
+ 	});
+-	await write(generateServerBuild(ctx), ...generateRoutes(ctx));
++	try {
++		await write(generateServerBuild(ctx), ...generateRoutes(ctx));
++	} catch (err) {
++		logger?.warn("type generation failed: " + (err?.message ?? err), { timestamp: true });
++	}
+ 	logger?.info(green("generated types"), {
+ 		timestamp: true,
+ 		clear: true
+@@ -870,13 +888,15 @@ async function watch(rootDirectory, { mode, logger, rsc }) {
+ 			return;
+ 		}
+ 		ctx.config = result.value;
+-		if (routeConfigChanged) {
++		if (routeConfigChanged) try {
+ 			await clearRouteModuleAnnotations(ctx);
+ 			await write(...generateRoutes(ctx));
+ 			logger?.info(green("regenerated types"), {
+ 				timestamp: true,
+ 				clear: true
+ 			});
++		} catch (err) {
++			logger?.warn("type regeneration failed: " + (err?.message ?? err), { timestamp: true });
+ 		}
+ 	});
+ 	return { close: async () => await ctx.configLoader.close() };

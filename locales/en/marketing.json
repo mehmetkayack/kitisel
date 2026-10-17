@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "title": "Upvine — SEO content that grows your website on autopilot",
+    "description": "Upvine researches, writes, fact-checks and publishes SEO articles for your website, then tracks how they rank."
+  },
+  "hero": {
+    "title": "Grow your website with articles that are researched, fact-checked and published for you",
+    "subtitle": "Upvine plans your topics, writes in your brand’s voice, checks every fact and publishes to your site. You always stay in control.",
+    "badge": "Free site analysis, no sign-up needed",
+    "point1": "A 25-point technical SEO check of your site",
+    "point2": "Topics your customers search for, with estimated volume",
+    "point3": "A shareable report in about a minute",
+    "or": "or"
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "A steadily growing blog in 3 steps",
+    "stepLabel": "Step {{value}}",
+    "step1": {
+      "title": "We analyze your site",
+      "body": "Enter your address; we crawl your site, learn your brand and find the topics your customers search for."
+    },
+    "step2": {
+      "title": "You approve the plan",
+      "body": "Topics land on your calendar. Read, edit or reject every article before it goes live."
+    },
+    "step3": {
+      "title": "It gets published, you watch the results",
+      "body": "Approved articles are published to your site. Track impressions, clicks and positions on Google from the dashboard."
+    }
+  },
+  "features": {
+    "eyebrow": "What it does",
+    "title": "A content team’s work in one dashboard",
+    "body": "From finding topics to publishing and measuring, every step is automated; the decisions stay with you.",
+    "research": {
+      "title": "Researched and fact-checked",
+      "body": "Claims in every article are checked; anything that can’t be verified is removed and sources are listed."
+    },
+    "voice": {
+      "title": "Your brand’s voice",
+      "body": "Learns your tone, banned words and sample texts, so articles sound like you."
+    },
+    "publish": {
+      "title": "Automatic publishing",
+      "body": "Connects to WordPress, Shopify, Webflow, Ghost and Wix, with cover images and SEO fields."
+    },
+    "results": {
+      "title": "Google results",
+      "body": "Impressions, clicks, positions and keywords gained, from Search Console."
+    },
+    "ai": {
+      "title": "AI visibility",
+      "body": "Checks weekly whether AI assistants mention your brand when your customers ask questions."
+    },
+    "health": {
+      "title": "Site health and older posts",
+      "body": "Shows technical SEO issues and gaps in your existing posts in plain language, with how to fix them."
+    },
+    "languages": {
+      "title": "Content in many languages",
+      "body": "Dashboard in 5 languages; articles in 25+ languages, tailored to your target country."
+    },
+    "control": {
+      "title": "You’re in control",
+      "body": "Approval mode, drag-and-drop calendar, version history and section-by-section editing."
+    }
+  },
+  "compare": {
+    "eyebrow": "Why Upvine",
+    "title": "How it compares",
+    "criteria": "Criterion",
+    "columns": {
+      "agency": "Agency",
+      "tool": "Classic SEO tool",
+      "aiOnly": "AI writer only",
+      "upvine": "Upvine"
+    },
+    "rows": {
+      "cost": "Fits a small business budget",
+      "writing": "Writes the articles",
+      "facts": "Checks the facts",
+      "publish": "Publishes to your site",
+      "tracking": "Tracks results",
+      "control": "You approve every article"
+    },
+    "marks": {
+      "yes": "Yes",
+      "partial": "Partly",
+      "no": "No"
+    }
+  },
+  "preview": {
+    "eyebrow": "Dashboard",
+    "title": "Everything on one screen",
+    "body": "What went live this month, what’s waiting for you and your progress on Google at a glance.",
+    "alt": "Sample view of the Upvine dashboard: metric cards and an article list with status badges",
+    "stat1": "Articles published this month",
+    "stat1Change": "4 more than last month",
+    "stat2": "Times shown on Google",
+    "stat2Change": "Up 32% vs last month",
+    "stat3": "Articles in the top 10",
+    "stat3Change": "2 articles reached page one",
+    "article1": "How to store olive oil: 7 practical tips",
+    "article2": "What makes early-harvest olive oil different?",
+    "article3": "Cold-pressed vs. heat-pressed: the difference",
+    "article4": "What to look for in breakfast olives",
+    "date1": "Live",
+    "date2": "Waiting for you",
+    "date3": "Thursday 10:00",
+    "date4": "Being written"
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Simple pricing, no credits to count",
+    "body": "A fixed monthly article allowance in every plan. Try it free for 7 days.",
+    "intervalLabel": "Billing period",
+    "monthly": "Monthly",
+    "yearly": "Yearly (2 months free)",
+    "perMonth": "/ month",
+    "billedYearly": "Billed {{value}} yearly",
+    "popular": "Most popular",
+    "start": "Start free trial",
+    "policy": "Cancel anytime; full refund within 14 days of your first payment, no questions asked.",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "for": "For one site and a steady blog"
+      },
+      "growth": {
+        "name": "Growth",
+        "for": "For businesses that want to grow faster"
+      },
+      "agency": {
+        "name": "Agency",
+        "for": "For agencies managing several sites"
+      }
+    },
+    "f": {
+      "articles": "{{value}} articles a month",
+      "sites": "{{value}} sites",
+      "refreshes": "{{value}} older-post refreshes a month",
+      "keywords": "{{value}} tracked keywords",
+      "languages": "{{value}} content languages",
+      "allLanguages": "All content languages",
+      "team": "{{value}} team members",
+      "aiVisibility": "AI visibility tracking"
+    },
+    "policyLink": "Cancellation and refund policy",
+    "exVat": "+ VAT"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions you may have",
+    "q1": {
+      "q": "Is AI-written content a problem for Google?",
+      "a": "Google looks at whether content is helpful and accurate, not how it was produced. Upvine fact-checks every article, cites sources and asks for your approval before publishing. We don’t promise rankings; consistent, quality content pays off over time."
+    },
+    "q2": {
+      "q": "Which platforms does it work with?",
+      "a": "It publishes directly to WordPress, Shopify, Webflow, Ghost and Wix. Custom sites can connect via webhook, or you can download articles as HTML, Markdown or ZIP."
+    },
+    "q3": {
+      "q": "Will articles go live without my approval?",
+      "a": "Not by default. In approval mode every article comes to you first; you can edit, rewrite or reject it. If you like, you can turn on automatic publishing for articles that pass the quality bar."
+    },
+    "q4": {
+      "q": "What’s in the free analysis?",
+      "a": "A 25-point technical SEO check, your brand summary, the keywords your customers search for and topic clusters. No sign-up needed; the report opens at a shareable link."
+    },
+    "q5": {
+      "q": "Which languages can it write in?",
+      "a": "The dashboard is in English, Turkish, German, Spanish and French. Articles are written in 25+ languages, tailored to your target country."
+    },
+    "q6": {
+      "q": "How do cancellation and refunds work?",
+      "a": "Cancel your subscription from the dashboard at any time. You get a full refund within 14 days of your first payment."
+    }
+  },
+  "final": {
+    "title": "See where your site stands today",
+    "body": "The free analysis takes about a minute and needs no sign-up."
+  },
+  "legal": {
+    "title": "Legal documents",
+    "englishOnly": "This document is currently available in English and Turkish. You are viewing the English version.",
+    "docs": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "refund": "Cancellation, Refund and Delivery",
+      "distance-sales": "Distance Sales Agreement",
+      "pre-information": "Pre-Information Form",
+      "kvkk": "KVKK Privacy Notice",
+      "dpa": "Data Processing Agreement (DPA)"
+    },
+    "missing": {
+      "companyName": "Company name",
+      "address": "Address",
+      "taxOffice": "Tax office",
+      "taxNumber": "Tax number",
+      "phone": "Phone",
+      "email": "Email",
+      "jurisdiction": "Place of jurisdiction",
+      "hosting": "Hosting provider",
+      "site": "Site address"
+    }
+  },
+  "pricingPage": {
+    "title": "Pricing · Upvine",
+    "description": "Upvine plans and prices: monthly articles, number of sites, updates and keyword tracking. Cancel anytime, 14-day no-questions-asked refund on your first payment."
+  },
+  "about": {
+    "metaTitle": "About · Upvine",
+    "title": "About us",
+    "intro": "Upvine was built to help small businesses and agencies publish regular, high-quality content that people actually search for.",
+    "p1": "We analyze your site, find what your customers search for on Google and prepare a content calendar. Every article is written in your brand voice, fact-checked, linked to your other pages and published on your site with your approval.",
+    "p2": "We don’t forget your existing posts either: for posts that are losing traffic or getting outdated, we suggest updates, show you the before and after, and apply them only if you approve.",
+    "p3": "Upvine is currently in beta. Your feedback directly shapes the product; we read every suggestion.",
+    "company": "Upvine is developed and provided by {{company}}.",
+    "cta": "Analyze your site for free",
+    "contact": "Contact us"
+  },
+  "contact": {
+    "metaTitle": "Contact · Upvine",
+    "title": "Contact",
+    "body": "Email us with questions, suggestions or support requests. We usually reply within 1 business day.",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "tax": "Tax office / number",
+    "mersis": "MERSIS number",
+    "kep": "Registered email (KEP)",
+    "privacy": "For requests about your personal data:"
+  }
+}

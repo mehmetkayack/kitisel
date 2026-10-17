@@ -1,0 +1,102 @@
+{
+  "title": "Bileşen vitrini",
+  "intro": "Tüm ortak bileşenler açık ve koyu temada. Sadece geliştirme ortamında.",
+  "light": "Açık tema",
+  "dark": "Koyu tema",
+  "sections": {
+    "buttons": "Butonlar",
+    "inputs": "Giriş alanları",
+    "badges": "Durum rozetleri",
+    "cards": "Kartlar",
+    "overlays": "Modal, yan panel ve açıklama balonu",
+    "tabs": "Sekmeler",
+    "feedback": "Bildirim ve iskelet yükleme",
+    "emptyState": "Boş durum",
+    "stats": "Metrik kartları",
+    "progress": "İlerleme adımları",
+    "checklist": "Kontrol listesi",
+    "table": "Veri tablosu",
+    "editor": "Makale editörü",
+    "charts": "Grafikler"
+  },
+  "buttons": {
+    "primary": "Onayla ve planla",
+    "secondary": "Düzenle",
+    "ghost": "Şimdilik atla",
+    "danger": "Sil",
+    "disabled": "Kullanılamıyor",
+    "loading": "Kaydediliyor"
+  },
+  "inputs": {
+    "url": "Web sitesi adresi",
+    "urlPlaceholder": "https://ornek.com",
+    "urlHint": "Sadece herkese açık sayfaları okuruz.",
+    "error": "Lütfen https:// ile başlayan tam bir adres girin",
+    "select": "Yayın sıklığı",
+    "selectPlaceholder": "Ne sıklıkla?",
+    "perWeek": "Haftada {{n}} yazı"
+  },
+  "card": {
+    "title": "Evde ekşi mayalı ekmek nasıl yapılır",
+    "body": "1.850 kelime · 12 bilgi doğrulandı · 2 görsel"
+  },
+  "dialog": {
+    "open": "Modalı aç",
+    "title": "Aboneliğiniz iptal edilsin mi?",
+    "body": "Mevcut fatura döneminizin sonuna kadar erişiminiz devam eder. İstediğiniz zaman geri dönebilirsiniz.",
+    "confirm": "Aboneliği iptal et",
+    "keep": "Aboneliği koru"
+  },
+  "sheet": {
+    "open": "Yan paneli aç",
+    "title": "Yazı ayrıntıları",
+    "body": "Yan paneller sayfadan çıkmadan ek ayrıntı gösterir."
+  },
+  "tooltip": {
+    "label": "Tıklanma oranı",
+    "text": "Sayfanızı Google'da gördükten sonra kaç kişinin tıkladığı."
+  },
+  "tabs": {
+    "overview": "Genel Bakış",
+    "articles": "Yazılarım",
+    "keywords": "Anahtar Kelimeler",
+    "overviewBody": "Sonuçlarınızın özeti.",
+    "articlesBody": "Her yazı ve performansı.",
+    "keywordsBody": "İnsanların sizi bulduğu aramalar."
+  },
+  "toast": {
+    "show": "Bildirim göster",
+    "success": "Yazı onaylandı",
+    "undoable": "Yazı silindi"
+  },
+  "stats": {
+    "published": "Bu ay yayınlanan yazı",
+    "impressions": "Google'da görünme sayısı",
+    "top10": "Google'da ilk 10'daki yazı",
+    "changeUp": "Geçen aya göre ↑ {{value}}",
+    "changeDown": "Geçen aya göre ↓ {{value}}"
+  },
+  "table": {
+    "caption": "Son yazılar",
+    "article": "Yazı",
+    "status": "Durum",
+    "date": "Tarih",
+    "row1": "Yeni başlayanlar için ekşi maya",
+    "row2": "Ekmek için en iyi un",
+    "row3": "Ekmek neden kabarmaz",
+    "empty": "Henüz gösterilecek yazı yok."
+  },
+  "editor": {
+    "label": "Örnek yazı",
+    "sample": "<p>Bu bir <strong>örnek</strong> paragraf.</p><h2>Bölüm başlığı</h2><ul><li>Birinci madde</li><li>İkinci madde</li></ul>"
+  },
+  "charts": {
+    "lineTitle": "Günlük gösterim",
+    "columnTitle": "Ölçüm başına anılma oranı",
+    "table": "Tablo olarak göster",
+    "date": "Tarih",
+    "value": "Değer",
+    "day": "{{value}}. gün",
+    "week": "{{value}}. hafta"
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "list": {
+    "usage": "Artículos este mes: {{used}} / {{limit}}",
+    "write": "Escribir ahora",
+    "open": "Abrir",
+    "notConnected": "Tu sitio todavía no está conectado. Los artículos aprobados esperan a que los descargues, o puedes conectar tu sitio en Ajustes.",
+    "connect": "Conectar tu sitio"
+  },
+  "detail": {
+    "back": "Todo el contenido",
+    "plannedFor": "Previsto para el {{date}}",
+    "words": "Palabras: {{value}}",
+    "version": "Versión {{value}}"
+  },
+  "steps": {
+    "research": "Investigando el tema",
+    "draft": "Escribiendo el borrador",
+    "factCheck": "Verificando los datos",
+    "seo": "Revisando el SEO",
+    "images": "Preparando la imagen de portada"
+  },
+  "generating": {
+    "title": "Estamos escribiendo este artículo",
+    "body": "Normalmente tarda entre uno y tres minutos. Puedes salir de esta página; te enviaremos un correo cuando esté listo."
+  },
+  "notWritten": {
+    "title": "Este artículo todavía no está escrito",
+    "body": "Empezamos a escribir automáticamente unos días antes de la fecha de publicación. También puedes empezar ahora.",
+    "write": "Escribirlo ahora",
+    "quotaFull": "Has usado todos los artículos de este mes. Tendrás artículos nuevos el próximo mes."
+  },
+  "errors": {
+    "ai_not_configured": "No se pueden escribir artículos porque el servicio de IA no está configurado.",
+    "ai_budget": "Hemos alcanzado el límite de IA de hoy. Lo intentaremos mañana, o puedes intentarlo más tarde.",
+    "ai_unavailable": "El servicio de IA estaba ocupado. Vuelve a intentarlo en unos minutos.",
+    "ai_blocked": "El servicio de IA rechazó escribir sobre este tema. Prueba con otro título o palabra clave.",
+    "ai_invalid_output": "El borrador no salió bien. Vuelve a pedir que se escriba.",
+    "quota_exceeded": "Has usado todos los artículos de este mes.",
+    "internal": "Algo salió mal por nuestra parte. Vuelve a intentarlo.",
+    "publish_auth_failed": "Tu sitio no aceptó nuestro acceso. Vuelve a conectar tu sitio en Ajustes; tarda unos 30 segundos.",
+    "publish_forbidden": "El usuario conectado no puede publicar. Vuelve a conectar con una cuenta de editor o administrador.",
+    "publish_not_found": "No encontramos la dirección de publicación de tu sitio. Revisa la conexión en Ajustes.",
+    "publish_not_wordpress": "No pudimos acceder a la interfaz de publicación de WordPress. Revisa la conexión en Ajustes.",
+    "publish_app_passwords_disabled": "Las contraseñas de aplicación están desactivadas en tu WordPress. Actívalas y vuelve a conectar.",
+    "publish_unreachable": "No pudimos acceder a tu sitio tras varios intentos. Comprueba que esté en línea y vuelve a publicar.",
+    "publish_rejected": "Tu sitio rechazó el artículo. Revisa la conexión y vuelve a publicar.",
+    "publish_server_error": "Tu sitio respondió con un error varias veces. Vuelve a publicar más tarde.",
+    "publish_internal": "La publicación falló por nuestra parte. Vuelve a publicar.",
+    "publish_no_blog": "No encontramos ningún blog en tu tienda. Crea un blog en Shopify y vuelve a publicar.",
+    "publish_no_author": "Tu sitio de Wix ya no tiene ningún miembro que pueda ser autor. Añade un miembro y vuelve a publicar.",
+    "publish_invalid_mapping": "Los campos de tu colección de Webflow han cambiado. Vuelve a conectarla en Ajustes.",
+    "duplicate_post": "Una de tus entradas ya trata este tema."
+  },
+  "retry": "Intentar de nuevo",
+  "retryPublish": "Publicar de nuevo",
+  "review": {
+    "googlePreview": "Así podría verse en Google",
+    "seoTitle": "Puntuación SEO",
+    "seoLevels": {
+      "good": "Listo para posicionar",
+      "fair": "Se puede mejorar",
+      "poor": "Necesita mejoras"
+    },
+    "seoDetails": "Ver las comprobaciones SEO",
+    "verificationTitle": "Verificación de datos",
+    "verificationSummary": "Verificados: {{verified}} · Corregidos: {{corrected}} · Eliminados: {{removed}}",
+    "verificationNone": "Este artículo no tiene cifras ni fechas concretas que verificar.",
+    "verificationUnchecked": "No pudimos verificar los datos automáticamente. Revisa cifras y fechas antes de aprobar.",
+    "verdicts": {
+      "verified": "Verificado",
+      "corrected": "Corregido",
+      "removed": "Eliminado"
+    },
+    "verificationDetails": "Ver los datos revisados",
+    "sourcesTitle": "Fuentes",
+    "coverGenerated": "La portada se creó con los colores de tu marca.",
+    "approve": "Aprobar y programar",
+    "reject": "Rechazar",
+    "download": "Descargar",
+    "downloadHtml": "Archivo HTML",
+    "downloadMd": "Archivo Markdown",
+    "downloadZip": "ZIP (HTML, Markdown e imágenes)",
+    "infographicCaption": "Infografía: se añade después de la primera sección al publicar. También puedes compartirla en redes sociales.",
+    "coverSite": "La portada usa la imagen de la página de tu sitio más cercana a este tema.",
+    "coverUser": "Subiste esta portada.",
+    "regenerateLeft": "Reescribir (quedan {{left}}/{{limit}})"
+  },
+  "reject": {
+    "title": "¿Por qué rechazas este artículo?",
+    "body": "Tendremos en cuenta tu respuesta al reescribirlo y en tus próximos artículos.",
+    "reasons": {
+      "too_generic": "Demasiado general, poco concreto",
+      "wrong_facts": "Algunos datos son incorrectos",
+      "wrong_tone": "No suena como nosotros",
+      "off_topic": "Se sale del tema",
+      "too_salesy": "Demasiado comercial",
+      "other": "Otro motivo"
+    },
+    "confirm": "Rechazar artículo",
+    "done": "Artículo rechazado."
+  },
+  "status": {
+    "scheduledConnected": "Aprobado. Se publicará el {{date}}.",
+    "scheduledNow": "Aprobado. Se está publicando ahora.",
+    "scheduledNotConnected": "Aprobado. Tu sitio no está conectado: descarga el artículo y publícalo tú, o conecta tu sitio.",
+    "published": "Publicado en tu sitio.",
+    "viewLive": "Ver en tu sitio",
+    "rejected": "Rechazaste este artículo."
+  },
+  "seoChecks": {
+    "keyword_in_title": "Palabra clave en el título",
+    "meta_title_length": "Longitud del título en Google (50–60 caracteres)",
+    "meta_description_length": "Longitud de la descripción en Google (140–160 caracteres)",
+    "keyword_in_meta_description": "Palabra clave en la descripción de Google",
+    "slug": "Dirección de página corta y legible",
+    "keyword_in_intro": "Palabra clave en el primer párrafo",
+    "h2_structure": "Encabezados de sección claros",
+    "keyword_density": "Uso natural de la palabra clave",
+    "readability": "Frases cortas y sencillas",
+    "internal_links": "Enlaces a tus otras páginas",
+    "external_links": "Enlaces a fuentes fiables",
+    "faq": "Preguntas frecuentes",
+    "toc": "Índice",
+    "schema": "Información estructurada para Google",
+    "word_count": "Longitud del artículo",
+    "image_alt": "Descripción de la imagen de portada"
+  },
+  "connections": {
+    "title": "Conexión del sitio",
+    "body": "Los artículos aprobados se publican directamente en tu sitio, con la imagen de portada.",
+    "connected": "Conectado",
+    "lastChecked": "Última revisión: {{date}}",
+    "test": "Probar conexión",
+    "tested": "La conexión funciona.",
+    "disconnect": "Desconectar",
+    "disconnectTitle": "¿Desconectar tu sitio?",
+    "disconnectBody": "Los artículos aprobados dejarán de publicarse automáticamente. Tus datos de acceso se eliminan. Puedes volver a conectar cuando quieras.",
+    "disconnected": "Tu sitio se ha desconectado.",
+    "choose": "¿Cómo publicamos?",
+    "kinds": {
+      "wordpress": {
+        "label": "WordPress",
+        "hint": "Publica entradas con la portada como imagen destacada."
+      },
+      "webhook": {
+        "label": "Webhook (sitio propio)",
+        "hint": "Enviamos cada artículo como JSON firmado a la dirección de tu desarrollador."
+      },
+      "ghost": {
+        "label": "Ghost",
+        "hint": "Con una clave de Admin API; la portada pasa a ser la imagen destacada."
+      },
+      "shopify": {
+        "label": "Shopify",
+        "hint": "Publica artículos en el blog de tu tienda."
+      },
+      "webflow": {
+        "label": "Webflow",
+        "hint": "En tu colección del CMS; tú eliges los campos."
+      },
+      "wix": {
+        "label": "Wix",
+        "hint": "Publica en Wix Blog."
+      }
+    },
+    "wordpress": {
+      "siteUrl": "Dirección del sitio WordPress",
+      "username": "Usuario de WordPress",
+      "appPassword": "Contraseña de aplicación",
+      "appPasswordHint": "En WordPress ve a Usuarios → Perfil → Contraseñas de aplicación. Escribe un nombre como «Upvine», pulsa «Añadir» y pega aquí la contraseña.",
+      "connect": "Conectar WordPress",
+      "oneClick": "Conectar con un clic",
+      "or": "O introduce una contraseña de aplicación:"
+    },
+    "webhook": {
+      "url": "Dirección del webhook",
+      "urlHint": "Debe empezar por https://. Enviamos cada artículo como JSON con firma HMAC.",
+      "connect": "Conectar webhook",
+      "secretTitle": "Guarda ahora tu clave de firma",
+      "secretBody": "Úsala para comprobar que las solicitudes vienen de Upvine (cabecera X-Upvine-Signature). No volveremos a mostrarla.",
+      "copy": "Copiar",
+      "copied": "Copiado."
+    },
+    "errors": {
+      "auth_failed": "Tu sitio no aceptó los datos de acceso. Revísalos e inténtalo de nuevo.",
+      "forbidden": "Este usuario no puede publicar entradas. Usa una cuenta de editor o administrador.",
+      "not_found": "No encontramos esta dirección. Revísala y vuelve a intentarlo.",
+      "not_wordpress": "No encontramos WordPress en esta dirección. Revisa la dirección o pregunta a tu desarrollador si la API REST está desactivada.",
+      "app_passwords_disabled": "Las contraseñas de aplicación están desactivadas en este WordPress. El sitio debe usar HTTPS y ningún plugin de seguridad debe bloquearlas.",
+      "unreachable": "No pudimos acceder a esta dirección. Revísala y vuelve a intentarlo.",
+      "rejected": "El sitio rechazó nuestra solicitud de prueba. Revisa la dirección y vuelve a intentarlo.",
+      "server_error": "El sitio respondió con un error. Vuelve a intentarlo en unos minutos.",
+      "internal": "Algo salió mal por nuestra parte. Vuelve a intentarlo.",
+      "no_blog": "Tu tienda no tiene blog. Crea uno en Shopify en Tienda online → Entradas de blog.",
+      "no_author": "Tu sitio de Wix no tiene ningún miembro que pueda ser autor. Instala el Área de miembros y añádete como miembro.",
+      "invalid_mapping": "Los campos elegidos no encajan con la colección (el cuerpo debe ser un campo de texto enriquecido y todos los campos obligatorios deben estar asignados)."
+    },
+    "callback": {
+      "connected": "WordPress está conectado.",
+      "failed": "No pudimos conectar WordPress. Vuelve a intentarlo o introduce una contraseña de aplicación.",
+      "rejected": "La conexión no se aprobó en WordPress."
+    },
+    "ghost": {
+      "siteUrl": "Dirección del sitio Ghost",
+      "adminApiKey": "Clave de Admin API",
+      "adminApiKeyHint": "En Ghost Admin ve a Settings → Integrations → «Add custom integration», copia la «Admin API key» y pégala aquí.",
+      "connect": "Conectar Ghost"
+    },
+    "shopify": {
+      "shop": "Dirección de la tienda",
+      "shopHint": "Por ejemplo mitienda.myshopify.com (aparece en la barra de direcciones de tu panel de Shopify).",
+      "method": "¿Cómo nos conectamos?",
+      "methods": {
+        "app": {
+          "label": "App de Shopify (recomendado)",
+          "hint": "Crea una app en el Dev Dashboard de Shopify, instálala en tu tienda e introduce su Client ID y Client secret."
+        },
+        "token": {
+          "label": "Token de una app personalizada antigua",
+          "hint": "Si tienes una app personalizada creada antes de 2026: su token de Admin API que empieza por «shpat_»."
+        }
+      },
+      "clientId": "Client ID",
+      "clientSecret": "Client secret",
+      "accessToken": "Token de Admin API",
+      "scopes": "La app necesita estos permisos: write_content (artículos del blog) y write_files (imágenes).",
+      "connect": "Conectar Shopify"
+    },
+    "webflow": {
+      "token": "Token de API del sitio",
+      "tokenHint": "En Webflow ve a Site settings → Apps & Integrations → API access → «Generate API token». Permite lectura y escritura para CMS, Sites y Assets.",
+      "find": "Buscar colecciones",
+      "noCollections": "No encontramos ninguna colección del CMS accesible con este token.",
+      "collection": "Colección para tus artículos",
+      "pick": "Elige una colección",
+      "mapHint": "Elige el campo para cada parte del artículo. El título y el slug siempre van a los campos «Name» y «Slug».",
+      "roles": {
+        "body": "Cuerpo del artículo",
+        "summary": "Resumen",
+        "image": "Imagen de portada",
+        "metaTitle": "Título SEO",
+        "metaDescription": "Descripción SEO"
+      },
+      "required": "Obligatorio: un campo de texto enriquecido.",
+      "none": "No usar",
+      "connect": "Conectar Webflow"
+    },
+    "wix": {
+      "apiKey": "Clave de API de Wix",
+      "apiKeyHint": "Crea una clave nueva en la página «API Keys» de tu cuenta de Wix y dale permisos de Blog y Media Manager.",
+      "siteId": "ID del sitio",
+      "siteIdHint": "El ID largo que aparece después de «/dashboard/» en la barra de direcciones del panel de tu sitio.",
+      "authorNote": "Wix exige que las entradas las publique un miembro del sitio: usamos el primer miembro como autor.",
+      "connect": "Conectar Wix"
+    }
+  },
+  "editor": {
+    "edit": "Editar",
+    "title": "Editar entrada",
+    "save": "Guardar",
+    "saved": "Guardado. Se ha recalculado la puntuación SEO.",
+    "conflict": "Esta entrada se guardó en otro lugar mientras la editabas. Copia tus cambios, recarga la página y vuelve a aplicarlos.",
+    "length": "{{value}} caracteres · recomendado {{min}}–{{max}}",
+    "slugHint": "La dirección de la entrada. No la cambies después de publicar.",
+    "bodyHint": "El índice, las preguntas frecuentes y los datos estructurados se actualizan al guardar.",
+    "fields": {
+      "title": "Título",
+      "metaTitle": "Título en Google",
+      "metaDescription": "Descripción en Google",
+      "slug": "Slug de la URL",
+      "body": "Entrada"
+    },
+    "unsaved": {
+      "title": "Cambios sin guardar",
+      "body": "Si sales ahora, perderás los cambios que no has guardado.",
+      "leave": "Salir sin guardar",
+      "stay": "Seguir editando"
+    },
+    "rewrite": {
+      "button": "Reescribir con IA",
+      "title": "Reescribir esta parte",
+      "body": "Se reescribe la parte seleccionada. Tu entrada no cambia hasta que revises y aceptes el resultado.",
+      "nothingSelected": "Primero selecciona el texto o coloca el cursor dentro de una sección.",
+      "how": "¿Cómo debe cambiar?",
+      "instructions": {
+        "improve": "Explicarlo mejor",
+        "expand": "Ampliar",
+        "shorten": "Acortar",
+        "simplify": "Simplificar",
+        "add_example": "Añadir un ejemplo",
+        "custom": "Mi propia instrucción"
+      },
+      "customLabel": "Tu instrucción",
+      "customHint": "Por ejemplo: «No menciones precios, invita a pedir cita».",
+      "start": "Reescribir",
+      "working": "Escribiendo, suele tardar 10-20 segundos…",
+      "result": "Nueva versión:",
+      "apply": "Reemplazar",
+      "again": "Probar otra cosa",
+      "tooLong": "La parte seleccionada es demasiado larga. Selecciona una parte más pequeña."
+    }
+  },
+  "versions": {
+    "button": "Historial de versiones",
+    "title": "Historial de versiones",
+    "body": "Cada guardado es una versión. Volver a una versión anterior no borra el historial.",
+    "version": "Versión {{value}}",
+    "current": "Actual",
+    "sources": {
+      "ai": "IA",
+      "user": "Edición",
+      "restore": "Restaurada"
+    },
+    "meta": "SEO {{score}} · {{words}} palabras",
+    "restore": "Volver a esta versión",
+    "restored": "Se ha restaurado la versión anterior."
+  },
+  "cover": {
+    "change": "Cambiar portada",
+    "title": "Cambiar la imagen de portada",
+    "description": "Sube una imagen propia. No se recorta y se conserva aunque el artículo se vuelva a escribir.",
+    "file": "Archivo de imagen",
+    "fileHint": "JPG, PNG, WebP o AVIF; al menos 600×300 píxeles y hasta 10 MB. Lo ideal es 1600×900 (16:9).",
+    "alt": "Descripción de la imagen (texto alternativo)",
+    "altHint": "Describe brevemente lo que muestra la imagen. Google y los lectores de pantalla la usan.",
+    "save": "Guardar portada",
+    "saved": "Portada actualizada.",
+    "invalid": "No se puede usar este archivo. Elige un JPG, PNG, WebP o AVIF de al menos 600×300 píxeles y hasta 10 MB.",
+    "fileRequired": "Elige un archivo de imagen.",
+    "altRequired": "Escribe una descripción de la imagen."
+  },
+  "duplicate": {
+    "title": "Tu sitio ya trata este tema",
+    "body": "No escribimos un artículo nuevo porque una de tus entradas ya trata este tema. Dos entradas sobre el mismo tema se debilitan entre sí en Google. Te recomendamos actualizar la entrada existente:",
+    "refresh": "Actualizar la entrada existente",
+    "writeAnyway": "Escribirlo igualmente"
+  }
+}

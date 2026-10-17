@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "Free SEO site analysis — Upvine",
+    "description": "Check 25 technical SEO basics, see your top keyword opportunities and your organic competitors. Free, no sign-up, ready in about a minute.",
+    "reportTitle": "SEO analysis for {{domain}} — Upvine"
+  },
+  "form": {
+    "title": "Free SEO analysis of your website",
+    "subtitle": "See what to fix first, which topics your customers search for and who you compete with in Google.",
+    "label": "Website address",
+    "placeholder": "example.com",
+    "hint": "The address of your home page.",
+    "submit": "Analyze my site for free",
+    "note": "No sign-up needed. Your report is ready in about a minute.",
+    "what1": "25 technical checks with plain-language fixes",
+    "what2": "Your top 10 keyword opportunities with search numbers",
+    "what3": "Your 3 organic competitors and topic ideas"
+  },
+  "progress": {
+    "title": "We are analyzing {{domain}}",
+    "body": "This usually takes about a minute. Keep this page open; the report appears here.",
+    "steps": {
+      "homepage": "Reading your home page",
+      "discover": "Checking robots.txt and the sitemap",
+      "pages": "Scanning your pages and links",
+      "checks": "Running 25 technical checks",
+      "brand": "Understanding your business",
+      "keywords": "Finding keyword opportunities",
+      "competitors": "Looking up your competitors"
+    }
+  },
+  "failed": {
+    "title": "We could not analyze this site",
+    "retry": "Try another address"
+  },
+  "report": {
+    "title": "SEO analysis for {{domain}}",
+    "checkedAt": "Checked on {{date}}",
+    "pdf": "Download PDF",
+    "share": "Copy share link",
+    "copied": "Link copied.",
+    "aiOff": "Keyword and competitor suggestions need our AI service, which is not available right now. The technical report below is complete.",
+    "brand": {
+      "title": "What we understood about your business",
+      "products": "Products and services"
+    },
+    "keywords": {
+      "title": "Top keyword opportunities",
+      "body": "Searches your customers make where you have a realistic chance to rank.",
+      "keyword": "Search phrase",
+      "volume": "Monthly searches",
+      "difficulty": "Competition",
+      "intent": "Searcher wants to",
+      "intents": {
+        "informational": "Learn",
+        "commercial": "Compare",
+        "transactional": "Buy",
+        "navigational": "Find a site"
+      },
+      "estimated": "Estimate",
+      "estimatedHelp": "Search numbers are estimates. Connect real keyword data after signing up for exact numbers."
+    },
+    "clusters": {
+      "title": "Suggested topic clusters",
+      "body": "Groups of related articles that build your authority on a subject."
+    },
+    "competitors": {
+      "title": "Your organic competitors",
+      "body": "Websites that appear in Google for the same customer searches.",
+      "empty": "We could not identify competitors this time."
+    },
+    "technical": {
+      "title": "Technical health: 25 checks"
+    },
+    "email": {
+      "title": "Get this report by email",
+      "label": "Email address",
+      "consent": "Also send me occasional SEO tips and Upvine news (optional, unsubscribe anytime).",
+      "submit": "Send the report",
+      "sent": "We sent the report to {{email}}."
+    },
+    "cta": {
+      "title": "Let Upvine apply this plan for you",
+      "body": "We write, fact-check and publish articles for these topics on your site. Try it free for 7 days and cancel anytime.",
+      "button": "Apply this plan automatically — try 7 days free"
+    }
+  },
+  "home": {
+    "cta": "Get a free site analysis",
+    "secondary": "Create a free account"
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "list": {
+    "usage": "Articles this month: {{used}} / {{limit}}",
+    "write": "Write now",
+    "open": "Open",
+    "notConnected": "Your site is not connected yet. Approved articles wait for you to download them, or you can connect your site in Settings.",
+    "connect": "Connect your site"
+  },
+  "detail": {
+    "back": "All content",
+    "plannedFor": "Planned for {{date}}",
+    "words": "Words: {{value}}",
+    "version": "Version {{value}}"
+  },
+  "steps": {
+    "research": "Researching the topic",
+    "draft": "Writing the draft",
+    "factCheck": "Checking the facts",
+    "seo": "Checking the SEO",
+    "images": "Preparing the cover image"
+  },
+  "generating": {
+    "title": "We are writing this article",
+    "body": "This usually takes one to three minutes. You can leave this page; we will email you when it is ready."
+  },
+  "notWritten": {
+    "title": "This article is not written yet",
+    "body": "We start writing automatically a few days before the publishing date. You can also start now.",
+    "write": "Write it now",
+    "quotaFull": "You have used all articles for this month. New articles are available next month."
+  },
+  "errors": {
+    "ai_not_configured": "Article writing is not available because the AI service is not set up.",
+    "ai_budget": "We reached today's AI limit. We will try again tomorrow, or you can try later.",
+    "ai_unavailable": "The AI service was busy. Please try again in a few minutes.",
+    "ai_blocked": "The AI service refused to write about this topic. Try a different title or keyword.",
+    "ai_invalid_output": "The draft did not come out right. Please try writing it again.",
+    "quota_exceeded": "You have used all articles for this month.",
+    "internal": "Something went wrong on our side. Please try again.",
+    "publish_auth_failed": "Your site did not accept our login. Reconnect your site in Settings; it takes about 30 seconds.",
+    "publish_forbidden": "The connected user is not allowed to publish. Reconnect with an editor or administrator account.",
+    "publish_not_found": "We could not find your site's publishing address. Check the connection in Settings.",
+    "publish_not_wordpress": "We could not reach the WordPress publishing interface. Check the connection in Settings.",
+    "publish_app_passwords_disabled": "Application passwords are turned off on your WordPress site. Turn them on and reconnect.",
+    "publish_unreachable": "We could not reach your site. We tried several times; please check that it is online and publish again.",
+    "publish_rejected": "Your site rejected the article. Check the connection, then publish again.",
+    "publish_server_error": "Your site answered with an error several times. Please publish again later.",
+    "publish_internal": "Publishing failed on our side. Please publish again.",
+    "publish_no_blog": "We could not find a blog in your store. Create a blog in Shopify, then publish again.",
+    "publish_no_author": "Your Wix site no longer has a member who can be the author. Add a member, then publish again.",
+    "publish_invalid_mapping": "The fields of your Webflow collection changed. Connect it again in Settings.",
+    "duplicate_post": "One of your posts already covers this topic."
+  },
+  "retry": "Try again",
+  "retryPublish": "Publish again",
+  "review": {
+    "googlePreview": "How it may look in Google",
+    "seoTitle": "SEO score",
+    "seoLevels": {
+      "good": "Ready to rank",
+      "fair": "Could be better",
+      "poor": "Needs work"
+    },
+    "seoDetails": "Show the SEO checks",
+    "verificationTitle": "Fact check",
+    "verificationSummary": "Verified: {{verified}} · Corrected: {{corrected}} · Removed: {{removed}}",
+    "verificationNone": "This article has no specific numbers or dates to check.",
+    "verificationUnchecked": "We could not check the facts automatically. Please review numbers and dates before approving.",
+    "verdicts": {
+      "verified": "Verified",
+      "corrected": "Corrected",
+      "removed": "Removed"
+    },
+    "verificationDetails": "Show the checked facts",
+    "sourcesTitle": "Sources",
+    "coverGenerated": "The cover was created from your brand colors.",
+    "approve": "Approve and schedule",
+    "reject": "Reject",
+    "download": "Download",
+    "downloadHtml": "HTML file",
+    "downloadMd": "Markdown file",
+    "downloadZip": "ZIP (HTML, Markdown and images)",
+    "infographicCaption": "Infographic: added after the first section when published. You can also share it on social media.",
+    "coverSite": "The cover uses the image from the page on your site closest to this topic.",
+    "coverUser": "You uploaded this cover.",
+    "regenerateLeft": "Rewrite ({{left}}/{{limit}} left)"
+  },
+  "reject": {
+    "title": "Why are you rejecting this article?",
+    "body": "We take your answer into account when we write it again and in your next articles.",
+    "reasons": {
+      "too_generic": "Too general, not specific enough",
+      "wrong_facts": "Some facts are wrong",
+      "wrong_tone": "Does not sound like us",
+      "off_topic": "Off topic",
+      "too_salesy": "Too salesy",
+      "other": "Something else"
+    },
+    "confirm": "Reject article",
+    "done": "Article rejected."
+  },
+  "status": {
+    "scheduledConnected": "Approved. It will be published on {{date}}.",
+    "scheduledNow": "Approved. It is being published now.",
+    "scheduledNotConnected": "Approved. Your site is not connected: download the article and publish it yourself, or connect your site.",
+    "published": "Published on your site.",
+    "viewLive": "View on your site",
+    "rejected": "You rejected this article."
+  },
+  "seoChecks": {
+    "keyword_in_title": "Focus keyword in the title",
+    "meta_title_length": "Google title length (50–60 characters)",
+    "meta_description_length": "Google description length (140–160 characters)",
+    "keyword_in_meta_description": "Focus keyword in the Google description",
+    "slug": "Short, readable page address",
+    "keyword_in_intro": "Focus keyword in the first paragraph",
+    "h2_structure": "Clear section headings",
+    "keyword_density": "Natural use of the focus keyword",
+    "readability": "Short, easy sentences",
+    "internal_links": "Links to your other pages",
+    "external_links": "Links to trusted sources",
+    "faq": "Frequently asked questions",
+    "toc": "Table of contents",
+    "schema": "Structured information for Google",
+    "word_count": "Article length",
+    "image_alt": "Cover image description"
+  },
+  "connections": {
+    "title": "Site connection",
+    "body": "Approved articles are published straight to your website, including the cover image.",
+    "connected": "Connected",
+    "lastChecked": "Last checked: {{date}}",
+    "test": "Test connection",
+    "tested": "The connection works.",
+    "disconnect": "Disconnect",
+    "disconnectTitle": "Disconnect your site?",
+    "disconnectBody": "Approved articles will no longer be published automatically. Your login details are deleted. You can connect again at any time.",
+    "disconnected": "Your site was disconnected.",
+    "choose": "How should we publish?",
+    "kinds": {
+      "wordpress": {
+        "label": "WordPress",
+        "hint": "Publishes posts with the cover image as featured image."
+      },
+      "webhook": {
+        "label": "Webhook (custom website)",
+        "hint": "We send each article as signed JSON to your developer's address."
+      },
+      "ghost": {
+        "label": "Ghost",
+        "hint": "With an Admin API key; the cover becomes the feature image."
+      },
+      "shopify": {
+        "label": "Shopify",
+        "hint": "Publishes articles to your store's blog."
+      },
+      "webflow": {
+        "label": "Webflow",
+        "hint": "To your CMS collection; you map the fields."
+      },
+      "wix": {
+        "label": "Wix",
+        "hint": "Publishes to Wix Blog."
+      }
+    },
+    "wordpress": {
+      "siteUrl": "WordPress site address",
+      "username": "WordPress username",
+      "appPassword": "Application password",
+      "appPasswordHint": "In WordPress go to Users → Profile → Application Passwords. Enter a name such as “Upvine”, click “Add”, then paste the password here.",
+      "connect": "Connect WordPress",
+      "oneClick": "Connect with one click",
+      "or": "Or enter an application password:"
+    },
+    "webhook": {
+      "url": "Webhook address",
+      "urlHint": "Must start with https://. We send each article as JSON with an HMAC signature.",
+      "connect": "Connect webhook",
+      "secretTitle": "Save your signing secret now",
+      "secretBody": "Use it to check that requests come from Upvine (header X-Upvine-Signature). We will not show it again.",
+      "copy": "Copy",
+      "copied": "Copied."
+    },
+    "errors": {
+      "auth_failed": "Your site did not accept the login details. Check them and try again.",
+      "forbidden": "This user is not allowed to publish posts. Use an editor or administrator account.",
+      "not_found": "We could not find this address. Check it and try again.",
+      "not_wordpress": "We could not find WordPress at this address. Check the address, or ask your developer whether the REST API is turned off.",
+      "app_passwords_disabled": "Application passwords are turned off on this WordPress site. The site must use HTTPS, and no security plugin may block them.",
+      "unreachable": "We could not reach this address. Check it and try again.",
+      "rejected": "The site rejected our test request. Check the address and try again.",
+      "server_error": "The site answered with an error. Try again in a few minutes.",
+      "internal": "Something went wrong on our side. Please try again.",
+      "no_blog": "Your store has no blog. Create one in Shopify under Online Store → Blog posts.",
+      "no_author": "Your Wix site has no member who can be the author. Add the Members Area and add yourself as a member.",
+      "invalid_mapping": "The chosen fields don't fit the collection (the body must be a rich text field and all required fields must be mapped)."
+    },
+    "callback": {
+      "connected": "WordPress is connected.",
+      "failed": "We could not connect WordPress. Please try again or enter an application password.",
+      "rejected": "The connection was not approved in WordPress."
+    },
+    "ghost": {
+      "siteUrl": "Ghost site address",
+      "adminApiKey": "Admin API key",
+      "adminApiKeyHint": "In Ghost Admin go to Settings → Integrations → \"Add custom integration\", then copy the \"Admin API key\" and paste it here.",
+      "connect": "Connect Ghost"
+    },
+    "shopify": {
+      "shop": "Store address",
+      "shopHint": "For example mystore.myshopify.com (you see it in the address bar of your Shopify admin).",
+      "method": "How should we connect?",
+      "methods": {
+        "app": {
+          "label": "Shopify app (recommended)",
+          "hint": "Create an app in the Shopify Dev Dashboard, install it on your store and enter its Client ID and Client secret."
+        },
+        "token": {
+          "label": "Legacy custom app token",
+          "hint": "If you have a custom app created before 2026: its Admin API token starting with \"shpat_\"."
+        }
+      },
+      "clientId": "Client ID",
+      "clientSecret": "Client secret",
+      "accessToken": "Admin API token",
+      "scopes": "The app needs these permissions: write_content (blog articles) and write_files (images).",
+      "connect": "Connect Shopify"
+    },
+    "webflow": {
+      "token": "Site API token",
+      "tokenHint": "In Webflow go to Site settings → Apps & Integrations → API access → \"Generate API token\". Allow read and write for CMS, Sites and Assets.",
+      "find": "Find collections",
+      "noCollections": "We found no CMS collection this token can access.",
+      "collection": "Collection for your articles",
+      "pick": "Choose a collection",
+      "mapHint": "Choose the field for each part of the article. The title and slug always go to the \"Name\" and \"Slug\" fields.",
+      "roles": {
+        "body": "Article body",
+        "summary": "Summary",
+        "image": "Cover image",
+        "metaTitle": "SEO title",
+        "metaDescription": "SEO description"
+      },
+      "required": "Required: a rich text field.",
+      "none": "Don't use",
+      "connect": "Connect Webflow"
+    },
+    "wix": {
+      "apiKey": "Wix API key",
+      "apiKeyHint": "Create a new key on the \"API Keys\" page of your Wix account and give it Blog and Media Manager permissions.",
+      "siteId": "Site ID",
+      "siteIdHint": "The long ID after \"/dashboard/\" in the address bar of your site's dashboard.",
+      "authorNote": "Wix requires posts to be published by a site member: we use the first member as the author.",
+      "connect": "Connect Wix"
+    }
+  },
+  "editor": {
+    "edit": "Edit",
+    "title": "Edit post",
+    "save": "Save",
+    "saved": "Saved. The SEO score was recalculated.",
+    "conflict": "This post was saved somewhere else while you were editing. Copy your changes, reload the page and apply them again.",
+    "length": "{{value}} characters · recommended {{min}}–{{max}}",
+    "slugHint": "The post address. Don’t change it after publishing.",
+    "bodyHint": "The table of contents, FAQ and structured data update automatically when you save.",
+    "fields": {
+      "title": "Title",
+      "metaTitle": "Google title",
+      "metaDescription": "Google description",
+      "slug": "URL slug",
+      "body": "Post"
+    },
+    "unsaved": {
+      "title": "Changes not saved",
+      "body": "If you leave now, your unsaved changes will be lost.",
+      "leave": "Leave without saving",
+      "stay": "Keep editing"
+    },
+    "rewrite": {
+      "button": "Rewrite with AI",
+      "title": "Rewrite this part",
+      "body": "The selected part is rewritten. Your post doesn’t change until you review and accept the result.",
+      "nothingSelected": "First select the text to rewrite, or place the cursor inside a section.",
+      "how": "How should it change?",
+      "instructions": {
+        "improve": "Explain it better",
+        "expand": "Expand",
+        "shorten": "Shorten",
+        "simplify": "Simplify",
+        "add_example": "Add an example",
+        "custom": "My own instruction"
+      },
+      "customLabel": "Your instruction",
+      "customHint": "For example: \"Don’t mention prices, invite readers to book an appointment.\"",
+      "start": "Rewrite",
+      "working": "Writing, this usually takes 10–20 seconds…",
+      "result": "New version:",
+      "apply": "Replace",
+      "again": "Try something else",
+      "tooLong": "The selected part is too long. Select a smaller part."
+    }
+  },
+  "versions": {
+    "button": "Version history",
+    "title": "Version history",
+    "body": "Every save is a separate version. Going back to an old version doesn’t delete the history.",
+    "version": "Version {{value}}",
+    "current": "Current",
+    "sources": {
+      "ai": "AI",
+      "user": "Edit",
+      "restore": "Restore"
+    },
+    "meta": "SEO {{score}} · {{words}} words",
+    "restore": "Go back to this version",
+    "restored": "The old version was restored."
+  },
+  "cover": {
+    "change": "Change cover",
+    "title": "Change cover image",
+    "description": "Upload an image you made. It isn’t cropped, and your cover is kept even if the article is rewritten.",
+    "file": "Image file",
+    "fileHint": "JPG, PNG, WebP or AVIF; at least 600×300 pixels, up to 10 MB. 1600×900 (16:9) works best.",
+    "alt": "Image description (alt text)",
+    "altHint": "Briefly describe what the image shows. Google and screen readers use it.",
+    "save": "Save cover",
+    "saved": "Cover updated.",
+    "invalid": "This file can’t be used. Choose a JPG, PNG, WebP or AVIF of at least 600×300 pixels and up to 10 MB.",
+    "fileRequired": "Choose an image file.",
+    "altRequired": "Enter an image description."
+  },
+  "duplicate": {
+    "title": "Your site already covers this topic",
+    "body": "We didn’t write a new article because one of your posts already covers this topic. Two posts on the same topic weaken each other on Google. We suggest updating the existing post instead:",
+    "refresh": "Update the existing post",
+    "writeAnyway": "Write it anyway"
+  }
+}

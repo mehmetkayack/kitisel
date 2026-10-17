@@ -1,0 +1,130 @@
+/*
+ * Upvine tasarım token'ları (PROJECT_SPEC Bölüm 6.2).
+ * Ham renk kodları SADECE bu dosyada bulunur. Bileşenler token adlarını kullanır
+ * (Tailwind: bg-primary, text-ink-muted ...). `pnpm check:tokens` başka yerde hex arar.
+ *
+ * Kobalt mavi = güven ve eylem · Zümrüt yeşil = büyüme ve sonuç · Amber = dikkat · Gerisi nötr.
+ * Tema: <html data-theme="light|dark"> ya da öznitelik yoksa sistem ayarı.
+ */
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --primary: #3b5bdb; /* beyaz metinle 5,7:1 */
+  --primary-hover: #2f4ac0;
+  --primary-soft: #edf2ff;
+  --primary-foreground: #ffffff;
+
+  --growth: #0e9f6e; /* grafik ve ikon; metin için değil */
+  --growth-text: #047857; /* beyaz zeminde 5,5:1 */
+  --growth-soft: #e6f6f0;
+
+  --warning: #b45309;
+  --warning-soft: #fef3c7;
+
+  --danger: #dc2626;
+  --danger-soft: #fee2e2;
+  --danger-text: #b91c1c; /* yumuşak zeminde metin: #fee2e2 üstünde 5,4:1 */
+  --danger-foreground: #ffffff;
+
+  --ink: #0f172a;
+  --ink-muted: #475569; /* beyaz zeminde 7,5:1 */
+  --ink-subtle: #94a3b8; /* sadece placeholder ve pasif ikon */
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --surface: #ffffff;
+  --surface-muted: #f1f5f9;
+  --background: #f8fafc;
+
+  --overlay: rgb(15 23 42 / 0.5);
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04);
+  --shadow-popover: 0 12px 32px rgb(15 23 42 / 0.14), 0 2px 6px rgb(15 23 42 / 0.06);
+
+  /* Grafik paleti (sırayla). "Bizim içeriğimiz" her zaman --chart-2 (yeşil), karşılaştırma gri. */
+  --chart-1: #3b5bdb;
+  --chart-2: #0e9f6e;
+  --chart-3: #f59e0b;
+  --chart-4: #7c8ca8;
+}
+
+/* Koyu tema: hem açık seçimde hem de sistem ayarında aynı değerler. */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --primary: #748ffc;
+  --primary-hover: #91a7ff;
+  --primary-soft: #1e2a4f;
+  --primary-foreground: #0b1120;
+
+  --growth: #34d399;
+  --growth-text: #6ee7b7;
+  --growth-soft: #0f2e25;
+
+  --warning: #fbbf24;
+  --warning-soft: #3a2a0b;
+
+  --danger: #f87171;
+  --danger-soft: #3b1515;
+  --danger-text: #fca5a5;
+  --danger-foreground: #0b1120;
+
+  --ink: #f1f5f9;
+  --ink-muted: #94a3b8;
+  --ink-subtle: #64748b;
+  --border: #1e293b;
+  --border-strong: #334155;
+  --surface: #111827;
+  --surface-muted: #1a2233;
+  --background: #0b1120;
+
+  --overlay: rgb(2 6 23 / 0.7);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-popover: 0 12px 32px rgb(0 0 0 / 0.5);
+
+  --chart-1: #748ffc;
+  --chart-2: #34d399;
+  --chart-3: #fbbf24;
+  --chart-4: #94a3b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --primary: #748ffc;
+    --primary-hover: #91a7ff;
+    --primary-soft: #1e2a4f;
+    --primary-foreground: #0b1120;
+
+    --growth: #34d399;
+    --growth-text: #6ee7b7;
+    --growth-soft: #0f2e25;
+
+    --warning: #fbbf24;
+    --warning-soft: #3a2a0b;
+
+    --danger: #f87171;
+    --danger-soft: #3b1515;
+    --danger-text: #fca5a5;
+    --danger-foreground: #0b1120;
+
+    --ink: #f1f5f9;
+    --ink-muted: #94a3b8;
+    --ink-subtle: #64748b;
+    --border: #1e293b;
+    --border-strong: #334155;
+    --surface: #111827;
+    --surface-muted: #1a2233;
+    --background: #0b1120;
+
+    --overlay: rgb(2 6 23 / 0.7);
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+    --shadow-popover: 0 12px 32px rgb(0 0 0 / 0.5);
+
+    --chart-1: #748ffc;
+    --chart-2: #34d399;
+    --chart-3: #fbbf24;
+    --chart-4: #94a3b8;
+  }
+}

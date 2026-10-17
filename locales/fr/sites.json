@@ -1,0 +1,676 @@
+{
+  "wizard": {
+    "title": "Configurer votre site",
+    "progress": "Étape {{current}} sur {{total}}",
+    "back": "Retour",
+    "continue": "Continuer",
+    "steps": {
+      "url": "Site web",
+      "brand": "Votre entreprise",
+      "language": "Langue et pays",
+      "tone": "Ton",
+      "topics": "Premiers sujets",
+      "cms": "Connecter votre site",
+      "publishing": "Publication"
+    },
+    "completedTitle": "La configuration est terminée",
+    "completedBody": "Vos premiers sujets sont dans le calendrier. Vous pouvez modifier chaque étape ci-dessous.",
+    "edit": "Modifier",
+    "goHome": "Aller à l’accueil",
+    "completedToast": "Configuration terminée. Vos premiers sujets sont dans le calendrier."
+  },
+  "url": {
+    "title": "Quel site web faisons-nous grandir ?",
+    "body": "Nous lisons vos pages publiques pour comprendre votre activité et vérifions 25 bases techniques du SEO. Nous ne modifions jamais rien sur votre site.",
+    "label": "Adresse du site web",
+    "placeholder": "exemple.fr",
+    "hint": "L’adresse de votre page d’accueil.",
+    "submit": "Analyser mon site"
+  },
+  "analysis": {
+    "title": "Nous lisons votre site",
+    "body": "Cela prend en général moins d’une minute. Vous pouvez quitter cette page ; nous continuons en arrière-plan.",
+    "steps": {
+      "homepage": "Lecture de votre page d’accueil",
+      "discover": "Vérification du robots.txt et du plan du site",
+      "pages": "Analyse de vos pages et de vos liens",
+      "checks": "25 vérifications techniques en cours",
+      "brand": "Rédaction du résumé de votre entreprise"
+    },
+    "queuedSlow": "Votre analyse est en file d’attente. En période chargée, cela peut prendre quelques minutes.",
+    "failedTitle": "Nous n’avons pas pu analyser ce site",
+    "retry": "Réessayer",
+    "changeUrl": "Utiliser une autre adresse",
+    "errors": {
+      "unreachable": "Nous n’avons pas pu joindre ce site. Vérifiez que l’adresse est correcte et que le site est en ligne, puis réessayez.",
+      "blocked": "Cette adresse pointe vers un réseau privé. Saisissez l’adresse publique de votre site.",
+      "not_html": "Cette adresse n’ouvre pas une page web. Saisissez l’adresse de votre page d’accueil.",
+      "http_error": "Votre site a répondu par une erreur. Vérifiez que la page d’accueil s’ouvre dans votre navigateur, puis réessayez.",
+      "internal": "Un problème est survenu de notre côté. Réessayez dans quelques minutes.",
+      "stalled": "L’analyse s’est arrêtée avant la fin. Cliquez sur « Réessayer » pour la relancer."
+    }
+  },
+  "brand": {
+    "title": "Est-ce bien votre entreprise ?",
+    "body": "Nous avons rédigé ceci à partir de votre site. Corrigez ce qui ne va pas : chaque article utilise ces informations.",
+    "heuristicNote": "Notre rédacteur IA n’était pas disponible : nous avons donc repris la description de votre site. Vérifiez-la, s’il vous plaît.",
+    "healthScore": "Score de santé du site",
+    "viewReport": "Voir le rapport",
+    "fields": {
+      "brandName": "Nom de l’entreprise ou de la marque",
+      "description": "Ce que vous faites",
+      "descriptionHint": "Deux ou trois phrases sur votre entreprise et vos clients.",
+      "industry": "Secteur",
+      "products": "Produits et services",
+      "productsHint": "Un par ligne.",
+      "audience": "Client idéal",
+      "audienceHint": "Qui voulez-vous toucher ?"
+    },
+    "approve": "C’est correct, continuer"
+  },
+  "language": {
+    "title": "Où sont vos clients ?",
+    "body": "Les articles sont rédigés directement dans cette langue, pas traduits.",
+    "language": "Langue des articles",
+    "languageHint": "Nous l’avons suggérée d’après votre site.",
+    "country": "Pays principal",
+    "countryHint": "Nous aide à choisir des exemples et des recherches locales.",
+    "noCountry": "Monde entier ou aucun pays en particulier"
+  },
+  "tone": {
+    "title": "Quel ton pour vos articles ?",
+    "body": "Choisissez le style le plus proche de votre façon de parler à vos clients.",
+    "suggested": "Conseillé pour votre site",
+    "options": {
+      "professional": {
+        "label": "Professionnel",
+        "example": "Notre équipe vous aide à choisir la bonne solution et vous accompagne à chaque étape."
+      },
+      "friendly": {
+        "label": "Chaleureux",
+        "example": "Vous ne savez pas par où commencer ? Pas d’inquiétude, on avance ensemble pas à pas."
+      },
+      "expert": {
+        "label": "Expert et technique",
+        "example": "Les études montrent qu’un entretien régulier prolonge la durée de vie des équipements jusqu’à 30 pour cent."
+      },
+      "playful": {
+        "label": "Ludique",
+        "example": "Fini les lundis ennuyeux : voici cinq astuces qui marchent vraiment."
+      }
+    },
+    "guideline": "Consignes supplémentaires (facultatif)",
+    "guidelineHint": "Par exemple : s’adresser directement au lecteur, éviter le jargon, mentionner notre consultation gratuite.",
+    "sample": "Un texte que vous avez écrit (facultatif)",
+    "sampleHint": "Collez un article de blog ou le texte d’une page. Nous l’utilisons pour reproduire votre style."
+  },
+  "topics": {
+    "title": "Vos premiers sujets",
+    "body": "Nous avons choisi des sujets que vos clients recherchent. Retirez ceux que vous ne voulez pas et ajoutez les vôtres.",
+    "generating": "Recherche des sujets qui intéressent vos clients…",
+    "estimated": "Estimation",
+    "estimatedHelp": "Les volumes de recherche sont des estimations tant que de vraies données de mots-clés ne sont pas connectées.",
+    "volume": "Environ {{value}} recherches par mois",
+    "difficulty": {
+      "easy": "Facile à positionner",
+      "medium": "Un peu de concurrence",
+      "hard": "Difficile à positionner"
+    },
+    "yours": "Votre sujet",
+    "remove": "Retirer",
+    "removed": "Sujet retiré.",
+    "addTitle": "Ajouter votre propre sujet",
+    "addTopic": "Titre de l’article",
+    "addKeyword": "Recherche principale",
+    "addKeywordHint": "Que taperait quelqu’un dans Google ?",
+    "add": "Ajouter le sujet",
+    "added": "Sujet ajouté.",
+    "more": "Suggérer d’autres sujets",
+    "empty": "Aucun sujet pour l’instant. Ajoutez les vôtres ci-dessous.",
+    "aiOff": "Les suggestions automatiques de sujets sont désactivées, car le service d’IA n’est pas configuré. Vous pouvez ajouter vos propres sujets.",
+    "needOne": "Ajoutez au moins un sujet pour continuer.",
+    "selected": "Sujets choisis : {{value}}",
+    "errors": {
+      "ai_not_configured": "Les suggestions automatiques de sujets sont désactivées, car le service d’IA n’est pas configuré. Vous pouvez ajouter vos propres sujets.",
+      "ai_budget": "Nous avons atteint la limite du jour pour les suggestions automatiques. Réessayez demain ou ajoutez vos propres sujets dès maintenant.",
+      "ai_unavailable": "Le service de suggestions est très sollicité en ce moment. Réessayez dans quelques minutes.",
+      "internal": "Un problème est survenu pendant la suggestion des sujets. Réessayez.",
+      "stalled": "Les suggestions de sujets se sont arrêtées avant la fin. Cliquez sur « Réessayer » pour les relancer ; cela prend généralement moins d’une minute."
+    },
+    "retry": "Réessayer"
+  },
+  "cms": {
+    "skip": "Passer pour l’instant",
+    "skipHint": "Vous pourrez connecter votre site plus tard dans les Paramètres."
+  },
+  "publishing": {
+    "title": "Quand publier ?",
+    "body": "Nous planifions vos articles les jours et à l’heure que vous choisissez.",
+    "mode": "Avant publication",
+    "modes": {
+      "approval": {
+        "label": "Je valide chaque article",
+        "hint": "Recommandé. Nous vous envoyons un e-mail quand un article est prêt à être relu."
+      },
+      "auto": {
+        "label": "Publier automatiquement",
+        "hint": "Les articles qui passent nos contrôles qualité sont publiés comme prévu."
+      }
+    },
+    "days": "Jours de publication",
+    "daysHint": "Un article chaque jour sélectionné.",
+    "time": "Heure",
+    "timezone": "Fuseau horaire : {{zone}}",
+    "newSiteNote": "Pour les nouveaux sites, nous publions au maximum 3 articles par semaine le premier mois. Publier trop vite peut paraître peu naturel pour Google.",
+    "finish": "Terminer la configuration"
+  },
+  "health": {
+    "title": "Santé du site",
+    "outOf": "{{score}} / 100",
+    "levels": {
+      "good": "Bonne",
+      "fair": "Quelques améliorations à faire",
+      "poor": "Demande votre attention"
+    },
+    "analyzedAt": "Dernière vérification : {{date}}",
+    "pagesCrawled": "Pages vérifiées : {{value}}",
+    "reanalyze": "Vérifier à nouveau",
+    "reanalyzing": "Nous vérifions à nouveau votre site. Cette page se met à jour toute seule.",
+    "status": {
+      "pass": "Correct",
+      "warning": "À améliorer",
+      "fail": "Problème",
+      "not_applicable": "Non nécessaire"
+    },
+    "groups": {
+      "fail": "Problèmes à corriger",
+      "warning": "Points à améliorer",
+      "pass": "Tout va bien",
+      "not_applicable": "Non nécessaire pour votre site"
+    },
+    "howToFix": "Comment corriger",
+    "affected": "Pages concernées : {{value}}",
+    "pages": {
+      "title": "Pages vérifiées",
+      "url": "Adresse",
+      "pageTitle": "Titre",
+      "words": "Mots",
+      "duplicate": "Même titre qu’une autre page",
+      "noTitle": "Pas de titre"
+    },
+    "emptyTitle": "Le rapport de santé de votre site apparaîtra ici",
+    "emptyBody": "Ajoutez votre site web et nous vérifierons pour vous 25 bases techniques du SEO."
+  },
+  "checks": {
+    "https": {
+      "title": "Connexion sécurisée (HTTPS)",
+      "pass": "Votre site utilise une connexion HTTPS sécurisée.",
+      "issue": "Votre site n’utilise pas HTTPS. Les navigateurs l’affichent comme « Non sécurisé » et Google préfère les sites sécurisés.",
+      "fix": "Activez un certificat SSL gratuit dans votre espace d’hébergement (souvent appelé Let's Encrypt), puis redirigez toutes les pages vers https://."
+    },
+    "http_to_https": {
+      "title": "Redirection vers l’adresse sécurisée",
+      "pass": "Les visiteurs qui tapent http:// arrivent sur l’adresse sécurisée https://.",
+      "issue": "La version http:// de votre site ne redirige pas vers https://, Google peut donc voir deux copies de votre site.",
+      "fix": "Ajoutez une redirection permanente (301) de http:// vers https:// dans votre hébergement ou les réglages de votre site."
+    },
+    "title": {
+      "title": "Titres de page",
+      "pass": "Vos pages ont un titre.",
+      "issue": "Certaines pages n’ont pas de titre. Le titre est le texte bleu sur lequel on clique dans Google.",
+      "fix": "Donnez à chaque page un titre unique qui dit de quoi elle parle."
+    },
+    "title_length": {
+      "title": "Longueur du titre",
+      "pass": "Vos titres ont une bonne longueur.",
+      "issue": "Certains titres font moins de 30 ou plus de 65 caractères. Google peut couper les titres longs, et les titres courts perdent de la place.",
+      "fix": "Écrivez des titres d’environ 30 à 65 caractères, avec le sujet principal au début."
+    },
+    "meta_description": {
+      "title": "Descriptions de page",
+      "pass": "Vos pages ont une description pour Google.",
+      "issue": "Certaines pages n’ont pas de description. Google affiche alors un texte quelconque de la page sous votre titre.",
+      "fix": "Ajoutez une courte description (méta-description) à chaque page. La plupart des outils de création de site et des plugins SEO ont un champ prévu."
+    },
+    "meta_description_length": {
+      "title": "Longueur de la description",
+      "pass": "Vos descriptions ont une bonne longueur.",
+      "issue": "Certaines descriptions font moins de 70 ou plus de 160 caractères.",
+      "fix": "Visez 70 à 160 caractères qui décrivent la page et donnent envie de cliquer."
+    },
+    "h1": {
+      "title": "Titre principal (H1)",
+      "pass": "Chaque page a un seul titre principal.",
+      "issue": "Certaines pages n’ont pas de titre principal ou en ont plusieurs. Le titre principal indique à Google le sujet de la page.",
+      "fix": "Utilisez exactement un titre H1 par page, en général le titre visible."
+    },
+    "heading_structure": {
+      "title": "Intertitres",
+      "pass": "Les pages longues sont découpées en sections avec des intertitres.",
+      "issue": "Certaines pages longues n’ont pas d’intertitres (H2). Les longs blocs de texte sont difficiles à lire pour les gens comme pour Google.",
+      "fix": "Découpez les pages longues en sections avec des intertitres H2 clairs."
+    },
+    "canonical": {
+      "title": "Adresse principale de la page (canonical)",
+      "pass": "Vos pages indiquent à Google leur adresse principale.",
+      "issue": "Certaines pages n’indiquent pas leur adresse principale ou pointent vers un autre site.",
+      "fix": "Ajoutez à chaque page un lien canonical vers sa propre adresse principale. Les plugins SEO le font souvent pour vous."
+    },
+    "robots_txt": {
+      "title": "Consignes pour les moteurs de recherche (robots.txt)",
+      "pass": "Votre fichier robots.txt permet à Google de lire votre site.",
+      "issue": "Votre fichier robots.txt est absent ou bloque tout votre site pour Google.",
+      "fix": "Vérifiez que votresite.fr/robots.txt existe et ne contient pas « Disallow: / » pour tous les moteurs de recherche."
+    },
+    "sitemap": {
+      "title": "Plan du site",
+      "pass": "Nous avons trouvé un plan du site qui liste vos pages.",
+      "issue": "Nous n’avons pas trouvé de plan du site. Il aide Google à trouver toutes vos pages.",
+      "fix": "Créez un plan du site (la plupart des outils de création de site et des plugins SEO le font), puis ajoutez-le au robots.txt et à Google Search Console."
+    },
+    "noindex": {
+      "title": "Masquées pour Google (noindex)",
+      "pass": "Aucune des pages vérifiées n’est masquée pour Google.",
+      "issue": "Certaines pages demandent à Google de ne pas les afficher dans les résultats.",
+      "fix": "Retirez le réglage « noindex » des pages qui doivent apparaître dans Google. Vérifiez les réglages de visibilité de votre site."
+    },
+    "viewport": {
+      "title": "Adapté aux mobiles",
+      "pass": "Votre site est configuré pour les écrans de téléphone.",
+      "issue": "Votre site n’est pas configuré pour les écrans de téléphone. La plupart des visiteurs utilisent un mobile, et Google regarde d’abord la version mobile.",
+      "fix": "Ajoutez la balise viewport (width=device-width) ou passez à un thème adaptatif."
+    },
+    "html_lang": {
+      "title": "Langue de la page",
+      "pass": "Vos pages indiquent dans quelle langue elles sont écrites.",
+      "issue": "Votre page d’accueil n’indique pas dans quelle langue elle est écrite.",
+      "fix": "Ajoutez l’attribut lang à la balise html, par exemple lang=\"fr\". Les réglages du thème proposent souvent cette option."
+    },
+    "hreflang": {
+      "title": "Versions linguistiques (hreflang)",
+      "pass": "Vos versions linguistiques sont correctement reliées.",
+      "issue": "Votre site a des pages en plusieurs langues, mais elles ne sont pas correctement reliées entre elles.",
+      "fix": "Ajoutez des liens hreflang pour que Google montre à chaque visiteur la bonne version linguistique."
+    },
+    "open_graph": {
+      "title": "Aperçu sur les réseaux sociaux",
+      "pass": "Les liens vers votre site affichent un titre et une image sur les réseaux sociaux.",
+      "issue": "Quand quelqu’un partage votre site, les réseaux sociaux peuvent n’afficher aucune image ou un mauvais titre.",
+      "fix": "Ajoutez les balises Open Graph (og:title et og:image). Les plugins SEO ont souvent une section « Social » pour cela."
+    },
+    "structured_data": {
+      "title": "Informations structurées pour Google",
+      "pass": "Votre page d’accueil fournit à Google des informations structurées sur votre entreprise.",
+      "issue": "Votre page d’accueil n’a pas d’informations structurées, ou elles contiennent des erreurs. Elles aident Google à afficher des extras comme les avis et les horaires.",
+      "fix": "Ajoutez des données structurées (Schema.org, par exemple Organization ou LocalBusiness). Beaucoup de plugins SEO savent le faire."
+    },
+    "image_alt": {
+      "title": "Descriptions des images",
+      "pass": "Vos images ont une description.",
+      "issue": "Certaines images n’ont pas de description (texte alternatif). Google et les lecteurs d’écran ne savent pas ce qu’elles montrent.",
+      "fix": "Ajoutez une courte description à chaque image utile dans votre médiathèque."
+    },
+    "broken_links": {
+      "title": "Liens cassés",
+      "pass": "Nous n’avons trouvé aucun lien cassé.",
+      "issue": "Certains liens de votre site mènent à des pages qui n’existent pas.",
+      "fix": "Mettez à jour ou supprimez ces liens, ou redirigez les anciennes adresses vers une page qui fonctionne."
+    },
+    "duplicate_titles": {
+      "title": "Titres identiques",
+      "pass": "Chaque page a son propre titre.",
+      "issue": "Certaines pages ont le même titre, Google ne peut donc pas les distinguer.",
+      "fix": "Donnez un titre unique à chaque page."
+    },
+    "duplicate_descriptions": {
+      "title": "Descriptions identiques",
+      "pass": "Chaque page a sa propre description.",
+      "issue": "Certaines pages ont la même description.",
+      "fix": "Écrivez une description unique pour chaque page."
+    },
+    "thin_content": {
+      "title": "Pages courtes",
+      "pass": "Vos pages contiennent assez de texte.",
+      "issue": "Certaines pages comptent moins de 300 mots. Les pages très courtes se positionnent rarement bien dans Google.",
+      "fix": "Ajoutez des informations utiles à ces pages ou regroupez les pages courtes similaires."
+    },
+    "ttfb": {
+      "title": "Vitesse du serveur",
+      "pass": "Votre serveur commence à répondre rapidement ({{value}} ms).",
+      "issue": "Votre serveur met {{value}} ms à commencer à répondre. Les pages lentes perdent des visiteurs et des positions.",
+      "fix": "Activez le cache, utilisez un CDN ou demandez à votre hébergeur une offre plus rapide."
+    },
+    "page_size": {
+      "title": "Taille de la page",
+      "pass": "Votre page d’accueil est légère et se charge vite.",
+      "issue": "Le code de votre page d’accueil est volumineux, ce qui la ralentit sur mobile.",
+      "fix": "Supprimez les plugins et le code inutilisés, et évitez d’intégrer de gros contenus directement dans la page."
+    },
+    "favicon": {
+      "title": "Icône du site (favicon)",
+      "pass": "Votre site a une icône.",
+      "issue": "Votre site n’a pas d’icône. Google l’affiche à côté de votre résultat sur mobile.",
+      "fix": "Importez une icône carrée dans les réglages de votre site ou de votre thème."
+    }
+  },
+  "results": {
+    "tabs": {
+      "overview": "Vue d’ensemble",
+      "articles": "Mes articles",
+      "keywords": "Mots-clés",
+      "health": "Santé du site",
+      "ai": "Visibilité IA"
+    }
+  },
+  "home": {
+    "continueSetup": "Continuer la configuration",
+    "healthTitle": "Santé du site",
+    "healthLink": "Voir le rapport",
+    "upcomingTitle": "Prochains articles",
+    "upcomingEmpty": "Aucun article planifié pour l’instant. Choisissez vos premiers sujets dans la configuration.",
+    "statusDone": "La configuration est terminée. Votre premier article est prévu le {{date}}.",
+    "statusAnalyzing": "Nous analysons {{domain}}. Cela prend en général moins d’une minute.",
+    "seeCalendar": "Voir le calendrier"
+  },
+  "content": {
+    "keyword": "Recherche",
+    "planned": "Prévu le",
+    "status": "Statut",
+    "notScheduled": "Pas encore planifié"
+  },
+  "posts": {
+    "title": "Articles de votre site",
+    "summary": "{{total}} articles lus ; {{withIssues}} présentent des problèmes que vous pouvez corriger. Ceux qui en ont le plus sont en haut.",
+    "syncedAt": "Dernière lecture : {{date}}",
+    "meta": "{{words}} mots · mis à jour le {{date}}",
+    "issueCount": "Voir {{value}} problèmes",
+    "noIssues": "Aucun problème dans nos vérifications.",
+    "opensNewTab": "(s’ouvre dans un nouvel onglet)",
+    "rescan": "Relire",
+    "syncingShort": "Lecture…",
+    "syncing": "Lecture de vos articles en cours. Selon leur nombre, cela peut prendre une ou deux minutes.",
+    "scan": "Lire mes articles",
+    "retry": "Réessayer",
+    "showMore": "Afficher {{value}} articles de plus",
+    "scanTitle": "Passons en revue vos articles existants",
+    "scanBody": "Nous lisons les articles publiés sur votre site et listons les problèmes SEO de chacun. Nous ne modifions pas vos articles.",
+    "noneTitle": "Aucun article publié trouvé sur votre site",
+    "noneBody": "Dès que votre blog aura des articles publiés, ils apparaîtront ici avec leurs problèmes.",
+    "connectTitle": "Connectez votre site pour voir vos articles existants",
+    "connectBody": "Une fois connecté, nous lisons vos articles et listons les problèmes SEO de chacun.",
+    "connectAction": "Connecter le site",
+    "unsupportedTitle": "Les articles ne peuvent pas encore être lus depuis cette connexion",
+    "unsupportedBody": "Pour l’instant, nous lisons les articles existants des sites WordPress. D’autres plateformes arrivent bientôt.",
+    "severity": {
+      "high": "Important",
+      "medium": "Moyen",
+      "low": "Mineur"
+    },
+    "errors": {
+      "not_connected": "Votre site n’est pas connecté. Connectez-le dans les Réglages.",
+      "not_supported": "Les articles ne peuvent pas être lus depuis cette connexion.",
+      "stalled": "La lecture s’est arrêtée avant la fin. Cliquez sur « Réessayer » pour la relancer.",
+      "internal": "Un problème est survenu pendant la lecture de vos articles. Réessayez dans un instant.",
+      "publish_auth_failed": "Votre site a refusé nos identifiants. Reconnectez-le dans les Réglages.",
+      "publish_forbidden": "L’utilisateur connecté ne peut pas voir les articles. Reconnectez-vous avec un compte éditeur ou administrateur.",
+      "publish_not_wordpress": "Impossible d’atteindre l’API WordPress. Vérifiez la connexion dans les Réglages.",
+      "publish_unreachable": "Impossible d’atteindre votre site. Vérifiez qu’il est en ligne et réessayez.",
+      "publish_server_error": "Votre site a répondu par une erreur. Réessayez dans un instant."
+    },
+    "issues": {
+      "thin_content": {
+        "title": "Contenu très court ({{value}} mots)",
+        "fix": "Approfondissez : ajoutez des sections qui répondent aux questions des lecteurs. Google classe rarement bien les articles courts."
+      },
+      "short_content": {
+        "title": "Contenu court ({{value}} mots)",
+        "fix": "Dépassez 600 mots avec des exemples, des étapes ou des questions fréquentes."
+      },
+      "no_meta_description": {
+        "title": "Pas de méta-description",
+        "fix": "Dans votre extension SEO (Yoast, Rank Math), rédigez une description engageante de 70 à 160 caractères."
+      },
+      "meta_description_length": {
+        "title": "Longueur de la méta-description inadaptée ({{value}} caractères)",
+        "fix": "Gardez-la entre 70 et 160 caractères ; au-delà, Google la coupe."
+      },
+      "title_length": {
+        "title": "Longueur du titre inadaptée ({{value}} caractères)",
+        "fix": "Gardez le titre entre 30 et 65 caractères, avec le mot-clé principal au début."
+      },
+      "no_subheadings": {
+        "title": "Pas d’intertitres",
+        "fix": "Découpez l’article en sections avec des intertitres H2 ; cela aide les lecteurs et Google."
+      },
+      "no_internal_links": {
+        "title": "Aucun lien vers d’autres pages de votre site",
+        "fix": "Ajoutez 2 ou 3 liens vers des produits, catégories ou articles liés."
+      },
+      "missing_alt": {
+        "title": "{{value}} images sans description (texte alternatif)",
+        "fix": "Dans la médiathèque, ajoutez à chaque image une courte description de ce qu’elle montre."
+      },
+      "no_images": {
+        "title": "Aucune image",
+        "fix": "Ajoutez au moins une image illustrant le sujet ; les articles illustrés sont lus plus longtemps."
+      },
+      "outdated": {
+        "title": "Pas mis à jour depuis {{value}} jours",
+        "fix": "Vérifiez les faits, les prix et les dates et mettez l’article à jour ; Google privilégie les contenus récents."
+      }
+    },
+    "refreshIntro": "Nous ne modifions jamais vos articles sans votre accord. Cliquez sur « Proposer une mise à jour » pour voir les changements et l’article avant et après. Si vous l’appliquez, vous pouvez l’annuler en un clic.",
+    "declining": "Trafic en baisse",
+    "clicksTrend": "{{current}} clics sur les 28 derniers jours (28 jours précédents : {{previous}})",
+    "decliningSummary": "Le trafic venant de Google baisse pour {{value}} de vos articles. Ils sont en haut de la liste ; nous vous conseillons de les mettre à jour en premier.",
+    "refresh": {
+      "request": "Proposer une mise à jour",
+      "generatingShort": "Préparation de la suggestion…",
+      "readyBadge": "Suggestion prête",
+      "review": "Voir la suggestion",
+      "appliedBadge": "Mis à jour le {{date}}",
+      "details": "Détails",
+      "usage": "{{used}} suggestions de mise à jour sur {{limit}} utilisées ce mois-ci.",
+      "title": "Suggestion de mise à jour",
+      "generating": "Nous lisons votre article et préparons une mise à jour. Cela peut prendre une ou deux minutes ; vous pouvez fermer cette fenêtre.",
+      "applyNote": "« Appliquer » modifie le titre et le contenu de l’article sur votre site. L’adresse, la date et les catégories ne changent pas. Vous pourrez l’annuler plus tard.",
+      "appliedAt": "Cette suggestion a été appliquée sur votre site le {{date}}.",
+      "revertedNote": "Cette suggestion a été annulée ; votre article est revenu à sa version précédente.",
+      "dismissedNote": "Vous avez fermé cette suggestion. Votre article n’a pas été modifié.",
+      "scoreLabel": "Score SEO avant et après",
+      "scoreHint": "Si vous mettez aussi à jour la méta-description",
+      "changesTitle": "Ce qui change",
+      "metaTitle": "Méta-titre et description",
+      "metaHint": "Nous ne pouvons pas les modifier automatiquement sur votre site. Copiez-les dans votre extension SEO (Yoast, Rank Math).",
+      "fields": {
+        "metaTitle": "Méta-titre",
+        "metaDescription": "Méta-description"
+      },
+      "copy": "Copier",
+      "copied": "Copié.",
+      "copyFailed": "Copie impossible. Sélectionnez le texte et copiez-le manuellement.",
+      "compare": "Version de l’article",
+      "after": "Proposée",
+      "before": "Actuelle",
+      "dismiss": "Fermer",
+      "apply": "Appliquer",
+      "appliedToast": "Votre article a été mis à jour sur votre site.",
+      "viewPost": "Ouvrir l’article",
+      "revert": "Annuler",
+      "revertedToast": "Votre article est revenu à sa version précédente.",
+      "kinds": {
+        "outdated": "Actualité",
+        "structure": "Structure",
+        "faq": "FAQ",
+        "meta": "Méta",
+        "links": "Lien interne",
+        "content": "Contenu",
+        "title": "Titre"
+      },
+      "errors": {
+        "internal": "Un problème est survenu pendant la préparation de la suggestion. Réessayez dans un instant.",
+        "not_found": "Nous n’avons pas trouvé cet article sur votre site. Relisez vos articles.",
+        "not_connected": "Votre site n’est pas connecté. Connectez-le dans les Paramètres.",
+        "not_supported": "Les articles ne peuvent pas être mis à jour avec cette connexion. WordPress est pris en charge pour le moment.",
+        "too_long": "Cet article est trop long pour une suggestion automatique.",
+        "stalled": "La suggestion s’est interrompue. Réessayez.",
+        "ai_not_configured": "Le service d’IA n’est pas configuré, nous ne pouvons donc pas préparer de suggestion.",
+        "ai_budget": "La limite d’IA du jour est atteinte. Réessayez demain.",
+        "ai_blocked": "Le service d’IA a refusé de proposer des modifications pour cet article.",
+        "ai_invalid_output": "La suggestion n’a pas abouti correctement. Réessayez.",
+        "ai_unavailable": "Le service d’IA était surchargé. Réessayez dans quelques minutes."
+      }
+    }
+  },
+  "searchConsole": {
+    "title": "Google Search Console",
+    "description": "Affiche dans le tableau de bord vos impressions, clics et positions sur Google. Demande uniquement un accès en lecture.",
+    "notConfigured": "Search Console n’est pas encore configuré. Un administrateur doit ajouter le client Google OAuth (.env).",
+    "connectBody": "Connectez votre compte Google ; nous trouvons la propriété Search Console correspondant à votre site. Les données sont mises à jour chaque jour.",
+    "connect": "Connecter Search Console",
+    "reconnect": "Reconnecter",
+    "connected": "Connecté",
+    "account": "Compte : {{email}}",
+    "syncing": "Récupération des données… La première fois, nous récupérons les 90 derniers jours, cela peut prendre une ou deux minutes.",
+    "lastSynced": "Dernière mise à jour : {{date}}",
+    "neverSynced": "Aucune donnée récupérée pour l’instant.",
+    "latestData": "Données les plus récentes : {{date}} (les données Google ont 2 à 3 jours de retard)",
+    "syncNow": "Mettre à jour",
+    "disconnect": "Déconnecter",
+    "disconnectTitle": "Déconnecter Search Console ?",
+    "disconnectBody": "L’accès est révoqué chez Google et les données Search Console collectées sont supprimées. Vous pourrez reconnecter plus tard.",
+    "property": "Propriété Search Console",
+    "domainProperty": "domaine entier",
+    "pickBody": "Nous n’avons pas trouvé de propriété avec l’adresse de votre site. Choisissez la propriété de ce site.",
+    "useProperty": "Utiliser cette propriété",
+    "noProperties": "Le compte {{email}} n’a aucune propriété Search Console validée. Ajoutez et validez votre site dans Search Console, puis reconnectez.",
+    "callback": {
+      "connected": "Search Console connecté. Récupération des données.",
+      "pick": "Search Console connecté. Choisissez la propriété de votre site.",
+      "failed": "Impossible de connecter Search Console. Veuillez réessayer.",
+      "rejected": "L’accès Google n’a pas été accordé ; rien n’a été connecté."
+    },
+    "errors": {
+      "revoked": "L’accès Google a expiré ou a été révoqué. Reconnecter prend 30 secondes.",
+      "forbidden": "Ce compte Google n’a pas accès à la propriété choisie. Reconnectez avec le compte propriétaire.",
+      "unavailable": "Google ne répond pas pour le moment. Nouvel essai automatique sous peu.",
+      "rejected": "Google a refusé la requête. Essayez de déconnecter puis de reconnecter.",
+      "no_property": "Aucune propriété choisie pour l’instant.",
+      "stalled": "La mise à jour s’est arrêtée avant la fin. Cliquez sur « Mettre à jour » pour la relancer.",
+      "internal": "Un problème est survenu lors de la récupération des données. Réessayez dans un instant."
+    }
+  },
+  "overview": {
+    "googleTitle": "Visibilité sur Google",
+    "contentTitle": "Vos contenus",
+    "period": "{{from}} – {{to}} (comparé aux 28 jours précédents)",
+    "metrics": {
+      "impressions": "Impressions",
+      "clicks": "Clics",
+      "position": "Position moyenne",
+      "top10": "Mots-clés dans le top 10"
+    },
+    "help": {
+      "impressions": "Nombre d’affichages de votre site dans les résultats Google.",
+      "clicks": "Nombre de clics vers votre site depuis les résultats.",
+      "position": "Votre position moyenne dans les recherches où vous êtes apparu. Plus petit, c’est mieux.",
+      "top10": "Recherches avec une position moyenne de 10 ou mieux (première page de Google).",
+      "aiMention": "Fréquence à laquelle l’IA a cité votre marque dans les questions de vos clients (dernière mesure)."
+    },
+    "change": {
+      "up": "En hausse de {{value}}",
+      "down": "En baisse de {{value}}",
+      "flat": "Inchangé",
+      "positionUp": "Gagné {{value}} places",
+      "positionDown": "Perdu {{value}} places"
+    },
+    "chartSeries": "Mesure affichée dans le graphique",
+    "chartTitle": {
+      "impressions": "Impressions par jour",
+      "clicks": "Clics par jour"
+    },
+    "chartSummary": "{{value}} {{metric}} au total sur les 28 derniers jours.",
+    "showTable": "Afficher sous forme de tableau",
+    "date": "Date",
+    "winsTitle": "Progrès récents",
+    "noWins": "Pas encore de progression notable. Elles apparaîtront ici à mesure que de nouveaux articles seront publiés.",
+    "win": "Vous êtes passé de la position {{from}} à {{to}} pour « {{query}} ».",
+    "connectTitle": "Vos résultats Google ici",
+    "connectBody": "Connectez Search Console : impressions, clics, positions et mots-clés gagnés sont mis à jour chaque jour.",
+    "syncing": "Récupération des données Search Console. Elles apparaîtront ici dans quelques minutes.",
+    "noData": "Search Console est connecté, mais cette propriété n’a pas encore de données de recherche. Pour un nouveau site, Google peut mettre quelques jours.",
+    "loadFailed": "Impossible de charger cette section. Actualisez la page.",
+    "content": {
+      "publishedThisMonth": "Articles publiés ce mois-ci",
+      "waiting": "En attente de validation ou de publication",
+      "averageSeo": "Score SEO moyen",
+      "aiMention": "Mentions par l’IA"
+    },
+    "auditScore": "Santé du site : {{score}}/100"
+  },
+  "keywords": {
+    "up": "en hausse",
+    "down": "en baisse",
+    "same": "inchangé",
+    "emptyTitle": "Aucun mot-clé suivi pour l’instant",
+    "emptyBody": "Les mots-clés de votre plan de sujets et les recherches où vous apparaissez dans Search Console sont listés ici.",
+    "columns": {
+      "keyword": "Mot-clé",
+      "position": "Position",
+      "impressions": "Impressions",
+      "clicks": "Clics",
+      "volume": "Recherches par mois",
+      "difficulty": "Difficulté",
+      "page": "Page"
+    },
+    "planned": "Dans votre plan",
+    "fromGoogle": "Depuis Google",
+    "connectBody": "Connectez Search Console pour voir les vraies positions et impressions. Pour l’instant, les mots-clés de votre plan sont listés.",
+    "connectAction": "Aller aux Réglages",
+    "filterLabel": "Filtrer les mots-clés",
+    "filters": {
+      "all": "Tous",
+      "planned": "Dans votre plan",
+      "google": "Vus sur Google"
+    },
+    "count": "{{value}} mots-clés (jusqu’à {{limit}} dans votre forfait)",
+    "caption": "Mots-clés suivis",
+    "noneInFilter": "Aucun mot-clé ne correspond à ce filtre."
+  },
+  "visibility": {
+    "notAsked": "Pas encore posée",
+    "mentioned": "Cité",
+    "notMentioned": "Non cité",
+    "remove": "Supprimer la question : {{question}}",
+    "showAnswer": "Afficher la réponse de l’IA",
+    "citedFrom": "Votre site comme source : {{sources}}",
+    "planTitle": "La visibilité IA est incluse dans Growth et Agency",
+    "planBody": "Changez de forfait pour suivre chaque semaine si les assistants IA citent votre marque quand vos clients posent des questions.",
+    "aiUnavailable": "L’IA n’est pas configurée, la visibilité IA ne peut donc pas être mesurée.",
+    "running": "Questions en cours auprès de l’IA… Cela peut prendre une ou deux minutes.",
+    "startTitle": "L’IA vous recommande-t-elle ?",
+    "startBody": "Nous rédigeons environ 12 questions que vos clients poseraient à des assistants comme ChatGPT ou Gemini, nous les posons et vérifions si les réponses citent votre marque. La mesure se répète chaque semaine.",
+    "start": "Commencer la mesure",
+    "rate": "Taux de citation",
+    "rateHelp": "Part des questions de la dernière mesure où votre marque ou votre site a été cité.",
+    "lastChecked": "Dernière mesure : {{date}}. Répétée chaque semaine.",
+    "neverChecked": "Les questions n’ont pas encore été posées.",
+    "runNow": "Mesurer à nouveau",
+    "ungrounded": "La dernière mesure a été faite sans recherche web : les réponses proviennent des connaissances de l’IA (pas de quota Google Search). Cela peut sous-estimer le taux pour les marques récentes ou petites.",
+    "trendTitle": "Taux de citation (par mesure)",
+    "trendSummary": "Taux de citation lors de la dernière mesure : {{value}}.",
+    "questionsTitle": "Questions suivies",
+    "questionsBody": "Rédigez les questions comme vos clients ; sans le nom de votre marque.",
+    "addLabel": "Nouvelle question",
+    "addPlaceholder": "ex. Où acheter de l’huile d’olive pressée à froid ?",
+    "add": "Ajouter la question",
+    "limitReached": "Vous pouvez suivre jusqu’à {{value}} questions.",
+    "errors": {
+      "ai_not_configured": "L’IA n’est pas configurée, la mesure n’a pas pu être faite.",
+      "ai_budget": "Le quota IA du jour est épuisé. La mesure sera relancée demain.",
+      "ai_unavailable": "Le service IA est surchargé. Réessayez « Mesurer à nouveau » dans un instant.",
+      "stalled": "La mesure s’est arrêtée avant la fin. Cliquez sur « Mesurer à nouveau » pour la relancer.",
+      "internal": "Un problème est survenu pendant la mesure. Réessayez dans un instant."
+    }
+  }
+}

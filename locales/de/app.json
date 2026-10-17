@@ -1,0 +1,90 @@
+{
+  "userMenu": {
+    "label": "Kontomenü",
+    "settings": "Kontoeinstellungen",
+    "admin": "Admin-Bereich"
+  },
+  "verifyBanner": {
+    "text": "Bitte bestätigen Sie Ihre E-Mail-Adresse. Wir haben einen Link an {{email}} gesendet.",
+    "resend": "E-Mail erneut senden",
+    "sent": "Wir haben einen neuen Link gesendet. Sehen Sie in Ihr Postfach."
+  },
+  "setup": {
+    "title": "Einrichtung abschließen",
+    "progress": "{{done}} von {{total}} Schritten erledigt",
+    "cta": "Einrichtung starten",
+    "steps": {
+      "analyzed": "Website analysiert",
+      "brand": "Markenprofil freigegeben",
+      "connected": "Website verbunden",
+      "searchConsole": "Google Search Console verbunden",
+      "firstArticle": "Erster Artikel freigegeben"
+    }
+  },
+  "generation": {
+    "steps": {
+      "research": "Thema wird recherchiert",
+      "draft": "Entwurf wird geschrieben",
+      "factCheck": "Fakten werden geprüft",
+      "images": "Bilder werden vorbereitet"
+    }
+  },
+  "home": {
+    "title": "Start",
+    "greeting": "Willkommen, {{name}}",
+    "statusSetup": "Machen wir Ihre Website startklar. Die Einrichtung dauert etwa 10 Minuten."
+  },
+  "content": {
+    "title": "Inhalte",
+    "emptyTitle": "Noch keine Artikel",
+    "emptyBody": "Sobald Ihre Website eingerichtet ist, erscheinen hier Ihre ersten Artikel – bereit zur Prüfung."
+  },
+  "calendar": {
+    "title": "Kalender",
+    "emptyTitle": "Ihr Redaktionskalender ist leer",
+    "emptyBody": "Nach der Einrichtung planen wir Ihre Artikel und zeigen hier ihre Veröffentlichungstermine.",
+    "description": "Ziehen Sie einen Beitrag auf einen anderen Tag, um das Veröffentlichungsdatum zu ändern. Die Uhrzeit bleibt gleich.",
+    "month": "Monat",
+    "week": "Woche",
+    "viewLabel": "Ansicht",
+    "today": "Heute",
+    "prevMonth": "Vorheriger Monat",
+    "nextMonth": "Nächster Monat",
+    "prevWeek": "Vorherige Woche",
+    "nextWeek": "Nächste Woche",
+    "reschedule": "Datum von „{{title}}“ ändern",
+    "rescheduleShort": "Datum ändern",
+    "rescheduleTitle": "Veröffentlichungsdatum ändern",
+    "newDate": "Neues Datum",
+    "newDateHint": "Die Uhrzeit der Veröffentlichung bleibt gleich.",
+    "move": "Verschieben",
+    "moved": "Veröffentlichungsdatum aktualisiert.",
+    "emptyMonth": "In diesem Monat sind keine Beiträge geplant.",
+    "dnd": {
+      "start": "„{{title}}“ wird verschoben.",
+      "over": "„{{title}}“ ist über {{day}}.",
+      "end": "„{{title}}“ wurde auf {{day}} verschoben.",
+      "cancel": "Verschieben abgebrochen."
+    }
+  },
+  "results": {
+    "title": "Ergebnisse",
+    "emptyTitle": "Hier erscheinen Ihre Ergebnisse",
+    "emptyBody": "Sobald Ihre ersten Artikel online sind, sehen Sie, wie oft Google sie anzeigt und auf welchem Platz sie stehen."
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "account": {
+      "title": "Ihr Konto",
+      "description": "Ihre persönlichen Angaben und Einstellungen.",
+      "name": "Name",
+      "email": "E-Mail",
+      "languageHint": "Gilt für das Dashboard und die E-Mails, die wir Ihnen senden.",
+      "saved": "Ihre Einstellungen wurden gespeichert."
+    }
+  },
+  "impersonation": {
+    "text": "Sie sehen Upvine als {{name}} ({{email}}). Diese Ansicht ist schreibgeschützt.",
+    "exit": "Ansicht beenden"
+  }
+}

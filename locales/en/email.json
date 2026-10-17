@@ -1,0 +1,41 @@
+{
+  "greeting": "Hi {{name}},",
+  "fallbackLink": "If the button doesn't work, copy this link into your browser:",
+  "verifyEmail": {
+    "subject": "Confirm your email address",
+    "preview": "One click to confirm your Upvine account.",
+    "heading": "Confirm your email address",
+    "body": "Thanks for signing up for Upvine. Please confirm your email address so we can keep your account secure.",
+    "button": "Confirm email",
+    "expires": "This link is valid for {{ttl}} hours.",
+    "ignore": "If you didn't create an Upvine account, you can safely ignore this email."
+  },
+  "resetPassword": {
+    "subject": "Reset your Upvine password",
+    "preview": "Use this link to choose a new password.",
+    "heading": "Choose a new password",
+    "body": "We received a request to reset the password for your Upvine account.",
+    "button": "Choose a new password",
+    "expires": "This link is valid for {{ttl}} minutes.",
+    "ignore": "If you didn't ask to reset your password, you can ignore this email. Your password stays the same."
+  },
+  "greetingPlain": "Hello,",
+  "articleReady": {
+    "subject": "An article is waiting for your approval",
+    "preview": "“{{title}}” is ready to review.",
+    "heading": "Your new article is ready",
+    "body": "We finished “{{title}}”. The facts are checked and the SEO score is ready. Please review it and approve it for publishing.",
+    "button": "Review the article",
+    "expires": "Nothing is published without your approval.",
+    "ignore": "You receive this email because your site publishes in approval mode. You can change this in Settings."
+  },
+  "freeAnalysis": {
+    "subject": "Your free SEO analysis for {{domain}}",
+    "preview": "Site health score: {{score}} / 100.",
+    "heading": "Your site analysis is ready",
+    "body": "Here is the report for {{domain}}. Site health score: {{score}} / 100. The report shows what to fix first and which topics your customers search for.",
+    "button": "Open the report",
+    "expires": "The report link stays valid for 30 days.",
+    "ignore": "You receive this email because you asked for it on Upvine. We will not send marketing emails unless you agreed to them."
+  }
+}

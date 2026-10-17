@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "title": "Upvine – SEO-Inhalte, die Ihre Website automatisch wachsen lassen",
+    "description": "Upvine recherchiert, schreibt, prüft und veröffentlicht SEO-Artikel für Ihre Website und verfolgt, wie sie bei Google ranken."
+  },
+  "hero": {
+    "title": "Lassen Sie Ihre Website mit recherchierten, geprüften und veröffentlichten Artikeln wachsen",
+    "subtitle": "Upvine plant Ihre Themen, schreibt im Ton Ihrer Marke, prüft jede Aussage und veröffentlicht auf Ihrer Website. Sie behalten immer die Kontrolle.",
+    "badge": "Kostenlose Website-Analyse, ohne Anmeldung",
+    "point1": "Technischer SEO-Check Ihrer Website mit 25 Punkten",
+    "point2": "Themen, nach denen Ihre Kunden suchen, mit geschätztem Suchvolumen",
+    "point3": "Ein teilbarer Bericht in etwa einer Minute",
+    "or": "oder"
+  },
+  "how": {
+    "eyebrow": "So funktioniert es",
+    "title": "Ein stetig wachsender Blog in 3 Schritten",
+    "stepLabel": "Schritt {{value}}",
+    "step1": {
+      "title": "Wir analysieren Ihre Website",
+      "body": "Geben Sie Ihre Adresse ein; wir crawlen Ihre Website, lernen Ihre Marke kennen und finden die Themen, nach denen Ihre Kunden suchen."
+    },
+    "step2": {
+      "title": "Sie geben den Plan frei",
+      "body": "Die Themen landen in Ihrem Kalender. Jeden Artikel können Sie vor der Veröffentlichung lesen, bearbeiten oder ablehnen."
+    },
+    "step3": {
+      "title": "Veröffentlichen und Ergebnisse verfolgen",
+      "body": "Freigegebene Artikel erscheinen auf Ihrer Website. Impressionen, Klicks und Positionen bei Google sehen Sie im Dashboard."
+    }
+  },
+  "features": {
+    "eyebrow": "Was es kann",
+    "title": "Die Arbeit eines Content-Teams in einem Dashboard",
+    "body": "Von der Themenfindung bis zur Veröffentlichung und Messung ist alles automatisiert; die Entscheidungen treffen Sie.",
+    "research": {
+      "title": "Recherchiert und geprüft",
+      "body": "Aussagen in jedem Artikel werden geprüft; Unbestätigtes wird entfernt, Quellen werden genannt."
+    },
+    "voice": {
+      "title": "Der Ton Ihrer Marke",
+      "body": "Lernt Ihren Ton, verbotene Wörter und Beispieltexte, damit die Artikel nach Ihnen klingen."
+    },
+    "publish": {
+      "title": "Automatische Veröffentlichung",
+      "body": "Anbindung an WordPress, Shopify, Webflow, Ghost und Wix, mit Titelbild und SEO-Feldern."
+    },
+    "results": {
+      "title": "Google-Ergebnisse",
+      "body": "Impressionen, Klicks, Positionen und gewonnene Keywords aus der Search Console."
+    },
+    "ai": {
+      "title": "KI-Sichtbarkeit",
+      "body": "Prüft wöchentlich, ob KI-Assistenten Ihre Marke nennen, wenn Ihre Kunden Fragen stellen."
+    },
+    "health": {
+      "title": "Website-Gesundheit und ältere Beiträge",
+      "body": "Zeigt technische SEO-Probleme und Lücken in bestehenden Beiträgen verständlich, mit Lösungsweg."
+    },
+    "languages": {
+      "title": "Inhalte in vielen Sprachen",
+      "body": "Dashboard in 5 Sprachen; Artikel in über 25 Sprachen, passend zu Ihrem Zielland."
+    },
+    "control": {
+      "title": "Sie haben die Kontrolle",
+      "body": "Freigabemodus, Kalender mit Drag-and-drop, Versionsverlauf und abschnittsweises Bearbeiten."
+    }
+  },
+  "compare": {
+    "eyebrow": "Warum Upvine",
+    "title": "Im Vergleich",
+    "criteria": "Kriterium",
+    "columns": {
+      "agency": "Agentur",
+      "tool": "Klassisches SEO-Tool",
+      "aiOnly": "Nur KI-Texter",
+      "upvine": "Upvine"
+    },
+    "rows": {
+      "cost": "Passt zum Budget kleiner Unternehmen",
+      "writing": "Schreibt die Artikel",
+      "facts": "Prüft die Fakten",
+      "publish": "Veröffentlicht auf Ihrer Website",
+      "tracking": "Verfolgt die Ergebnisse",
+      "control": "Sie geben jeden Artikel frei"
+    },
+    "marks": {
+      "yes": "Ja",
+      "partial": "Teilweise",
+      "no": "Nein"
+    }
+  },
+  "preview": {
+    "eyebrow": "Dashboard",
+    "title": "Alles auf einem Bildschirm",
+    "body": "Was diesen Monat online ging, was auf Sie wartet und Ihr Fortschritt bei Google auf einen Blick.",
+    "alt": "Beispielansicht des Upvine-Dashboards: Kennzahlenkarten und eine Artikelliste mit Status-Badges",
+    "stat1": "Diesen Monat veröffentlicht",
+    "stat1Change": "4 mehr als letzten Monat",
+    "stat2": "Bei Google angezeigt",
+    "stat2Change": "32 % mehr als letzten Monat",
+    "stat3": "Artikel in den Top 10",
+    "stat3Change": "2 Artikel auf Seite eins",
+    "article1": "Olivenöl richtig lagern: 7 praktische Tipps",
+    "article2": "Was macht Olivenöl aus früher Ernte besonders?",
+    "article3": "Kaltgepresst oder warmgepresst: der Unterschied",
+    "article4": "Worauf man bei Frühstücksoliven achten sollte",
+    "date1": "Online",
+    "date2": "Wartet auf Sie",
+    "date3": "Donnerstag 10:00",
+    "date4": "Wird geschrieben"
+  },
+  "pricing": {
+    "eyebrow": "Preise",
+    "title": "Einfache Preise, keine Credits",
+    "body": "In jedem Paket ein festes monatliches Artikelkontingent. 7 Tage kostenlos testen.",
+    "intervalLabel": "Abrechnungszeitraum",
+    "monthly": "Monatlich",
+    "yearly": "Jährlich (2 Monate gratis)",
+    "perMonth": "/ Monat",
+    "billedYearly": "Jährlich {{value}}",
+    "popular": "Am beliebtesten",
+    "start": "Kostenlos testen",
+    "policy": "Jederzeit kündbar; volle Rückerstattung innerhalb von 14 Tagen nach der ersten Zahlung, ohne Angabe von Gründen.",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "for": "Für eine Website und einen regelmäßigen Blog"
+      },
+      "growth": {
+        "name": "Growth",
+        "for": "Für Unternehmen, die schneller wachsen wollen"
+      },
+      "agency": {
+        "name": "Agency",
+        "for": "Für Agenturen mit mehreren Websites"
+      }
+    },
+    "f": {
+      "articles": "{{value}} Artikel pro Monat",
+      "sites": "{{value}} Websites",
+      "refreshes": "{{value}} Auffrischungen älterer Beiträge pro Monat",
+      "keywords": "{{value}} verfolgte Keywords",
+      "languages": "{{value}} Inhaltssprachen",
+      "allLanguages": "Alle Inhaltssprachen",
+      "team": "{{value}} Teammitglieder",
+      "aiVisibility": "KI-Sichtbarkeit"
+    },
+    "policyLink": "Kündigungs- und Erstattungsrichtlinie",
+    "exVat": "zzgl. MwSt."
+  },
+  "faq": {
+    "eyebrow": "Häufige Fragen",
+    "title": "Was Sie vielleicht wissen möchten",
+    "q1": {
+      "q": "Sind KI-geschriebene Inhalte ein Problem für Google?",
+      "a": "Google bewertet, ob Inhalte hilfreich und korrekt sind, nicht wie sie entstanden sind. Upvine prüft jeden Artikel, nennt Quellen und holt vor der Veröffentlichung Ihre Freigabe ein. Rankings garantieren wir nicht; regelmäßige, gute Inhalte zahlen sich mit der Zeit aus."
+    },
+    "q2": {
+      "q": "Mit welchen Plattformen funktioniert es?",
+      "a": "Direkte Veröffentlichung auf WordPress, Shopify, Webflow, Ghost und Wix. Eigene Websites lassen sich per Webhook anbinden, oder Sie laden Artikel als HTML, Markdown oder ZIP herunter."
+    },
+    "q3": {
+      "q": "Werden Artikel ohne meine Freigabe veröffentlicht?",
+      "a": "Standardmäßig nicht. Im Freigabemodus kommt jeder Artikel zuerst zu Ihnen; Sie können ihn bearbeiten, neu schreiben lassen oder ablehnen. Auf Wunsch veröffentlichen wir Artikel, die die Qualitätsschwelle erreichen, automatisch."
+    },
+    "q4": {
+      "q": "Was enthält die kostenlose Analyse?",
+      "a": "Einen technischen SEO-Check mit 25 Punkten, Ihre Markenzusammenfassung, die Keywords Ihrer Kunden und Themencluster. Ohne Anmeldung; der Bericht öffnet sich über einen teilbaren Link."
+    },
+    "q5": {
+      "q": "In welchen Sprachen kann es schreiben?",
+      "a": "Das Dashboard gibt es auf Deutsch, Englisch, Türkisch, Spanisch und Französisch. Artikel entstehen in über 25 Sprachen, passend zu Ihrem Zielland."
+    },
+    "q6": {
+      "q": "Wie funktionieren Kündigung und Rückerstattung?",
+      "a": "Sie können Ihr Abo jederzeit im Dashboard kündigen. Innerhalb von 14 Tagen nach der ersten Zahlung erhalten Sie den vollen Betrag zurück."
+    }
+  },
+  "final": {
+    "title": "Sehen Sie, wo Ihre Website heute steht",
+    "body": "Die kostenlose Analyse dauert etwa eine Minute und braucht keine Anmeldung."
+  },
+  "legal": {
+    "title": "Rechtliche Dokumente",
+    "englishOnly": "Dieses Dokument ist derzeit auf Englisch und Türkisch verfügbar. Sie sehen die englische Fassung.",
+    "docs": {
+      "privacy": "Datenschutzerklärung",
+      "terms": "Nutzungsbedingungen",
+      "cookies": "Cookie-Richtlinie",
+      "refund": "Kündigung, Erstattung und Bereitstellung",
+      "distance-sales": "Fernabsatzvertrag",
+      "pre-information": "Vorvertragliche Informationen",
+      "kvkk": "KVKK-Datenschutzhinweis",
+      "dpa": "Auftragsverarbeitungsvertrag (AVV)"
+    },
+    "missing": {
+      "companyName": "Firmenname",
+      "address": "Adresse",
+      "taxOffice": "Finanzamt",
+      "taxNumber": "Steuernummer",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "jurisdiction": "Gerichtsstand",
+      "hosting": "Hosting-Anbieter",
+      "site": "Website-Adresse"
+    }
+  },
+  "pricingPage": {
+    "title": "Preise · Upvine",
+    "description": "Upvine-Pakete und Preise: Artikel pro Monat, Anzahl der Websites, Aktualisierungen und Keyword-Tracking. Jederzeit kündbar, 14 Tage Geld-zurück-Garantie bei der ersten Zahlung."
+  },
+  "about": {
+    "metaTitle": "Über uns · Upvine",
+    "title": "Über uns",
+    "intro": "Upvine hilft kleinen Unternehmen und Agenturen, regelmäßig hochwertige Inhalte zu veröffentlichen, nach denen Menschen wirklich suchen.",
+    "p1": "Wir analysieren Ihre Website, finden heraus, wonach Ihre Kunden bei Google suchen, und erstellen einen Redaktionsplan. Jeder Artikel wird in Ihrer Markenstimme geschrieben, auf Fakten geprüft, mit Ihren anderen Seiten verlinkt und mit Ihrer Zustimmung veröffentlicht.",
+    "p2": "Auch Ihre bestehenden Beiträge vergessen wir nicht: Für Beiträge, die Traffic verlieren oder veralten, schlagen wir Aktualisierungen vor, zeigen Ihnen vorher und nachher und übernehmen sie nur mit Ihrer Zustimmung.",
+    "p3": "Upvine befindet sich derzeit in der Beta-Phase. Ihr Feedback prägt das Produkt direkt; wir lesen jeden Vorschlag.",
+    "company": "Upvine wird von {{company}} entwickelt und angeboten.",
+    "cta": "Website kostenlos analysieren",
+    "contact": "Kontakt aufnehmen"
+  },
+  "contact": {
+    "metaTitle": "Kontakt · Upvine",
+    "title": "Kontakt",
+    "body": "Schreiben Sie uns bei Fragen, Vorschlägen oder Supportanfragen eine E-Mail. Wir antworten in der Regel innerhalb eines Werktags.",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "tax": "Finanzamt / Steuernummer",
+    "mersis": "MERSIS-Nummer",
+    "kep": "Registrierte E-Mail (KEP)",
+    "privacy": "Für Anfragen zu Ihren personenbezogenen Daten:"
+  }
+}

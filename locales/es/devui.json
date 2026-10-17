@@ -1,0 +1,102 @@
+{
+  "title": "Galería de componentes",
+  "intro": "Todos los componentes compartidos en tema claro y oscuro. Solo en desarrollo.",
+  "light": "Tema claro",
+  "dark": "Tema oscuro",
+  "sections": {
+    "buttons": "Botones",
+    "inputs": "Campos",
+    "badges": "Etiquetas de estado",
+    "cards": "Tarjetas",
+    "overlays": "Diálogo, panel lateral y descripción emergente",
+    "tabs": "Pestañas",
+    "feedback": "Notificación y esqueleto de carga",
+    "emptyState": "Estado vacío",
+    "stats": "Tarjetas de métricas",
+    "progress": "Pasos de progreso",
+    "checklist": "Lista de verificación",
+    "table": "Tabla de datos",
+    "editor": "Editor de artículos",
+    "charts": "Gráficos"
+  },
+  "buttons": {
+    "primary": "Aprobar y programar",
+    "secondary": "Editar",
+    "ghost": "Omitir por ahora",
+    "danger": "Eliminar",
+    "disabled": "No disponible",
+    "loading": "Guardando"
+  },
+  "inputs": {
+    "url": "Dirección de la web",
+    "urlPlaceholder": "https://ejemplo.com",
+    "urlHint": "Solo leemos páginas públicas.",
+    "error": "Escribe una dirección completa que empiece por https://",
+    "select": "Frecuencia de publicación",
+    "selectPlaceholder": "Elige cada cuánto",
+    "perWeek": "{{n}} artículos por semana"
+  },
+  "card": {
+    "title": "Cómo hacer pan de masa madre en casa",
+    "body": "1.850 palabras · 12 datos verificados · 2 imágenes"
+  },
+  "dialog": {
+    "open": "Abrir diálogo",
+    "title": "¿Cancelar tu suscripción?",
+    "body": "Mantendrás el acceso hasta el final del periodo de facturación actual. Puedes volver cuando quieras.",
+    "confirm": "Cancelar suscripción",
+    "keep": "Mantener suscripción"
+  },
+  "sheet": {
+    "open": "Abrir panel lateral",
+    "title": "Detalles del artículo",
+    "body": "Los paneles laterales muestran más detalles sin salir de la página."
+  },
+  "tooltip": {
+    "label": "Tasa de clics",
+    "text": "Cuántas personas hicieron clic en tu página después de verla en Google."
+  },
+  "tabs": {
+    "overview": "Resumen",
+    "articles": "Mis artículos",
+    "keywords": "Palabras clave",
+    "overviewBody": "Un resumen de tus resultados.",
+    "articlesBody": "Cada artículo y cómo funciona.",
+    "keywordsBody": "Las búsquedas con las que la gente te encuentra."
+  },
+  "toast": {
+    "show": "Mostrar notificación",
+    "success": "Artículo aprobado",
+    "undoable": "Artículo eliminado"
+  },
+  "stats": {
+    "published": "Artículos publicados este mes",
+    "impressions": "Veces que apareciste en Google",
+    "top10": "Artículos en el top 10 de Google",
+    "changeUp": "↑ {{value}} respecto al mes pasado",
+    "changeDown": "↓ {{value}} respecto al mes pasado"
+  },
+  "table": {
+    "caption": "Artículos recientes",
+    "article": "Artículo",
+    "status": "Estado",
+    "date": "Fecha",
+    "row1": "Masa madre para principiantes",
+    "row2": "La mejor harina para pan",
+    "row3": "Por qué el pan no sube",
+    "empty": "Todavía no hay artículos."
+  },
+  "editor": {
+    "label": "Entrada de ejemplo",
+    "sample": "<p>Este es un párrafo de <strong>ejemplo</strong>.</p><h2>Título de sección</h2><ul><li>Primer punto</li><li>Segundo punto</li></ul>"
+  },
+  "charts": {
+    "lineTitle": "Impresiones diarias",
+    "columnTitle": "Tasa de menciones por medición",
+    "table": "Ver como tabla",
+    "date": "Fecha",
+    "value": "Valor",
+    "day": "Día {{value}}",
+    "week": "Semana {{value}}"
+  }
+}

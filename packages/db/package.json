@@ -1,0 +1,26 @@
+{
+  "name": "@upvine/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./testing": "./src/testing.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "migrate": "tsx src/cli.ts up",
+    "migrate:down": "tsx src/cli.ts down",
+    "seed": "tsx src/cli.ts seed",
+    "grant-admin": "tsx src/cli.ts grant-admin"
+  },
+  "dependencies": {
+    "mysql2": "^3.24.5",
+    "sequelize": "^6.37.8",
+    "umzug": "^3.8.3",
+    "uuid": "^14.0.2"
+  },
+  "devDependencies": {
+    "argon2": "^0.45.1"
+  }
+}

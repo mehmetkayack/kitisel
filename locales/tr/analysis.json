@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "Ücretsiz SEO site analizi — Upvine",
+    "description": "25 temel teknik SEO kontrolünü yapın, en iyi anahtar kelime fırsatlarınızı ve organik rakiplerinizi görün. Ücretsiz, kayıt gerektirmez, yaklaşık bir dakikada hazır.",
+    "reportTitle": "{{domain}} için SEO analizi — Upvine"
+  },
+  "form": {
+    "title": "Web sitenizin ücretsiz SEO analizi",
+    "subtitle": "Önce neyi düzeltmeniz gerektiğini, müşterilerinizin hangi konuları aradığını ve Google'da kiminle yarıştığınızı görün.",
+    "label": "Web sitesi adresi",
+    "placeholder": "ornek.com",
+    "hint": "Ana sayfanızın adresi.",
+    "submit": "Sitemi ücretsiz analiz et",
+    "note": "Kayıt gerekmez. Raporunuz yaklaşık bir dakikada hazır.",
+    "what1": "Sade dilde düzeltme önerileriyle 25 teknik kontrol",
+    "what2": "Arama sayılarıyla en iyi 10 anahtar kelime fırsatınız",
+    "what3": "3 organik rakibiniz ve konu fikirleri"
+  },
+  "progress": {
+    "title": "{{domain}} analiz ediliyor",
+    "body": "Bu genellikle yaklaşık bir dakika sürer. Bu sayfayı açık tutun; rapor burada görünecek.",
+    "steps": {
+      "homepage": "Ana sayfanız okunuyor",
+      "discover": "robots.txt ve site haritası kontrol ediliyor",
+      "pages": "Sayfalarınız ve linkleriniz taranıyor",
+      "checks": "25 teknik kontrol yapılıyor",
+      "brand": "İşletmeniz anlaşılıyor",
+      "keywords": "Anahtar kelime fırsatları bulunuyor",
+      "competitors": "Rakipleriniz araştırılıyor"
+    }
+  },
+  "failed": {
+    "title": "Bu siteyi analiz edemedik",
+    "retry": "Başka bir adres dene"
+  },
+  "report": {
+    "title": "{{domain}} için SEO analizi",
+    "checkedAt": "Kontrol tarihi: {{date}}",
+    "pdf": "PDF olarak indir",
+    "share": "Paylaşım linkini kopyala",
+    "copied": "Link kopyalandı.",
+    "aiOff": "Anahtar kelime ve rakip önerileri için yapay zekâ hizmetimiz gerekiyor ve şu an kullanılamıyor. Aşağıdaki teknik rapor eksiksiz.",
+    "brand": {
+      "title": "İşletmeniz hakkında anladıklarımız",
+      "products": "Ürünler ve hizmetler"
+    },
+    "keywords": {
+      "title": "En iyi anahtar kelime fırsatları",
+      "body": "Müşterilerinizin yaptığı ve üst sıralara çıkma şansınızın gerçekçi olduğu aramalar.",
+      "keyword": "Arama ifadesi",
+      "volume": "Aylık arama",
+      "difficulty": "Rekabet",
+      "intent": "Arayan kişi ne istiyor?",
+      "intents": {
+        "informational": "Bilgi almak",
+        "commercial": "Karşılaştırmak",
+        "transactional": "Satın almak",
+        "navigational": "Bir siteyi bulmak"
+      },
+      "estimated": "Tahmini",
+      "estimatedHelp": "Arama sayıları tahminidir. Kayıt olduktan sonra gerçek anahtar kelime verisi bağlanabilir."
+    },
+    "clusters": {
+      "title": "Önerilen konu kümeleri",
+      "body": "Bir konuda otoritenizi artıran, birbiriyle bağlantılı yazı grupları."
+    },
+    "competitors": {
+      "title": "Organik rakipleriniz",
+      "body": "Aynı müşteri aramalarında Google'da çıkan web siteleri.",
+      "empty": "Bu sefer rakip belirleyemedik."
+    },
+    "technical": {
+      "title": "Teknik sağlık: 25 kontrol"
+    },
+    "email": {
+      "title": "Bu raporu e-postayla alın",
+      "label": "E-posta adresi",
+      "consent": "Ara sıra SEO ipuçları ve Upvine haberleri de gönderin (isteğe bağlı, istediğiniz zaman vazgeçebilirsiniz).",
+      "submit": "Raporu gönder",
+      "sent": "Raporu {{email}} adresine gönderdik."
+    },
+    "cta": {
+      "title": "Bu planı Upvine sizin için uygulasın",
+      "body": "Bu konulardaki yazıları yazar, bilgilerini doğrular ve sitenizde yayınlarız. 7 gün ücretsiz deneyin, istediğiniz zaman iptal edin.",
+      "button": "Bu planı otomatik uygula — 7 gün dene"
+    }
+  },
+  "home": {
+    "cta": "Ücretsiz site analizi al",
+    "secondary": "Ücretsiz hesap oluştur"
+  }
+}

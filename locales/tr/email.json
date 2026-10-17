@@ -1,0 +1,41 @@
+{
+  "greeting": "Merhaba {{name}},",
+  "fallbackLink": "Buton çalışmazsa bu bağlantıyı tarayıcınıza kopyalayın:",
+  "verifyEmail": {
+    "subject": "E-posta adresinizi doğrulayın",
+    "preview": "Upvine hesabınızı tek tıkla doğrulayın.",
+    "heading": "E-posta adresinizi doğrulayın",
+    "body": "Upvine'a kaydolduğunuz için teşekkürler. Hesabınızı güvende tutabilmemiz için lütfen e-posta adresinizi doğrulayın.",
+    "button": "E-postayı doğrula",
+    "expires": "Bu bağlantı {{ttl}} saat geçerlidir.",
+    "ignore": "Upvine hesabı oluşturmadıysanız bu e-postayı yok sayabilirsiniz."
+  },
+  "resetPassword": {
+    "subject": "Upvine şifrenizi sıfırlayın",
+    "preview": "Yeni şifre belirlemek için bu bağlantıyı kullanın.",
+    "heading": "Yeni şifre belirleyin",
+    "body": "Upvine hesabınızın şifresini sıfırlama isteği aldık.",
+    "button": "Yeni şifre belirle",
+    "expires": "Bu bağlantı {{ttl}} dakika geçerlidir.",
+    "ignore": "Bu isteği siz yapmadıysanız bu e-postayı yok sayabilirsiniz. Şifreniz değişmez."
+  },
+  "greetingPlain": "Merhaba,",
+  "articleReady": {
+    "subject": "Bir yazı onayınızı bekliyor",
+    "preview": "“{{title}}” incelemeye hazır.",
+    "heading": "Yeni yazınız hazır",
+    "body": "“{{title}}” yazısını tamamladık. Bilgiler doğrulandı ve SEO puanı hesaplandı. Lütfen inceleyip yayın için onaylayın.",
+    "button": "Yazıyı incele",
+    "expires": "Onayınız olmadan hiçbir şey yayınlanmaz.",
+    "ignore": "Bu e-postayı siteniz onaylı yayın modunda olduğu için alıyorsunuz. Bunu Ayarlar’dan değiştirebilirsiniz."
+  },
+  "freeAnalysis": {
+    "subject": "{{domain}} için ücretsiz SEO analiziniz",
+    "preview": "Site sağlığı puanı: {{score}} / 100.",
+    "heading": "Site analiziniz hazır",
+    "body": "{{domain}} için raporunuz hazır. Site sağlığı puanı: {{score}} / 100. Raporda önce neyi düzeltmeniz gerektiğini ve müşterilerinizin hangi konuları aradığını göreceksiniz.",
+    "button": "Raporu aç",
+    "expires": "Rapor linki 30 gün geçerlidir.",
+    "ignore": "Bu e-postayı Upvine üzerinden istediğiniz için alıyorsunuz. İzin vermediyseniz size pazarlama e-postası göndermeyiz."
+  }
+}

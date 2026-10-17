@@ -1,0 +1,90 @@
+{
+  "userMenu": {
+    "label": "Menu du compte",
+    "settings": "Paramètres du compte",
+    "admin": "Administration"
+  },
+  "verifyBanner": {
+    "text": "Veuillez confirmer votre adresse e-mail. Nous avons envoyé un lien à {{email}}.",
+    "resend": "Renvoyer l’e-mail",
+    "sent": "Nous avons envoyé un nouveau lien. Consultez votre boîte de réception."
+  },
+  "setup": {
+    "title": "Terminez la configuration",
+    "progress": "{{done}} étapes sur {{total}} terminées",
+    "cta": "Commencer la configuration",
+    "steps": {
+      "analyzed": "Site analysé",
+      "brand": "Profil de marque validé",
+      "connected": "Site connecté",
+      "searchConsole": "Google Search Console connecté",
+      "firstArticle": "Premier article validé"
+    }
+  },
+  "generation": {
+    "steps": {
+      "research": "Recherche sur le sujet",
+      "draft": "Rédaction du brouillon",
+      "factCheck": "Vérification des informations",
+      "images": "Préparation des images"
+    }
+  },
+  "home": {
+    "title": "Accueil",
+    "greeting": "Bienvenue, {{name}}",
+    "statusSetup": "Préparons votre site. La configuration prend environ 10 minutes."
+  },
+  "content": {
+    "title": "Contenus",
+    "emptyTitle": "Aucun article pour l’instant",
+    "emptyBody": "Une fois votre site configuré, vos premiers articles apparaîtront ici, prêts à être relus."
+  },
+  "calendar": {
+    "title": "Calendrier",
+    "emptyTitle": "Votre calendrier éditorial est vide",
+    "emptyBody": "Après la configuration, nous planifierons vos articles et afficherons ici leurs dates de publication.",
+    "description": "Faites glisser un article vers un autre jour pour changer sa date de publication. L’heure reste la même.",
+    "month": "Mois",
+    "week": "Semaine",
+    "viewLabel": "Affichage",
+    "today": "Aujourd’hui",
+    "prevMonth": "Mois précédent",
+    "nextMonth": "Mois suivant",
+    "prevWeek": "Semaine précédente",
+    "nextWeek": "Semaine suivante",
+    "reschedule": "Changer la date de « {{title}} »",
+    "rescheduleShort": "Changer la date",
+    "rescheduleTitle": "Changer la date de publication",
+    "newDate": "Nouvelle date",
+    "newDateHint": "L’heure de publication reste la même.",
+    "move": "Déplacer",
+    "moved": "Date de publication mise à jour.",
+    "emptyMonth": "Aucun article prévu ce mois-ci.",
+    "dnd": {
+      "start": "Déplacement de « {{title}} ».",
+      "over": "« {{title}} » est sur {{day}}.",
+      "end": "« {{title}} » déplacé au {{day}}.",
+      "cancel": "Déplacement annulé."
+    }
+  },
+  "results": {
+    "title": "Résultats",
+    "emptyTitle": "Vos résultats s’afficheront ici",
+    "emptyBody": "Dès que vos premiers articles seront en ligne, vous verrez combien de fois Google les affiche et à quelle position."
+  },
+  "settings": {
+    "title": "Paramètres",
+    "account": {
+      "title": "Votre compte",
+      "description": "Vos informations personnelles et vos préférences.",
+      "name": "Nom",
+      "email": "E-mail",
+      "languageHint": "Utilisée pour le tableau de bord et les e-mails que nous vous envoyons.",
+      "saved": "Vos paramètres ont été enregistrés."
+    }
+  },
+  "impersonation": {
+    "text": "Vous consultez Upvine en tant que {{name}} ({{email}}). Cette vue est en lecture seule.",
+    "exit": "Quitter la vue"
+  }
+}

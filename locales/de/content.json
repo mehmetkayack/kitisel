@@ -1,0 +1,338 @@
+{
+  "list": {
+    "usage": "Artikel in diesem Monat: {{used}} / {{limit}}",
+    "write": "Jetzt schreiben",
+    "open": "Öffnen",
+    "notConnected": "Ihre Website ist noch nicht verbunden. Freigegebene Artikel warten auf Ihren Download, oder Sie verbinden Ihre Website in den Einstellungen.",
+    "connect": "Website verbinden"
+  },
+  "detail": {
+    "back": "Alle Inhalte",
+    "plannedFor": "Geplant für {{date}}",
+    "words": "Wörter: {{value}}",
+    "version": "Version {{value}}"
+  },
+  "steps": {
+    "research": "Thema wird recherchiert",
+    "draft": "Entwurf wird geschrieben",
+    "factCheck": "Fakten werden geprüft",
+    "seo": "SEO wird geprüft",
+    "images": "Titelbild wird erstellt"
+  },
+  "generating": {
+    "title": "Wir schreiben diesen Artikel",
+    "body": "Das dauert meist ein bis drei Minuten. Sie können diese Seite verlassen; wir schicken Ihnen eine E-Mail, sobald er fertig ist."
+  },
+  "notWritten": {
+    "title": "Dieser Artikel ist noch nicht geschrieben",
+    "body": "Wir beginnen automatisch einige Tage vor dem Veröffentlichungstermin. Sie können auch jetzt starten.",
+    "write": "Jetzt schreiben",
+    "quotaFull": "Sie haben alle Artikel dieses Monats genutzt. Neue Artikel gibt es im nächsten Monat."
+  },
+  "errors": {
+    "ai_not_configured": "Artikel können nicht geschrieben werden, weil der KI-Dienst nicht eingerichtet ist.",
+    "ai_budget": "Das heutige KI-Limit ist erreicht. Wir versuchen es morgen erneut, oder Sie versuchen es später.",
+    "ai_unavailable": "Der KI-Dienst war ausgelastet. Bitte versuchen Sie es in ein paar Minuten erneut.",
+    "ai_blocked": "Der KI-Dienst hat dieses Thema abgelehnt. Versuchen Sie einen anderen Titel oder Suchbegriff.",
+    "ai_invalid_output": "Der Entwurf ist nicht gelungen. Bitte lassen Sie ihn erneut schreiben.",
+    "quota_exceeded": "Sie haben alle Artikel dieses Monats genutzt.",
+    "internal": "Bei uns ist etwas schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "publish_auth_failed": "Ihre Website hat unsere Anmeldung nicht akzeptiert. Verbinden Sie Ihre Website in den Einstellungen neu; das dauert etwa 30 Sekunden.",
+    "publish_forbidden": "Der verbundene Benutzer darf nicht veröffentlichen. Verbinden Sie ein Redakteurs- oder Administratorkonto.",
+    "publish_not_found": "Wir haben die Veröffentlichungsadresse Ihrer Website nicht gefunden. Prüfen Sie die Verbindung in den Einstellungen.",
+    "publish_not_wordpress": "Wir haben die WordPress-Schnittstelle nicht erreicht. Prüfen Sie die Verbindung in den Einstellungen.",
+    "publish_app_passwords_disabled": "Anwendungspasswörter sind auf Ihrer WordPress-Website ausgeschaltet. Schalten Sie sie ein und verbinden Sie neu.",
+    "publish_unreachable": "Wir haben Ihre Website mehrmals nicht erreicht. Prüfen Sie, ob sie online ist, und veröffentlichen Sie erneut.",
+    "publish_rejected": "Ihre Website hat den Artikel abgelehnt. Prüfen Sie die Verbindung und veröffentlichen Sie erneut.",
+    "publish_server_error": "Ihre Website hat mehrmals mit einem Fehler geantwortet. Bitte veröffentlichen Sie später erneut.",
+    "publish_internal": "Die Veröffentlichung ist bei uns fehlgeschlagen. Bitte veröffentlichen Sie erneut.",
+    "publish_no_blog": "In Ihrem Shop wurde kein Blog gefunden. Erstellen Sie einen Blog in Shopify und veröffentlichen Sie erneut.",
+    "publish_no_author": "Ihre Wix-Website hat kein Mitglied mehr, das Autor sein kann. Fügen Sie ein Mitglied hinzu und veröffentlichen Sie erneut.",
+    "publish_invalid_mapping": "Die Felder Ihrer Webflow-Sammlung haben sich geändert. Verbinden Sie sie in den Einstellungen neu.",
+    "duplicate_post": "Einer Ihrer Beiträge behandelt dieses Thema bereits."
+  },
+  "retry": "Erneut versuchen",
+  "retryPublish": "Erneut veröffentlichen",
+  "review": {
+    "googlePreview": "So könnte es bei Google aussehen",
+    "seoTitle": "SEO-Wert",
+    "seoLevels": {
+      "good": "Bereit fürs Ranking",
+      "fair": "Ausbaufähig",
+      "poor": "Braucht Überarbeitung"
+    },
+    "seoDetails": "SEO-Prüfungen anzeigen",
+    "verificationTitle": "Faktencheck",
+    "verificationSummary": "Bestätigt: {{verified}} · Korrigiert: {{corrected}} · Entfernt: {{removed}}",
+    "verificationNone": "Dieser Artikel enthält keine konkreten Zahlen oder Daten zum Prüfen.",
+    "verificationUnchecked": "Wir konnten die Fakten nicht automatisch prüfen. Bitte prüfen Sie Zahlen und Daten vor der Freigabe.",
+    "verdicts": {
+      "verified": "Bestätigt",
+      "corrected": "Korrigiert",
+      "removed": "Entfernt"
+    },
+    "verificationDetails": "Geprüfte Fakten anzeigen",
+    "sourcesTitle": "Quellen",
+    "coverGenerated": "Das Titelbild wurde aus Ihren Markenfarben erstellt.",
+    "approve": "Freigeben und planen",
+    "reject": "Ablehnen",
+    "download": "Herunterladen",
+    "downloadHtml": "HTML-Datei",
+    "downloadMd": "Markdown-Datei",
+    "downloadZip": "ZIP (HTML, Markdown und Bilder)",
+    "infographicCaption": "Infografik: wird beim Veröffentlichen nach dem ersten Abschnitt eingefügt. Sie können sie auch in sozialen Medien teilen.",
+    "coverSite": "Das Titelbild stammt von der Seite Ihrer Website, die diesem Thema am nächsten ist.",
+    "coverUser": "Dieses Titelbild haben Sie hochgeladen.",
+    "regenerateLeft": "Neu schreiben ({{left}}/{{limit}} übrig)"
+  },
+  "reject": {
+    "title": "Warum lehnen Sie diesen Artikel ab?",
+    "body": "Wir berücksichtigen Ihre Antwort beim Neuschreiben und bei Ihren nächsten Artikeln.",
+    "reasons": {
+      "too_generic": "Zu allgemein, nicht konkret genug",
+      "wrong_facts": "Einige Fakten stimmen nicht",
+      "wrong_tone": "Klingt nicht nach uns",
+      "off_topic": "Am Thema vorbei",
+      "too_salesy": "Zu werblich",
+      "other": "Etwas anderes"
+    },
+    "confirm": "Artikel ablehnen",
+    "done": "Artikel abgelehnt."
+  },
+  "status": {
+    "scheduledConnected": "Freigegeben. Er wird am {{date}} veröffentlicht.",
+    "scheduledNow": "Freigegeben. Er wird gerade veröffentlicht.",
+    "scheduledNotConnected": "Freigegeben. Ihre Website ist nicht verbunden: Laden Sie den Artikel herunter und veröffentlichen Sie ihn selbst, oder verbinden Sie Ihre Website.",
+    "published": "Auf Ihrer Website veröffentlicht.",
+    "viewLive": "Auf Ihrer Website ansehen",
+    "rejected": "Sie haben diesen Artikel abgelehnt."
+  },
+  "seoChecks": {
+    "keyword_in_title": "Fokus-Keyword im Titel",
+    "meta_title_length": "Länge des Google-Titels (50–60 Zeichen)",
+    "meta_description_length": "Länge der Google-Beschreibung (140–160 Zeichen)",
+    "keyword_in_meta_description": "Fokus-Keyword in der Google-Beschreibung",
+    "slug": "Kurze, lesbare Seitenadresse",
+    "keyword_in_intro": "Fokus-Keyword im ersten Absatz",
+    "h2_structure": "Klare Zwischenüberschriften",
+    "keyword_density": "Natürliche Verwendung des Fokus-Keywords",
+    "readability": "Kurze, einfache Sätze",
+    "internal_links": "Links zu Ihren anderen Seiten",
+    "external_links": "Links zu vertrauenswürdigen Quellen",
+    "faq": "Häufige Fragen",
+    "toc": "Inhaltsverzeichnis",
+    "schema": "Strukturierte Informationen für Google",
+    "word_count": "Artikellänge",
+    "image_alt": "Beschreibung des Titelbilds"
+  },
+  "connections": {
+    "title": "Website-Verbindung",
+    "body": "Freigegebene Artikel werden direkt auf Ihrer Website veröffentlicht, mit Titelbild.",
+    "connected": "Verbunden",
+    "lastChecked": "Zuletzt geprüft: {{date}}",
+    "test": "Verbindung testen",
+    "tested": "Die Verbindung funktioniert.",
+    "disconnect": "Trennen",
+    "disconnectTitle": "Website trennen?",
+    "disconnectBody": "Freigegebene Artikel werden nicht mehr automatisch veröffentlicht. Ihre Zugangsdaten werden gelöscht. Sie können jederzeit neu verbinden.",
+    "disconnected": "Ihre Website wurde getrennt.",
+    "choose": "Wie sollen wir veröffentlichen?",
+    "kinds": {
+      "wordpress": {
+        "label": "WordPress",
+        "hint": "Veröffentlicht Beiträge mit dem Titelbild als Beitragsbild."
+      },
+      "webhook": {
+        "label": "Webhook (eigene Website)",
+        "hint": "Wir senden jeden Artikel als signiertes JSON an die Adresse Ihres Entwicklers."
+      },
+      "ghost": {
+        "label": "Ghost",
+        "hint": "Mit einem Admin-API-Schlüssel; das Titelbild wird zum Feature-Bild."
+      },
+      "shopify": {
+        "label": "Shopify",
+        "hint": "Veröffentlicht Artikel im Blog Ihres Shops."
+      },
+      "webflow": {
+        "label": "Webflow",
+        "hint": "In Ihre CMS-Sammlung; Sie ordnen die Felder zu."
+      },
+      "wix": {
+        "label": "Wix",
+        "hint": "Veröffentlicht im Wix-Blog."
+      }
+    },
+    "wordpress": {
+      "siteUrl": "Adresse der WordPress-Website",
+      "username": "WordPress-Benutzername",
+      "appPassword": "Anwendungspasswort",
+      "appPasswordHint": "Gehen Sie in WordPress zu Benutzer → Profil → Anwendungspasswörter. Geben Sie einen Namen wie „Upvine“ ein, klicken Sie auf „Hinzufügen“ und fügen Sie das Passwort hier ein.",
+      "connect": "WordPress verbinden",
+      "oneClick": "Mit einem Klick verbinden",
+      "or": "Oder geben Sie ein Anwendungspasswort ein:"
+    },
+    "webhook": {
+      "url": "Webhook-Adresse",
+      "urlHint": "Muss mit https:// beginnen. Wir senden jeden Artikel als JSON mit HMAC-Signatur.",
+      "connect": "Webhook verbinden",
+      "secretTitle": "Speichern Sie jetzt Ihren Signaturschlüssel",
+      "secretBody": "Damit prüfen Sie, dass Anfragen von Upvine kommen (Header X-Upvine-Signature). Wir zeigen ihn nicht noch einmal.",
+      "copy": "Kopieren",
+      "copied": "Kopiert."
+    },
+    "errors": {
+      "auth_failed": "Ihre Website hat die Zugangsdaten nicht akzeptiert. Prüfen Sie sie und versuchen Sie es erneut.",
+      "forbidden": "Dieser Benutzer darf keine Beiträge veröffentlichen. Verwenden Sie ein Redakteurs- oder Administratorkonto.",
+      "not_found": "Diese Adresse wurde nicht gefunden. Prüfen Sie sie und versuchen Sie es erneut.",
+      "not_wordpress": "Unter dieser Adresse haben wir kein WordPress gefunden. Prüfen Sie die Adresse oder fragen Sie Ihren Entwickler, ob die REST-API abgeschaltet ist.",
+      "app_passwords_disabled": "Anwendungspasswörter sind auf dieser WordPress-Website ausgeschaltet. Die Website muss HTTPS nutzen, und kein Sicherheits-Plugin darf sie blockieren.",
+      "unreachable": "Diese Adresse ist nicht erreichbar. Prüfen Sie sie und versuchen Sie es erneut.",
+      "rejected": "Die Website hat unsere Testanfrage abgelehnt. Prüfen Sie die Adresse und versuchen Sie es erneut.",
+      "server_error": "Die Website hat mit einem Fehler geantwortet. Versuchen Sie es in ein paar Minuten erneut.",
+      "internal": "Bei uns ist etwas schiefgelaufen. Bitte versuchen Sie es erneut.",
+      "no_blog": "Ihr Shop hat keinen Blog. Erstellen Sie einen in Shopify unter Onlineshop → Blogbeiträge.",
+      "no_author": "Ihre Wix-Website hat kein Mitglied, das Autor sein kann. Installieren Sie den Mitgliederbereich und fügen Sie sich als Mitglied hinzu.",
+      "invalid_mapping": "Die gewählten Felder passen nicht zur Sammlung (der Text muss ein Rich-Text-Feld sein und alle Pflichtfelder müssen zugeordnet sein)."
+    },
+    "callback": {
+      "connected": "WordPress ist verbunden.",
+      "failed": "Wir konnten WordPress nicht verbinden. Bitte versuchen Sie es erneut oder geben Sie ein Anwendungspasswort ein.",
+      "rejected": "Die Verbindung wurde in WordPress nicht genehmigt."
+    },
+    "ghost": {
+      "siteUrl": "Adresse der Ghost-Website",
+      "adminApiKey": "Admin-API-Schlüssel",
+      "adminApiKeyHint": "In Ghost Admin: Einstellungen → Integrations → „Add custom integration“. Kopieren Sie den „Admin API key“ und fügen Sie ihn hier ein.",
+      "connect": "Ghost verbinden"
+    },
+    "shopify": {
+      "shop": "Shop-Adresse",
+      "shopHint": "Zum Beispiel meinshop.myshopify.com (steht in der Adressleiste Ihres Shopify-Admins).",
+      "method": "Wie sollen wir uns verbinden?",
+      "methods": {
+        "app": {
+          "label": "Shopify-App (empfohlen)",
+          "hint": "Erstellen Sie im Shopify Dev Dashboard eine App, installieren Sie sie in Ihrem Shop und geben Sie Client-ID und Client-Secret ein."
+        },
+        "token": {
+          "label": "Token einer älteren Custom App",
+          "hint": "Wenn Sie eine vor 2026 erstellte Custom App haben: deren Admin-API-Token, beginnend mit „shpat_“."
+        }
+      },
+      "clientId": "Client-ID",
+      "clientSecret": "Client-Secret",
+      "accessToken": "Admin-API-Token",
+      "scopes": "Die App braucht diese Berechtigungen: write_content (Blogartikel) und write_files (Bilder).",
+      "connect": "Shopify verbinden"
+    },
+    "webflow": {
+      "token": "Site-API-Token",
+      "tokenHint": "In Webflow: Site-Einstellungen → Apps & Integrations → API access → „Generate API token“. Erlauben Sie Lesen und Schreiben für CMS, Sites und Assets.",
+      "find": "Sammlungen suchen",
+      "noCollections": "Mit diesem Token haben wir keine CMS-Sammlung gefunden.",
+      "collection": "Sammlung für Ihre Artikel",
+      "pick": "Sammlung wählen",
+      "mapHint": "Wählen Sie für jeden Teil des Artikels das Feld. Titel und Slug gehen immer in die Felder „Name“ und „Slug“.",
+      "roles": {
+        "body": "Artikeltext",
+        "summary": "Zusammenfassung",
+        "image": "Titelbild",
+        "metaTitle": "SEO-Titel",
+        "metaDescription": "SEO-Beschreibung"
+      },
+      "required": "Pflicht: ein Rich-Text-Feld.",
+      "none": "Nicht verwenden",
+      "connect": "Webflow verbinden"
+    },
+    "wix": {
+      "apiKey": "Wix-API-Schlüssel",
+      "apiKeyHint": "Erstellen Sie auf der Seite „API Keys“ Ihres Wix-Kontos einen neuen Schlüssel mit Berechtigungen für Blog und Media Manager.",
+      "siteId": "Website-ID",
+      "siteIdHint": "Die lange ID nach „/dashboard/“ in der Adressleiste Ihres Website-Dashboards.",
+      "authorNote": "Wix verlangt, dass Beiträge von einem Website-Mitglied veröffentlicht werden: Wir verwenden das erste Mitglied als Autor.",
+      "connect": "Wix verbinden"
+    }
+  },
+  "editor": {
+    "edit": "Bearbeiten",
+    "title": "Beitrag bearbeiten",
+    "save": "Speichern",
+    "saved": "Gespeichert. Der SEO-Wert wurde neu berechnet.",
+    "conflict": "Dieser Beitrag wurde während Ihrer Bearbeitung an anderer Stelle gespeichert. Kopieren Sie Ihre Änderungen, laden Sie die Seite neu und übernehmen Sie sie erneut.",
+    "length": "{{value}} Zeichen · empfohlen {{min}}–{{max}}",
+    "slugHint": "Die Adresse des Beitrags. Nach der Veröffentlichung nicht mehr ändern.",
+    "bodyHint": "Inhaltsverzeichnis, FAQ und strukturierte Daten werden beim Speichern automatisch aktualisiert.",
+    "fields": {
+      "title": "Titel",
+      "metaTitle": "Google-Titel",
+      "metaDescription": "Google-Beschreibung",
+      "slug": "URL-Kürzel",
+      "body": "Beitrag"
+    },
+    "unsaved": {
+      "title": "Änderungen nicht gespeichert",
+      "body": "Wenn Sie jetzt gehen, gehen Ihre ungespeicherten Änderungen verloren.",
+      "leave": "Ohne Speichern verlassen",
+      "stay": "Weiter bearbeiten"
+    },
+    "rewrite": {
+      "button": "Mit KI umschreiben",
+      "title": "Abschnitt umschreiben",
+      "body": "Der markierte Teil wird umgeschrieben. Ihr Beitrag ändert sich erst, wenn Sie das Ergebnis übernehmen.",
+      "nothingSelected": "Markieren Sie zuerst den Text oder setzen Sie den Cursor in einen Abschnitt.",
+      "how": "Was soll sich ändern?",
+      "instructions": {
+        "improve": "Besser erklären",
+        "expand": "Erweitern",
+        "shorten": "Kürzen",
+        "simplify": "Vereinfachen",
+        "add_example": "Beispiel ergänzen",
+        "custom": "Eigene Anweisung"
+      },
+      "customLabel": "Ihre Anweisung",
+      "customHint": "Zum Beispiel: „Keine Preise nennen, zur Terminbuchung einladen.“",
+      "start": "Umschreiben",
+      "working": "Wird geschrieben, das dauert meist 10–20 Sekunden …",
+      "result": "Neue Fassung:",
+      "apply": "Ersetzen",
+      "again": "Etwas anderes versuchen",
+      "tooLong": "Der markierte Teil ist zu lang. Wählen Sie einen kleineren Teil."
+    }
+  },
+  "versions": {
+    "button": "Versionsverlauf",
+    "title": "Versionsverlauf",
+    "body": "Jedes Speichern ist eine eigene Version. Das Zurückkehren zu einer alten Version löscht den Verlauf nicht.",
+    "version": "Version {{value}}",
+    "current": "Aktuell",
+    "sources": {
+      "ai": "KI",
+      "user": "Bearbeitung",
+      "restore": "Wiederhergestellt"
+    },
+    "meta": "SEO {{score}} · {{words}} Wörter",
+    "restore": "Zu dieser Version zurückkehren",
+    "restored": "Die alte Version wurde wiederhergestellt."
+  },
+  "cover": {
+    "change": "Titelbild ändern",
+    "title": "Titelbild ändern",
+    "description": "Laden Sie ein eigenes Bild hoch. Es wird nicht zugeschnitten und bleibt erhalten, auch wenn der Artikel neu geschrieben wird.",
+    "file": "Bilddatei",
+    "fileHint": "JPG, PNG, WebP oder AVIF; mindestens 600×300 Pixel, höchstens 10 MB. Am besten 1600×900 (16:9).",
+    "alt": "Bildbeschreibung (Alt-Text)",
+    "altHint": "Beschreiben Sie kurz, was das Bild zeigt. Google und Screenreader nutzen diesen Text.",
+    "save": "Titelbild speichern",
+    "saved": "Titelbild aktualisiert.",
+    "invalid": "Diese Datei kann nicht verwendet werden. Wählen Sie eine JPG-, PNG-, WebP- oder AVIF-Datei mit mindestens 600×300 Pixeln und höchstens 10 MB.",
+    "fileRequired": "Wählen Sie eine Bilddatei.",
+    "altRequired": "Geben Sie eine Bildbeschreibung ein."
+  },
+  "duplicate": {
+    "title": "Dieses Thema gibt es auf Ihrer Website schon",
+    "body": "Wir haben keinen neuen Artikel geschrieben, weil einer Ihrer Beiträge dieses Thema schon behandelt. Zwei Beiträge zum selben Thema schwächen sich bei Google gegenseitig. Aktualisieren Sie stattdessen den vorhandenen Beitrag:",
+    "refresh": "Vorhandenen Beitrag aktualisieren",
+    "writeAnyway": "Trotzdem schreiben"
+  }
+}

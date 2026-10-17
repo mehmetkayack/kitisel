@@ -1,0 +1,338 @@
+{
+  "list": {
+    "usage": "Bu ayki yazılar: {{used}} / {{limit}}",
+    "write": "Şimdi yaz",
+    "open": "Aç",
+    "notConnected": "Siteniz henüz bağlı değil. Onaylanan yazılar indirmeniz için bekler; isterseniz sitenizi Ayarlar'dan bağlayabilirsiniz.",
+    "connect": "Sitenizi bağlayın"
+  },
+  "detail": {
+    "back": "Tüm içerikler",
+    "plannedFor": "Planlanan tarih: {{date}}",
+    "words": "Kelime: {{value}}",
+    "version": "Sürüm {{value}}"
+  },
+  "steps": {
+    "research": "Konu araştırılıyor",
+    "draft": "Taslak yazılıyor",
+    "factCheck": "Bilgiler doğrulanıyor",
+    "seo": "SEO kontrol ediliyor",
+    "images": "Kapak görseli hazırlanıyor"
+  },
+  "generating": {
+    "title": "Bu yazıyı yazıyoruz",
+    "body": "Bu genellikle bir ile üç dakika sürer. Bu sayfadan ayrılabilirsiniz; hazır olunca size e-posta göndeririz."
+  },
+  "notWritten": {
+    "title": "Bu yazı henüz yazılmadı",
+    "body": "Yayın tarihinden birkaç gün önce otomatik olarak yazmaya başlarız. İsterseniz şimdi de başlatabilirsiniz.",
+    "write": "Şimdi yaz",
+    "quotaFull": "Bu ayki yazı hakkınızın tamamını kullandınız. Yeni yazılar gelecek ay açılır."
+  },
+  "errors": {
+    "ai_not_configured": "Yapay zekâ hizmeti kurulu olmadığı için yazı yazılamıyor.",
+    "ai_budget": "Bugünkü yapay zekâ sınırına ulaştık. Yarın tekrar deneyeceğiz ya da daha sonra siz deneyebilirsiniz.",
+    "ai_unavailable": "Yapay zekâ hizmeti yoğundu. Lütfen birkaç dakika sonra tekrar deneyin.",
+    "ai_blocked": "Yapay zekâ hizmeti bu konuda yazmayı reddetti. Farklı bir başlık veya anahtar kelime deneyin.",
+    "ai_invalid_output": "Taslak düzgün çıkmadı. Lütfen yeniden yazdırın.",
+    "quota_exceeded": "Bu ayki yazı hakkınızın tamamını kullandınız.",
+    "internal": "Bizim tarafımızda bir sorun oluştu. Lütfen tekrar deneyin.",
+    "publish_auth_failed": "Siteniz giriş bilgilerimizi kabul etmedi. Sitenizi Ayarlar'dan yeniden bağlayın; yaklaşık 30 saniye sürer.",
+    "publish_forbidden": "Bağlı kullanıcının yazı yayınlama yetkisi yok. Editör veya yönetici hesabıyla yeniden bağlayın.",
+    "publish_not_found": "Sitenizin yayın adresini bulamadık. Ayarlar'dan bağlantıyı kontrol edin.",
+    "publish_not_wordpress": "WordPress yayın arayüzüne ulaşamadık. Ayarlar'dan bağlantıyı kontrol edin.",
+    "publish_app_passwords_disabled": "WordPress sitenizde uygulama şifreleri kapalı. Açıp yeniden bağlayın.",
+    "publish_unreachable": "Sitenize ulaşamadık. Birkaç kez denedik; sitenin açık olduğunu kontrol edip yeniden yayınlayın.",
+    "publish_rejected": "Siteniz yazıyı kabul etmedi. Bağlantıyı kontrol edip yeniden yayınlayın.",
+    "publish_server_error": "Siteniz birkaç kez hata ile yanıt verdi. Lütfen daha sonra yeniden yayınlayın.",
+    "publish_internal": "Yayın bizim tarafımızda başarısız oldu. Lütfen yeniden yayınlayın.",
+    "publish_no_blog": "Mağazanızda blog bulunamadı. Shopify'da bir blog oluşturup yeniden yayınlayın.",
+    "publish_no_author": "Wix sitenizde yazar olacak üye kalmamış. Bir üye ekleyip yeniden yayınlayın.",
+    "publish_invalid_mapping": "Webflow koleksiyonunuzun alanları değişmiş. Ayarlar'dan bağlantıyı yeniden kurun.",
+    "duplicate_post": "Bu konu sitenizdeki bir yazıda zaten anlatılıyor."
+  },
+  "retry": "Tekrar dene",
+  "retryPublish": "Yeniden yayınla",
+  "review": {
+    "googlePreview": "Google'da nasıl görünebilir?",
+    "seoTitle": "SEO puanı",
+    "seoLevels": {
+      "good": "Sıralamaya hazır",
+      "fair": "Daha iyi olabilir",
+      "poor": "İyileştirme gerekiyor"
+    },
+    "seoDetails": "SEO kontrollerini göster",
+    "verificationTitle": "Bilgi doğrulama",
+    "verificationSummary": "Doğrulanan: {{verified}} · Düzeltilen: {{corrected}} · Kaldırılan: {{removed}}",
+    "verificationNone": "Bu yazıda doğrulanması gereken somut sayı veya tarih yok.",
+    "verificationUnchecked": "Bilgileri otomatik olarak doğrulayamadık. Lütfen onaylamadan önce sayıları ve tarihleri kontrol edin.",
+    "verdicts": {
+      "verified": "Doğrulandı",
+      "corrected": "Düzeltildi",
+      "removed": "Kaldırıldı"
+    },
+    "verificationDetails": "Kontrol edilen bilgileri göster",
+    "sourcesTitle": "Kaynaklar",
+    "coverGenerated": "Kapak, marka renklerinizden oluşturuldu.",
+    "approve": "Onayla ve planla",
+    "reject": "Reddet",
+    "download": "İndir",
+    "downloadHtml": "HTML dosyası",
+    "downloadMd": "Markdown dosyası",
+    "downloadZip": "ZIP (HTML, Markdown ve görseller)",
+    "infographicCaption": "Bilgi grafiği: yayında yazının ilk bölümünün sonuna eklenir. Sosyal medyada da paylaşabilirsiniz.",
+    "coverSite": "Kapak, sitenizde bu konuya en yakın sayfanın görselinden seçildi.",
+    "coverUser": "Kapağı siz yüklediniz.",
+    "regenerateLeft": "Yeniden yaz ({{left}}/{{limit}} hak)"
+  },
+  "reject": {
+    "title": "Bu yazıyı neden reddediyorsunuz?",
+    "body": "Yanıtınızı yazıyı yeniden yazarken ve sonraki yazılarınızda dikkate alırız.",
+    "reasons": {
+      "too_generic": "Çok genel, yeterince somut değil",
+      "wrong_facts": "Bazı bilgiler yanlış",
+      "wrong_tone": "Bizim gibi konuşmuyor",
+      "off_topic": "Konunun dışında",
+      "too_salesy": "Fazla satış odaklı",
+      "other": "Başka bir sebep"
+    },
+    "confirm": "Yazıyı reddet",
+    "done": "Yazı reddedildi."
+  },
+  "status": {
+    "scheduledConnected": "Onaylandı. {{date}} tarihinde yayınlanacak.",
+    "scheduledNow": "Onaylandı. Şu an yayınlanıyor.",
+    "scheduledNotConnected": "Onaylandı. Siteniz bağlı değil: yazıyı indirip kendiniz yayınlayın ya da sitenizi bağlayın.",
+    "published": "Sitenizde yayınlandı.",
+    "viewLive": "Sitenizde görüntüle",
+    "rejected": "Bu yazıyı reddettiniz."
+  },
+  "seoChecks": {
+    "keyword_in_title": "Başlıkta odak kelime",
+    "meta_title_length": "Google başlığı uzunluğu (50-60 karakter)",
+    "meta_description_length": "Google açıklaması uzunluğu (140-160 karakter)",
+    "keyword_in_meta_description": "Google açıklamasında odak kelime",
+    "slug": "Kısa, okunur sayfa adresi",
+    "keyword_in_intro": "İlk paragrafta odak kelime",
+    "h2_structure": "Net bölüm başlıkları",
+    "keyword_density": "Odak kelimenin doğal kullanımı",
+    "readability": "Kısa, kolay cümleler",
+    "internal_links": "Diğer sayfalarınıza linkler",
+    "external_links": "Güvenilir kaynaklara linkler",
+    "faq": "Sık sorulan sorular",
+    "toc": "İçindekiler",
+    "schema": "Google için yapılandırılmış bilgi",
+    "word_count": "Yazı uzunluğu",
+    "image_alt": "Kapak görseli açıklaması"
+  },
+  "connections": {
+    "title": "Site bağlantısı",
+    "body": "Onaylanan yazılar, kapak görseliyle birlikte doğrudan sitenizde yayınlanır.",
+    "connected": "Bağlı",
+    "lastChecked": "Son kontrol: {{date}}",
+    "test": "Bağlantıyı test et",
+    "tested": "Bağlantı çalışıyor.",
+    "disconnect": "Bağlantıyı kaldır",
+    "disconnectTitle": "Site bağlantısı kaldırılsın mı?",
+    "disconnectBody": "Onaylanan yazılar artık otomatik yayınlanmaz. Giriş bilgileriniz silinir. İstediğiniz zaman yeniden bağlayabilirsiniz.",
+    "disconnected": "Site bağlantısı kaldırıldı.",
+    "choose": "Nasıl yayınlayalım?",
+    "kinds": {
+      "wordpress": {
+        "label": "WordPress",
+        "hint": "Yazıları kapak görseli öne çıkan görsel olarak yayınlar."
+      },
+      "webhook": {
+        "label": "Webhook (özel site)",
+        "hint": "Her yazıyı imzalı JSON olarak geliştiricinizin adresine göndeririz."
+      },
+      "ghost": {
+        "label": "Ghost",
+        "hint": "Admin API anahtarıyla; kapak, öne çıkan görsel olur."
+      },
+      "shopify": {
+        "label": "Shopify",
+        "hint": "Mağazanızın blogunda yazı olarak yayınlar."
+      },
+      "webflow": {
+        "label": "Webflow",
+        "hint": "CMS koleksiyonunuza; alanları siz eşlersiniz."
+      },
+      "wix": {
+        "label": "Wix",
+        "hint": "Wix Blog'da yayınlar."
+      }
+    },
+    "wordpress": {
+      "siteUrl": "WordPress site adresi",
+      "username": "WordPress kullanıcı adı",
+      "appPassword": "Uygulama şifresi",
+      "appPasswordHint": "WordPress'te Kullanıcılar → Profil → Uygulama Şifreleri bölümüne gidin. “Upvine” gibi bir ad yazın, “Ekle”ye tıklayın ve şifreyi buraya yapıştırın.",
+      "connect": "WordPress'i bağla",
+      "oneClick": "Tek tıkla bağla",
+      "or": "Ya da bir uygulama şifresi girin:"
+    },
+    "webhook": {
+      "url": "Webhook adresi",
+      "urlHint": "https:// ile başlamalı. Her yazıyı HMAC imzalı JSON olarak göndeririz.",
+      "connect": "Webhook'u bağla",
+      "secretTitle": "İmza anahtarınızı şimdi kaydedin",
+      "secretBody": "İsteklerin Upvine'dan geldiğini doğrulamak için kullanın (X-Upvine-Signature başlığı). Bir daha göstermeyeceğiz.",
+      "copy": "Kopyala",
+      "copied": "Kopyalandı."
+    },
+    "errors": {
+      "auth_failed": "Siteniz giriş bilgilerini kabul etmedi. Bilgileri kontrol edip tekrar deneyin.",
+      "forbidden": "Bu kullanıcının yazı yayınlama yetkisi yok. Editör veya yönetici hesabı kullanın.",
+      "not_found": "Bu adresi bulamadık. Kontrol edip tekrar deneyin.",
+      "not_wordpress": "Bu adreste WordPress bulamadık. Adresi kontrol edin ya da geliştiricinize REST API'nin kapalı olup olmadığını sorun.",
+      "app_passwords_disabled": "Bu WordPress sitesinde uygulama şifreleri kapalı. Site HTTPS kullanmalı ve hiçbir güvenlik eklentisi bunları engellememeli.",
+      "unreachable": "Bu adrese ulaşamadık. Kontrol edip tekrar deneyin.",
+      "rejected": "Site test isteğimizi reddetti. Adresi kontrol edip tekrar deneyin.",
+      "server_error": "Site hata ile yanıt verdi. Birkaç dakika sonra tekrar deneyin.",
+      "internal": "Bizim tarafımızda bir sorun oluştu. Lütfen tekrar deneyin.",
+      "no_blog": "Mağazanızda blog yok. Shopify'da Online Store → Blog posts bölümünden bir blog oluşturun.",
+      "no_author": "Wix sitenizde yazar olacak bir üye yok. Members Area'yı kurun ve kendinizi üye olarak ekleyin.",
+      "invalid_mapping": "Seçilen alanlar koleksiyona uymuyor (gövde bir zengin metin alanı olmalı, zorunlu alanların hepsi eşlenmeli)."
+    },
+    "callback": {
+      "connected": "WordPress bağlandı.",
+      "failed": "WordPress'i bağlayamadık. Lütfen tekrar deneyin ya da bir uygulama şifresi girin.",
+      "rejected": "Bağlantı WordPress'te onaylanmadı."
+    },
+    "ghost": {
+      "siteUrl": "Ghost site adresi",
+      "adminApiKey": "Admin API anahtarı",
+      "adminApiKeyHint": "Ghost Admin → Ayarlar → Integrations → \"Add custom integration\". Oluşan \"Admin API key\" değerini kopyalayıp yapıştırın.",
+      "connect": "Ghost'u bağla"
+    },
+    "shopify": {
+      "shop": "Mağaza adresi",
+      "shopHint": "Örneğin magazam.myshopify.com (Shopify yönetim panelinin adres çubuğunda görünür).",
+      "method": "Nasıl bağlanalım?",
+      "methods": {
+        "app": {
+          "label": "Shopify uygulaması (önerilen)",
+          "hint": "Shopify Dev Dashboard'da bir uygulama oluşturup mağazanıza kurun; \"Client ID\" ve \"Client secret\" değerlerini girin."
+        },
+        "token": {
+          "label": "Eski özel uygulama token'ı",
+          "hint": "2026 öncesi oluşturulmuş bir özel uygulamanız varsa \"shpat_\" ile başlayan Admin API token'ı."
+        }
+      },
+      "clientId": "Client ID",
+      "clientSecret": "Client secret",
+      "accessToken": "Admin API token'ı",
+      "scopes": "Uygulamada şu izinler açık olmalı: write_content (blog yazıları) ve write_files (görseller).",
+      "connect": "Shopify'ı bağla"
+    },
+    "webflow": {
+      "token": "Site API token'ı",
+      "tokenHint": "Webflow → Site ayarları → Apps & Integrations → API access → \"Generate API token\". CMS, Sites ve Assets için okuma/yazma izni verin.",
+      "find": "Koleksiyonları bul",
+      "noCollections": "Bu token'la erişilebilen bir CMS koleksiyonu bulamadık.",
+      "collection": "Yazıların ekleneceği koleksiyon",
+      "pick": "Koleksiyon seçin",
+      "mapHint": "Yazının her parçasının hangi alana yazılacağını seçin. Başlık ve kısa adres her zaman \"Name\" ve \"Slug\" alanlarına gider.",
+      "roles": {
+        "body": "Yazı gövdesi",
+        "summary": "Özet",
+        "image": "Kapak görseli",
+        "metaTitle": "SEO başlığı",
+        "metaDescription": "SEO açıklaması"
+      },
+      "required": "Zorunlu: zengin metin alanı.",
+      "none": "Kullanma",
+      "connect": "Webflow'u bağla"
+    },
+    "wix": {
+      "apiKey": "Wix API anahtarı",
+      "apiKeyHint": "Wix hesabınızda \"API Keys\" sayfasından yeni anahtar oluşturun; Blog ve Media Manager izinlerini verin.",
+      "siteId": "Site kimliği (Site ID)",
+      "siteIdHint": "Sitenizin panelindeki adres çubuğunda \"/dashboard/\" sonrasındaki uzun kimlik.",
+      "authorNote": "Wix, yazının bir site üyesi adına yayınlanmasını istiyor: ilk üyeyi yazar olarak kullanırız.",
+      "connect": "Wix'i bağla"
+    }
+  },
+  "editor": {
+    "edit": "Düzenle",
+    "title": "Yazıyı düzenle",
+    "save": "Kaydet",
+    "saved": "Kaydedildi. SEO puanı yeniden hesaplandı.",
+    "conflict": "Bu yazı siz düzenlerken başka bir yerde kaydedildi. Değişikliklerinizi kopyalayın, sayfayı yenileyip yeniden uygulayın.",
+    "length": "{{value}} karakter · önerilen {{min}}–{{max}}",
+    "slugHint": "Yazının adresi. Yayından sonra değiştirmeyin.",
+    "bodyHint": "İçindekiler, SSS ve yapılandırılmış veri kaydederken otomatik güncellenir.",
+    "fields": {
+      "title": "Başlık",
+      "metaTitle": "Google başlığı",
+      "metaDescription": "Google açıklaması",
+      "slug": "Kısa adres",
+      "body": "Yazı"
+    },
+    "unsaved": {
+      "title": "Değişiklikler kaydedilmedi",
+      "body": "Çıkarsanız kaydetmediğiniz değişiklikler kaybolur.",
+      "leave": "Kaydetmeden çık",
+      "stay": "Düzenlemeye devam et"
+    },
+    "rewrite": {
+      "button": "Yapay zekâyla yeniden yaz",
+      "title": "Bölümü yeniden yaz",
+      "body": "Seçili bölüm yeniden yazılır. Sonucu görüp onaylamadan yazınız değişmez.",
+      "nothingSelected": "Önce yeniden yazılacak metni seçin ya da imleci bir bölümün içine koyun.",
+      "how": "Nasıl değişsin?",
+      "instructions": {
+        "improve": "Daha iyi anlat",
+        "expand": "Genişlet",
+        "shorten": "Kısalt",
+        "simplify": "Sadeleştir",
+        "add_example": "Örnek ekle",
+        "custom": "Kendi talimatım"
+      },
+      "customLabel": "Talimatınız",
+      "customHint": "Örneğin: \"Fiyatlardan bahsetme, randevu almaya yönlendir.\"",
+      "start": "Yeniden yaz",
+      "working": "Yazılıyor, genellikle 10-20 saniye sürer…",
+      "result": "Yeni hali:",
+      "apply": "Yerine koy",
+      "again": "Farklı dene",
+      "tooLong": "Seçilen bölüm çok uzun. Daha küçük bir bölüm seçin."
+    }
+  },
+  "versions": {
+    "button": "Sürüm geçmişi",
+    "title": "Sürüm geçmişi",
+    "body": "Her kayıt ayrı bir sürümdür. Eski bir sürüme dönmek geçmişi silmez.",
+    "version": "Sürüm {{value}}",
+    "current": "Şu anki",
+    "sources": {
+      "ai": "Yapay zekâ",
+      "user": "Düzenleme",
+      "restore": "Geri dönüş"
+    },
+    "meta": "SEO {{score}} · {{words}} kelime",
+    "restore": "Bu sürüme dön",
+    "restored": "Eski sürüm geri yüklendi."
+  },
+  "cover": {
+    "change": "Kapağı değiştir",
+    "title": "Kapak görselini değiştir",
+    "description": "Kendi hazırladığınız görseli yükleyin. Görsel kırpılmaz; yazı yeniden yazılsa da kapağınız korunur.",
+    "file": "Görsel dosyası",
+    "fileHint": "JPG, PNG, WebP veya AVIF; en az 600×300 piksel, en fazla 10 MB. En iyi sonuç için 1600×900 (16:9).",
+    "alt": "Görsel açıklaması (alt metin)",
+    "altHint": "Görselde ne olduğunu kısaca anlatın. Google ve ekran okuyucular bunu kullanır.",
+    "save": "Kapağı kaydet",
+    "saved": "Kapak güncellendi.",
+    "invalid": "Bu dosya kullanılamıyor. En az 600×300 piksel, en fazla 10 MB bir JPG, PNG, WebP veya AVIF seçin.",
+    "fileRequired": "Bir görsel dosyası seçin.",
+    "altRequired": "Görsel açıklamasını yazın."
+  },
+  "duplicate": {
+    "title": "Bu konu sitenizde zaten var",
+    "body": "Bu konuyu anlatan bir yazınız olduğu için yeni yazı yazmadık. Aynı konuda iki yazı Google’da birbirinin sıralamasını zayıflatır. Bunun yerine mevcut yazıyı güncellemenizi öneririz:",
+    "refresh": "Mevcut yazıyı güncelle",
+    "writeAnyway": "Yine de yaz"
+  }
+}

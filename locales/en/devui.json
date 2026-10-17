@@ -1,0 +1,102 @@
+{
+  "title": "Component gallery",
+  "intro": "Every shared component in light and dark theme. Development only.",
+  "light": "Light theme",
+  "dark": "Dark theme",
+  "sections": {
+    "buttons": "Buttons",
+    "inputs": "Inputs",
+    "badges": "Status badges",
+    "cards": "Cards",
+    "overlays": "Dialog, sheet and tooltip",
+    "tabs": "Tabs",
+    "feedback": "Toast and skeleton",
+    "emptyState": "Empty state",
+    "stats": "Stat cards",
+    "progress": "Progress steps",
+    "checklist": "Checklist",
+    "table": "Data table",
+    "editor": "Article editor",
+    "charts": "Charts"
+  },
+  "buttons": {
+    "primary": "Approve and schedule",
+    "secondary": "Edit",
+    "ghost": "Skip for now",
+    "danger": "Delete",
+    "disabled": "Not available",
+    "loading": "Saving"
+  },
+  "inputs": {
+    "url": "Website address",
+    "urlPlaceholder": "https://example.com",
+    "urlHint": "We'll only read public pages.",
+    "error": "Please enter a full address that starts with https://",
+    "select": "Publishing frequency",
+    "selectPlaceholder": "Choose how often",
+    "perWeek": "{{n}} articles per week"
+  },
+  "card": {
+    "title": "How to bake sourdough bread at home",
+    "body": "1,850 words · 12 facts checked · 2 images"
+  },
+  "dialog": {
+    "open": "Open dialog",
+    "title": "Cancel your subscription?",
+    "body": "You'll keep access until the end of your current billing period. You can come back anytime.",
+    "confirm": "Cancel subscription",
+    "keep": "Keep subscription"
+  },
+  "sheet": {
+    "open": "Open side panel",
+    "title": "Article details",
+    "body": "Side panels show extra details without leaving the page."
+  },
+  "tooltip": {
+    "label": "Click-through rate",
+    "text": "How many people clicked your page after seeing it on Google."
+  },
+  "tabs": {
+    "overview": "Overview",
+    "articles": "My articles",
+    "keywords": "Keywords",
+    "overviewBody": "A summary of your results.",
+    "articlesBody": "Each article and how it performs.",
+    "keywordsBody": "The search terms people use to find you."
+  },
+  "toast": {
+    "show": "Show notification",
+    "success": "Article approved",
+    "undoable": "Article deleted"
+  },
+  "stats": {
+    "published": "Articles published this month",
+    "impressions": "Times shown on Google",
+    "top10": "Articles in Google's top 10",
+    "changeUp": "↑ {{value}} vs last month",
+    "changeDown": "↓ {{value}} vs last month"
+  },
+  "table": {
+    "caption": "Recent articles",
+    "article": "Article",
+    "status": "Status",
+    "date": "Date",
+    "row1": "Sourdough for beginners",
+    "row2": "Best flour for bread",
+    "row3": "Why bread doesn't rise",
+    "empty": "No articles to show yet."
+  },
+  "editor": {
+    "label": "Sample post",
+    "sample": "<p>This is a <strong>sample</strong> paragraph.</p><h2>Section heading</h2><ul><li>First item</li><li>Second item</li></ul>"
+  },
+  "charts": {
+    "lineTitle": "Daily impressions",
+    "columnTitle": "Mention rate per check",
+    "table": "Show as table",
+    "date": "Date",
+    "value": "Value",
+    "day": "Day {{value}}",
+    "week": "Week {{value}}"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@upvine/worker",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/index.ts",
+    "build": "node build.mjs",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@google/genai": "^2.28.0",
+    "bullmq": "6.3.11",
+    "cheerio": "^1.2.0",
+    "i18next": "^26.4.2",
+    "ioredis": "^5.11.1",
+    "ipaddr.js": "^2.5.0",
+    "mysql2": "^3.24.5",
+    "nodemailer": "^10.0.16",
+    "pino": "^10.4.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-email": "^6.11.1",
+    "sanitize-html": "^2.18.0",
+    "satori": "^0.47.1",
+    "sequelize": "^6.37.8",
+    "sharp": "^0.35.5",
+    "turndown": "^7.2.4",
+    "undici": "^8.11.2",
+    "uuid": "^14.0.2",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "pino-pretty": "^13.2.0",
+    "vitest": "^5.0.3"
+  }
+}

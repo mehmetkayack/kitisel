@@ -1,0 +1,107 @@
+{
+  "appName": "Upvine",
+  "skipToContent": "Ana içeriğe geç",
+  "nav": {
+    "label": "Ana menü",
+    "home": "Ana Sayfa",
+    "content": "İçerikler",
+    "calendar": "Takvim",
+    "results": "Sonuçlar",
+    "settings": "Ayarlar"
+  },
+  "actions": {
+    "save": "Kaydet",
+    "cancel": "Vazgeç",
+    "continue": "Devam et",
+    "back": "Geri",
+    "close": "Kapat",
+    "undo": "Geri al",
+    "retry": "Tekrar dene",
+    "signIn": "Giriş yap",
+    "signUp": "Hesap oluştur",
+    "signOut": "Çıkış yap"
+  },
+  "language": {
+    "label": "Dil"
+  },
+  "theme": {
+    "label": "Görünüm",
+    "system": "Sistem",
+    "light": "Açık",
+    "dark": "Koyu"
+  },
+  "validation": {
+    "required": "Lütfen bu alanı doldurun.",
+    "email": "Lütfen geçerli bir e-posta adresi girin, örneğin ad@ornek.com.",
+    "passwordMin": "En az 10 karakter kullanın.",
+    "passwordMax": "En fazla 128 karakter kullanın.",
+    "tooLong": "Bu çok uzun. Lütfen kısaltın.",
+    "siteUrl": "Lütfen site adresinizi girin, örneğin ornek.com.",
+    "time": "Lütfen 10:00 gibi bir saat girin.",
+    "pickDay": "En az bir gün seçin.",
+    "url": "Lütfen tam bir web adresi girin, örneğin https://ornek.com/iletisim.",
+    "topicTitleMin": "Başlık en az 5 karakter olmalı.",
+    "appPassword": "Uygulama şifresinin tamamını yapıştırın (24 karakter).",
+    "httpsOnly": "Adres https:// ile başlamalı.",
+    "tooShort": "Bu çok kısa. Biraz daha ekleyin.",
+    "slug": "Sadece küçük harf, rakam ve tire kullanın, örneğin implant-tedavisi-suresi.",
+    "rewriteTooLong": "Seçilen bölüm çok uzun. Daha küçük bir bölüm seçin.",
+    "date": "Lütfen geçerli bir tarih seçin.",
+    "pastDate": "Geçmiş bir tarihe taşınamaz. Bugün veya sonrasını seçin.",
+    "ghostKey": "Admin API anahtarı \"kimlik:gizli\" biçiminde olmalı (Ghost'tan kopyalayın).",
+    "shopDomain": "Mağazanın myshopify.com adresini girin, örneğin magazam.myshopify.com.",
+    "shopifyToken": "\"shpat_\" ile başlayan token'ı yapıştırın.",
+    "wixKey": "API anahtarının tamamını yapıştırın.",
+    "wixSiteId": "Site kimliği 8-4-4-4-12 biçiminde olmalı.",
+    "questionMin": "Soru en az 8 karakter olmalı."
+  },
+  "status": {
+    "planned": "Planlandı",
+    "generating": "Hazırlanıyor",
+    "review": "Onayınızı bekliyor",
+    "scheduled": "Yayına hazır",
+    "published": "Yayında",
+    "failed": "Sorun var"
+  },
+  "loading": "Yükleniyor…",
+  "help": "Bu ne demek?",
+  "footer": {
+    "rights": "© {{year}} Upvine. Tüm hakları saklıdır.",
+    "product": "Upvine",
+    "legal": "Yasal",
+    "pricing": "Fiyatlar",
+    "freeAnalysis": "Ücretsiz analiz",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "payments": "Ödemeler, lisanslı ödeme kuruluşu iyzico altyapısıyla güvenle alınır. Kart bilgileriniz bizde saklanmaz.",
+    "operatedBy": "Upvine, {{company}} hizmetidir."
+  },
+  "notFound": {
+    "title": "Bu sayfayı bulamadık",
+    "body": "Bağlantı eskimiş olabilir ya da sayfa taşınmış olabilir.",
+    "cta": "Ana sayfaya git"
+  },
+  "errorPage": {
+    "title": "Bir şeyler ters gitti",
+    "body": "Durumdan haberdarız ve ilgileniyoruz. Lütfen birazdan tekrar deneyin.",
+    "cta": "Sayfayı yenile"
+  },
+  "editor": {
+    "toolbar": "Biçimlendirme",
+    "h2": "Ana başlık (H2)",
+    "h3": "Alt başlık (H3)",
+    "bold": "Kalın",
+    "italic": "İtalik",
+    "bulletList": "Madde işaretli liste",
+    "orderedList": "Numaralı liste",
+    "quote": "Alıntı",
+    "link": "Link ekle",
+    "unlink": "Linki kaldır",
+    "undo": "Geri al",
+    "redo": "Yinele",
+    "linkTitle": "Link ekle",
+    "linkBody": "Seçili metin bu adrese bağlanır. Boş bırakırsanız link kaldırılır.",
+    "linkUrl": "Adres",
+    "linkApply": "Uygula"
+  }
+}

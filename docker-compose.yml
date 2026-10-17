@@ -1,0 +1,57 @@
+# Yerel geliştirme altyapısı: MySQL 8 (utf8mb4), Redis, Mailpit ve isteğe bağlı phpMyAdmin.
+# Kullanım:  docker compose up -d            (phpMyAdmin için: --profile tools)
+# Not: Bu makinede şu an Laragon kullanılıyor (bkz. CLAUDE.md > Kararlar); bu dosya Docker'lı kurulum içindir.
+name: upvine
+
+services:
+  mysql:
+    image: mysql:8.4.11
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-upvine-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-upvine}
+      MYSQL_USER: ${MYSQL_USER:-upvine}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-upvine}
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/mysql-init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', '127.0.0.1', '-uroot', '-p${MYSQL_ROOT_PASSWORD:-upvine-root}']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7.4-alpine
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      retries: 10
+
+  mailpit:
+    image: axllent/mailpit:v1.31.4
+    ports:
+      - '1025:1025' # SMTP
+      - '8025:8025' # Web arayüzü: http://localhost:8025
+
+  phpmyadmin:
+    image: phpmyadmin:5
+    profiles: [tools]
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - '8080:80'
+    depends_on:
+      - mysql
+
+volumes:
+  mysql-data:
+  redis-data:

@@ -1,0 +1,107 @@
+{
+  "appName": "Upvine",
+  "skipToContent": "Aller au contenu principal",
+  "nav": {
+    "label": "Menu principal",
+    "home": "Accueil",
+    "content": "Contenus",
+    "calendar": "Calendrier",
+    "results": "Résultats",
+    "settings": "Paramètres"
+  },
+  "actions": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "continue": "Continuer",
+    "back": "Retour",
+    "close": "Fermer",
+    "undo": "Annuler l’action",
+    "retry": "Réessayer",
+    "signIn": "Se connecter",
+    "signUp": "Créer un compte",
+    "signOut": "Se déconnecter"
+  },
+  "language": {
+    "label": "Langue"
+  },
+  "theme": {
+    "label": "Apparence",
+    "system": "Système",
+    "light": "Clair",
+    "dark": "Sombre"
+  },
+  "validation": {
+    "required": "Veuillez remplir ce champ.",
+    "email": "Veuillez saisir une adresse e-mail valide, par exemple nom@exemple.fr.",
+    "passwordMin": "Utilisez au moins 10 caractères.",
+    "passwordMax": "Utilisez 128 caractères maximum.",
+    "tooLong": "C’est trop long. Veuillez raccourcir le texte.",
+    "siteUrl": "Saisissez l’adresse de votre site, par exemple exemple.fr.",
+    "time": "Saisissez une heure comme 10 : 00.",
+    "pickDay": "Choisissez au moins un jour.",
+    "url": "Saisissez une adresse web complète, par exemple https://exemple.fr/contact.",
+    "topicTitleMin": "Le titre doit contenir au moins 5 caractères.",
+    "appPassword": "Collez le mot de passe d’application complet (24 caractères).",
+    "httpsOnly": "L’adresse doit commencer par https://.",
+    "tooShort": "C’est trop court. Ajoutez-en un peu plus.",
+    "slug": "Utilisez seulement des minuscules, des chiffres et des tirets, par exemple duree-implant-dentaire.",
+    "rewriteTooLong": "La partie sélectionnée est trop longue. Choisissez une partie plus courte.",
+    "date": "Choisissez une date valide.",
+    "pastDate": "Impossible de le déplacer à une date passée. Choisissez aujourd’hui ou plus tard.",
+    "ghostKey": "La clé Admin API doit avoir la forme « id:secret » (copiez-la depuis Ghost).",
+    "shopDomain": "Saisissez l’adresse myshopify.com de votre boutique, par exemple maboutique.myshopify.com.",
+    "shopifyToken": "Collez le jeton qui commence par « shpat_ ».",
+    "wixKey": "Collez la clé API complète.",
+    "wixSiteId": "L’ID du site doit avoir le format 8-4-4-4-12 caractères.",
+    "questionMin": "La question doit comporter au moins 8 caractères."
+  },
+  "status": {
+    "planned": "Planifié",
+    "generating": "En préparation",
+    "review": "En attente de votre validation",
+    "scheduled": "Prêt à publier",
+    "published": "Publié",
+    "failed": "À vérifier"
+  },
+  "loading": "Chargement…",
+  "help": "Qu’est-ce que cela signifie ?",
+  "footer": {
+    "rights": "© {{year}} Upvine. Tous droits réservés.",
+    "product": "Upvine",
+    "legal": "Mentions légales",
+    "pricing": "Tarifs",
+    "freeAnalysis": "Analyse gratuite",
+    "about": "À propos",
+    "contact": "Contact",
+    "payments": "Les paiements sont traités en toute sécurité par l’établissement de paiement agréé iyzico. Nous ne conservons jamais vos données de carte.",
+    "operatedBy": "Upvine est un service de {{company}}."
+  },
+  "notFound": {
+    "title": "Cette page est introuvable",
+    "body": "Le lien est peut-être obsolète ou la page a été déplacée.",
+    "cta": "Aller à l’accueil"
+  },
+  "errorPage": {
+    "title": "Un problème est survenu",
+    "body": "Nous avons été prévenus et nous nous en occupons. Veuillez réessayer dans un instant.",
+    "cta": "Recharger la page"
+  },
+  "editor": {
+    "toolbar": "Mise en forme",
+    "h2": "Titre (H2)",
+    "h3": "Sous-titre (H3)",
+    "bold": "Gras",
+    "italic": "Italique",
+    "bulletList": "Liste à puces",
+    "orderedList": "Liste numérotée",
+    "quote": "Citation",
+    "link": "Ajouter un lien",
+    "unlink": "Retirer le lien",
+    "undo": "Annuler",
+    "redo": "Rétablir",
+    "linkTitle": "Ajouter un lien",
+    "linkBody": "Le texte sélectionné pointera vers cette adresse. Laissez vide pour retirer le lien.",
+    "linkUrl": "Adresse",
+    "linkApply": "Appliquer"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "Kostenlose SEO-Website-Analyse — Upvine",
+    "description": "Prüfen Sie 25 technische SEO-Grundlagen, sehen Sie Ihre besten Keyword-Chancen und Ihre organischen Mitbewerber. Kostenlos, ohne Anmeldung, in etwa einer Minute fertig.",
+    "reportTitle": "SEO-Analyse für {{domain}} — Upvine"
+  },
+  "form": {
+    "title": "Kostenlose SEO-Analyse Ihrer Website",
+    "subtitle": "Sehen Sie, was Sie zuerst beheben sollten, wonach Ihre Kundschaft sucht und mit wem Sie bei Google konkurrieren.",
+    "label": "Website-Adresse",
+    "placeholder": "beispiel.de",
+    "hint": "Die Adresse Ihrer Startseite.",
+    "submit": "Meine Website kostenlos analysieren",
+    "note": "Keine Anmeldung nötig. Ihr Bericht ist in etwa einer Minute fertig.",
+    "what1": "25 technische Prüfungen mit verständlichen Lösungen",
+    "what2": "Ihre 10 besten Keyword-Chancen mit Suchzahlen",
+    "what3": "Ihre 3 organischen Mitbewerber und Themenideen"
+  },
+  "progress": {
+    "title": "Wir analysieren {{domain}}",
+    "body": "Das dauert meist etwa eine Minute. Lassen Sie diese Seite geöffnet; der Bericht erscheint hier.",
+    "steps": {
+      "homepage": "Ihre Startseite wird gelesen",
+      "discover": "robots.txt und Sitemap werden geprüft",
+      "pages": "Ihre Seiten und Links werden durchsucht",
+      "checks": "25 technische Prüfungen laufen",
+      "brand": "Ihr Unternehmen wird erfasst",
+      "keywords": "Keyword-Chancen werden gesucht",
+      "competitors": "Ihre Mitbewerber werden ermittelt"
+    }
+  },
+  "failed": {
+    "title": "Wir konnten diese Website nicht analysieren",
+    "retry": "Andere Adresse versuchen"
+  },
+  "report": {
+    "title": "SEO-Analyse für {{domain}}",
+    "checkedAt": "Geprüft am {{date}}",
+    "pdf": "Als PDF herunterladen",
+    "share": "Link zum Teilen kopieren",
+    "copied": "Link kopiert.",
+    "aiOff": "Für Keyword- und Mitbewerbervorschläge brauchen wir unseren KI-Dienst, der gerade nicht verfügbar ist. Der technische Bericht unten ist vollständig.",
+    "brand": {
+      "title": "Was wir über Ihr Unternehmen verstanden haben",
+      "products": "Produkte und Dienstleistungen"
+    },
+    "keywords": {
+      "title": "Ihre besten Keyword-Chancen",
+      "body": "Suchanfragen Ihrer Kundschaft, bei denen Sie realistische Chancen auf vordere Plätze haben.",
+      "keyword": "Suchbegriff",
+      "volume": "Suchen pro Monat",
+      "difficulty": "Konkurrenz",
+      "intent": "Suchende möchten",
+      "intents": {
+        "informational": "Sich informieren",
+        "commercial": "Vergleichen",
+        "transactional": "Kaufen",
+        "navigational": "Eine Website finden"
+      },
+      "estimated": "Schätzung",
+      "estimatedHelp": "Suchzahlen sind Schätzungen. Nach der Anmeldung können echte Keyword-Daten verbunden werden."
+    },
+    "clusters": {
+      "title": "Vorgeschlagene Themencluster",
+      "body": "Gruppen zusammenhängender Artikel, die Ihre Kompetenz zu einem Thema stärken."
+    },
+    "competitors": {
+      "title": "Ihre organischen Mitbewerber",
+      "body": "Websites, die bei Google für dieselben Kundensuchen erscheinen.",
+      "empty": "Diesmal konnten wir keine Mitbewerber ermitteln."
+    },
+    "technical": {
+      "title": "Technische Gesundheit: 25 Prüfungen"
+    },
+    "email": {
+      "title": "Diesen Bericht per E-Mail erhalten",
+      "label": "E-Mail-Adresse",
+      "consent": "Schicken Sie mir gelegentlich SEO-Tipps und Upvine-Neuigkeiten (optional, jederzeit abbestellbar).",
+      "submit": "Bericht senden",
+      "sent": "Wir haben den Bericht an {{email}} gesendet."
+    },
+    "cta": {
+      "title": "Lassen Sie Upvine diesen Plan umsetzen",
+      "body": "Wir schreiben, prüfen und veröffentlichen Artikel zu diesen Themen auf Ihrer Website. 7 Tage kostenlos testen, jederzeit kündbar.",
+      "button": "Plan automatisch umsetzen — 7 Tage testen"
+    }
+  },
+  "home": {
+    "cta": "Kostenlose Website-Analyse",
+    "secondary": "Kostenloses Konto erstellen"
+  }
+}

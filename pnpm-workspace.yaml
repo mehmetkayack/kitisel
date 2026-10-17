@@ -1,0 +1,29 @@
+packages:
+  - apps/*
+  - packages/*
+  - locales
+
+# Kurulum script'i çalıştırmasına izin verilen paketler (native modüller).
+# @scarf/scarf: swagger-ui-express'in telemetri script'i, gerekmez.
+allowBuilds:
+  argon2: true
+  esbuild: true
+  "@scarf/scarf": false
+  # Gemini SDK'nın "prepare" ve protobufjs'nin "postinstall" script'leri geliştirme içindir; çalışma için gerekmez.
+  '@google/genai': false
+  protobufjs: false
+  # BullMQ'nun isteğe bağlı native hızlandırıcısı; yoksa saf JS'e düşer.
+  msgpackr-extract: false
+
+minimumReleaseAgeExclude:
+  - satori@0.47.1
+
+# D: sürücüsü exFAT olduğu için sembolik link desteklenmiyor; düz node_modules kullanılır.
+# NTFS/ext4/APFS bir diskte bu satır kaldırılabilir (bkz. CLAUDE.md > Kararlar).
+nodeLinker: hoisted
+
+# React Router typegen yaması (exFAT/Windows): klasör silme/oluşturma/yazmada geçici hatalar (ENOTEMPTY, EPERM)
+# yeniden denenir; izleme modunda tip üretimi başarısız olursa dev sunucusu düşmez, uyarı yazılır.
+# Sürüm yükseltirken yamayı yeniden oluşturun: pnpm patch @react-router/dev@<sürüm>
+patchedDependencies:
+  '@react-router/dev@8.4.0': patches/@react-router__dev@8.4.0.patch

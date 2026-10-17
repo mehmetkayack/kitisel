@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "title": "Upvine — Web sitenizi kendiliğinden büyüten SEO içerikleri",
+    "description": "Upvine web siteniz için SEO yazılarını araştırır, yazar, doğrular ve yayınlar; ardından Google'daki sıralarını takip eder."
+  },
+  "hero": {
+    "title": "Sizin için araştırılan, doğrulanan ve yayınlanan yazılarla web sitenizi büyütün",
+    "subtitle": "Upvine konularınızı planlar, markanızın diliyle yazar, her bilgiyi doğrular ve sitenizde yayınlar. Kontrol her zaman sizde.",
+    "badge": "Ücretsiz site analizi, kayıt gerekmez",
+    "point1": "Sitenizin 25 noktalık teknik SEO kontrolü",
+    "point2": "Müşterilerinizin aradığı konular ve tahmini arama hacmi",
+    "point3": "Paylaşılabilir rapor, yaklaşık bir dakikada",
+    "or": "ya da"
+  },
+  "how": {
+    "eyebrow": "Nasıl çalışır",
+    "title": "3 adımda düzenli büyüyen bir blog",
+    "stepLabel": "{{value}}. adım",
+    "step1": {
+      "title": "Sitenizi analiz edelim",
+      "body": "Adresinizi girin; sitenizi tarar, markanızı tanır ve müşterilerinizin aradığı konuları çıkarırız."
+    },
+    "step2": {
+      "title": "Planı onaylayın",
+      "body": "Konular takviminize yerleşir. Her yazıyı yayından önce okuyabilir, düzenleyebilir ya da reddedebilirsiniz."
+    },
+    "step3": {
+      "title": "Yayınlansın, sonuçları izleyin",
+      "body": "Onaylanan yazılar sitenizde yayınlanır. Google'da görünme, tıklama ve sıralarınızı panelden takip edersiniz."
+    }
+  },
+  "features": {
+    "eyebrow": "Neler yapıyor",
+    "title": "Bir içerik ekibinin işi, tek panelde",
+    "body": "Konu bulmaktan yayına ve ölçüme kadar her adım otomatik; karar yerleri sizde.",
+    "research": {
+      "title": "Araştırılmış ve doğrulanmış",
+      "body": "Her yazıdaki iddialar kontrol edilir; doğrulanamayan bilgi çıkarılır, kaynaklar listelenir."
+    },
+    "voice": {
+      "title": "Markanızın dili",
+      "body": "Tonunuzu, yasaklı kelimelerinizi ve örnek metinlerinizi öğrenir; yazılar size benzer."
+    },
+    "publish": {
+      "title": "Sitenize otomatik yayın",
+      "body": "WordPress, Shopify, Webflow, Ghost ve Wix bağlantısı; kapak görseli ve SEO alanlarıyla."
+    },
+    "results": {
+      "title": "Google sonuçları",
+      "body": "Search Console'dan gösterim, tıklama, sıra ve kazanılan anahtar kelimeler."
+    },
+    "ai": {
+      "title": "Yapay zekâ görünürlüğü",
+      "body": "Müşterilerinizin sorduğu sorularda yapay zekâ asistanlarının markanızı anıp anmadığını haftalık ölçer."
+    },
+    "health": {
+      "title": "Site sağlığı ve eski yazılar",
+      "body": "Teknik SEO sorunlarını ve mevcut yazılarınızdaki eksikleri sade dille, nasıl düzeltileceğiyle gösterir."
+    },
+    "languages": {
+      "title": "Birçok dilde içerik",
+      "body": "Panel 5 dilde; yazılar 25'ten fazla dilde, hedef ülkenize göre."
+    },
+    "control": {
+      "title": "Kontrol sizde",
+      "body": "Onay modu, takvimde sürükle-bırak, sürüm geçmişi ve bölüm bölüm düzenleme."
+    }
+  },
+  "compare": {
+    "eyebrow": "Neden Upvine",
+    "title": "Diğer yollarla karşılaştırma",
+    "criteria": "Ölçüt",
+    "columns": {
+      "agency": "Ajans",
+      "tool": "Klasik SEO aracı",
+      "aiOnly": "Sadece yapay zekâ",
+      "upvine": "Upvine"
+    },
+    "rows": {
+      "cost": "Küçük işletme bütçesine uygun",
+      "writing": "Yazıları yazar",
+      "facts": "Bilgileri doğrular",
+      "publish": "Sitenize yayınlar",
+      "tracking": "Sonuçları takip eder",
+      "control": "Her yazıyı onaylarsınız"
+    },
+    "marks": {
+      "yes": "Evet",
+      "partial": "Kısmen",
+      "no": "Hayır"
+    }
+  },
+  "preview": {
+    "eyebrow": "Panel",
+    "title": "Her şey tek ekranda",
+    "body": "Bu ay yayınlananlar, onay bekleyenler ve Google'daki ilerlemeniz bir bakışta.",
+    "alt": "Upvine panelinin örnek görünümü: metrik kartları ve durum rozetli yazı listesi",
+    "stat1": "Bu ay yayınlanan yazı",
+    "stat1Change": "Geçen aya göre 4 fazla",
+    "stat2": "Google'da görünme",
+    "stat2Change": "Geçen aya göre %32 arttı",
+    "stat3": "İlk 10'daki yazı",
+    "stat3Change": "2 yazı ilk sayfaya çıktı",
+    "article1": "Zeytinyağı nasıl saklanır? 7 pratik öneri",
+    "article2": "Erken hasat zeytinyağının farkı nedir?",
+    "article3": "Soğuk sıkım ile sıcak sıkım arasındaki fark",
+    "article4": "Kahvaltılık zeytin seçerken nelere dikkat edilmeli?",
+    "date1": "Yayında",
+    "date2": "Onayınızı bekliyor",
+    "date3": "Perşembe 10:00",
+    "date4": "Yazılıyor"
+  },
+  "pricing": {
+    "eyebrow": "Fiyatlar",
+    "title": "Sade fiyatlar, kredi hesabı yok",
+    "body": "Her pakette sabit aylık yazı hakkı. 7 gün ücretsiz deneyin.",
+    "intervalLabel": "Ödeme sıklığı",
+    "monthly": "Aylık",
+    "yearly": "Yıllık (2 ay bedava)",
+    "perMonth": "/ ay",
+    "billedYearly": "Yıllık {{value}} olarak faturalanır",
+    "popular": "En popüler",
+    "start": "Ücretsiz deneyin",
+    "policy": "İstediğiniz zaman iptal edebilirsiniz; ilk ödemeden sonraki 14 gün içinde koşulsuz iade.",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "for": "Tek site, düzenli blog için"
+      },
+      "growth": {
+        "name": "Growth",
+        "for": "Büyümeyi hızlandırmak isteyen işletmeler için"
+      },
+      "agency": {
+        "name": "Agency",
+        "for": "Birden çok siteyi yöneten ajanslar için"
+      }
+    },
+    "f": {
+      "articles": "Ayda {{value}} yazı",
+      "sites": "{{value}} site",
+      "refreshes": "Ayda {{value}} eski yazı yenileme",
+      "keywords": "{{value}} anahtar kelime takibi",
+      "languages": "{{value}} içerik dili",
+      "allLanguages": "Tüm içerik dilleri",
+      "team": "{{value}} ekip üyesi",
+      "aiVisibility": "Yapay zekâ görünürlük takibi"
+    },
+    "policyLink": "İptal ve iade politikası",
+    "exVat": "+KDV"
+  },
+  "faq": {
+    "eyebrow": "Sık sorulanlar",
+    "title": "Aklınızdaki sorular",
+    "q1": {
+      "q": "Yapay zekâyla yazılmış içerik Google'da sorun olur mu?",
+      "a": "Google içeriğin nasıl üretildiğine değil, okura yararlı ve doğru olup olmadığına bakar. Upvine her yazıdaki bilgileri doğrular, kaynak gösterir ve yayından önce sizin onayınızı ister. Sıralama garantisi vermiyoruz; düzenli ve kaliteli içerik zamanla sonuç verir."
+    },
+    "q2": {
+      "q": "Hangi platformlarla çalışıyor?",
+      "a": "WordPress, Shopify, Webflow, Ghost ve Wix'e doğrudan yayın yapabilir. Özel siteler için webhook ile bağlanabilir ya da yazıları HTML, Markdown veya ZIP olarak indirebilirsiniz."
+    },
+    "q3": {
+      "q": "Yazılar ben onaylamadan yayınlanır mı?",
+      "a": "Varsayılan olarak hayır. Onay modunda her yazı önce size gelir; düzenleyebilir, yeniden yazdırabilir ya da reddedebilirsiniz. İsterseniz kalite eşiğini geçen yazıların otomatik yayınlanmasını açabilirsiniz."
+    },
+    "q4": {
+      "q": "Ücretsiz analizde ne var?",
+      "a": "Sitenizin 25 noktalık teknik SEO kontrolü, marka özetiniz, müşterilerinizin aradığı anahtar kelimeler ve konu kümeleri. Kayıt gerekmez; rapor paylaşılabilir bir linkte açılır."
+    },
+    "q5": {
+      "q": "Hangi dillerde yazabiliyor?",
+      "a": "Panel Türkçe, İngilizce, Almanca, İspanyolca ve Fransızca. Yazılar 25'ten fazla dilde, hedef ülkenize uygun şekilde üretilir."
+    },
+    "q6": {
+      "q": "İptal ve iade nasıl işliyor?",
+      "a": "Aboneliğinizi panelden istediğiniz an iptal edebilirsiniz. İlk ödemeden sonraki 14 gün içinde koşulsuz iade yapılır."
+    }
+  },
+  "final": {
+    "title": "Sitenizin bugün nerede durduğunu görün",
+    "body": "Ücretsiz analiz yaklaşık bir dakika sürer ve kayıt gerektirmez."
+  },
+  "legal": {
+    "title": "Yasal belgeler",
+    "englishOnly": "Bu belge şu an İngilizce ve Türkçe sunuluyor. İngilizce sürümünü görüyorsunuz.",
+    "docs": {
+      "privacy": "Gizlilik Politikası",
+      "terms": "Kullanım Koşulları",
+      "cookies": "Çerez Politikası",
+      "refund": "İptal, İade ve Teslimat",
+      "distance-sales": "Mesafeli Satış Sözleşmesi",
+      "pre-information": "Ön Bilgilendirme Formu",
+      "kvkk": "KVKK Aydınlatma Metni",
+      "dpa": "Veri İşleme Sözleşmesi (DPA)"
+    },
+    "missing": {
+      "companyName": "Şirket unvanı",
+      "address": "Adres",
+      "taxOffice": "Vergi dairesi",
+      "taxNumber": "Vergi numarası",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "jurisdiction": "Yetkili mahkeme",
+      "hosting": "Barındırma sağlayıcısı",
+      "site": "Site adresi"
+    }
+  },
+  "pricingPage": {
+    "title": "Fiyatlar · Upvine",
+    "description": "Upvine paketleri ve fiyatları: aylık yazı hakkı, site sayısı, yenileme ve anahtar kelime takibi. İstediğiniz zaman iptal, ilk ödemede 14 gün koşulsuz iade."
+  },
+  "about": {
+    "metaTitle": "Hakkımızda · Upvine",
+    "title": "Hakkımızda",
+    "intro": "Upvine, küçük işletmelerin ve ajansların sitelerine düzenli, kaliteli ve aranan içerik üretmesini kolaylaştırmak için yapıldı.",
+    "p1": "Sitenizi analiz eder, müşterilerinizin Google’da ne aradığını bulur ve bir içerik takvimi hazırlarız. Her yazı markanızın sesiyle yazılır, bilgileri kontrol edilir, iç linkleri eklenir ve onayınızla sitenizde yayınlanır.",
+    "p2": "Mevcut yazılarınızı da unutmayız: trafiği düşen ya da eskiyen yazılar için güncelleme önerir, önce/sonra hâlini gösterir, siz onaylarsanız uygularız.",
+    "p3": "Upvine şu an beta aşamasında. Geri bildirimleriniz ürünü doğrudan şekillendiriyor; her öneriyi okuyoruz.",
+    "company": "Upvine, {{company}} tarafından geliştirilir ve sunulur.",
+    "cta": "Sitenizi ücretsiz analiz edin",
+    "contact": "Bize ulaşın"
+  },
+  "contact": {
+    "metaTitle": "İletişim · Upvine",
+    "title": "İletişim",
+    "body": "Sorularınız, önerileriniz veya destek talepleriniz için bize e-postayla yazın. Genellikle 1 iş günü içinde yanıt veririz.",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "address": "Adres",
+    "tax": "Vergi dairesi / numarası",
+    "mersis": "MERSİS numarası",
+    "kep": "KEP adresi",
+    "privacy": "Kişisel verileriniz hakkındaki başvurular için:"
+  }
+}

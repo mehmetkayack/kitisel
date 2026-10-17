@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "Analyse SEO gratuite de votre site — Upvine",
+    "description": "Vérifiez 25 bases techniques du SEO, découvrez vos meilleures opportunités de mots-clés et vos concurrents organiques. Gratuit, sans inscription, prêt en une minute environ.",
+    "reportTitle": "Analyse SEO de {{domain}} — Upvine"
+  },
+  "form": {
+    "title": "Analyse SEO gratuite de votre site web",
+    "subtitle": "Voyez quoi corriger en premier, quels sujets vos clients recherchent et qui sont vos concurrents dans Google.",
+    "label": "Adresse du site web",
+    "placeholder": "exemple.fr",
+    "hint": "L’adresse de votre page d’accueil.",
+    "submit": "Analyser mon site gratuitement",
+    "note": "Sans inscription. Votre rapport est prêt en une minute environ.",
+    "what1": "25 vérifications techniques avec des solutions claires",
+    "what2": "Vos 10 meilleures opportunités de mots-clés avec volumes de recherche",
+    "what3": "Vos 3 concurrents organiques et des idées de sujets"
+  },
+  "progress": {
+    "title": "Nous analysons {{domain}}",
+    "body": "Cela prend en général une minute environ. Gardez cette page ouverte ; le rapport s’affichera ici.",
+    "steps": {
+      "homepage": "Lecture de votre page d’accueil",
+      "discover": "Vérification du robots.txt et du plan du site",
+      "pages": "Analyse de vos pages et de vos liens",
+      "checks": "25 vérifications techniques en cours",
+      "brand": "Compréhension de votre activité",
+      "keywords": "Recherche d’opportunités de mots-clés",
+      "competitors": "Recherche de vos concurrents"
+    }
+  },
+  "failed": {
+    "title": "Nous n’avons pas pu analyser ce site",
+    "retry": "Essayer une autre adresse"
+  },
+  "report": {
+    "title": "Analyse SEO de {{domain}}",
+    "checkedAt": "Vérifié le {{date}}",
+    "pdf": "Télécharger en PDF",
+    "share": "Copier le lien de partage",
+    "copied": "Lien copié.",
+    "aiOff": "Les suggestions de mots-clés et de concurrents nécessitent notre service d’IA, indisponible pour le moment. Le rapport technique ci-dessous est complet.",
+    "brand": {
+      "title": "Ce que nous avons compris de votre activité",
+      "products": "Produits et services"
+    },
+    "keywords": {
+      "title": "Meilleures opportunités de mots-clés",
+      "body": "Recherches de vos clients sur lesquelles vous avez une vraie chance de vous positionner.",
+      "keyword": "Recherche",
+      "volume": "Recherches par mois",
+      "difficulty": "Concurrence",
+      "intent": "L’internaute veut",
+      "intents": {
+        "informational": "S’informer",
+        "commercial": "Comparer",
+        "transactional": "Acheter",
+        "navigational": "Trouver un site"
+      },
+      "estimated": "Estimation",
+      "estimatedHelp": "Les volumes de recherche sont des estimations. Après inscription, vous pouvez connecter de vraies données de mots-clés."
+    },
+    "clusters": {
+      "title": "Groupes de sujets suggérés",
+      "body": "Des ensembles d’articles liés qui renforcent votre expertise sur un sujet."
+    },
+    "competitors": {
+      "title": "Vos concurrents organiques",
+      "body": "Les sites qui apparaissent dans Google pour les mêmes recherches que vos clients.",
+      "empty": "Nous n’avons pas pu identifier de concurrents cette fois."
+    },
+    "technical": {
+      "title": "Santé technique : 25 vérifications"
+    },
+    "email": {
+      "title": "Recevoir ce rapport par e-mail",
+      "label": "Adresse e-mail",
+      "consent": "Envoyez-moi aussi de temps en temps des conseils SEO et des nouvelles d’Upvine (facultatif, désinscription à tout moment).",
+      "submit": "Envoyer le rapport",
+      "sent": "Nous avons envoyé le rapport à {{email}}."
+    },
+    "cta": {
+      "title": "Laissez Upvine appliquer ce plan pour vous",
+      "body": "Nous rédigeons, vérifions et publions des articles sur ces sujets sur votre site. Essai gratuit de 7 jours, résiliable à tout moment.",
+      "button": "Appliquer ce plan automatiquement — essai de 7 jours"
+    }
+  },
+  "home": {
+    "cta": "Obtenir une analyse gratuite",
+    "secondary": "Créer un compte gratuit"
+  }
+}

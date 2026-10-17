@@ -1,0 +1,5 @@
+pnpm-lock.yaml
+dist
+build
+.react-router
+docs/PROJECT_SPEC.md

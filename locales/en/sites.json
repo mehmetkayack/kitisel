@@ -1,0 +1,676 @@
+{
+  "wizard": {
+    "title": "Set up your site",
+    "progress": "Step {{current}} of {{total}}",
+    "back": "Back",
+    "continue": "Continue",
+    "steps": {
+      "url": "Website",
+      "brand": "Your business",
+      "language": "Language and country",
+      "tone": "Tone of voice",
+      "topics": "First topics",
+      "cms": "Connect your site",
+      "publishing": "Publishing"
+    },
+    "completedTitle": "Setup is complete",
+    "completedBody": "Your first topics are on the calendar. You can change any step below.",
+    "edit": "Change",
+    "goHome": "Go to home",
+    "completedToast": "Setup complete. Your first topics are on the calendar."
+  },
+  "url": {
+    "title": "Which website should we grow?",
+    "body": "We read your public pages to understand your business and check 25 technical SEO basics. We never change anything on your site.",
+    "label": "Website address",
+    "placeholder": "example.com",
+    "hint": "The address of your home page.",
+    "submit": "Analyze my site"
+  },
+  "analysis": {
+    "title": "We are reading your site",
+    "body": "This usually takes less than a minute. You can leave this page; we keep working in the background.",
+    "steps": {
+      "homepage": "Reading your home page",
+      "discover": "Checking robots.txt and the sitemap",
+      "pages": "Scanning your pages and links",
+      "checks": "Running 25 technical checks",
+      "brand": "Writing your business summary"
+    },
+    "queuedSlow": "Your analysis is waiting in line. When it is busy this can take a few minutes.",
+    "failedTitle": "We could not analyze this site",
+    "retry": "Try again",
+    "changeUrl": "Use a different address",
+    "errors": {
+      "unreachable": "We could not reach this website. Check that the address is correct and the site is online, then try again.",
+      "blocked": "This address points to a private network. Please enter your public website address.",
+      "not_html": "This address does not open a web page. Please enter the address of your home page.",
+      "http_error": "Your site answered with an error. Check that the home page opens in your browser, then try again.",
+      "internal": "Something went wrong on our side. Please try again in a few minutes.",
+      "stalled": "The analysis stopped before finishing. Click \"Try again\" to restart it."
+    }
+  },
+  "brand": {
+    "title": "Is this your business?",
+    "body": "We wrote this from your website. Fix anything that is not right: every article uses it.",
+    "heuristicNote": "Our AI writer was not available, so we copied this from your site's description. Please check it.",
+    "healthScore": "Site health score",
+    "viewReport": "See the report",
+    "fields": {
+      "brandName": "Business or brand name",
+      "description": "What you do",
+      "descriptionHint": "Two or three sentences about your business and your customers.",
+      "industry": "Industry",
+      "products": "Products and services",
+      "productsHint": "One per line.",
+      "audience": "Ideal customer",
+      "audienceHint": "Who do you want to reach?"
+    },
+    "approve": "Looks right, continue"
+  },
+  "language": {
+    "title": "Where are your customers?",
+    "body": "Articles are written from scratch in this language, not translated.",
+    "language": "Article language",
+    "languageHint": "We suggested this based on your site.",
+    "country": "Main country",
+    "countryHint": "Helps us choose local examples and search phrases.",
+    "noCountry": "Worldwide or no single country"
+  },
+  "tone": {
+    "title": "How should your articles sound?",
+    "body": "Pick the style that is closest to how you talk to your customers.",
+    "suggested": "Suggested for your site",
+    "options": {
+      "professional": {
+        "label": "Professional",
+        "example": "Our team helps you choose the right solution and supports you at every step."
+      },
+      "friendly": {
+        "label": "Friendly",
+        "example": "Not sure where to start? No worries, we will walk you through it together."
+      },
+      "expert": {
+        "label": "Expert and technical",
+        "example": "Studies show that regular maintenance extends equipment life by up to 30 percent."
+      },
+      "playful": {
+        "label": "Playful",
+        "example": "Say goodbye to boring Mondays: here are five tricks that actually work."
+      }
+    },
+    "guideline": "Extra instructions (optional)",
+    "guidelineHint": "For example: speak to the reader directly, avoid technical words, mention our free consultation.",
+    "sample": "A text you wrote (optional)",
+    "sampleHint": "Paste a blog post or page text. We use it to match your style."
+  },
+  "topics": {
+    "title": "Your first topics",
+    "body": "We picked topics your customers search for. Remove the ones you do not want and add your own.",
+    "generating": "Finding topics your customers search for…",
+    "estimated": "Estimate",
+    "estimatedHelp": "Search numbers are estimates until real keyword data is connected.",
+    "volume": "About {{value}} searches a month",
+    "difficulty": {
+      "easy": "Easy to rank",
+      "medium": "Some competition",
+      "hard": "Hard to rank"
+    },
+    "yours": "Your topic",
+    "remove": "Remove",
+    "removed": "Topic removed.",
+    "addTitle": "Add your own topic",
+    "addTopic": "Article title",
+    "addKeyword": "Main search phrase",
+    "addKeywordHint": "What would someone type into Google?",
+    "add": "Add topic",
+    "added": "Topic added.",
+    "more": "Suggest more topics",
+    "empty": "No topics yet. Add your own below.",
+    "aiOff": "Automatic topic suggestions are off because the AI service is not set up. You can add your own topics.",
+    "needOne": "Add at least one topic to continue.",
+    "selected": "Selected topics: {{value}}",
+    "errors": {
+      "ai_not_configured": "Automatic topic suggestions are off because the AI service is not set up. You can add your own topics.",
+      "ai_budget": "We reached today's limit for automatic suggestions. Try again tomorrow, or add your own topics now.",
+      "ai_unavailable": "The suggestion service is busy right now. Please try again in a few minutes.",
+      "internal": "Something went wrong while suggesting topics. Please try again.",
+      "stalled": "Topic suggestions stopped before finishing. Click \"Try again\" to restart; it usually takes less than a minute."
+    },
+    "retry": "Try again"
+  },
+  "cms": {
+    "skip": "Skip for now",
+    "skipHint": "You can connect your site later in Settings."
+  },
+  "publishing": {
+    "title": "When should we publish?",
+    "body": "We plan your articles on the days and time you choose.",
+    "mode": "Before publishing",
+    "modes": {
+      "approval": {
+        "label": "I approve each article",
+        "hint": "Recommended. We email you when an article is ready to review."
+      },
+      "auto": {
+        "label": "Publish automatically",
+        "hint": "Articles that pass our quality checks go live on schedule."
+      }
+    },
+    "days": "Publishing days",
+    "daysHint": "One article on each selected day.",
+    "time": "Time",
+    "timezone": "Time zone: {{zone}}",
+    "newSiteNote": "For new sites we publish at most 3 articles a week in the first month. Publishing too fast can look unnatural to Google.",
+    "finish": "Finish setup"
+  },
+  "health": {
+    "title": "Site health",
+    "outOf": "{{score}} / 100",
+    "levels": {
+      "good": "Good",
+      "fair": "Needs some work",
+      "poor": "Needs attention"
+    },
+    "analyzedAt": "Last checked: {{date}}",
+    "pagesCrawled": "Pages checked: {{value}}",
+    "reanalyze": "Check again",
+    "reanalyzing": "We are checking your site again. This page updates by itself.",
+    "status": {
+      "pass": "OK",
+      "warning": "Worth improving",
+      "fail": "Problem",
+      "not_applicable": "Not needed"
+    },
+    "groups": {
+      "fail": "Problems to fix",
+      "warning": "Worth improving",
+      "pass": "Working well",
+      "not_applicable": "Not needed for your site"
+    },
+    "howToFix": "How to fix",
+    "affected": "Pages affected: {{value}}",
+    "pages": {
+      "title": "Pages we checked",
+      "url": "Address",
+      "pageTitle": "Title",
+      "words": "Words",
+      "duplicate": "Same title as another page",
+      "noTitle": "No title"
+    },
+    "emptyTitle": "Your site health report will appear here",
+    "emptyBody": "Add your website and we will check 25 technical SEO basics for you."
+  },
+  "checks": {
+    "https": {
+      "title": "Secure connection (HTTPS)",
+      "pass": "Your site uses a secure HTTPS connection.",
+      "issue": "Your site does not use HTTPS. Browsers mark it as “Not secure” and Google prefers secure sites.",
+      "fix": "Turn on a free SSL certificate in your hosting panel (often called Let's Encrypt), then send all pages to the https:// address."
+    },
+    "http_to_https": {
+      "title": "Redirect to the secure address",
+      "pass": "Visitors who type http:// are sent to the secure https:// address.",
+      "issue": "The http:// version of your site does not redirect to https://, so Google may see two copies of your site.",
+      "fix": "Add a permanent (301) redirect from http:// to https:// in your hosting panel or website settings."
+    },
+    "title": {
+      "title": "Page titles",
+      "pass": "Your pages have titles.",
+      "issue": "Some pages have no title. The title is the blue headline people click in Google.",
+      "fix": "Give every page a unique title that says what the page is about."
+    },
+    "title_length": {
+      "title": "Title length",
+      "pass": "Your titles have a good length.",
+      "issue": "Some titles are shorter than 30 or longer than 65 characters. Google may cut long titles, and short ones waste space.",
+      "fix": "Write titles of about 30 to 65 characters with the main topic near the start."
+    },
+    "meta_description": {
+      "title": "Page descriptions",
+      "pass": "Your pages have descriptions for Google.",
+      "issue": "Some pages have no description. Google then shows random text from the page under your title.",
+      "fix": "Add a short description (meta description) to each page. Most website builders and SEO plugins have a field for it."
+    },
+    "meta_description_length": {
+      "title": "Description length",
+      "pass": "Your descriptions have a good length.",
+      "issue": "Some descriptions are shorter than 70 or longer than 160 characters.",
+      "fix": "Aim for 70 to 160 characters that describe the page and invite the click."
+    },
+    "h1": {
+      "title": "Main heading (H1)",
+      "pass": "Each page has one main heading.",
+      "issue": "Some pages have no main heading or more than one. The main heading tells Google what the page is about.",
+      "fix": "Use exactly one H1 heading per page, usually the visible page title."
+    },
+    "heading_structure": {
+      "title": "Subheadings",
+      "pass": "Longer pages are split into sections with subheadings.",
+      "issue": "Some long pages have no subheadings (H2). Long blocks of text are hard to read for people and for Google.",
+      "fix": "Split long pages into sections with clear H2 subheadings."
+    },
+    "canonical": {
+      "title": "Main page address (canonical)",
+      "pass": "Your pages tell Google which address is the main one.",
+      "issue": "Some pages do not say which address is the main version, or they point to another website.",
+      "fix": "Add a canonical link to each page that points to its own main address. SEO plugins usually do this for you."
+    },
+    "robots_txt": {
+      "title": "Instructions for search engines (robots.txt)",
+      "pass": "Your robots.txt file lets Google read your site.",
+      "issue": "Your robots.txt file is missing or blocks your whole site from Google.",
+      "fix": "Make sure yoursite.com/robots.txt exists and does not contain “Disallow: /” for all search engines."
+    },
+    "sitemap": {
+      "title": "Sitemap",
+      "pass": "We found a sitemap that lists your pages.",
+      "issue": "We could not find a sitemap. It helps Google find all of your pages.",
+      "fix": "Create a sitemap (most website builders and SEO plugins can do this), then add it to robots.txt and Google Search Console."
+    },
+    "noindex": {
+      "title": "Hidden from Google (noindex)",
+      "pass": "None of the checked pages is hidden from Google.",
+      "issue": "Some pages tell Google not to show them in search results.",
+      "fix": "Remove the “noindex” setting from pages that should appear in Google. Check the visibility settings of your website."
+    },
+    "viewport": {
+      "title": "Mobile friendly",
+      "pass": "Your site is set up for mobile screens.",
+      "issue": "Your site is not set up for mobile screens. Most visitors use a phone, and Google looks at the mobile version first.",
+      "fix": "Add the mobile viewport tag (width=device-width) or switch to a responsive theme."
+    },
+    "html_lang": {
+      "title": "Page language",
+      "pass": "Your pages say which language they are written in.",
+      "issue": "Your home page does not say which language it is written in.",
+      "fix": "Set the lang attribute on the html tag, for example lang=\"en\". Theme settings often have this option."
+    },
+    "hreflang": {
+      "title": "Language versions (hreflang)",
+      "pass": "Your language versions are linked correctly.",
+      "issue": "Your site has pages in several languages, but they are not linked to each other correctly.",
+      "fix": "Add hreflang links so Google shows each visitor the right language version."
+    },
+    "open_graph": {
+      "title": "Social media preview",
+      "pass": "Links to your site show a title and an image on social media.",
+      "issue": "When someone shares your site, social networks may show no image or the wrong title.",
+      "fix": "Add Open Graph tags (og:title and og:image). SEO plugins usually have a “Social” section for this."
+    },
+    "structured_data": {
+      "title": "Structured information for Google",
+      "pass": "Your home page gives Google structured information about your business.",
+      "issue": "Your home page has no structured information, or it contains errors. It helps Google show extras such as ratings and opening hours.",
+      "fix": "Add structured data (Schema.org, for example Organization or LocalBusiness). Many SEO plugins can do this."
+    },
+    "image_alt": {
+      "title": "Image descriptions",
+      "pass": "Your images have descriptions.",
+      "issue": "Some images have no description (alt text). Google and screen readers cannot tell what they show.",
+      "fix": "Add a short description to each meaningful image in your media library."
+    },
+    "broken_links": {
+      "title": "Broken links",
+      "pass": "We found no broken links.",
+      "issue": "Some links on your site lead to pages that do not exist.",
+      "fix": "Update or remove these links, or redirect the old addresses to a working page."
+    },
+    "duplicate_titles": {
+      "title": "Same titles",
+      "pass": "Every page has its own title.",
+      "issue": "Some pages share the same title, so Google cannot tell them apart.",
+      "fix": "Give each page a unique title."
+    },
+    "duplicate_descriptions": {
+      "title": "Same descriptions",
+      "pass": "Every page has its own description.",
+      "issue": "Some pages share the same description.",
+      "fix": "Write a unique description for each page."
+    },
+    "thin_content": {
+      "title": "Short pages",
+      "pass": "Your pages have enough text.",
+      "issue": "Some pages have fewer than 300 words. Very short pages rarely rank well in Google.",
+      "fix": "Add useful information to these pages, or combine similar short pages."
+    },
+    "ttfb": {
+      "title": "Server speed",
+      "pass": "Your server starts answering quickly ({{value}} ms).",
+      "issue": "Your server needs {{value}} ms to start answering. Slow pages lose visitors and rankings.",
+      "fix": "Turn on caching, use a CDN, or ask your hosting company for faster hosting."
+    },
+    "page_size": {
+      "title": "Page size",
+      "pass": "Your home page is light and loads quickly.",
+      "issue": "The code of your home page is large, which makes it slow on phones.",
+      "fix": "Remove unused plugins and code, and avoid putting large content directly into the page."
+    },
+    "favicon": {
+      "title": "Site icon (favicon)",
+      "pass": "Your site has an icon.",
+      "issue": "Your site has no icon. Google shows it next to your result on phones.",
+      "fix": "Upload a square site icon in your website or theme settings."
+    }
+  },
+  "results": {
+    "tabs": {
+      "overview": "Overview",
+      "articles": "My articles",
+      "keywords": "Keywords",
+      "health": "Site health",
+      "ai": "AI visibility"
+    }
+  },
+  "home": {
+    "continueSetup": "Continue setup",
+    "healthTitle": "Site health",
+    "healthLink": "See the report",
+    "upcomingTitle": "Next articles",
+    "upcomingEmpty": "No articles planned yet. Pick your first topics in setup.",
+    "statusDone": "Setup is done. Your first article is planned for {{date}}.",
+    "statusAnalyzing": "We are analyzing {{domain}}. This usually takes less than a minute.",
+    "seeCalendar": "See calendar"
+  },
+  "content": {
+    "keyword": "Search phrase",
+    "planned": "Planned for",
+    "status": "Status",
+    "notScheduled": "Not scheduled yet"
+  },
+  "posts": {
+    "title": "Posts on your site",
+    "summary": "{{total}} posts read; {{withIssues}} have issues you can fix. The ones with the most issues are at the top.",
+    "syncedAt": "Last read: {{date}}",
+    "meta": "{{words}} words · last updated {{date}}",
+    "issueCount": "See {{value}} issues",
+    "noIssues": "No issues in the checks we run.",
+    "opensNewTab": "(opens in a new tab)",
+    "rescan": "Read again",
+    "syncingShort": "Reading…",
+    "syncing": "Reading your posts. Depending on how many there are, this can take a minute or two.",
+    "scan": "Read my posts",
+    "retry": "Try again",
+    "showMore": "Show {{value}} more posts",
+    "scanTitle": "Let’s review your existing posts",
+    "scanBody": "We read the published posts on your site and list the SEO issues in each one. We don’t change your posts.",
+    "noneTitle": "We found no published posts on your site",
+    "noneBody": "Once your blog has published posts, they’ll appear here with their issues.",
+    "connectTitle": "Connect your site to see your existing posts",
+    "connectBody": "After connecting, we read your posts and list the SEO issues in each one.",
+    "connectAction": "Connect site",
+    "unsupportedTitle": "Posts can’t be read from this connection yet",
+    "unsupportedBody": "For now we can read existing posts from WordPress sites. Other platforms are coming soon.",
+    "severity": {
+      "high": "Important",
+      "medium": "Medium",
+      "low": "Minor"
+    },
+    "errors": {
+      "not_connected": "Your site isn’t connected. Connect it in Settings.",
+      "not_supported": "Posts can’t be read from this connection.",
+      "stalled": "Reading stopped before finishing. Click \"Try again\" to restart.",
+      "internal": "Something went wrong while reading your posts. Please try again shortly.",
+      "publish_auth_failed": "Your site rejected our login details. Reconnect your site in Settings.",
+      "publish_forbidden": "The connected user can’t view posts. Reconnect with an editor or administrator account.",
+      "publish_not_wordpress": "We couldn’t reach the WordPress API. Check the connection in Settings.",
+      "publish_unreachable": "We couldn’t reach your site. Check that it’s online and try again.",
+      "publish_server_error": "Your site responded with an error. Please try again shortly."
+    },
+    "issues": {
+      "thin_content": {
+        "title": "Content is very short ({{value}} words)",
+        "fix": "Go deeper: add sections that answer the questions readers would ask. Google rarely ranks short posts highly."
+      },
+      "short_content": {
+        "title": "Content is short ({{value}} words)",
+        "fix": "Bring it above 600 words with examples, steps or frequently asked questions."
+      },
+      "no_meta_description": {
+        "title": "No meta description",
+        "fix": "In your SEO plugin (Yoast, Rank Math), write an inviting 70–160 character description for the post."
+      },
+      "meta_description_length": {
+        "title": "Meta description length is off ({{value}} characters)",
+        "fix": "Keep it between 70 and 160 characters; longer ones get cut off in Google."
+      },
+      "title_length": {
+        "title": "Title length is off ({{value}} characters)",
+        "fix": "Keep the title between 30 and 65 characters, with the main keyword near the start."
+      },
+      "no_subheadings": {
+        "title": "No subheadings",
+        "fix": "Split the post into sections with H2 subheadings; it helps both readers and Google."
+      },
+      "no_internal_links": {
+        "title": "No links to other pages on your site",
+        "fix": "Add 2–3 links to related products, categories or other posts."
+      },
+      "missing_alt": {
+        "title": "{{value}} images have no description (alt text)",
+        "fix": "In the media library, add a short description of what each image shows."
+      },
+      "no_images": {
+        "title": "No images",
+        "fix": "Add at least one image that illustrates the topic; posts with images are read longer."
+      },
+      "outdated": {
+        "title": "Not updated for {{value}} days",
+        "fix": "Review facts, prices and dates and update the post; Google prefers fresh content."
+      }
+    },
+    "refreshIntro": "We never change your posts without your approval. Click “Suggest an update” to see the changes and the post before and after. If you apply it, you can undo it with one click.",
+    "declining": "Traffic dropping",
+    "clicksTrend": "{{current}} clicks in the last 28 days (previous 28 days: {{previous}})",
+    "decliningSummary": "Traffic from Google is dropping for {{value}} of your posts. They’re at the top of the list; we suggest updating them first.",
+    "refresh": {
+      "request": "Suggest an update",
+      "generatingShort": "Preparing suggestion…",
+      "readyBadge": "Suggestion ready",
+      "review": "Review suggestion",
+      "appliedBadge": "Updated {{date}}",
+      "details": "Details",
+      "usage": "{{used}} of {{limit}} update suggestions used this month.",
+      "title": "Update suggestion",
+      "generating": "We’re reading your post and preparing an update. This can take a minute or two; you can close this window.",
+      "applyNote": "“Apply” changes the post’s title and content on your site. Its address, date and categories stay the same. You can undo it later.",
+      "appliedAt": "This suggestion was applied on your site on {{date}}.",
+      "revertedNote": "This suggestion was undone; your post is back to how it was.",
+      "dismissedNote": "You closed this suggestion. Your post wasn’t changed.",
+      "scoreLabel": "SEO score before and after",
+      "scoreHint": "If you also update the meta description",
+      "changesTitle": "What changes",
+      "metaTitle": "Meta title and description",
+      "metaHint": "We can’t change these on your site automatically. Copy them into your SEO plugin (Yoast, Rank Math).",
+      "fields": {
+        "metaTitle": "Meta title",
+        "metaDescription": "Meta description"
+      },
+      "copy": "Copy",
+      "copied": "Copied.",
+      "copyFailed": "Couldn’t copy. Select the text and copy it manually.",
+      "compare": "Post version",
+      "after": "Suggested",
+      "before": "Current",
+      "dismiss": "Close",
+      "apply": "Apply",
+      "appliedToast": "Your post was updated on your site.",
+      "viewPost": "Open post",
+      "revert": "Undo",
+      "revertedToast": "Your post is back to how it was.",
+      "kinds": {
+        "outdated": "Up to date",
+        "structure": "Structure",
+        "faq": "FAQ",
+        "meta": "Meta",
+        "links": "Internal link",
+        "content": "Content",
+        "title": "Title"
+      },
+      "errors": {
+        "internal": "Something went wrong while preparing the suggestion. Try again in a moment.",
+        "not_found": "We couldn’t find this post on your site. Read your posts again.",
+        "not_connected": "Your site isn’t connected. Connect it in Settings.",
+        "not_supported": "Posts can’t be updated through this connection. WordPress is supported for now.",
+        "too_long": "This post is too long for an automatic suggestion.",
+        "stalled": "The suggestion stopped halfway. Try again.",
+        "ai_not_configured": "The AI service isn’t set up, so we can’t prepare a suggestion.",
+        "ai_budget": "We reached today’s AI limit. Try again tomorrow.",
+        "ai_blocked": "The AI service declined to suggest changes for this post.",
+        "ai_invalid_output": "The suggestion didn’t come out right. Try again.",
+        "ai_unavailable": "The AI service was busy. Try again in a few minutes."
+      }
+    }
+  },
+  "searchConsole": {
+    "title": "Google Search Console",
+    "description": "Brings your Google impressions, clicks and positions into the dashboard. Asks for read-only access.",
+    "notConfigured": "Search Console isn’t set up yet. An administrator needs to add the Google OAuth client (.env).",
+    "connectBody": "Connect with your Google account; we find the Search Console property that matches your site. Data refreshes daily.",
+    "connect": "Connect Search Console",
+    "reconnect": "Reconnect",
+    "connected": "Connected",
+    "account": "Account: {{email}}",
+    "syncing": "Fetching data… The first time we fetch the last 90 days, which can take a minute or two.",
+    "lastSynced": "Last updated: {{date}}",
+    "neverSynced": "No data fetched yet.",
+    "latestData": "Latest data: {{date}} (Google data lags 2–3 days)",
+    "syncNow": "Update now",
+    "disconnect": "Disconnect",
+    "disconnectTitle": "Disconnect Search Console?",
+    "disconnectBody": "Access is revoked at Google and the collected Search Console data is deleted. You can reconnect later.",
+    "property": "Search Console property",
+    "domainProperty": "whole domain",
+    "pickBody": "We couldn’t find a property with your site’s address. Choose the property for this site.",
+    "useProperty": "Use this property",
+    "noProperties": "The {{email}} account has no verified Search Console property. Add and verify your site in Search Console, then reconnect.",
+    "callback": {
+      "connected": "Search Console connected. Fetching data.",
+      "pick": "Search Console connected. Choose your site’s property.",
+      "failed": "Search Console couldn’t be connected. Please try again.",
+      "rejected": "Google access wasn’t granted, so nothing was connected."
+    },
+    "errors": {
+      "revoked": "Google access expired or was revoked. Reconnecting takes 30 seconds.",
+      "forbidden": "This Google account can’t access the selected property. Reconnect with an account that owns it.",
+      "unavailable": "Google isn’t responding right now. We’ll retry automatically shortly.",
+      "rejected": "Google rejected the request. Try disconnecting and reconnecting.",
+      "no_property": "No property selected yet.",
+      "stalled": "The update stopped before finishing. Click \"Update now\" to restart it.",
+      "internal": "Something went wrong while fetching data. Please try again shortly."
+    }
+  },
+  "overview": {
+    "googleTitle": "Visibility on Google",
+    "contentTitle": "Your content",
+    "period": "{{from}} – {{to}} (compared with the previous 28 days)",
+    "metrics": {
+      "impressions": "Impressions",
+      "clicks": "Clicks",
+      "position": "Average position",
+      "top10": "Keywords in top 10"
+    },
+    "help": {
+      "impressions": "How many times your site appeared in Google search results.",
+      "clicks": "How many times people clicked through to your site from search results.",
+      "position": "Your average position in the searches you appeared in. Lower is better.",
+      "top10": "Search terms with an average position of 10 or better (Google’s first page).",
+      "aiMention": "How often AI mentioned your brand in the questions your customers ask (latest check)."
+    },
+    "change": {
+      "up": "Up {{value}}",
+      "down": "Down {{value}}",
+      "flat": "No change",
+      "positionUp": "Up {{value}} positions",
+      "positionDown": "Down {{value}} positions"
+    },
+    "chartSeries": "Measure shown in the chart",
+    "chartTitle": {
+      "impressions": "Daily impressions",
+      "clicks": "Daily clicks"
+    },
+    "chartSummary": "{{value}} {{metric}} in total over the last 28 days.",
+    "showTable": "Show as table",
+    "date": "Date",
+    "winsTitle": "Recent wins",
+    "noWins": "No notable ranking gains yet. They’ll show up here as new articles go live.",
+    "win": "You moved from position {{from}} to {{to}} for \"{{query}}\".",
+    "connectTitle": "See your Google results here",
+    "connectBody": "Connect Search Console: impressions, clicks, positions and keywords you’ve gained update every day.",
+    "syncing": "Fetching Search Console data. It will appear here in a few minutes.",
+    "noData": "Search Console is connected but this property has no search data yet. For new sites Google can take a few days to collect it.",
+    "loadFailed": "This section couldn’t be loaded. Refresh the page.",
+    "content": {
+      "publishedThisMonth": "Articles published this month",
+      "waiting": "Awaiting approval or publishing",
+      "averageSeo": "Average SEO score",
+      "aiMention": "AI mentions"
+    },
+    "auditScore": "Site health: {{score}}/100"
+  },
+  "keywords": {
+    "up": "up",
+    "down": "down",
+    "same": "no change",
+    "emptyTitle": "No keywords tracked yet",
+    "emptyBody": "Keywords in your topic plan and the searches you appear for in Search Console are listed here.",
+    "columns": {
+      "keyword": "Keyword",
+      "position": "Position",
+      "impressions": "Impressions",
+      "clicks": "Clicks",
+      "volume": "Monthly searches",
+      "difficulty": "Difficulty",
+      "page": "Page"
+    },
+    "planned": "In your plan",
+    "fromGoogle": "From Google",
+    "connectBody": "Connect Search Console to see real positions and impressions. For now, the keywords in your plan are listed.",
+    "connectAction": "Go to Settings",
+    "filterLabel": "Filter keywords",
+    "filters": {
+      "all": "All",
+      "planned": "In your plan",
+      "google": "Seen on Google"
+    },
+    "count": "{{value}} keywords (up to {{limit}} in your plan)",
+    "caption": "Tracked keywords",
+    "noneInFilter": "No keywords match this filter."
+  },
+  "visibility": {
+    "notAsked": "Not asked yet",
+    "mentioned": "Mentioned",
+    "notMentioned": "Not mentioned",
+    "remove": "Delete question: {{question}}",
+    "showAnswer": "Show the AI’s answer",
+    "citedFrom": "Your site as a source: {{sources}}",
+    "planTitle": "AI visibility is in the Growth and Agency plans",
+    "planBody": "Upgrade to track weekly whether AI assistants mention your brand when your customers ask questions.",
+    "aiUnavailable": "AI isn’t configured, so AI visibility can’t be measured.",
+    "running": "Asking the AI the questions… This can take a minute or two.",
+    "startTitle": "Does AI recommend you?",
+    "startBody": "We write about 12 questions your customers would ask assistants like ChatGPT or Gemini, ask them, and check whether the answers mention your brand. The check repeats every week.",
+    "start": "Start measuring",
+    "rate": "Mention rate",
+    "rateHelp": "Share of questions in the latest check where your brand or site was mentioned.",
+    "lastChecked": "Last check: {{date}}. Repeats weekly.",
+    "neverChecked": "The questions haven’t been asked yet.",
+    "runNow": "Measure again now",
+    "ungrounded": "The latest check ran without web search: answers came from the AI’s own knowledge (no Google Search quota). This can understate the rate for new or small brands.",
+    "trendTitle": "Mention rate (per check)",
+    "trendSummary": "Mention rate in the latest check: {{value}}.",
+    "questionsTitle": "Tracked questions",
+    "questionsBody": "Write questions the way your customers would; don’t include your brand name.",
+    "addLabel": "New question",
+    "addPlaceholder": "e.g. Where can I buy stone-pressed olive oil?",
+    "add": "Add question",
+    "limitReached": "You can track up to {{value}} questions.",
+    "errors": {
+      "ai_not_configured": "AI isn’t configured, so the check couldn’t run.",
+      "ai_budget": "Today’s AI allowance is used up. The check will retry tomorrow.",
+      "ai_unavailable": "The AI service is busy right now. Try \"Measure again now\" in a moment.",
+      "stalled": "The check stopped before finishing. Click \"Measure again now\" to restart it.",
+      "internal": "Something went wrong during the check. Please try again shortly."
+    }
+  }
+}

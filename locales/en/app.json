@@ -1,0 +1,90 @@
+{
+  "userMenu": {
+    "label": "Account menu",
+    "settings": "Account settings",
+    "admin": "Admin panel"
+  },
+  "verifyBanner": {
+    "text": "Please confirm your email address. We sent a link to {{email}}.",
+    "resend": "Resend email",
+    "sent": "We sent a new link. Check your inbox."
+  },
+  "setup": {
+    "title": "Finish setting up",
+    "progress": "{{done}} of {{total}} steps done",
+    "cta": "Start setup",
+    "steps": {
+      "analyzed": "Site analyzed",
+      "brand": "Brand profile approved",
+      "connected": "Website connected",
+      "searchConsole": "Google Search Console connected",
+      "firstArticle": "First article approved"
+    }
+  },
+  "generation": {
+    "steps": {
+      "research": "Researching the topic",
+      "draft": "Writing the draft",
+      "factCheck": "Checking the facts",
+      "images": "Preparing images"
+    }
+  },
+  "home": {
+    "title": "Home",
+    "greeting": "Welcome, {{name}}",
+    "statusSetup": "Let's get your website ready. Setup takes about 10 minutes."
+  },
+  "content": {
+    "title": "Content",
+    "emptyTitle": "No articles yet",
+    "emptyBody": "Once your website is set up, your first articles will appear here, ready for your review."
+  },
+  "calendar": {
+    "title": "Calendar",
+    "emptyTitle": "Your content calendar is empty",
+    "emptyBody": "After setup, we'll plan your articles and show their publishing dates here.",
+    "description": "Drag an article to another day to change its publishing date. The time stays the same.",
+    "month": "Month",
+    "week": "Week",
+    "viewLabel": "View",
+    "today": "Today",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month",
+    "prevWeek": "Previous week",
+    "nextWeek": "Next week",
+    "reschedule": "Change the date of \"{{title}}\"",
+    "rescheduleShort": "Change date",
+    "rescheduleTitle": "Change publishing date",
+    "newDate": "New date",
+    "newDateHint": "The publishing time stays the same.",
+    "move": "Move",
+    "moved": "Publishing date updated.",
+    "emptyMonth": "No articles planned this month.",
+    "dnd": {
+      "start": "Moving \"{{title}}\".",
+      "over": "\"{{title}}\" is over {{day}}.",
+      "end": "\"{{title}}\" moved to {{day}}.",
+      "cancel": "Move cancelled."
+    }
+  },
+  "results": {
+    "title": "Results",
+    "emptyTitle": "Results will appear here",
+    "emptyBody": "Once your first articles are live, you'll see how often Google shows them and where they rank."
+  },
+  "settings": {
+    "title": "Settings",
+    "account": {
+      "title": "Your account",
+      "description": "Your personal details and preferences.",
+      "name": "Name",
+      "email": "Email",
+      "languageHint": "Used for the dashboard and emails we send you.",
+      "saved": "Your settings have been saved."
+    }
+  },
+  "impersonation": {
+    "text": "You are viewing Upvine as {{name}} ({{email}}). This view is read-only.",
+    "exit": "Exit view"
+  }
+}

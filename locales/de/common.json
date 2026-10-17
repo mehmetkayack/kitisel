@@ -1,0 +1,107 @@
+{
+  "appName": "Upvine",
+  "skipToContent": "Zum Hauptinhalt springen",
+  "nav": {
+    "label": "Hauptmenü",
+    "home": "Start",
+    "content": "Inhalte",
+    "calendar": "Kalender",
+    "results": "Ergebnisse",
+    "settings": "Einstellungen"
+  },
+  "actions": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "continue": "Weiter",
+    "back": "Zurück",
+    "close": "Schließen",
+    "undo": "Rückgängig",
+    "retry": "Erneut versuchen",
+    "signIn": "Anmelden",
+    "signUp": "Konto erstellen",
+    "signOut": "Abmelden"
+  },
+  "language": {
+    "label": "Sprache"
+  },
+  "theme": {
+    "label": "Darstellung",
+    "system": "System",
+    "light": "Hell",
+    "dark": "Dunkel"
+  },
+  "validation": {
+    "required": "Bitte füllen Sie dieses Feld aus.",
+    "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein, z. B. name@beispiel.de.",
+    "passwordMin": "Verwenden Sie mindestens 10 Zeichen.",
+    "passwordMax": "Verwenden Sie höchstens 128 Zeichen.",
+    "tooLong": "Das ist zu lang. Bitte kürzen Sie den Text.",
+    "siteUrl": "Bitte geben Sie Ihre Website-Adresse ein, z. B. beispiel.de.",
+    "time": "Bitte geben Sie eine Uhrzeit wie 10:00 ein.",
+    "pickDay": "Wählen Sie mindestens einen Tag.",
+    "url": "Bitte geben Sie eine vollständige Webadresse ein, z. B. https://beispiel.de/kontakt.",
+    "topicTitleMin": "Der Titel braucht mindestens 5 Zeichen.",
+    "appPassword": "Fügen Sie das vollständige Anwendungspasswort ein (24 Zeichen).",
+    "httpsOnly": "Die Adresse muss mit https:// beginnen.",
+    "tooShort": "Das ist zu kurz. Bitte ergänzen Sie etwas.",
+    "slug": "Nur Kleinbuchstaben, Ziffern und Bindestriche, zum Beispiel zahnimplantat-dauer.",
+    "rewriteTooLong": "Der markierte Teil ist zu lang. Wählen Sie einen kleineren Teil.",
+    "date": "Bitte wählen Sie ein gültiges Datum.",
+    "pastDate": "Ein Datum in der Vergangenheit ist nicht möglich. Wählen Sie heute oder später.",
+    "ghostKey": "Der Admin-API-Schlüssel muss wie „id:secret“ aussehen (aus Ghost kopieren).",
+    "shopDomain": "Geben Sie die myshopify.com-Adresse Ihres Shops ein, zum Beispiel meinshop.myshopify.com.",
+    "shopifyToken": "Fügen Sie das Token ein, das mit „shpat_“ beginnt.",
+    "wixKey": "Fügen Sie den vollständigen API-Schlüssel ein.",
+    "wixSiteId": "Die Website-ID hat das Format 8-4-4-4-12 Zeichen.",
+    "questionMin": "Die Frage muss mindestens 8 Zeichen lang sein."
+  },
+  "status": {
+    "planned": "Geplant",
+    "generating": "In Arbeit",
+    "review": "Wartet auf Ihre Freigabe",
+    "scheduled": "Bereit zur Veröffentlichung",
+    "published": "Veröffentlicht",
+    "failed": "Braucht Aufmerksamkeit"
+  },
+  "loading": "Wird geladen …",
+  "help": "Was bedeutet das?",
+  "footer": {
+    "rights": "© {{year}} Upvine. Alle Rechte vorbehalten.",
+    "product": "Upvine",
+    "legal": "Rechtliches",
+    "pricing": "Preise",
+    "freeAnalysis": "Kostenlose Analyse",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "payments": "Zahlungen werden sicher über den lizenzierten Zahlungsdienstleister iyzico abgewickelt. Wir speichern Ihre Kartendaten nicht.",
+    "operatedBy": "Upvine ist ein Dienst von {{company}}."
+  },
+  "notFound": {
+    "title": "Diese Seite gibt es nicht",
+    "body": "Der Link ist vielleicht veraltet oder die Seite wurde verschoben.",
+    "cta": "Zur Startseite"
+  },
+  "errorPage": {
+    "title": "Etwas ist schiefgelaufen",
+    "body": "Wir wurden benachrichtigt und kümmern uns darum. Bitte versuchen Sie es gleich noch einmal.",
+    "cta": "Seite neu laden"
+  },
+  "editor": {
+    "toolbar": "Formatierung",
+    "h2": "Überschrift (H2)",
+    "h3": "Unterüberschrift (H3)",
+    "bold": "Fett",
+    "italic": "Kursiv",
+    "bulletList": "Aufzählung",
+    "orderedList": "Nummerierte Liste",
+    "quote": "Zitat",
+    "link": "Link einfügen",
+    "unlink": "Link entfernen",
+    "undo": "Rückgängig",
+    "redo": "Wiederholen",
+    "linkTitle": "Link einfügen",
+    "linkBody": "Der markierte Text wird mit dieser Adresse verlinkt. Leer lassen, um den Link zu entfernen.",
+    "linkUrl": "Adresse",
+    "linkApply": "Übernehmen"
+  }
+}

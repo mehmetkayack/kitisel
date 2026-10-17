@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    services:
+      mysql:
+        image: mysql:8.4.11
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -proot"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+      redis:
+        image: redis:7.4-alpine
+        ports: ['6379:6379']
+        options: --health-cmd="redis-cli ping" --health-interval=5s --health-retries=10
+      mailpit:
+        image: axllent/mailpit:v1.31.4
+        ports: ['1025:1025', '8025:8025']
+
+    env:
+      CI: 'true'
+      NODE_ENV: test
+      MYSQL_HOST: 127.0.0.1
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: upvine
+      MYSQL_TEST_DATABASE: upvine_test
+      REDIS_URL: redis://127.0.0.1:6379
+      JWT_ACCESS_SECRET: ci-only-secret-not-used-anywhere-else-0123456789
+      SMTP_HOST: 127.0.0.1
+      SMTP_PORT: '1025'
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Bağımlılıklar
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint (ESLint + ham renk kontrolü)
+        run: pnpm lint
+
+      - name: Tip kontrolü
+        run: pnpm typecheck
+
+      - name: i18n anahtar kontrolü
+        run: pnpm i18n:check
+
+      - name: Birim ve API testleri
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build
+        env:
+          NODE_ENV: production
+
+      - name: Playwright tarayıcısı
+        run: pnpm --filter @upvine/web exec playwright install --with-deps chromium
+
+      # E2E kendi API (4100), web (5174) ve veritabanını (<MYSQL_DATABASE>_e2e) kurar: apps/web/e2e/env.ts
+      - name: Uçtan uca testler (Playwright + axe)
+        run: pnpm test:e2e
+
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright-report
+          path: |
+            apps/web/playwright-report
+            apps/web/test-results
+          retention-days: 7

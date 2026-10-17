@@ -1,0 +1,102 @@
+{
+  "title": "Komponentenübersicht",
+  "intro": "Alle gemeinsamen Komponenten im hellen und dunklen Design. Nur in der Entwicklung.",
+  "light": "Helles Design",
+  "dark": "Dunkles Design",
+  "sections": {
+    "buttons": "Schaltflächen",
+    "inputs": "Eingabefelder",
+    "badges": "Status-Abzeichen",
+    "cards": "Karten",
+    "overlays": "Dialog, Seitenleiste und Tooltip",
+    "tabs": "Registerkarten",
+    "feedback": "Benachrichtigung und Platzhalter",
+    "emptyState": "Leerer Zustand",
+    "stats": "Kennzahlenkarten",
+    "progress": "Fortschrittsschritte",
+    "checklist": "Checkliste",
+    "table": "Datentabelle",
+    "editor": "Artikel-Editor",
+    "charts": "Diagramme"
+  },
+  "buttons": {
+    "primary": "Freigeben und planen",
+    "secondary": "Bearbeiten",
+    "ghost": "Vorerst überspringen",
+    "danger": "Löschen",
+    "disabled": "Nicht verfügbar",
+    "loading": "Wird gespeichert"
+  },
+  "inputs": {
+    "url": "Website-Adresse",
+    "urlPlaceholder": "https://beispiel.de",
+    "urlHint": "Wir lesen nur öffentliche Seiten.",
+    "error": "Bitte geben Sie eine vollständige Adresse ein, die mit https:// beginnt",
+    "select": "Veröffentlichungsrhythmus",
+    "selectPlaceholder": "Wie oft?",
+    "perWeek": "{{n}} Artikel pro Woche"
+  },
+  "card": {
+    "title": "Sauerteigbrot zu Hause backen",
+    "body": "1.850 Wörter · 12 Fakten geprüft · 2 Bilder"
+  },
+  "dialog": {
+    "open": "Dialog öffnen",
+    "title": "Abonnement kündigen?",
+    "body": "Sie behalten den Zugang bis zum Ende Ihres aktuellen Abrechnungszeitraums. Sie können jederzeit zurückkommen.",
+    "confirm": "Abonnement kündigen",
+    "keep": "Abonnement behalten"
+  },
+  "sheet": {
+    "open": "Seitenleiste öffnen",
+    "title": "Artikeldetails",
+    "body": "Seitenleisten zeigen zusätzliche Details, ohne die Seite zu verlassen."
+  },
+  "tooltip": {
+    "label": "Klickrate",
+    "text": "Wie viele Menschen Ihre Seite angeklickt haben, nachdem sie sie bei Google gesehen haben."
+  },
+  "tabs": {
+    "overview": "Überblick",
+    "articles": "Meine Artikel",
+    "keywords": "Suchbegriffe",
+    "overviewBody": "Eine Zusammenfassung Ihrer Ergebnisse.",
+    "articlesBody": "Jeder Artikel und wie er abschneidet.",
+    "keywordsBody": "Die Suchbegriffe, über die man Sie findet."
+  },
+  "toast": {
+    "show": "Benachrichtigung zeigen",
+    "success": "Artikel freigegeben",
+    "undoable": "Artikel gelöscht"
+  },
+  "stats": {
+    "published": "Diesen Monat veröffentlichte Artikel",
+    "impressions": "So oft bei Google angezeigt",
+    "top10": "Artikel in den Top 10 bei Google",
+    "changeUp": "↑ {{value}} gegenüber Vormonat",
+    "changeDown": "↓ {{value}} gegenüber Vormonat"
+  },
+  "table": {
+    "caption": "Neueste Artikel",
+    "article": "Artikel",
+    "status": "Status",
+    "date": "Datum",
+    "row1": "Sauerteig für Einsteiger",
+    "row2": "Das beste Mehl für Brot",
+    "row3": "Warum Brot nicht aufgeht",
+    "empty": "Noch keine Artikel vorhanden."
+  },
+  "editor": {
+    "label": "Beispielbeitrag",
+    "sample": "<p>Das ist ein <strong>Beispiel</strong>absatz.</p><h2>Abschnittsüberschrift</h2><ul><li>Erster Punkt</li><li>Zweiter Punkt</li></ul>"
+  },
+  "charts": {
+    "lineTitle": "Impressionen pro Tag",
+    "columnTitle": "Nennungsrate pro Messung",
+    "table": "Als Tabelle anzeigen",
+    "date": "Datum",
+    "value": "Wert",
+    "day": "Tag {{value}}",
+    "week": "Woche {{value}}"
+  }
+}

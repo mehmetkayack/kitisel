@@ -1,0 +1,102 @@
+{
+  "title": "Galerie de composants",
+  "intro": "Tous les composants partagés en thème clair et sombre. Développement uniquement.",
+  "light": "Thème clair",
+  "dark": "Thème sombre",
+  "sections": {
+    "buttons": "Boutons",
+    "inputs": "Champs de saisie",
+    "badges": "Badges de statut",
+    "cards": "Cartes",
+    "overlays": "Boîte de dialogue, panneau latéral et info-bulle",
+    "tabs": "Onglets",
+    "feedback": "Notification et squelette de chargement",
+    "emptyState": "État vide",
+    "stats": "Cartes de statistiques",
+    "progress": "Étapes de progression",
+    "checklist": "Liste de contrôle",
+    "table": "Tableau de données",
+    "editor": "Éditeur d’articles",
+    "charts": "Graphiques"
+  },
+  "buttons": {
+    "primary": "Valider et planifier",
+    "secondary": "Modifier",
+    "ghost": "Passer pour l’instant",
+    "danger": "Supprimer",
+    "disabled": "Indisponible",
+    "loading": "Enregistrement"
+  },
+  "inputs": {
+    "url": "Adresse du site",
+    "urlPlaceholder": "https://exemple.fr",
+    "urlHint": "Nous lisons uniquement les pages publiques.",
+    "error": "Veuillez saisir une adresse complète commençant par https://",
+    "select": "Fréquence de publication",
+    "selectPlaceholder": "Choisissez la fréquence",
+    "perWeek": "{{n}} articles par semaine"
+  },
+  "card": {
+    "title": "Faire son pain au levain à la maison",
+    "body": "1 850 mots · 12 informations vérifiées · 2 images"
+  },
+  "dialog": {
+    "open": "Ouvrir la boîte de dialogue",
+    "title": "Résilier votre abonnement ?",
+    "body": "Vous conservez l’accès jusqu’à la fin de votre période de facturation en cours. Vous pouvez revenir à tout moment.",
+    "confirm": "Résilier l’abonnement",
+    "keep": "Garder l’abonnement"
+  },
+  "sheet": {
+    "open": "Ouvrir le panneau latéral",
+    "title": "Détails de l’article",
+    "body": "Les panneaux latéraux affichent plus de détails sans quitter la page."
+  },
+  "tooltip": {
+    "label": "Taux de clics",
+    "text": "Combien de personnes ont cliqué sur votre page après l’avoir vue sur Google."
+  },
+  "tabs": {
+    "overview": "Vue d’ensemble",
+    "articles": "Mes articles",
+    "keywords": "Mots-clés",
+    "overviewBody": "Un résumé de vos résultats.",
+    "articlesBody": "Chaque article et ses performances.",
+    "keywordsBody": "Les recherches qui permettent de vous trouver."
+  },
+  "toast": {
+    "show": "Afficher une notification",
+    "success": "Article validé",
+    "undoable": "Article supprimé"
+  },
+  "stats": {
+    "published": "Articles publiés ce mois-ci",
+    "impressions": "Affichages sur Google",
+    "top10": "Articles dans le top 10 de Google",
+    "changeUp": "↑ {{value}} par rapport au mois dernier",
+    "changeDown": "↓ {{value}} par rapport au mois dernier"
+  },
+  "table": {
+    "caption": "Articles récents",
+    "article": "Article",
+    "status": "Statut",
+    "date": "Date",
+    "row1": "Le levain pour les débutants",
+    "row2": "La meilleure farine pour le pain",
+    "row3": "Pourquoi le pain ne lève pas",
+    "empty": "Aucun article pour l’instant."
+  },
+  "editor": {
+    "label": "Article d’exemple",
+    "sample": "<p>Ceci est un paragraphe d’<strong>exemple</strong>.</p><h2>Titre de section</h2><ul><li>Premier point</li><li>Deuxième point</li></ul>"
+  },
+  "charts": {
+    "lineTitle": "Impressions par jour",
+    "columnTitle": "Taux de citation par mesure",
+    "table": "Afficher sous forme de tableau",
+    "date": "Date",
+    "value": "Valeur",
+    "day": "Jour {{value}}",
+    "week": "Semaine {{value}}"
+  }
+}
