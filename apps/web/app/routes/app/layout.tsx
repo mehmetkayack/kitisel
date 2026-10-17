@@ -17,7 +17,8 @@ import {
   toast,
 } from '@upvine/ui';
 import type { Route } from './+types/layout';
-import { Logo } from '../../components/logo';
+import { KitiselLogo } from '../../components/brand/kitisel-logo';
+import { brandLinks } from '../../components/brand/links';
 import { LanguageSelect, ThemeSelect } from '../../components/preference-controls';
 import { api, ApiError, logout, refreshSession } from '../../lib/api';
 import { authStore, useAuth, useCurrentUser } from '../../lib/auth-store';
@@ -27,6 +28,8 @@ import { clientLocale, storeLocale } from '../../lib/preferences';
  * Panel sadece istemcide çalışır (sunucu loader'ı yok). Access token yoksa refresh çereziyle
  * oturum yenilenir; o da yoksa giriş sayfasına yönlendirilir.
  */
+export const links: Route.LinksFunction = brandLinks;
+
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   if (!authStore.get().accessToken && !(await refreshSession())) {
     const url = new URL(request.url);
@@ -88,7 +91,7 @@ export default function AppLayout() {
 
       {/* Masaüstü yan menü */}
       <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-border bg-surface px-3 py-4 md:flex">
-        <Logo to="/app" className="mb-6 px-2" />
+        <KitiselLogo to="/app" className="mb-6 px-2" />
         <nav aria-label={t('nav.label')}>
           <ul className="flex flex-col gap-1">
             {NAV.map((item) => (
@@ -114,7 +117,7 @@ export default function AppLayout() {
 
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="sticky top-0 z-30 flex items-center justify-between gap-2 border-b border-border bg-surface/95 px-4 py-2 backdrop-blur sm:px-6">
-          <Logo to="/app" className="md:hidden" />
+          <KitiselLogo to="/app" className="md:hidden" />
           <div className="ml-auto flex items-center gap-2">
             <div className="hidden items-center gap-2 sm:flex">
               <LanguageSelect mode="app" />

@@ -128,3 +128,21 @@
     --chart-4: #94a3b8;
   }
 }
+
+/*
+ * Kitisel marka kapsamı (_kitisel-kit/brand/tokens.css). <html data-brand="kitisel">: halka açık site ve
+ * müşteri paneli. Admin ve /dev/ui bu özniteliği almaz; yukarıdaki değerlerle aynen kalır.
+ */
+:root[data-brand='kitisel'] {
+  --brand-mark: #ea580c; /* logo üçgeni, açık zemin */
+}
+
+:root[data-brand='kitisel'][data-theme='dark'] {
+  --brand-mark: #f97316;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-brand='kitisel']:not([data-theme='light']) {
+    --brand-mark: #f97316;
+  }
+}

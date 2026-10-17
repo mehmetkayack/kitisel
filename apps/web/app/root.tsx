@@ -10,6 +10,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
   useParams,
   useRouteLoaderData,
 } from 'react-router';
@@ -37,12 +38,15 @@ function useLocale(): Locale {
 export function Layout({ children }: { children: ReactNode }) {
   const locale = useLocale();
   const theme = useRouteLoaderData<typeof loader>('root')?.theme ?? 'system';
+  // Kitisel görünümü: halka açık site ve müşteri paneli. Admin ve bileşen vitrini eski görünümde kalır.
+  const { pathname } = useLocation();
+  const brand = /^\/(admin|dev)(\/|$)/.test(pathname) ? undefined : 'kitisel';
   const i18n = getI18n(locale);
   setApiLocale(locale);
   setNetworkErrorMessage(i18n.t('errors:network'));
 
   return (
-    <html lang={locale} data-theme={theme === 'system' ? undefined : theme} suppressHydrationWarning>
+    <html lang={locale} data-theme={theme === 'system' ? undefined : theme} data-brand={brand} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

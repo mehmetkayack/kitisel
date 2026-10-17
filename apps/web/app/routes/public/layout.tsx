@@ -2,10 +2,13 @@ import { useTranslation } from 'react-i18next';
 import { data, Link, Outlet, useLocation } from 'react-router';
 import { isLocale, LOCALES } from '@upvine/config';
 import type { Route } from './+types/layout';
-import { Logo } from '../../components/logo';
+import { KitiselLogo } from '../../components/brand/kitisel-logo';
+import { brandLinks } from '../../components/brand/links';
 import { LanguageSelect, ThemeSelect } from '../../components/preference-controls';
 import { SiteFooter } from '../../components/marketing/site-footer';
 import { companyInfo } from '../../lib/company.server';
+
+export const links: Route.LinksFunction = brandLinks;
 
 export function loader({ params, request }: Route.LoaderArgs) {
   if (!isLocale(params.locale)) throw data(null, { status: 404 });
@@ -45,7 +48,7 @@ export default function PublicLayout({ params, loaderData }: Route.ComponentProp
       </a>
       <header className="border-b border-border bg-surface">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
-          <Logo to={`/${locale}`} />
+          <KitiselLogo to={`/${locale}`} />
           <div className="flex items-center gap-2">
             <div className="hidden items-center gap-2 sm:flex">
               <LanguageSelect mode="public" />
