@@ -34,28 +34,41 @@ export function meta({ params }: Route.MetaArgs) {
   const faq = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: FAQ_KEYS.map((k) => ({ '@type': 'Question', name: t(`faq.${k}.q`), acceptedAnswer: { '@type': 'Answer', text: t(`faq.${k}.a`) } })),
+    mainEntity: FAQ_KEYS.map((k) => ({
+      '@type': 'Question',
+      name: t(`faq.${k}.q`),
+      acceptedAnswer: { '@type': 'Answer', text: t(`faq.${k}.a`) },
+    })),
   };
-  return [{ title: t('meta.title') }, { name: 'description', content: t('meta.description') }, { 'script:ld+json': faq }];
+  return [
+    { title: t('meta.title') },
+    { name: 'description', content: t('meta.description') },
+    { 'script:ld+json': faq },
+  ];
 }
 
 function Hero({ locale }: { locale: string }) {
   const { t } = useTranslation('marketing');
   const tAnalysis = useTranslation('analysis').t;
   return (
-    <section className="border-b border-border bg-surface">
+    <section className="bg-night text-night-foreground">
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:items-center">
         <div className="flex min-w-0 flex-col gap-5 text-center lg:text-left">
-          <Badge tone="info" className="self-center whitespace-normal lg:self-start">
+          <Badge
+            tone="neutral"
+            className="self-center bg-night-2 whitespace-normal text-brand-light lg:self-start"
+          >
             <Sparkles aria-hidden />
             {t('hero.badge')}
           </Badge>
-          <h1 className="text-3xl font-bold text-ink sm:text-5xl">{t('hero.title')}</h1>
-          <p className="measure mx-auto text-lg text-ink-muted lg:mx-0">{t('hero.subtitle')}</p>
-          <ul className="mx-auto flex flex-col gap-2 text-left text-sm text-ink lg:mx-0">
+          <h1 className="text-4xl leading-[1.08] text-night-foreground sm:text-5xl">
+            {t('hero.title')}
+          </h1>
+          <p className="measure mx-auto text-lg text-night-text lg:mx-0">{t('hero.subtitle')}</p>
+          <ul className="mx-auto flex flex-col gap-2 text-left text-sm text-night-text lg:mx-0">
             {(['point1', 'point2', 'point3'] as const).map((k) => (
               <li key={k} className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-growth-text" aria-hidden />
+                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-brand-light" aria-hidden />
                 {t(`hero.${k}`)}
               </li>
             ))}
@@ -64,9 +77,12 @@ function Hero({ locale }: { locale: string }) {
         <div className="flex min-w-0 flex-col gap-3">
           {/* Tek ana eylem: ücretsiz analiz, kayıt gerekmez (Bölüm 6.6) */}
           <FreeAnalysisForm locale={locale} compact />
-          <p className="text-center text-sm text-ink-muted">
+          <p className="text-center text-sm text-night-text">
             {t('hero.or')}{' '}
-            <Link to={`/${locale}/signup`} className="font-medium text-primary underline-offset-4 hover:underline">
+            <Link
+              to={`/${locale}/signup`}
+              className="font-semibold text-brand-light underline-offset-4 hover:underline"
+            >
               {tAnalysis('home.secondary')}
             </Link>
           </p>
@@ -84,16 +100,24 @@ function HowItWorks() {
     { key: 'step3', icon: UploadCloud },
   ];
   return (
-    <section aria-labelledby="how" className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16">
+    <section
+      aria-labelledby="how"
+      className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16"
+    >
       <SectionHeading id="how" eyebrow={t('how.eyebrow')} title={t('how.title')} />
       <ol className="grid gap-6 md:grid-cols-3">
         {steps.map((s, i) => (
-          <li key={s.key} className="flex flex-col gap-3 rounded-card border border-border bg-surface p-6">
+          <li
+            key={s.key}
+            className="flex flex-col gap-3 rounded-card border border-border bg-surface p-6"
+          >
             <div className="flex items-center gap-3">
               <span className="flex size-10 items-center justify-center rounded-full bg-primary-soft text-primary">
                 <s.icon className="size-5" aria-hidden />
               </span>
-              <span className="text-sm font-semibold text-ink-muted">{t('how.stepLabel', { value: i + 1 })}</span>
+              <span className="text-sm font-semibold text-ink-muted">
+                {t('how.stepLabel', { value: i + 1 })}
+              </span>
             </div>
             <h3 className="text-lg font-semibold text-ink">{t(`how.${s.key}.title`)}</h3>
             <p className="text-ink-muted">{t(`how.${s.key}.body`)}</p>
@@ -119,10 +143,18 @@ function Features() {
   return (
     <section aria-labelledby="features" className="border-y border-border bg-surface">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16">
-        <SectionHeading id="features" eyebrow={t('features.eyebrow')} title={t('features.title')} body={t('features.body')} />
+        <SectionHeading
+          id="features"
+          eyebrow={t('features.eyebrow')}
+          title={t('features.title')}
+          body={t('features.body')}
+        />
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((f) => (
-            <li key={f.key} className="flex flex-col gap-2 rounded-card border border-border bg-background p-5">
+            <li
+              key={f.key}
+              className="flex flex-col gap-2 rounded-card border border-border bg-background p-5"
+            >
               <f.icon className="size-6 text-primary" aria-hidden />
               <h3 className="font-semibold text-ink">{t(`features.${f.key}.title`)}</h3>
               <p className="text-sm text-ink-muted">{t(`features.${f.key}.body`)}</p>
@@ -148,7 +180,12 @@ function MarkCell({ mark }: { mark: Mark }) {
   const { t } = useTranslation('marketing');
   const Icon = mark === 'yes' ? CheckCircle2 : mark === 'partial' ? Minus : X;
   return (
-    <span className={cn('inline-flex items-center gap-1.5 text-sm', mark === 'yes' ? 'text-growth-text' : 'text-ink-muted')}>
+    <span
+      className={cn(
+        'inline-flex items-center gap-1.5 text-sm',
+        mark === 'yes' ? 'text-growth-text' : 'text-ink-muted',
+      )}
+    >
       <Icon className="size-4 shrink-0" aria-hidden />
       {t(`compare.marks.${mark}`)}
     </span>
@@ -159,8 +196,11 @@ function Comparison() {
   const { t } = useTranslation('marketing');
   const columns = ['agency', 'tool', 'aiOnly', 'upvine'] as const;
   return (
-    <section aria-labelledby="compare" className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16">
-      <SectionHeading id="compare" eyebrow={t('compare.eyebrow')} title={t('compare.title')} />
+    <section
+      aria-labelledby="compare"
+      className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16"
+    >
+      <SectionHeading id="compare" eyebrow={t('compare.eyebrow')} eyebrowLang="en" title={t('compare.title')} />
       <div className="overflow-x-auto rounded-card border border-border bg-surface">
         <table className="w-full min-w-[640px] border-collapse text-left">
           <caption className="sr-only">{t('compare.title')}</caption>
@@ -170,7 +210,14 @@ function Comparison() {
                 <span className="sr-only">{t('compare.criteria')}</span>
               </th>
               {columns.map((c) => (
-                <th key={c} scope="col" className={cn('px-4 py-3 text-sm font-semibold text-ink', c === 'upvine' && 'bg-primary-soft')}>
+                <th
+                  key={c}
+                  scope="col"
+                  className={cn(
+                    'px-4 py-3 text-sm font-semibold text-ink',
+                    c === 'upvine' && 'bg-primary-soft',
+                  )}
+                >
                   {t(`compare.columns.${c}`)}
                 </th>
               ))}
@@ -183,7 +230,10 @@ function Comparison() {
                   {t(`compare.rows.${row.key}`)}
                 </th>
                 {row.marks.map((m, i) => (
-                  <td key={columns[i]} className={cn('px-4 py-3', columns[i] === 'upvine' && 'bg-primary-soft')}>
+                  <td
+                    key={columns[i]}
+                    className={cn('px-4 py-3', columns[i] === 'upvine' && 'bg-primary-soft')}
+                  >
                     <MarkCell mark={m} />
                   </td>
                 ))}
@@ -209,16 +259,43 @@ function PanelPreview() {
   return (
     <section aria-labelledby="preview" className="border-y border-border bg-surface">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16">
-        <SectionHeading id="preview" eyebrow={t('preview.eyebrow')} title={t('preview.title')} body={t('preview.body')} />
-        <div className="rounded-card border border-border bg-background p-4 shadow-card sm:p-6" role="img" aria-label={t('preview.alt')}>
+        <SectionHeading
+          id="preview"
+          eyebrow={t('preview.eyebrow')}
+          title={t('preview.title')}
+          body={t('preview.body')}
+        />
+        <div
+          className="rounded-card border border-border bg-background p-4 shadow-card sm:p-6"
+          role="img"
+          aria-label={t('preview.alt')}
+        >
           <div className="grid gap-4 sm:grid-cols-3" aria-hidden>
-            <StatCard label={t('preview.stat1')} value="12" change={{ direction: 'up', text: t('preview.stat1Change') }} />
-            <StatCard label={t('preview.stat2')} value={num(18420)} change={{ direction: 'up', text: t('preview.stat2Change') }} />
-            <StatCard label={t('preview.stat3')} value="7" change={{ direction: 'up', text: t('preview.stat3Change') }} />
+            <StatCard
+              label={t('preview.stat1')}
+              value="12"
+              change={{ direction: 'up', text: t('preview.stat1Change') }}
+            />
+            <StatCard
+              label={t('preview.stat2')}
+              value={num(18420)}
+              change={{ direction: 'up', text: t('preview.stat2Change') }}
+            />
+            <StatCard
+              label={t('preview.stat3')}
+              value="7"
+              change={{ direction: 'up', text: t('preview.stat3Change') }}
+            />
           </div>
-          <ul className="mt-4 flex flex-col divide-y divide-border rounded-card border border-border bg-surface" aria-hidden>
+          <ul
+            className="mt-4 flex flex-col divide-y divide-border rounded-card border border-border bg-surface"
+            aria-hidden
+          >
             {rows.map((r) => (
-              <li key={r.title} className="flex flex-wrap items-center justify-between gap-2 px-4 py-3">
+              <li
+                key={r.title}
+                className="flex flex-wrap items-center justify-between gap-2 px-4 py-3"
+              >
                 <span className="min-w-0 flex-1 text-sm font-medium text-ink">{r.title}</span>
                 <span className="text-xs text-ink-muted">{r.date}</span>
                 <StatusBadge status={r.status} />
@@ -242,7 +319,10 @@ function Faq() {
             <details key={k} className="group px-5">
               <summary className="flex min-h-14 cursor-pointer items-center justify-between gap-3 py-3 font-medium text-ink">
                 {t(`faq.${k}.q`)}
-                <ArrowRight className="size-4 shrink-0 text-ink-muted transition-transform group-open:rotate-90 motion-reduce:transition-none" aria-hidden />
+                <ArrowRight
+                  className="size-4 shrink-0 text-ink-muted transition-transform group-open:rotate-90 motion-reduce:transition-none"
+                  aria-hidden
+                />
               </summary>
               <p className="measure pb-4 text-ink-muted">{t(`faq.${k}.a`)}</p>
             </details>
@@ -257,17 +337,34 @@ function FinalCta({ locale }: { locale: string }) {
   const { t } = useTranslation('marketing');
   const tAnalysis = useTranslation('analysis').t;
   return (
-    <section aria-labelledby="final" className="mx-auto flex w-full max-w-3xl flex-col items-center gap-5 px-4 py-16 text-center">
-      <h2 id="final" className="text-2xl font-bold text-ink sm:text-3xl">
-        {t('final.title')}
-      </h2>
-      <p className="measure text-ink-muted">{t('final.body')}</p>
-      <Button asChild variant="secondary" size="lg">
-        <Link to={`/${locale}/free-analysis`}>
-          {tAnalysis('home.cta')}
-          <ArrowRight aria-hidden />
-        </Link>
-      </Button>
+    <section aria-labelledby="final" className="mx-auto w-full max-w-6xl px-4 py-16">
+      <div className="flex flex-col items-center gap-8 rounded-[28px] bg-night px-6 py-10 text-center text-night-foreground sm:flex-row sm:px-12 sm:text-left">
+        {/* Kit: sayfadaki tek büyük maskot (marka kuralı) */}
+        <img
+          src="/brand/kit-buldu.svg"
+          alt=""
+          width={164}
+          height={158}
+          className="h-32 w-auto shrink-0 sm:h-40"
+        />
+        <div className="flex min-w-0 flex-1 flex-col items-center gap-4 sm:items-start">
+          <h2 id="final" className="text-2xl tracking-tight text-night-foreground sm:text-4xl">
+            {t('final.title')}
+          </h2>
+          <p className="measure text-night-text">{t('final.body')}</p>
+          <Button
+            asChild
+            variant="secondary"
+            size="lg"
+            className="h-auto border-transparent bg-brand py-3 whitespace-normal text-night hover:bg-brand-light"
+          >
+            <Link to={`/${locale}/free-analysis`}>
+              {tAnalysis('home.cta')}
+              <ArrowRight aria-hidden />
+            </Link>
+          </Button>
+        </div>
+      </div>
     </section>
   );
 }

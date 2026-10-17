@@ -57,7 +57,7 @@ test('kayıt → panel → çıkış → giriş → şifre sıfırlama → yeni 
   await page.getByRole('button', { name: 'Send reset link' }).click();
   await expect(page.getByRole('heading', { name: 'Check your inbox' })).toBeVisible();
 
-  const mail = await waitForEmail(email, 'Reset your Upvine password');
+  const mail = await waitForEmail(email, 'Reset your Kitisel password');
   await page.goto(linkFromEmail(mail, '/en/reset-password').replace(/^https?:\/\/[^/]+/, ''));
   await page.getByLabel('New password').fill(NEW_PASSWORD);
   await page.getByRole('button', { name: 'Save new password' }).click();
@@ -83,7 +83,7 @@ test('e-posta doğrulama linki hesabı doğrular ve şeridi kaldırır', async (
   const mail = await waitForEmail(email, 'Confirm your email address');
   await page.goto(linkFromEmail(mail, '/en/verify-email').replace(/^https?:\/\/[^/]+/, ''));
   await expect(page.getByRole('heading', { name: 'Your email is confirmed' })).toBeVisible();
-  await page.getByRole('link', { name: 'Continue to Upvine' }).click();
+  await page.getByRole('link', { name: 'Continue to Kitisel' }).click();
   await expect(page.getByRole('heading', { name: 'Welcome, Verify Me' })).toBeVisible();
   await expect(page.getByText('Please confirm your email address')).toHaveCount(0);
 });

@@ -2,7 +2,7 @@
 
 Son güncelleme: 12 Ekim 2026
 
-Bu sözleşme, Upvine'ı kullanan müşteri ("Veri Sorumlusu") ile {{companyName}} ("Veri İşleyen") arasında, Avrupa Birliği Genel Veri Koruma Tüzüğü (GDPR) m.28 ve 6698 sayılı KVKK kapsamında, müşteri adına işlenen kişisel verilere ilişkin şartları düzenler. [Kullanım Koşulları](/legal/terms)'nın ayrılmaz parçasıdır ve hizmeti kullanmaya başladığınızda yürürlüğe girer.
+Bu sözleşme, Kitisel'i kullanan müşteri ("Veri Sorumlusu") ile {{companyName}} ("Veri İşleyen") arasında, Avrupa Birliği Genel Veri Koruma Tüzüğü (GDPR) m.28 ve 6698 sayılı KVKK kapsamında, müşteri adına işlenen kişisel verilere ilişkin şartları düzenler. [Kullanım Koşulları](/legal/terms)'nın ayrılmaz parçasıdır ve hizmeti kullanmaya başladığınızda yürürlüğe girer.
 
 ## Konu, süre, nitelik ve amaç
 

@@ -37,7 +37,7 @@ import { authStore } from '../../lib/auth-store';
 import { contentDetailKey, contentKey, useApiErrorToast, useContentDetail, useContentList, useCurrentSite, useFormatters } from '../../lib/sites';
 
 export function meta() {
-  return [{ title: 'Upvine' }];
+  return [{ title: 'Kitisel' }];
 }
 
 const STEPS: GenerationStep[] = ['research', 'draft', 'factCheck', 'seo', 'images'];

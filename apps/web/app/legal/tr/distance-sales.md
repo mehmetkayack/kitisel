@@ -12,11 +12,11 @@ Telefon: {{phone}}
 E-posta: {{email}}
 Web sitesi: {{site}}
 
-**Alıcı:** Upvine'da hesap açan ve ödeme sayfasında bilgileri yer alan kişi veya kurum. Alıcının adı, adresi, e-posta ve telefon bilgileri ödeme sırasında alınan bilgilerdir.
+**Alıcı:** Kitisel'de hesap açan ve ödeme sayfasında bilgileri yer alan kişi veya kurum. Alıcının adı, adresi, e-posta ve telefon bilgileri ödeme sırasında alınan bilgilerdir.
 
 ## 2. Konu
 
-Bu sözleşme, Alıcı'nın {{site}} üzerinden elektronik ortamda satın aldığı Upvine yazılım hizmeti aboneliğinin (SaaS) satışı ve ifasına ilişkin olarak, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği uyarınca tarafların hak ve yükümlülüklerini düzenler.
+Bu sözleşme, Alıcı'nın {{site}} üzerinden elektronik ortamda satın aldığı Kitisel yazılım hizmeti aboneliğinin (SaaS) satışı ve ifasına ilişkin olarak, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği uyarınca tarafların hak ve yükümlülüklerini düzenler.
 
 ## 3. Hizmetin temel nitelikleri ve bedeli
 

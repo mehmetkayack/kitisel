@@ -60,7 +60,7 @@ test('admin paneli: genel bakış, kullanıcı arama, detay ve kullanıcının g
   await page.getByRole('button', { name: 'View as this user' }).click();
   await expect(page).toHaveURL(/\/app$/);
   await expect(page.getByRole('heading', { name: 'Welcome, Viewed Person' })).toBeVisible();
-  await expect(page.getByText(`You are viewing Upvine as Viewed Person (${email})`)).toBeVisible();
+  await expect(page.getByText(`You are viewing Kitisel as Viewed Person (${email})`)).toBeVisible();
 
   // Çıkış: admin oturumuna ve kullanıcının admin detayına dönülür
   await page.getByRole('button', { name: 'Exit view' }).click();

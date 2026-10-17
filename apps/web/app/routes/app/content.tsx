@@ -11,7 +11,7 @@ import { api } from '../../lib/api';
 import { contentKey, useApiErrorToast, useConnection, useContentList, useCurrentSite, useFormatters } from '../../lib/sites';
 
 export function meta() {
-  return [{ title: 'Upvine' }];
+  return [{ title: 'Kitisel' }];
 }
 
 function WriteNow({ item, disabled }: { item: TopicDto; disabled: boolean }) {

@@ -15,7 +15,7 @@ import { fixedT } from '../../lib/i18n';
 import { storeLocale } from '../../lib/preferences';
 
 export function meta({ params }: Route.MetaArgs) {
-  return isLocale(params.locale) ? [{ title: `${fixedT(params.locale, 'auth')('signup.metaTitle')} · Upvine` }] : [];
+  return isLocale(params.locale) ? [{ title: `${fixedT(params.locale, 'auth')('signup.metaTitle')} · Kitisel` }] : [];
 }
 
 /** Kayıt formu kısa: sadece ad, e-posta, şifre (Bölüm 6.5 madde 12). Dil otomatik. */

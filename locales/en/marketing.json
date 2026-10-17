@@ -1,11 +1,11 @@
 {
   "meta": {
-    "title": "Upvine — SEO content that grows your website on autopilot",
-    "description": "Upvine researches, writes, fact-checks and publishes SEO articles for your website, then tracks how they rank."
+    "title": "Kitisel — SEO content that grows your website on autopilot",
+    "description": "Kitisel researches, writes, fact-checks and publishes SEO articles for your website, then tracks how they rank."
   },
   "hero": {
     "title": "Grow your website with articles that are researched, fact-checked and published for you",
-    "subtitle": "Upvine plans your topics, writes in your brand’s voice, checks every fact and publishes to your site. You always stay in control.",
+    "subtitle": "Kitisel plans your topics, writes in your brand’s voice, checks every fact and publishes to your site. You always stay in control.",
     "badge": "Free site analysis, no sign-up needed",
     "point1": "A 25-point technical SEO check of your site",
     "point2": "Topics your customers search for, with estimated volume",
@@ -67,14 +67,14 @@
     }
   },
   "compare": {
-    "eyebrow": "Why Upvine",
+    "eyebrow": "Why Kitisel",
     "title": "How it compares",
     "criteria": "Criterion",
     "columns": {
       "agency": "Agency",
       "tool": "Classic SEO tool",
       "aiOnly": "AI writer only",
-      "upvine": "Upvine"
+      "upvine": "Kitisel"
     },
     "rows": {
       "cost": "Fits a small business budget",
@@ -94,7 +94,7 @@
     "eyebrow": "Dashboard",
     "title": "Everything on one screen",
     "body": "What went live this month, what’s waiting for you and your progress on Google at a glance.",
-    "alt": "Sample view of the Upvine dashboard: metric cards and an article list with status badges",
+    "alt": "Sample view of the Kitisel dashboard: metric cards and an article list with status badges",
     "stat1": "Articles published this month",
     "stat1Change": "4 more than last month",
     "stat2": "Times shown on Google",
@@ -154,7 +154,7 @@
     "title": "Questions you may have",
     "q1": {
       "q": "Is AI-written content a problem for Google?",
-      "a": "Google looks at whether content is helpful and accurate, not how it was produced. Upvine fact-checks every article, cites sources and asks for your approval before publishing. We don’t promise rankings; consistent, quality content pays off over time."
+      "a": "Google looks at whether content is helpful and accurate, not how it was produced. Kitisel fact-checks every article, cites sources and asks for your approval before publishing. We don’t promise rankings; consistent, quality content pays off over time."
     },
     "q2": {
       "q": "Which platforms does it work with?",
@@ -207,22 +207,22 @@
     }
   },
   "pricingPage": {
-    "title": "Pricing · Upvine",
-    "description": "Upvine plans and prices: monthly articles, number of sites, updates and keyword tracking. Cancel anytime, 14-day no-questions-asked refund on your first payment."
+    "title": "Pricing · Kitisel",
+    "description": "Kitisel plans and prices: monthly articles, number of sites, updates and keyword tracking. Cancel anytime, 14-day no-questions-asked refund on your first payment."
   },
   "about": {
-    "metaTitle": "About · Upvine",
+    "metaTitle": "About · Kitisel",
     "title": "About us",
-    "intro": "Upvine was built to help small businesses and agencies publish regular, high-quality content that people actually search for.",
+    "intro": "Kitisel was built to help small businesses and agencies publish regular, high-quality content that people actually search for.",
     "p1": "We analyze your site, find what your customers search for on Google and prepare a content calendar. Every article is written in your brand voice, fact-checked, linked to your other pages and published on your site with your approval.",
     "p2": "We don’t forget your existing posts either: for posts that are losing traffic or getting outdated, we suggest updates, show you the before and after, and apply them only if you approve.",
-    "p3": "Upvine is currently in beta. Your feedback directly shapes the product; we read every suggestion.",
-    "company": "Upvine is developed and provided by {{company}}.",
+    "p3": "Kitisel is currently in beta. Your feedback directly shapes the product; we read every suggestion.",
+    "company": "Kitisel is developed and provided by {{company}}.",
     "cta": "Analyze your site for free",
     "contact": "Contact us"
   },
   "contact": {
-    "metaTitle": "Contact · Upvine",
+    "metaTitle": "Contact · Kitisel",
     "title": "Contact",
     "body": "Email us with questions, suggestions or support requests. We usually reply within 1 business day.",
     "email": "Email",

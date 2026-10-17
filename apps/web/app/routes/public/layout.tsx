@@ -34,6 +34,9 @@ function AlternateLinks({ origin, locale }: { origin: string; locale: string }) 
   );
 }
 
+/** Koyu başlık bandındaki dil/tema seçicileri (sadece görünüm) */
+const DARK_SELECT = 'border-night-2 bg-night-2 text-night-foreground hover:bg-night-2';
+
 export default function PublicLayout({ params, loaderData }: Route.ComponentProps) {
   const { t } = useTranslation('common');
   const locale = params.locale;
@@ -46,26 +49,26 @@ export default function PublicLayout({ params, loaderData }: Route.ComponentProp
       >
         {t('skipToContent')}
       </a>
-      <header className="border-b border-border bg-surface">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
-          <KitiselLogo to={`/${locale}`} />
+      <header className="border-b border-night-2 bg-night text-night-foreground">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+          <KitiselLogo to={`/${locale}`} onDark />
           <div className="flex items-center gap-2">
             <div className="hidden items-center gap-2 sm:flex">
-              <LanguageSelect mode="public" />
-              <ThemeSelect />
+              <LanguageSelect mode="public" className={`w-auto min-w-36 ${DARK_SELECT}`} />
+              <ThemeSelect className={`w-auto min-w-36 ${DARK_SELECT}`} />
             </div>
             <Link
               to={`/${locale}/login`}
-              className="inline-flex min-h-11 items-center rounded-control px-3 text-sm font-medium text-primary hover:bg-primary-soft"
+              className="inline-flex min-h-11 items-center rounded-control px-3 text-sm font-semibold text-night-foreground hover:bg-night-2"
             >
               {t('actions.signIn')}
             </Link>
           </div>
         </div>
         {/* Mobilde tercihler ayrı satırda, yan yana */}
-        <div className="grid grid-cols-2 gap-2 px-4 pb-2 sm:hidden">
-          <LanguageSelect mode="public" className="w-full" />
-          <ThemeSelect className="w-full" />
+        <div className="grid grid-cols-2 gap-2 px-4 pb-3 sm:hidden">
+          <LanguageSelect mode="public" className={`w-full ${DARK_SELECT}`} />
+          <ThemeSelect className={`w-full ${DARK_SELECT}`} />
         </div>
       </header>
       <main id="main" className="flex flex-1 flex-col">

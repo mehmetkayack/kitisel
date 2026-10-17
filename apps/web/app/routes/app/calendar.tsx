@@ -35,7 +35,7 @@ import { api, ApiError } from '../../lib/api';
 import { contentKey, useApiErrorToast, useContent, useCurrentSite } from '../../lib/sites';
 
 export function meta() {
-  return [{ title: 'Upvine' }];
+  return [{ title: 'Kitisel' }];
 }
 
 type PlannedItem = TopicDto & { plannedAt: string };

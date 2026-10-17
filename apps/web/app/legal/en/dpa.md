@@ -2,7 +2,7 @@
 
 Last updated: 12 October 2026
 
-This agreement sets out the terms, under Article 28 of the EU General Data Protection Regulation (GDPR) and Turkish Law No. 6698 (KVKK), for personal data processed on behalf of the customer using Upvine ("Controller") by {{companyName}} ("Processor"). It forms part of the [Terms of Service](/legal/terms) and takes effect when you start using the service.
+This agreement sets out the terms, under Article 28 of the EU General Data Protection Regulation (GDPR) and Turkish Law No. 6698 (KVKK), for personal data processed on behalf of the customer using Kitisel ("Controller") by {{companyName}} ("Processor"). It forms part of the [Terms of Service](/legal/terms) and takes effect when you start using the service.
 
 ## Subject, duration, nature and purpose
 

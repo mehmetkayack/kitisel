@@ -13,7 +13,7 @@ import { PostsTab } from '../../components/sites/posts';
 import { useAudit, useCurrentSite, useSiteMutations } from '../../lib/sites';
 
 export function meta() {
-  return [{ title: 'Upvine' }];
+  return [{ title: 'Kitisel' }];
 }
 
 const TABS = ['overview', 'articles', 'keywords', 'health', 'ai'] as const;

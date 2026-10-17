@@ -18,7 +18,7 @@ import { authStore, useCurrentUser } from '../../lib/auth-store';
 import { useCurrentSite } from '../../lib/sites';
 
 export function meta() {
-  return [{ title: 'Upvine' }];
+  return [{ title: 'Kitisel' }];
 }
 
 const nameSchema = z.object({ name: updateMeSchema.shape.name.unwrap() });

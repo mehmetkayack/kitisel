@@ -2,7 +2,7 @@
 
 Last updated: 12 October 2026
 
-This policy explains which data we process when you use Upvine ({{site}}), why, who we share it with and what your rights are. Upvine is provided by {{companyName}}. Users in Türkiye can find additional information in the [KVKK Privacy Notice](/legal/kvkk).
+This policy explains which data we process when you use Kitisel ({{site}}), why, who we share it with and what your rights are. Kitisel is provided by {{companyName}}. Users in Türkiye can find additional information in the [KVKK Privacy Notice](/legal/kvkk).
 
 ## Data we collect
 

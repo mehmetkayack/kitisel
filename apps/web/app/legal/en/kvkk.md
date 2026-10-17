@@ -2,7 +2,7 @@
 
 Last updated: 12 October 2026
 
-This notice is provided under Article 10 of Turkish Personal Data Protection Law No. 6698 ("KVKK") to inform you about how your personal data is processed within the Upvine service ({{site}}). The Turkish version is the binding one.
+This notice is provided under Article 10 of Turkish Personal Data Protection Law No. 6698 ("KVKK") to inform you about how your personal data is processed within the Kitisel service ({{site}}). The Turkish version is the binding one.
 
 ## Data controller
 

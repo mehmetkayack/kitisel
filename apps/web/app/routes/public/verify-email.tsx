@@ -10,7 +10,7 @@ import { authStore } from '../../lib/auth-store';
 import { fixedT } from '../../lib/i18n';
 
 export function meta({ params }: Route.MetaArgs) {
-  return isLocale(params.locale) ? [{ title: `${fixedT(params.locale, 'auth')('verify.metaTitle')} · Upvine` }] : [];
+  return isLocale(params.locale) ? [{ title: `${fixedT(params.locale, 'auth')('verify.metaTitle')} · Kitisel` }] : [];
 }
 
 /**

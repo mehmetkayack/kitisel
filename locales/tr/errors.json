@@ -13,7 +13,7 @@
   "session_expired": "Oturumunuz sona erdi. Lütfen tekrar giriş yapın.",
   "google_not_configured": "Google ile giriş şu anda kullanılamıyor. Lütfen e-posta ve şifrenizle giriş yapın.",
   "google_failed": "Google ile giriş yapılamadı. Tekrar deneyin ya da e-postanızla giriş yapın.",
-  "network": "Şu anda Upvine'a ulaşamıyoruz. İnternet bağlantınızı kontrol edip tekrar deneyin.",
+  "network": "Şu anda Kitisel'e ulaşamıyoruz. İnternet bağlantınızı kontrol edip tekrar deneyin.",
   "impersonation_read_only": "Bu hesabı yönetici olarak görüntülüyorsunuz. Değişiklik yapılamaz; değişiklik için görüntüleme modundan çıkın.",
   "cannot_change_own_admin": "Kendi yönetici yetkinizi kaldıramazsınız. Bunu başka bir yöneticiden isteyin.",
   "site_limit_reached": "Paketiniz başka site eklemeye izin vermiyor. Bir siteyi kaldırın veya daha büyük bir paket seçin.",

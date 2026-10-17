@@ -96,6 +96,14 @@
   --color-chart-4: var(--chart-4);
   --shadow-card: var(--shadow-card);
   --shadow-popover: var(--shadow-popover);
+  /* Kitisel kapsamı (tokens.css): koyu bantlar ve marka turuncusu. Kapsam dışında tanımsız, kullanılmaz. */
+  --color-brand: var(--brand);
+  --color-brand-light: var(--brand-light);
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-night-text: var(--night-text);
+  --color-night-muted: var(--night-muted);
+  --color-night-foreground: var(--night-foreground);
 }
 
 @layer base {

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Ücretsiz SEO site analizi — Upvine",
+    "title": "Ücretsiz SEO site analizi — Kitisel",
     "description": "25 temel teknik SEO kontrolünü yapın, en iyi anahtar kelime fırsatlarınızı ve organik rakiplerinizi görün. Ücretsiz, kayıt gerektirmez, yaklaşık bir dakikada hazır.",
-    "reportTitle": "{{domain}} için SEO analizi — Upvine"
+    "reportTitle": "{{domain}} için SEO analizi — Kitisel"
   },
   "form": {
     "title": "Web sitenizin ücretsiz SEO analizi",
@@ -75,12 +75,12 @@
     "email": {
       "title": "Bu raporu e-postayla alın",
       "label": "E-posta adresi",
-      "consent": "Ara sıra SEO ipuçları ve Upvine haberleri de gönderin (isteğe bağlı, istediğiniz zaman vazgeçebilirsiniz).",
+      "consent": "Ara sıra SEO ipuçları ve Kitisel haberleri de gönderin (isteğe bağlı, istediğiniz zaman vazgeçebilirsiniz).",
       "submit": "Raporu gönder",
       "sent": "Raporu {{email}} adresine gönderdik."
     },
     "cta": {
-      "title": "Bu planı Upvine sizin için uygulasın",
+      "title": "Bu planı Kitisel sizin için uygulasın",
       "body": "Bu konulardaki yazıları yazar, bilgilerini doğrular ve sitenizde yayınlarız. 7 gün ücretsiz deneyin, istediğiniz zaman iptal edin.",
       "button": "Bu planı otomatik uygula — 7 gün dene"
     }

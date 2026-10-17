@@ -1,11 +1,11 @@
 {
   "meta": {
-    "title": "Upvine — Web sitenizi kendiliğinden büyüten SEO içerikleri",
-    "description": "Upvine web siteniz için SEO yazılarını araştırır, yazar, doğrular ve yayınlar; ardından Google'daki sıralarını takip eder."
+    "title": "Kitisel — Web sitenizi kendiliğinden büyüten SEO içerikleri",
+    "description": "Kitisel web siteniz için SEO yazılarını araştırır, yazar, doğrular ve yayınlar; ardından Google'daki sıralarını takip eder."
   },
   "hero": {
     "title": "Sizin için araştırılan, doğrulanan ve yayınlanan yazılarla web sitenizi büyütün",
-    "subtitle": "Upvine konularınızı planlar, markanızın diliyle yazar, her bilgiyi doğrular ve sitenizde yayınlar. Kontrol her zaman sizde.",
+    "subtitle": "Kitisel konularınızı planlar, markanızın diliyle yazar, her bilgiyi doğrular ve sitenizde yayınlar. Kontrol her zaman sizde.",
     "badge": "Ücretsiz site analizi, kayıt gerekmez",
     "point1": "Sitenizin 25 noktalık teknik SEO kontrolü",
     "point2": "Müşterilerinizin aradığı konular ve tahmini arama hacmi",
@@ -67,14 +67,14 @@
     }
   },
   "compare": {
-    "eyebrow": "Neden Upvine",
+    "eyebrow": "Neden Kitisel",
     "title": "Diğer yollarla karşılaştırma",
     "criteria": "Ölçüt",
     "columns": {
       "agency": "Ajans",
       "tool": "Klasik SEO aracı",
       "aiOnly": "Sadece yapay zekâ",
-      "upvine": "Upvine"
+      "upvine": "Kitisel"
     },
     "rows": {
       "cost": "Küçük işletme bütçesine uygun",
@@ -94,7 +94,7 @@
     "eyebrow": "Panel",
     "title": "Her şey tek ekranda",
     "body": "Bu ay yayınlananlar, onay bekleyenler ve Google'daki ilerlemeniz bir bakışta.",
-    "alt": "Upvine panelinin örnek görünümü: metrik kartları ve durum rozetli yazı listesi",
+    "alt": "Kitisel panelinin örnek görünümü: metrik kartları ve durum rozetli yazı listesi",
     "stat1": "Bu ay yayınlanan yazı",
     "stat1Change": "Geçen aya göre 4 fazla",
     "stat2": "Google'da görünme",
@@ -154,7 +154,7 @@
     "title": "Aklınızdaki sorular",
     "q1": {
       "q": "Yapay zekâyla yazılmış içerik Google'da sorun olur mu?",
-      "a": "Google içeriğin nasıl üretildiğine değil, okura yararlı ve doğru olup olmadığına bakar. Upvine her yazıdaki bilgileri doğrular, kaynak gösterir ve yayından önce sizin onayınızı ister. Sıralama garantisi vermiyoruz; düzenli ve kaliteli içerik zamanla sonuç verir."
+      "a": "Google içeriğin nasıl üretildiğine değil, okura yararlı ve doğru olup olmadığına bakar. Kitisel her yazıdaki bilgileri doğrular, kaynak gösterir ve yayından önce sizin onayınızı ister. Sıralama garantisi vermiyoruz; düzenli ve kaliteli içerik zamanla sonuç verir."
     },
     "q2": {
       "q": "Hangi platformlarla çalışıyor?",
@@ -207,22 +207,22 @@
     }
   },
   "pricingPage": {
-    "title": "Fiyatlar · Upvine",
-    "description": "Upvine paketleri ve fiyatları: aylık yazı hakkı, site sayısı, yenileme ve anahtar kelime takibi. İstediğiniz zaman iptal, ilk ödemede 14 gün koşulsuz iade."
+    "title": "Fiyatlar · Kitisel",
+    "description": "Kitisel paketleri ve fiyatları: aylık yazı hakkı, site sayısı, yenileme ve anahtar kelime takibi. İstediğiniz zaman iptal, ilk ödemede 14 gün koşulsuz iade."
   },
   "about": {
-    "metaTitle": "Hakkımızda · Upvine",
+    "metaTitle": "Hakkımızda · Kitisel",
     "title": "Hakkımızda",
-    "intro": "Upvine, küçük işletmelerin ve ajansların sitelerine düzenli, kaliteli ve aranan içerik üretmesini kolaylaştırmak için yapıldı.",
+    "intro": "Kitisel, küçük işletmelerin ve ajansların sitelerine düzenli, kaliteli ve aranan içerik üretmesini kolaylaştırmak için yapıldı.",
     "p1": "Sitenizi analiz eder, müşterilerinizin Google’da ne aradığını bulur ve bir içerik takvimi hazırlarız. Her yazı markanızın sesiyle yazılır, bilgileri kontrol edilir, iç linkleri eklenir ve onayınızla sitenizde yayınlanır.",
     "p2": "Mevcut yazılarınızı da unutmayız: trafiği düşen ya da eskiyen yazılar için güncelleme önerir, önce/sonra hâlini gösterir, siz onaylarsanız uygularız.",
-    "p3": "Upvine şu an beta aşamasında. Geri bildirimleriniz ürünü doğrudan şekillendiriyor; her öneriyi okuyoruz.",
-    "company": "Upvine, {{company}} tarafından geliştirilir ve sunulur.",
+    "p3": "Kitisel şu an beta aşamasında. Geri bildirimleriniz ürünü doğrudan şekillendiriyor; her öneriyi okuyoruz.",
+    "company": "Kitisel, {{company}} tarafından geliştirilir ve sunulur.",
     "cta": "Sitenizi ücretsiz analiz edin",
     "contact": "Bize ulaşın"
   },
   "contact": {
-    "metaTitle": "İletişim · Upvine",
+    "metaTitle": "İletişim · Kitisel",
     "title": "İletişim",
     "body": "Sorularınız, önerileriniz veya destek talepleriniz için bize e-postayla yazın. Genellikle 1 iş günü içinde yanıt veririz.",
     "email": "E-posta",

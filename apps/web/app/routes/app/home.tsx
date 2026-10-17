@@ -10,7 +10,7 @@ import { useCurrentUser } from '../../lib/auth-store';
 import { useContent, useCurrentSite, useFormatters } from '../../lib/sites';
 
 export function meta() {
-  return [{ title: 'Upvine' }];
+  return [{ title: 'Kitisel' }];
 }
 
 function setupSteps(site: SiteDto | null, content: TopicDto[]): Record<'analyzed' | 'brand' | 'connected' | 'searchConsole' | 'firstArticle', boolean> {

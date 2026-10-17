@@ -2,7 +2,7 @@
 
 Son güncelleme: 12 Ekim 2026
 
-Bu politika, Upvine hizmetini ({{site}}) kullanırken hangi verilerinizi neden işlediğimizi, kimlerle paylaştığımızı ve haklarınızı anlatır. Upvine, {{companyName}} tarafından sunulur. Türkiye'deki kullanıcılar için ayrıntılı bilgilendirme [KVKK Aydınlatma Metni](/legal/kvkk) sayfasındadır.
+Bu politika, Kitisel hizmetini ({{site}}) kullanırken hangi verilerinizi neden işlediğimizi, kimlerle paylaştığımızı ve haklarınızı anlatır. Kitisel, {{companyName}} tarafından sunulur. Türkiye'deki kullanıcılar için ayrıntılı bilgilendirme [KVKK Aydınlatma Metni](/legal/kvkk) sayfasındadır.
 
 ## Topladığımız veriler
 

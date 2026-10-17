@@ -15,7 +15,7 @@ import { fixedT } from '../../lib/i18n';
 import { storeLocale } from '../../lib/preferences';
 
 export function meta({ params }: Route.MetaArgs) {
-  return isLocale(params.locale) ? [{ title: `${fixedT(params.locale, 'auth')('login.metaTitle')} · Upvine` }] : [];
+  return isLocale(params.locale) ? [{ title: `${fixedT(params.locale, 'auth')('login.metaTitle')} · Kitisel` }] : [];
 }
 
 export default function Login({ params }: Route.ComponentProps) {

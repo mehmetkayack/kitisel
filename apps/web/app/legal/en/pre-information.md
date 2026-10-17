@@ -14,7 +14,7 @@ Email: {{email}}
 
 ## Main features of the service
 
-Upvine is a software service that analyzes your site, suggests topics, writes blog articles with AI, publishes them on your site with your approval or according to the automatic setting you choose, and reports results. The scope of each plan (monthly articles, number of sites, update suggestions, tracked keywords, team members) is listed on the [Pricing](/pricing) page.
+Kitisel is a software service that analyzes your site, suggests topics, writes blog articles with AI, publishes them on your site with your approval or according to the automatic setting you choose, and reports results. The scope of each plan (monthly articles, number of sites, update suggestions, tracked keywords, team members) is listed on the [Pricing](/pricing) page.
 
 ## Total price
 

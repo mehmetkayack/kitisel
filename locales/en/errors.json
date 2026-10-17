@@ -13,7 +13,7 @@
   "session_expired": "Your session has ended. Please sign in again.",
   "google_not_configured": "Google sign-in isn't available right now. Please use your email and password.",
   "google_failed": "We couldn't sign you in with Google. Please try again or use your email.",
-  "network": "We can't reach Upvine right now. Check your internet connection and try again.",
+  "network": "We can't reach Kitisel right now. Check your internet connection and try again.",
   "impersonation_read_only": "You are viewing this account as an admin. Changes are disabled; exit view mode to make changes.",
   "cannot_change_own_admin": "You cannot remove your own admin access. Ask another admin to do it.",
   "site_limit_reached": "Your plan includes no more sites. Remove a site or choose a larger plan to add another one.",

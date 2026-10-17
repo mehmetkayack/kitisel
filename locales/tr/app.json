@@ -84,7 +84,7 @@
     }
   },
   "impersonation": {
-    "text": "Upvine’ı {{name}} ({{email}}) olarak görüntülüyorsunuz. Bu görünüm salt okunurdur.",
+    "text": "Kitisel’i {{name}} ({{email}}) olarak görüntülüyorsunuz. Bu görünüm salt okunurdur.",
     "exit": "Görüntülemeden çık"
   }
 }

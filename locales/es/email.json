@@ -3,18 +3,18 @@
   "fallbackLink": "Si el botón no funciona, copia este enlace en tu navegador:",
   "verifyEmail": {
     "subject": "Confirma tu correo electrónico",
-    "preview": "Un clic para confirmar tu cuenta de Upvine.",
+    "preview": "Un clic para confirmar tu cuenta de Kitisel.",
     "heading": "Confirma tu correo electrónico",
-    "body": "Gracias por registrarte en Upvine. Confirma tu correo electrónico para que podamos mantener tu cuenta segura.",
+    "body": "Gracias por registrarte en Kitisel. Confirma tu correo electrónico para que podamos mantener tu cuenta segura.",
     "button": "Confirmar correo",
     "expires": "Este enlace es válido durante {{ttl}} horas.",
-    "ignore": "Si no creaste una cuenta en Upvine, puedes ignorar este correo."
+    "ignore": "Si no creaste una cuenta en Kitisel, puedes ignorar este correo."
   },
   "resetPassword": {
-    "subject": "Restablece tu contraseña de Upvine",
+    "subject": "Restablece tu contraseña de Kitisel",
     "preview": "Usa este enlace para elegir una contraseña nueva.",
     "heading": "Elige una contraseña nueva",
-    "body": "Recibimos una solicitud para restablecer la contraseña de tu cuenta de Upvine.",
+    "body": "Recibimos una solicitud para restablecer la contraseña de tu cuenta de Kitisel.",
     "button": "Elegir contraseña nueva",
     "expires": "Este enlace es válido durante {{ttl}} minutos.",
     "ignore": "Si no lo solicitaste, puedes ignorar este correo. Tu contraseña seguirá siendo la misma."
@@ -36,6 +36,6 @@
     "body": "Aquí tienes el informe de {{domain}}. Puntuación de salud del sitio: {{score}} / 100. El informe muestra qué corregir primero y qué temas buscan tus clientes.",
     "button": "Abrir el informe",
     "expires": "El enlace al informe es válido durante 30 días.",
-    "ignore": "Recibes este correo porque lo pediste en Upvine. No te enviaremos correos de marketing sin tu consentimiento."
+    "ignore": "Recibes este correo porque lo pediste en Kitisel. No te enviaremos correos de marketing sin tu consentimiento."
   }
 }

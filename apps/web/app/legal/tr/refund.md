@@ -2,11 +2,11 @@
 
 Son güncelleme: 12 Ekim 2026
 
-Bu politika, {{companyName}} tarafından sunulan Upvine aboneliklerinin teslimatını, iptalini ve iadesini anlatır.
+Bu politika, {{companyName}} tarafından sunulan Kitisel aboneliklerinin teslimatını, iptalini ve iadesini anlatır.
 
 ## Teslimat
 
-Upvine fiziksel bir ürün değil, internet üzerinden sunulan bir yazılım hizmetidir. Kargo veya fiziksel teslimat yoktur. Ödemeniz onaylandığı anda paketiniz hesabınızda etkinleşir ve hizmete {{site}} üzerinden hemen erişebilirsiniz. Ödeme onayını ve faturanızı e-posta adresinize göndeririz.
+Kitisel fiziksel bir ürün değil, internet üzerinden sunulan bir yazılım hizmetidir. Kargo veya fiziksel teslimat yoktur. Ödemeniz onaylandığı anda paketiniz hesabınızda etkinleşir ve hizmete {{site}} üzerinden hemen erişebilirsiniz. Ödeme onayını ve faturanızı e-posta adresinize göndeririz.
 
 ## Abonelik ve yenileme
 

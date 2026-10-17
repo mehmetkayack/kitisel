@@ -2,11 +2,11 @@
 
 Son güncelleme: 12 Ekim 2026
 
-Bu koşullar, {{companyName}} ("Upvine", "biz") tarafından {{site}} adresinde sunulan Upvine hizmetini kullanımınızı düzenler. Hesap açarak veya hizmeti kullanarak bu koşulları kabul etmiş olursunuz.
+Bu koşullar, {{companyName}} ("Kitisel", "biz") tarafından {{site}} adresinde sunulan Kitisel hizmetini kullanımınızı düzenler. Hesap açarak veya hizmeti kullanarak bu koşulları kabul etmiş olursunuz.
 
 ## Hizmet
 
-Upvine; sitenizi analiz eden, içerik konuları öneren, yapay zekâ ile blog yazıları üreten, onayınızla veya seçtiğiniz otomatik ayarla bu yazıları sitenizde yayınlayan ve sonuçları raporlayan bir yazılım hizmetidir (SaaS).
+Kitisel; sitenizi analiz eden, içerik konuları öneren, yapay zekâ ile blog yazıları üreten, onayınızla veya seçtiğiniz otomatik ayarla bu yazıları sitenizde yayınlayan ve sonuçları raporlayan bir yazılım hizmetidir (SaaS).
 
 ## Beta dönemi
 
@@ -34,7 +34,7 @@ Hizmeti şu amaçlarla kullanamazsınız: hukuka aykırı, aldatıcı, nefret s�
 
 ## Fikri mülkiyet
 
-Ürettiğimiz yazılar ve size ait içerikler üzerindeki haklar size aittir. Upvine yazılımı, tasarımı ve markası üzerindeki haklar bize aittir. Hizmeti iyileştirmek için kişisel veri içermeyen kullanım istatistiklerini kullanabiliriz.
+Ürettiğimiz yazılar ve size ait içerikler üzerindeki haklar size aittir. Kitisel yazılımı, tasarımı ve markası üzerindeki haklar bize aittir. Hizmeti iyileştirmek için kişisel veri içermeyen kullanım istatistiklerini kullanabiliriz.
 
 ## Ücretler
 

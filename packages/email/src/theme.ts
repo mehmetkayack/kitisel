@@ -4,13 +4,14 @@
  * Ham renk kodu kuralının (Bölüm 6.2) tek bilinçli istisnası budur.
  */
 export const emailTheme = {
-  primary: '#3B5BDB',
+  // Kitisel (tokens.css Kitisel kapsamı, açık tema): Ember eylem, Kâğıt zemin, sıcak kenarlık
+  primary: '#C2410C',
   primaryText: '#FFFFFF',
   ink: '#0F172A',
   inkMuted: '#475569',
-  border: '#E2E8F0',
+  border: '#F1E4D6',
   surface: '#FFFFFF',
-  background: '#F8FAFC',
+  background: '#FFFBF5',
   fontFamily:
-    "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
 } as const;

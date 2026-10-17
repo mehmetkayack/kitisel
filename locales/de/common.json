@@ -1,5 +1,6 @@
 {
   "appName": "Upvine",
+  "brandName": "Kitisel",
   "skipToContent": "Zum Hauptinhalt springen",
   "nav": {
     "label": "Hauptmenü",
@@ -66,15 +67,15 @@
   "loading": "Wird geladen …",
   "help": "Was bedeutet das?",
   "footer": {
-    "rights": "© {{year}} Upvine. Alle Rechte vorbehalten.",
-    "product": "Upvine",
+    "rights": "© {{year}} Kitisel. Alle Rechte vorbehalten.",
+    "product": "Kitisel",
     "legal": "Rechtliches",
     "pricing": "Preise",
     "freeAnalysis": "Kostenlose Analyse",
     "about": "Über uns",
     "contact": "Kontakt",
     "payments": "Zahlungen werden sicher über den lizenzierten Zahlungsdienstleister iyzico abgewickelt. Wir speichern Ihre Kartendaten nicht.",
-    "operatedBy": "Upvine ist ein Dienst von {{company}}."
+    "operatedBy": "Kitisel ist ein Dienst von {{company}}."
   },
   "notFound": {
     "title": "Diese Seite gibt es nicht",

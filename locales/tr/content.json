@@ -167,7 +167,7 @@
       "siteUrl": "WordPress site adresi",
       "username": "WordPress kullanıcı adı",
       "appPassword": "Uygulama şifresi",
-      "appPasswordHint": "WordPress'te Kullanıcılar → Profil → Uygulama Şifreleri bölümüne gidin. “Upvine” gibi bir ad yazın, “Ekle”ye tıklayın ve şifreyi buraya yapıştırın.",
+      "appPasswordHint": "WordPress'te Kullanıcılar → Profil → Uygulama Şifreleri bölümüne gidin. “Kitisel” gibi bir ad yazın, “Ekle”ye tıklayın ve şifreyi buraya yapıştırın.",
       "connect": "WordPress'i bağla",
       "oneClick": "Tek tıkla bağla",
       "or": "Ya da bir uygulama şifresi girin:"
@@ -177,7 +177,7 @@
       "urlHint": "https:// ile başlamalı. Her yazıyı HMAC imzalı JSON olarak göndeririz.",
       "connect": "Webhook'u bağla",
       "secretTitle": "İmza anahtarınızı şimdi kaydedin",
-      "secretBody": "İsteklerin Upvine'dan geldiğini doğrulamak için kullanın (X-Upvine-Signature başlığı). Bir daha göstermeyeceğiz.",
+      "secretBody": "İsteklerin Kitisel'den geldiğini doğrulamak için kullanın (X-Upvine-Signature başlığı). Bir daha göstermeyeceğiz.",
       "copy": "Kopyala",
       "copied": "Kopyalandı."
     },

@@ -84,7 +84,7 @@
     }
   },
   "impersonation": {
-    "text": "Sie sehen Upvine als {{name}} ({{email}}). Diese Ansicht ist schreibgeschützt.",
+    "text": "Sie sehen Kitisel als {{name}} ({{email}}). Diese Ansicht ist schreibgeschützt.",
     "exit": "Ansicht beenden"
   }
 }

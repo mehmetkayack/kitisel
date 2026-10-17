@@ -14,11 +14,11 @@ Phone: {{phone}}
 Email: {{email}}
 Website: {{site}}
 
-**Buyer:** the person or organization that creates an account on Upvine and whose details appear on the checkout page. The buyer's name, address, email and phone are those provided at checkout.
+**Buyer:** the person or organization that creates an account on Kitisel and whose details appear on the checkout page. The buyer's name, address, email and phone are those provided at checkout.
 
 ## 2. Subject
 
-This agreement sets out the rights and obligations of the parties, under Turkish Consumer Protection Law No. 6502 and the Distance Contracts Regulation, for the sale and performance of the Upvine software service (SaaS) subscription purchased electronically by the Buyer at {{site}}.
+This agreement sets out the rights and obligations of the parties, under Turkish Consumer Protection Law No. 6502 and the Distance Contracts Regulation, for the sale and performance of the Kitisel software service (SaaS) subscription purchased electronically by the Buyer at {{site}}.
 
 ## 3. Main features and price
 

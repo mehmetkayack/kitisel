@@ -13,7 +13,7 @@
   "session_expired": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
   "google_not_configured": "Die Anmeldung mit Google ist gerade nicht verfügbar. Bitte verwenden Sie E-Mail und Passwort.",
   "google_failed": "Die Anmeldung mit Google hat nicht geklappt. Bitte versuchen Sie es erneut oder verwenden Sie Ihre E-Mail-Adresse.",
-  "network": "Upvine ist gerade nicht erreichbar. Prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+  "network": "Kitisel ist gerade nicht erreichbar. Prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
   "impersonation_read_only": "Sie sehen dieses Konto als Administrator. Änderungen sind deaktiviert; beenden Sie die Ansicht, um Änderungen vorzunehmen.",
   "cannot_change_own_admin": "Sie können Ihre eigenen Administratorrechte nicht entfernen. Bitten Sie eine andere Administratorin oder einen anderen Administrator darum.",
   "site_limit_reached": "Ihr Paket enthält keine weiteren Websites. Entfernen Sie eine Website oder wählen Sie ein größeres Paket.",

@@ -2,7 +2,7 @@
 
 Son güncelleme: 12 Ekim 2026
 
-Çerezler, bir siteyi ziyaret ettiğinizde tarayıcınıza kaydedilen küçük dosyalardır. Upvine ({{site}}) **sadece hizmetin çalışması için zorunlu çerezleri** kullanır. Reklam, takip veya analitik çerezi kullanmayız. Bu yüzden çerez onayı istemiyoruz. İleride analitik bir araç eklersek, açık onayınızı almadan yüklemeyeceğiz ve bu sayfayı güncelleyeceğiz.
+Çerezler, bir siteyi ziyaret ettiğinizde tarayıcınıza kaydedilen küçük dosyalardır. Kitisel ({{site}}) **sadece hizmetin çalışması için zorunlu çerezleri** kullanır. Reklam, takip veya analitik çerezi kullanmayız. Bu yüzden çerez onayı istemiyoruz. İleride analitik bir araç eklersek, açık onayınızı almadan yüklemeyeceğiz ve bu sayfayı güncelleyeceğiz.
 
 ## Kullandığımız çerezler
 

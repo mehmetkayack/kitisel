@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Kostenlose SEO-Website-Analyse — Upvine",
+    "title": "Kostenlose SEO-Website-Analyse — Kitisel",
     "description": "Prüfen Sie 25 technische SEO-Grundlagen, sehen Sie Ihre besten Keyword-Chancen und Ihre organischen Mitbewerber. Kostenlos, ohne Anmeldung, in etwa einer Minute fertig.",
-    "reportTitle": "SEO-Analyse für {{domain}} — Upvine"
+    "reportTitle": "SEO-Analyse für {{domain}} — Kitisel"
   },
   "form": {
     "title": "Kostenlose SEO-Analyse Ihrer Website",
@@ -75,12 +75,12 @@
     "email": {
       "title": "Diesen Bericht per E-Mail erhalten",
       "label": "E-Mail-Adresse",
-      "consent": "Schicken Sie mir gelegentlich SEO-Tipps und Upvine-Neuigkeiten (optional, jederzeit abbestellbar).",
+      "consent": "Schicken Sie mir gelegentlich SEO-Tipps und Kitisel-Neuigkeiten (optional, jederzeit abbestellbar).",
       "submit": "Bericht senden",
       "sent": "Wir haben den Bericht an {{email}} gesendet."
     },
     "cta": {
-      "title": "Lassen Sie Upvine diesen Plan umsetzen",
+      "title": "Lassen Sie Kitisel diesen Plan umsetzen",
       "body": "Wir schreiben, prüfen und veröffentlichen Artikel zu diesen Themen auf Ihrer Website. 7 Tage kostenlos testen, jederzeit kündbar.",
       "button": "Plan automatisch umsetzen — 7 Tage testen"
     }

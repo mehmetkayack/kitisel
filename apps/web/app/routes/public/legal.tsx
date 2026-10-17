@@ -17,7 +17,7 @@ export function loader({ params }: Route.LoaderArgs) {
 }
 
 export function meta({ loaderData }: Route.MetaArgs) {
-  return loaderData ? [{ title: `${loaderData.title} · Upvine` }] : [];
+  return loaderData ? [{ title: `${loaderData.title} · Kitisel` }] : [];
 }
 
 /**

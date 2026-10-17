@@ -84,7 +84,7 @@
     }
   },
   "impersonation": {
-    "text": "Vous consultez Upvine en tant que {{name}} ({{email}}). Cette vue est en lecture seule.",
+    "text": "Vous consultez Kitisel en tant que {{name}} ({{email}}). Cette vue est en lecture seule.",
     "exit": "Quitter la vue"
   }
 }

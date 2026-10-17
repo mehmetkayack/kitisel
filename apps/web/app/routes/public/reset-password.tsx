@@ -15,7 +15,7 @@ import { authStore } from '../../lib/auth-store';
 import { fixedT } from '../../lib/i18n';
 
 export function meta({ params }: Route.MetaArgs) {
-  return isLocale(params.locale) ? [{ title: `${fixedT(params.locale, 'auth')('reset.metaTitle')} · Upvine` }] : [];
+  return isLocale(params.locale) ? [{ title: `${fixedT(params.locale, 'auth')('reset.metaTitle')} · Kitisel` }] : [];
 }
 
 const formSchema = z.object({ password: passwordSchema });

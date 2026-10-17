@@ -2,11 +2,11 @@
 
 Last updated: 12 October 2026
 
-This policy explains delivery, cancellation and refunds for Upvine subscriptions provided by {{companyName}}.
+This policy explains delivery, cancellation and refunds for Kitisel subscriptions provided by {{companyName}}.
 
 ## Delivery
 
-Upvine is not a physical product but a software service delivered over the internet. There is no shipping or physical delivery. As soon as your payment is confirmed, your plan is activated in your account and you can use the service immediately at {{site}}. We send the payment confirmation and invoice to your email address.
+Kitisel is not a physical product but a software service delivered over the internet. There is no shipping or physical delivery. As soon as your payment is confirmed, your plan is activated in your account and you can use the service immediately at {{site}}. We send the payment confirmation and invoice to your email address.
 
 ## Subscription and renewal
 

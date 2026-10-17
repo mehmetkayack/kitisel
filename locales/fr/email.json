@@ -3,18 +3,18 @@
   "fallbackLink": "Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :",
   "verifyEmail": {
     "subject": "Confirmez votre adresse e-mail",
-    "preview": "Un clic pour confirmer votre compte Upvine.",
+    "preview": "Un clic pour confirmer votre compte Kitisel.",
     "heading": "Confirmez votre adresse e-mail",
-    "body": "Merci de vous être inscrit sur Upvine. Veuillez confirmer votre adresse e-mail afin que nous puissions sécuriser votre compte.",
+    "body": "Merci de vous être inscrit sur Kitisel. Veuillez confirmer votre adresse e-mail afin que nous puissions sécuriser votre compte.",
     "button": "Confirmer l’e-mail",
     "expires": "Ce lien est valable {{ttl}} heures.",
-    "ignore": "Si vous n’avez pas créé de compte Upvine, vous pouvez ignorer cet e-mail."
+    "ignore": "Si vous n’avez pas créé de compte Kitisel, vous pouvez ignorer cet e-mail."
   },
   "resetPassword": {
-    "subject": "Réinitialisez votre mot de passe Upvine",
+    "subject": "Réinitialisez votre mot de passe Kitisel",
     "preview": "Utilisez ce lien pour choisir un nouveau mot de passe.",
     "heading": "Choisissez un nouveau mot de passe",
-    "body": "Nous avons reçu une demande de réinitialisation du mot de passe de votre compte Upvine.",
+    "body": "Nous avons reçu une demande de réinitialisation du mot de passe de votre compte Kitisel.",
     "button": "Choisir un nouveau mot de passe",
     "expires": "Ce lien est valable {{ttl}} minutes.",
     "ignore": "Si vous n’êtes pas à l’origine de cette demande, ignorez cet e-mail. Votre mot de passe reste inchangé."
@@ -36,6 +36,6 @@
     "body": "Voici le rapport pour {{domain}}. Score de santé du site : {{score}} / 100. Le rapport montre quoi corriger en premier et quels sujets vos clients recherchent.",
     "button": "Ouvrir le rapport",
     "expires": "Le lien du rapport reste valable 30 jours.",
-    "ignore": "Vous recevez cet e-mail car vous l’avez demandé sur Upvine. Nous n’enverrons pas d’e-mails marketing sans votre accord."
+    "ignore": "Vous recevez cet e-mail car vous l’avez demandé sur Kitisel. Nous n’enverrons pas d’e-mails marketing sans votre accord."
   }
 }

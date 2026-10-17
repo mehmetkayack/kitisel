@@ -3,18 +3,18 @@
   "fallbackLink": "Falls die Schaltfläche nicht funktioniert, kopieren Sie diesen Link in Ihren Browser:",
   "verifyEmail": {
     "subject": "Bestätigen Sie Ihre E-Mail-Adresse",
-    "preview": "Ein Klick, um Ihr Upvine-Konto zu bestätigen.",
+    "preview": "Ein Klick, um Ihr Kitisel-Konto zu bestätigen.",
     "heading": "Bestätigen Sie Ihre E-Mail-Adresse",
-    "body": "Danke für Ihre Anmeldung bei Upvine. Bitte bestätigen Sie Ihre E-Mail-Adresse, damit wir Ihr Konto schützen können.",
+    "body": "Danke für Ihre Anmeldung bei Kitisel. Bitte bestätigen Sie Ihre E-Mail-Adresse, damit wir Ihr Konto schützen können.",
     "button": "E-Mail-Adresse bestätigen",
     "expires": "Dieser Link ist {{ttl}} Stunden gültig.",
-    "ignore": "Falls Sie kein Upvine-Konto erstellt haben, können Sie diese E-Mail ignorieren."
+    "ignore": "Falls Sie kein Kitisel-Konto erstellt haben, können Sie diese E-Mail ignorieren."
   },
   "resetPassword": {
-    "subject": "Setzen Sie Ihr Upvine-Passwort zurück",
+    "subject": "Setzen Sie Ihr Kitisel-Passwort zurück",
     "preview": "Mit diesem Link wählen Sie ein neues Passwort.",
     "heading": "Neues Passwort wählen",
-    "body": "Wir haben eine Anfrage erhalten, das Passwort Ihres Upvine-Kontos zurückzusetzen.",
+    "body": "Wir haben eine Anfrage erhalten, das Passwort Ihres Kitisel-Kontos zurückzusetzen.",
     "button": "Neues Passwort wählen",
     "expires": "Dieser Link ist {{ttl}} Minuten gültig.",
     "ignore": "Falls Sie das nicht angefordert haben, können Sie diese E-Mail ignorieren. Ihr Passwort bleibt unverändert."
@@ -36,6 +36,6 @@
     "body": "Hier ist der Bericht für {{domain}}. Website-Gesundheitswert: {{score}} / 100. Der Bericht zeigt, was Sie zuerst beheben sollten und wonach Ihre Kundschaft sucht.",
     "button": "Bericht öffnen",
     "expires": "Der Link zum Bericht ist 30 Tage gültig.",
-    "ignore": "Sie erhalten diese E-Mail, weil Sie sie bei Upvine angefordert haben. Werbe-E-Mails senden wir nur mit Ihrer Zustimmung."
+    "ignore": "Sie erhalten diese E-Mail, weil Sie sie bei Kitisel angefordert haben. Werbe-E-Mails senden wir nur mit Ihrer Zustimmung."
   }
 }

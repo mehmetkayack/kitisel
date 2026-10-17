@@ -2,7 +2,7 @@
 
 Last updated: 12 October 2026
 
-Cookies are small files saved in your browser when you visit a site. Upvine ({{site}}) **only uses cookies that are strictly necessary for the service to work**. We don't use advertising, tracking or analytics cookies, so we don't ask for cookie consent. If we add an analytics tool in the future, we won't load it without your explicit consent and we will update this page.
+Cookies are small files saved in your browser when you visit a site. Kitisel ({{site}}) **only uses cookies that are strictly necessary for the service to work**. We don't use advertising, tracking or analytics cookies, so we don't ask for cookie consent. If we add an analytics tool in the future, we won't load it without your explicit consent and we will update this page.
 
 ## Cookies we use
 

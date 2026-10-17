@@ -2,6 +2,7 @@ import { ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { LEGAL_SLUGS } from '../../legal/documents';
+import { KitiselLogo } from '../brand/kitisel-logo';
 
 const linkClass = 'inline-flex min-h-11 items-center text-ink-muted hover:text-ink hover:underline';
 
@@ -9,7 +10,13 @@ const linkClass = 'inline-flex min-h-11 items-center text-ink-muted hover:text-i
  * Halka açık sayfaların alt bilgisi: ürün ve şirket sayfaları, tüm yasal belgeler, ödeme altyapısı notu ve
  * satıcı unvanı (ödeme kuruluşu başvurusunda sitede görünmesi beklenir).
  */
-export function SiteFooter({ locale, companyName }: { locale: string; companyName: string | null }) {
+export function SiteFooter({
+  locale,
+  companyName,
+}: {
+  locale: string;
+  companyName: string | null;
+}) {
   const { t } = useTranslation('common');
   const tm = useTranslation('marketing').t;
   const product = [
@@ -19,7 +26,7 @@ export function SiteFooter({ locale, companyName }: { locale: string; companyNam
     { to: 'contact', label: t('footer.contact') },
   ];
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="border-t border-border bg-background">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 text-sm sm:px-6">
         <div className="grid gap-8 sm:grid-cols-2">
           <nav aria-labelledby="footer-product">
@@ -52,6 +59,7 @@ export function SiteFooter({ locale, companyName }: { locale: string; companyNam
           </nav>
         </div>
         <div className="flex flex-col gap-2 border-t border-border pt-6 text-ink-muted">
+          <KitiselLogo to={`/${locale}`} className="self-start" />
           <p className="flex items-start gap-2">
             <ShieldCheck className="mt-0.5 size-4 shrink-0 text-growth-text" aria-hidden />
             {t('footer.payments')}

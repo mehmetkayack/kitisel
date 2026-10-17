@@ -132,17 +132,136 @@
 /*
  * Kitisel marka kapsamı (_kitisel-kit/brand/tokens.css). <html data-brand="kitisel">: halka açık site ve
  * müşteri paneli. Admin ve /dev/ui bu özniteliği almaz; yukarıdaki değerlerle aynen kalır.
+ * Değişken adları aynı, sadece değerler: bileşenler değişmeden yeni renklere geçer.
  */
 :root[data-brand='kitisel'] {
+  --primary: #c2410c; /* Ember: beyaz metinle 5,2:1 */
+  --primary-hover: #9a3412;
+  --primary-soft: #fff7ed; /* Krem */
+  --primary-foreground: #ffffff;
+
+  --growth: #0f766e; /* Orman */
+  --growth-text: #0f766e; /* beyaz zeminde 5,5:1 */
+  --growth-soft: #e6f4f1;
+
+  --warning: #a16207; /* Hardal */
+  --warning-soft: #fef9c3;
+
+  --danger: #b91c1c;
+  --danger-soft: #fee2e2;
+  --danger-text: #b91c1c;
+  --danger-foreground: #ffffff;
+
+  --ink: #0f172a; /* Gece */
+  --ink-muted: #475569;
+  --ink-subtle: #64748b;
+  --border: #f1e4d6; /* sıcak kenarlık */
+  --border-strong: #e7d3bd;
+  --surface: #ffffff;
+  --surface-muted: #fff7ed;
+  --background: #fffbf5; /* Kâğıt */
+
+  --overlay: rgb(15 23 42 / 0.55);
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04);
+  --shadow-popover: 0 12px 32px rgb(15 23 42 / 0.14), 0 2px 6px rgb(15 23 42 / 0.06);
+
+  --chart-1: #c2410c;
+  --chart-2: #0f766e;
+  --chart-3: #a16207;
+  --chart-4: #94a3b8;
+
+  /* Marka: koyu bantlar (başlık, hero, kapanış) ve logo */
+  --brand: #f97316; /* Tilki turuncusu: açık zeminde metin rengi değildir */
+  --brand-light: #fb923c; /* koyu zeminde vurgulu metin */
   --brand-mark: #ea580c; /* logo üçgeni, açık zemin */
+  --night: #0f172a;
+  --night-2: #1e293b;
+  --night-text: #cbd5e1;
+  --night-muted: #94a3b8;
+  --night-foreground: #f8fafc;
 }
 
+/* Koyu tema: kitte koyu palet yok; marka kurallarındaki koyu zemin tonlarından türetildi. */
 :root[data-brand='kitisel'][data-theme='dark'] {
+  --primary: #f97316; /* Tilki: koyu zeminde eylem, koyu metinle 7,9:1 */
+  --primary-hover: #fb923c;
+  --primary-soft: #3a2113;
+  --primary-foreground: #0f172a;
+
+  --growth: #14b8a6;
+  --growth-text: #5eead4;
+  --growth-soft: #0f2e2b;
+
+  --warning: #eab308;
+  --warning-soft: #3a2e0b;
+
+  --danger: #f87171;
+  --danger-soft: #3b1515;
+  --danger-text: #fca5a5;
+  --danger-foreground: #0f172a;
+
+  --ink: #f8fafc;
+  --ink-muted: #cbd5e1;
+  --ink-subtle: #94a3b8;
+  --border: #263244;
+  --border-strong: #334155;
+  --surface: #1e293b;
+  --surface-muted: #172133;
+  --background: #0f172a;
+
+  --overlay: rgb(2 6 23 / 0.7);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-popover: 0 12px 32px rgb(0 0 0 / 0.5);
+
+  --chart-1: #f97316;
+  --chart-2: #14b8a6;
+  --chart-3: #eab308;
+  --chart-4: #94a3b8;
+
   --brand-mark: #f97316;
+  --night: #0b1120;
+  --night-2: #1e293b;
 }
 
 @media (prefers-color-scheme: dark) {
   :root[data-brand='kitisel']:not([data-theme='light']) {
+    --primary: #f97316;
+    --primary-hover: #fb923c;
+    --primary-soft: #3a2113;
+    --primary-foreground: #0f172a;
+
+    --growth: #14b8a6;
+    --growth-text: #5eead4;
+    --growth-soft: #0f2e2b;
+
+    --warning: #eab308;
+    --warning-soft: #3a2e0b;
+
+    --danger: #f87171;
+    --danger-soft: #3b1515;
+    --danger-text: #fca5a5;
+    --danger-foreground: #0f172a;
+
+    --ink: #f8fafc;
+    --ink-muted: #cbd5e1;
+    --ink-subtle: #94a3b8;
+    --border: #263244;
+    --border-strong: #334155;
+    --surface: #1e293b;
+    --surface-muted: #172133;
+    --background: #0f172a;
+
+    --overlay: rgb(2 6 23 / 0.7);
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+    --shadow-popover: 0 12px 32px rgb(0 0 0 / 0.5);
+
+    --chart-1: #f97316;
+    --chart-2: #14b8a6;
+    --chart-3: #eab308;
+    --chart-4: #94a3b8;
+
     --brand-mark: #f97316;
+    --night: #0b1120;
+    --night-2: #1e293b;
   }
 }

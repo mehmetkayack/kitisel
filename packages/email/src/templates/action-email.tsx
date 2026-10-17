@@ -32,7 +32,7 @@ export function ActionEmail(props: ActionEmailProps) {
             padding: 32,
           }}
         >
-          <Text style={{ color: c.primary, fontSize: 18, fontWeight: 700, margin: '0 0 24px' }}>Upvine</Text>
+          <Text style={{ color: c.ink, fontSize: 22, fontWeight: 800, letterSpacing: '-0.5px', margin: '0 0 24px' }}>kitisel</Text>
           <Heading as="h1" style={{ color: c.ink, fontSize: 24, lineHeight: 1.2, margin: '0 0 16px' }}>
             {props.heading}
           </Heading>

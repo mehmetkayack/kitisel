@@ -11,7 +11,7 @@ import type { WizardStep } from '../../components/onboarding/wizard';
 import { useCurrentSite, useSiteMutations } from '../../lib/sites';
 
 export function meta() {
-  return [{ title: 'Upvine' }];
+  return [{ title: 'Kitisel' }];
 }
 
 const STEP_COMPONENTS: Record<Exclude<WizardStep, 'url'>, (props: StepProps) => ReactNode> = {

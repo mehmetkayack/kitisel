@@ -84,7 +84,7 @@
     }
   },
   "impersonation": {
-    "text": "Estás viendo Upvine como {{name}} ({{email}}). Esta vista es de solo lectura.",
+    "text": "Estás viendo Kitisel como {{name}} ({{email}}). Esta vista es de solo lectura.",
     "exit": "Salir de la vista"
   }
 }

@@ -13,7 +13,7 @@
   "session_expired": "Votre session a expiré. Veuillez vous reconnecter.",
   "google_not_configured": "La connexion avec Google n’est pas disponible pour le moment. Utilisez votre e-mail et votre mot de passe.",
   "google_failed": "La connexion avec Google n’a pas abouti. Réessayez ou utilisez votre e-mail.",
-  "network": "Impossible de joindre Upvine pour le moment. Vérifiez votre connexion internet, puis réessayez.",
+  "network": "Impossible de joindre Kitisel pour le moment. Vérifiez votre connexion internet, puis réessayez.",
   "impersonation_read_only": "Vous consultez ce compte en tant qu’administrateur. Les modifications sont désactivées ; quittez ce mode pour modifier.",
   "cannot_change_own_admin": "Vous ne pouvez pas retirer vos propres droits d’administrateur. Demandez-le à un autre administrateur.",
   "site_limit_reached": "Votre offre ne comprend pas d’autre site. Supprimez un site ou choisissez une offre plus grande.",

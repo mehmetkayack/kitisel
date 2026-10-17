@@ -2,11 +2,11 @@
 
 Last updated: 12 October 2026
 
-These terms govern your use of the Upvine service provided by {{companyName}} ("Upvine", "we") at {{site}}. By creating an account or using the service you accept these terms.
+These terms govern your use of the Kitisel service provided by {{companyName}} ("Kitisel", "we") at {{site}}. By creating an account or using the service you accept these terms.
 
 ## The service
 
-Upvine is a software service (SaaS) that analyzes your site, suggests content topics, writes blog articles with AI, publishes them on your site with your approval or according to the automatic setting you choose, and reports results.
+Kitisel is a software service (SaaS) that analyzes your site, suggests content topics, writes blog articles with AI, publishes them on your site with your approval or according to the automatic setting you choose, and reports results.
 
 ## Beta
 
@@ -34,7 +34,7 @@ You may not use the service to: create unlawful, deceptive or hateful content or
 
 ## Intellectual property
 
-Rights to the articles we generate for you and to your own content belong to you. Rights to the Upvine software, design and brand belong to us. We may use usage statistics that contain no personal data to improve the service.
+Rights to the articles we generate for you and to your own content belong to you. Rights to the Kitisel software, design and brand belong to us. We may use usage statistics that contain no personal data to improve the service.
 
 ## Fees
 

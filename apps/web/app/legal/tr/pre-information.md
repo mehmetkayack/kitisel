@@ -14,7 +14,7 @@ E-posta: {{email}}
 
 ## Hizmetin temel nitelikleri
 
-Upvine; sitenizi analiz eden, konu öneren, yapay zekâ ile blog yazıları üreten, onayınızla veya seçtiğiniz otomatik ayarla sitenizde yayınlayan ve sonuçları raporlayan bir yazılım hizmetidir. Paketlerin kapsamı (aylık yazı hakkı, site sayısı, yenileme önerisi, anahtar kelime takibi, ekip üyesi) [Fiyatlar](/pricing) sayfasında yer alır.
+Kitisel; sitenizi analiz eden, konu öneren, yapay zekâ ile blog yazıları üreten, onayınızla veya seçtiğiniz otomatik ayarla sitenizde yayınlayan ve sonuçları raporlayan bir yazılım hizmetidir. Paketlerin kapsamı (aylık yazı hakkı, site sayısı, yenileme önerisi, anahtar kelime takibi, ekip üyesi) [Fiyatlar](/pricing) sayfasında yer alır.
 
 ## Toplam fiyat
 

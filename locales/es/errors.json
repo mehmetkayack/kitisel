@@ -13,7 +13,7 @@
   "session_expired": "Tu sesión ha terminado. Vuelve a iniciar sesión.",
   "google_not_configured": "El inicio de sesión con Google no está disponible ahora. Usa tu correo y contraseña.",
   "google_failed": "No pudimos iniciar tu sesión con Google. Inténtalo de nuevo o usa tu correo.",
-  "network": "No podemos conectar con Upvine ahora. Revisa tu conexión a internet e inténtalo de nuevo.",
+  "network": "No podemos conectar con Kitisel ahora. Revisa tu conexión a internet e inténtalo de nuevo.",
   "impersonation_read_only": "Estás viendo esta cuenta como administrador. Los cambios están desactivados; sal de la vista para hacer cambios.",
   "cannot_change_own_admin": "No puedes quitarte tu propio acceso de administrador. Pídeselo a otra persona administradora.",
   "site_limit_reached": "Tu plan no incluye más sitios. Elimina un sitio o elige un plan más grande para añadir otro.",

@@ -167,7 +167,7 @@
       "siteUrl": "Adresse der WordPress-Website",
       "username": "WordPress-Benutzername",
       "appPassword": "Anwendungspasswort",
-      "appPasswordHint": "Gehen Sie in WordPress zu Benutzer → Profil → Anwendungspasswörter. Geben Sie einen Namen wie „Upvine“ ein, klicken Sie auf „Hinzufügen“ und fügen Sie das Passwort hier ein.",
+      "appPasswordHint": "Gehen Sie in WordPress zu Benutzer → Profil → Anwendungspasswörter. Geben Sie einen Namen wie „Kitisel“ ein, klicken Sie auf „Hinzufügen“ und fügen Sie das Passwort hier ein.",
       "connect": "WordPress verbinden",
       "oneClick": "Mit einem Klick verbinden",
       "or": "Oder geben Sie ein Anwendungspasswort ein:"
@@ -177,7 +177,7 @@
       "urlHint": "Muss mit https:// beginnen. Wir senden jeden Artikel als JSON mit HMAC-Signatur.",
       "connect": "Webhook verbinden",
       "secretTitle": "Speichern Sie jetzt Ihren Signaturschlüssel",
-      "secretBody": "Damit prüfen Sie, dass Anfragen von Upvine kommen (Header X-Upvine-Signature). Wir zeigen ihn nicht noch einmal.",
+      "secretBody": "Damit prüfen Sie, dass Anfragen von Kitisel kommen (Header X-Upvine-Signature). Wir zeigen ihn nicht noch einmal.",
       "copy": "Kopieren",
       "copied": "Kopiert."
     },

@@ -3,18 +3,18 @@
   "fallbackLink": "If the button doesn't work, copy this link into your browser:",
   "verifyEmail": {
     "subject": "Confirm your email address",
-    "preview": "One click to confirm your Upvine account.",
+    "preview": "One click to confirm your Kitisel account.",
     "heading": "Confirm your email address",
-    "body": "Thanks for signing up for Upvine. Please confirm your email address so we can keep your account secure.",
+    "body": "Thanks for signing up for Kitisel. Please confirm your email address so we can keep your account secure.",
     "button": "Confirm email",
     "expires": "This link is valid for {{ttl}} hours.",
-    "ignore": "If you didn't create an Upvine account, you can safely ignore this email."
+    "ignore": "If you didn't create an Kitisel account, you can safely ignore this email."
   },
   "resetPassword": {
-    "subject": "Reset your Upvine password",
+    "subject": "Reset your Kitisel password",
     "preview": "Use this link to choose a new password.",
     "heading": "Choose a new password",
-    "body": "We received a request to reset the password for your Upvine account.",
+    "body": "We received a request to reset the password for your Kitisel account.",
     "button": "Choose a new password",
     "expires": "This link is valid for {{ttl}} minutes.",
     "ignore": "If you didn't ask to reset your password, you can ignore this email. Your password stays the same."
@@ -36,6 +36,6 @@
     "body": "Here is the report for {{domain}}. Site health score: {{score}} / 100. The report shows what to fix first and which topics your customers search for.",
     "button": "Open the report",
     "expires": "The report link stays valid for 30 days.",
-    "ignore": "You receive this email because you asked for it on Upvine. We will not send marketing emails unless you agreed to them."
+    "ignore": "You receive this email because you asked for it on Kitisel. We will not send marketing emails unless you agreed to them."
   }
 }

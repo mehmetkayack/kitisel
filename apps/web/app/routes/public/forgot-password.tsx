@@ -14,7 +14,7 @@ import { api, ApiError } from '../../lib/api';
 import { fixedT } from '../../lib/i18n';
 
 export function meta({ params }: Route.MetaArgs) {
-  return isLocale(params.locale) ? [{ title: `${fixedT(params.locale, 'auth')('forgot.metaTitle')} · Upvine` }] : [];
+  return isLocale(params.locale) ? [{ title: `${fixedT(params.locale, 'auth')('forgot.metaTitle')} · Kitisel` }] : [];
 }
 
 export default function ForgotPassword({ params }: Route.ComponentProps) {

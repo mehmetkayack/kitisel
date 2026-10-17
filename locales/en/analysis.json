@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Free SEO site analysis — Upvine",
+    "title": "Free SEO site analysis — Kitisel",
     "description": "Check 25 technical SEO basics, see your top keyword opportunities and your organic competitors. Free, no sign-up, ready in about a minute.",
-    "reportTitle": "SEO analysis for {{domain}} — Upvine"
+    "reportTitle": "SEO analysis for {{domain}} — Kitisel"
   },
   "form": {
     "title": "Free SEO analysis of your website",
@@ -75,12 +75,12 @@
     "email": {
       "title": "Get this report by email",
       "label": "Email address",
-      "consent": "Also send me occasional SEO tips and Upvine news (optional, unsubscribe anytime).",
+      "consent": "Also send me occasional SEO tips and Kitisel news (optional, unsubscribe anytime).",
       "submit": "Send the report",
       "sent": "We sent the report to {{email}}."
     },
     "cta": {
-      "title": "Let Upvine apply this plan for you",
+      "title": "Let Kitisel apply this plan for you",
       "body": "We write, fact-check and publish articles for these topics on your site. Try it free for 7 days and cancel anytime.",
       "button": "Apply this plan automatically — try 7 days free"
     }

@@ -2,7 +2,7 @@
 
 Son güncelleme: 12 Ekim 2026
 
-Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("KVKK") 10. maddesi uyarınca, Upvine hizmeti ({{site}}) kapsamında kişisel verilerinizin işlenmesi hakkında sizi bilgilendirmek için hazırlanmıştır.
+Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("KVKK") 10. maddesi uyarınca, Kitisel hizmeti ({{site}}) kapsamında kişisel verilerinizin işlenmesi hakkında sizi bilgilendirmek için hazırlanmıştır.
 
 ## Veri sorumlusu
 
