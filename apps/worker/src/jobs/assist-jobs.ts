@@ -9,7 +9,7 @@ import type { JobRun } from './site-jobs';
 
 function errorCode(err: unknown): string {
   if (err instanceof AIError) {
-    if (err.code === 'not_configured' || err.code === 'not_implemented') return 'ai_not_configured';
+    if (err.code === 'not_configured' || err.code === 'rejected' || err.code === 'not_implemented') return 'ai_not_configured';
     if (err.code === 'budget_exceeded') return 'ai_budget';
     if (err.code === 'blocked') return 'ai_blocked';
     if (err.code === 'invalid_output') return 'ai_invalid_output';

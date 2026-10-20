@@ -137,6 +137,9 @@ export const envSchema = z.object({
   /** Bildirim e-postasının dili */
   CONTACT_NOTIFY_LOCALE: z.enum(['en', 'de', 'es', 'fr', 'tr']).default('tr'),
 
+  /** Google Analytics 4 ölçüm kimliği (G-XXXX). Sadece halka açık sitede, ziyaretçi onay verirse yüklenir. Web sunucusu okur. */
+  GA_MEASUREMENT_ID: optionalString.refine((v) => v === undefined || /^G-[A-Z0-9]{4,20}$/.test(v), 'GA_MEASUREMENT_ID G-XXXXXXX biçiminde olmalı'),
+
   // Yasal sayfalar (Gizlilik, KVKK, Mesafeli Satış...): satıcı bilgileri. Gizli değildir; web sunucusu okur.
   LEGAL_COMPANY_NAME: optionalString,
   LEGAL_ADDRESS: optionalString,

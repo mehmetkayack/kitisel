@@ -214,6 +214,7 @@ export function isDuplicateTopic(candidate: string, existing: string[], threshol
 function topicsErrorCode(err: unknown): string {
   if (err instanceof AIError) {
     if (err.code === 'not_configured' || err.code === 'not_implemented') return 'ai_not_configured';
+    if (err.code === 'rejected') return 'ai_rejected';
     if (err.code === 'budget_exceeded') return 'ai_budget';
     return 'ai_unavailable';
   }

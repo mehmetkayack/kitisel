@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
   const port = Number(env.WEB_PORT || 5173);
   // Yasal sayfaların satıcı bilgileri sunucuda (SSR) process.env'den okunur; geliştirmede kök .env'den.
   // Production'da web sunucusu ortam değişkenlerini doğrudan alır (tarayıcı paketine girmez).
-  for (const [k, v] of Object.entries(env)) if (k.startsWith('LEGAL_') && process.env[k] === undefined) process.env[k] = v;
+  for (const [k, v] of Object.entries(env)) if ((k.startsWith('LEGAL_') || k === 'GA_MEASUREMENT_ID') && process.env[k] === undefined) process.env[k] = v;
   // Blog sayfaları SSR'da yazıları API'den okur (sunucudan sunucuya)
   process.env.API_URL ??= apiUrl;
 

@@ -132,6 +132,7 @@
     "selected": "Temas elegidos: {{value}}",
     "errors": {
       "ai_not_configured": "Las sugerencias automáticas de temas están desactivadas porque el servicio de IA no está configurado. Puedes añadir tus propios temas.",
+      "ai_rejected": "El servicio de IA no aceptó la solicitud, así que no pudimos sugerir temas. Puedes añadir tus propios temas o volver a intentarlo más tarde.",
       "ai_budget": "Hemos alcanzado el límite de hoy para sugerencias automáticas. Vuelve a intentarlo mañana o añade tus propios temas ahora.",
       "ai_unavailable": "El servicio de sugerencias está ocupado ahora mismo. Vuelve a intentarlo en unos minutos.",
       "internal": "Algo salió mal al sugerir temas. Vuelve a intentarlo.",

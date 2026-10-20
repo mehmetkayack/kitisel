@@ -132,6 +132,7 @@
     "selected": "Ausgewählte Themen: {{value}}",
     "errors": {
       "ai_not_configured": "Automatische Themenvorschläge sind ausgeschaltet, weil der KI-Dienst nicht eingerichtet ist. Sie können eigene Themen hinzufügen.",
+      "ai_rejected": "Der KI-Dienst hat die Anfrage nicht angenommen, daher konnten wir keine Themen vorschlagen. Sie können eigene Themen hinzufügen oder es später erneut versuchen.",
       "ai_budget": "Das heutige Limit für automatische Vorschläge ist erreicht. Versuchen Sie es morgen erneut oder fügen Sie jetzt eigene Themen hinzu.",
       "ai_unavailable": "Der Vorschlagsdienst ist gerade ausgelastet. Bitte versuchen Sie es in ein paar Minuten erneut.",
       "internal": "Beim Vorschlagen der Themen ist etwas schiefgelaufen. Bitte versuchen Sie es erneut.",

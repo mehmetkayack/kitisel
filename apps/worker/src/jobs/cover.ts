@@ -86,7 +86,7 @@ export async function createCover(
     } catch (err) {
       // Kota yok (ücretsiz katman), model tanımsız veya engellendi: yedek kapağa düş.
       const code = (err as { code?: string }).code;
-      if (code === 'rate_limited' || code === 'not_configured' || code === 'budget_exceeded') imageModelPausedUntil = Date.now() + 3_600_000;
+      if (code === 'rate_limited' || code === 'not_configured' || code === 'rejected' || code === 'budget_exceeded') imageModelPausedUntil = Date.now() + 3_600_000;
       opts.onAiError?.(err);
     }
   }

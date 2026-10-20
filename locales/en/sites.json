@@ -132,6 +132,7 @@
     "selected": "Selected topics: {{value}}",
     "errors": {
       "ai_not_configured": "Automatic topic suggestions are off because the AI service is not set up. You can add your own topics.",
+      "ai_rejected": "The AI service didn’t accept the request, so we couldn’t suggest topics. You can add your own topics or try again later.",
       "ai_budget": "We reached today's limit for automatic suggestions. Try again tomorrow, or add your own topics now.",
       "ai_unavailable": "The suggestion service is busy right now. Please try again in a few minutes.",
       "internal": "Something went wrong while suggesting topics. Please try again.",

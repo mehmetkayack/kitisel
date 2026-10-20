@@ -7,13 +7,17 @@ import { brandLinks } from '../../components/brand/links';
 import { SiteFooter } from '../../components/marketing/site-footer';
 import { companyInfo } from '../../lib/company.server';
 import { publicOrigin } from '../../lib/origin.server';
+import { MEASUREMENT_ID } from '../../lib/analytics';
+import { AnalyticsConsent } from '../../components/marketing/analytics-consent';
 
 export const links: Route.LinksFunction = brandLinks;
 
 export function loader({ params, request }: Route.LoaderArgs) {
   if (!isLocale(params.locale)) throw data(null, { status: 404 });
   // Satıcı bilgileri (alt bilgi, İletişim, yasal sayfalar): sunucudaki LEGAL_* değişkenlerinden
-  return { origin: publicOrigin(request), company: companyInfo() };
+  // Google Analytics ölçüm kimliği (gizli değil; boşsa analitik ve onay bandı yok)
+  const ga = process.env.GA_MEASUREMENT_ID?.trim() ?? '';
+  return { origin: publicOrigin(request), company: companyInfo(), analyticsId: MEASUREMENT_ID.test(ga) ? ga : null };
 }
 
 /**
@@ -93,7 +97,8 @@ export default function PublicLayout({ params, loaderData }: Route.ComponentProp
       <main id="main" className="flex flex-1 flex-col">
         <Outlet />
       </main>
-      <SiteFooter locale={locale} companyName={loaderData.company.name} />
+      <SiteFooter locale={locale} companyName={loaderData.company.name} cookieSettings={!!loaderData.analyticsId} />
+      <AnalyticsConsent measurementId={loaderData.analyticsId} locale={locale} />
     </div>
   );
 }

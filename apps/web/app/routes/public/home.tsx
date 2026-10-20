@@ -224,7 +224,13 @@ function Comparison() {
       className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16"
     >
       <SectionHeading id="compare" eyebrow={t('compare.eyebrow')} title={t('compare.title')} />
-      <div className="overflow-x-auto rounded-card border border-border bg-surface">
+      {/* Dar ekranda yatay kayar: klavyeyle de kaydırılabilsin (odaklanabilir bölge) */}
+      <div
+        tabIndex={0}
+        role="region"
+        aria-labelledby="compare"
+        className="overflow-x-auto rounded-card border border-border bg-surface focus-visible:outline-2 focus-visible:outline-primary"
+      >
         <table className="w-full min-w-[640px] border-collapse text-left">
           <caption className="sr-only">{t('compare.title')}</caption>
           <thead>

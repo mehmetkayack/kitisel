@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { LEGAL_SLUGS } from '../../legal/documents';
 import { KitiselLogo } from '../brand/kitisel-logo';
 import { LanguageSelect, ThemeSelect } from '../preference-controls';
+import { OPEN_CONSENT_EVENT } from '../../lib/analytics';
 
 const linkClass = 'inline-flex min-h-11 items-center text-ink-muted hover:text-ink hover:underline';
 
@@ -14,9 +15,12 @@ const linkClass = 'inline-flex min-h-11 items-center text-ink-muted hover:text-i
 export function SiteFooter({
   locale,
   companyName,
+  cookieSettings = false,
 }: {
   locale: string;
   companyName: string | null;
+  /** Analitik açıksa onay bandını yeniden açan bağlantı */
+  cookieSettings?: boolean;
 }) {
   const { t } = useTranslation('common');
   const tm = useTranslation('marketing').t;
@@ -73,6 +77,15 @@ export function SiteFooter({
             <ShieldCheck className="mt-0.5 size-4 shrink-0 text-growth-text" aria-hidden />
             {t('footer.payments')}
           </p>
+          {cookieSettings ? (
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}
+              className="inline-flex min-h-11 items-center self-start text-ink-muted hover:text-ink hover:underline"
+            >
+              {t('consent.settings')}
+            </button>
+          ) : null}
           <p>
             {t('footer.rights', { year: new Date().getFullYear() })}
             {companyName ? ` ${t('footer.operatedBy', { company: companyName })}` : ''}

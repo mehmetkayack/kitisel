@@ -59,6 +59,8 @@ export interface AIProvider {
 export type AIErrorCode =
   /** Anahtar veya model adı yok */
   | 'not_configured'
+  /** Sağlayıcı reddetti: anahtar geçersiz / yetkisiz (400, 401, 403) ya da model bulunamadı (404). Tekrar denenmez. */
+  | 'rejected'
   /** Sağlayıcı 429 / bizim RPM limitimiz: kısa süre sonra tekrar denenebilir */
   | 'rate_limited'
   /** Günlük istek bütçesi doldu: ertesi güne ertelenir */

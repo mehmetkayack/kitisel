@@ -18,4 +18,4 @@ export const AUTH_COOKIES = {
 export const CSRF_HEADER = 'x-csrf-token';
 
 /** Kullanıcının dil ve tema seçimini saklayan çerezler (SSR'da flaşsız uygulama için). */
-export const PREF_COOKIES = { locale: 'upvine_locale', theme: 'upvine_theme' } as const;
+export const PREF_COOKIES = { locale: 'upvine_locale', theme: 'upvine_theme', consent: 'upvine_consent' } as const;

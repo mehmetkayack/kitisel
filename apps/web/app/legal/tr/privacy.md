@@ -1,6 +1,6 @@
 # Gizlilik Politikası
 
-Son güncelleme: 12 Ekim 2026
+Son güncelleme: 21 Ekim 2026
 
 Bu politika, Kitisel hizmetini ({{site}}) kullanırken hangi verilerinizi neden işlediğimizi, kimlerle paylaştığımızı ve haklarınızı anlatır. Kitisel, {{companyName}} tarafından sunulur. Türkiye'deki kullanıcılar için ayrıntılı bilgilendirme [KVKK Aydınlatma Metni](/legal/kvkk) sayfasındadır.
 
@@ -30,7 +30,7 @@ Yazı üretimi, konu önerisi ve analiz için Google LLC'nin Gemini API hizmetin
 
 Verilerinizi satmayız ve reklam amacıyla paylaşmayız. Hizmeti sunmak için şu hizmet sağlayıcılarla (alt işleyiciler) çalışırız:
 
-- **Google LLC (ABD):** Gemini API (yapay zekâ), Google ile giriş, Search Console API.
+- **Google LLC (ABD):** Gemini API (yapay zekâ), Google ile giriş, Search Console API ve onay verirseniz Google Analytics (tanıtım sayfalarında ziyaret istatistikleri).
 - **Barındırma sağlayıcısı:** {{hosting}}. Sunucular, veritabanı ve yedekler burada tutulur.
 - **E-posta gönderim hizmeti:** doğrulama, şifre sıfırlama ve bildirim e-postaları.
 - **İyzi Ödeme ve Elektronik Para Hizmetleri A.Ş. (iyzico):** ödeme özelliği açıldığında ödeme işlemleri.
@@ -56,7 +56,7 @@ Bağlantı bilgileri AES-256-GCM ile şifrelenir. Şifreler argon2id ile özetle
 
 ## Çerezler
 
-Sadece hizmetin çalışması için gerekli çerezleri kullanırız. Ayrıntılar: [Çerez Politikası](/legal/cookies).
+Hizmetin çalışması için gerekli çerezleri ve sadece onay verirseniz tanıtım sayfalarında Google Analytics çerezlerini kullanırız. Ayrıntılar: [Çerez Politikası](/legal/cookies).
 
 ## Haklarınız
 

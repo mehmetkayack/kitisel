@@ -106,7 +106,7 @@ function excerpt(answer: string, names: string[]): string {
 
 function aiCode(err: unknown): string {
   if (err instanceof AIError) {
-    if (err.code === 'not_configured' || err.code === 'not_implemented') return 'ai_not_configured';
+    if (err.code === 'not_configured' || err.code === 'rejected' || err.code === 'not_implemented') return 'ai_not_configured';
     if (err.code === 'budget_exceeded') return 'ai_budget';
     if (err.code === 'rate_limited' || err.code === 'unavailable') return 'ai_unavailable';
   }
@@ -171,7 +171,7 @@ export async function runVisibility(deps: JobDeps, data: SiteJobData, run: JobRu
       answer = { ...res.data, grounded: true, model: res.model };
     } catch (err) {
       // Google Search kotası yok (ücretsiz katman): modelin kendi bilgisiyle cevap.
-      if (!(err instanceof AIError) || err.code === 'budget_exceeded' || err.code === 'not_configured') {
+      if (!(err instanceof AIError) || err.code === 'budget_exceeded' || err.code === 'not_configured' || err.code === 'rejected') {
         lastError = err;
         if (err instanceof AIError && err.code === 'budget_exceeded') break;
       } else {

@@ -37,6 +37,8 @@ export default defineConfig({
         API_PORT: String(E2E_API_PORT),
         MYSQL_DATABASE: E2E_DATABASE,
         WEB_URL: BASE_URL,
+        // Onay bandı testleri bozmasın; geliştiricinin GA kimliği testte kullanılmaz
+        GA_MEASUREMENT_ID: '',
         LOG_LEVEL: 'warn',
         QUEUE_PREFIX: E2E_QUEUE_PREFIX,
         // Sahte WordPress/webhook hedefleri ve sahte yapay zekâ (production'da yok sayılır)

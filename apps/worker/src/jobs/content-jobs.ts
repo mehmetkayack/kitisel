@@ -68,7 +68,7 @@ const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 
 function aiErrorCode(err: unknown): string {
   if (err instanceof AIError) {
-    if (err.code === 'not_configured' || err.code === 'not_implemented') return 'ai_not_configured';
+    if (err.code === 'not_configured' || err.code === 'rejected' || err.code === 'not_implemented') return 'ai_not_configured';
     if (err.code === 'budget_exceeded') return 'ai_budget';
     if (err.code === 'blocked') return 'ai_blocked';
     if (err.code === 'invalid_output') return 'ai_invalid_output';
@@ -216,7 +216,7 @@ export async function generateArticle(deps: ContentDeps, data: ContentJobData, r
       research = { notes: res.data.text, sources: res.data.sources };
     } catch (err) {
       // Araştırma isteğe bağlı: Google Search kotası yoksa (ücretsiz katman) not olmadan yazılır.
-      if (err instanceof AIError && err.code === 'not_configured') throw err;
+      if (err instanceof AIError && (err.code === 'not_configured' || err.code === 'rejected')) throw err;
       log.warn({ err }, 'research failed, continuing without notes');
     }
 

@@ -23,7 +23,7 @@ export type AnalysisPhase = (typeof ANALYSIS_PHASES)[number];
 /** Analiz hatası nedenleri (`locales/*\/sites.json > analysisErrors`). */
 export const ANALYSIS_ERRORS = ['unreachable', 'blocked', 'not_html', 'http_error', 'internal'] as const;
 /** Konu önerisi hatası nedenleri (`locales/*\/sites.json > topicsErrors`). */
-export const TOPICS_ERRORS = ['ai_not_configured', 'ai_budget', 'ai_unavailable', 'internal'] as const;
+export const TOPICS_ERRORS = ['ai_not_configured', 'ai_rejected', 'ai_budget', 'ai_unavailable', 'internal'] as const;
 /** Mevcut yazı eşitleme hataları (`locales/*\/sites.json > posts.errors`); bağlantı hataları `publish_*` kodlarıyla. */
 export const POSTS_SYNC_ERRORS = ['not_supported', 'not_connected', 'stalled', 'internal'] as const;
 /** Mevcut yazıları okuyabildiğimiz bağlantılar */

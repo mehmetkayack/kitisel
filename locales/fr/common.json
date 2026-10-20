@@ -113,5 +113,13 @@
     "linkBody": "Le texte sélectionné pointera vers cette adresse. Laissez vide pour retirer le lien.",
     "linkUrl": "Adresse",
     "linkApply": "Appliquer"
+  },
+  "consent": {
+    "title": "Votre choix de cookies",
+    "body": "Nous aimerions utiliser les cookies de Google Analytics pour comprendre comment le site est utilisé. Ils ne sont pas chargés sans votre consentement ; le site fonctionne de la même façon.",
+    "policy": "Politique de cookies",
+    "accept": "Accepter",
+    "reject": "Refuser",
+    "settings": "Préférences de cookies"
   }
 }

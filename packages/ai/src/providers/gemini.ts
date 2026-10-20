@@ -85,8 +85,8 @@ export class GeminiProvider implements AIProvider {
     if (err instanceof AIError) return err;
     if (err instanceof ApiError) {
       if (err.status === 429) return new AIError('rate_limited', err.message, 30_000);
-      if (err.status === 400 || err.status === 404) return new AIError('not_configured', err.message);
-      if (err.status === 401 || err.status === 403) return new AIError('not_configured', err.message);
+      // Anahtar/model tanımlı ama sağlayıcı kabul etmiyor: "kurulu değil"den ayrı (panelde farklı mesaj)
+      if (err.status === 400 || err.status === 401 || err.status === 403 || err.status === 404) return new AIError('rejected', err.message);
       return new AIError('unavailable', err.message, 10_000);
     }
     // İstek zaman aşımı (abortSignal) — model yanıt vermiyor

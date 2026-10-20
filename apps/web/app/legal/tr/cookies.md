@@ -1,8 +1,8 @@
 # Çerez Politikası
 
-Son güncelleme: 12 Ekim 2026
+Son güncelleme: 21 Ekim 2026
 
-Çerezler, bir siteyi ziyaret ettiğinizde tarayıcınıza kaydedilen küçük dosyalardır. Kitisel ({{site}}) **sadece hizmetin çalışması için zorunlu çerezleri** kullanır. Reklam, takip veya analitik çerezi kullanmayız. Bu yüzden çerez onayı istemiyoruz. İleride analitik bir araç eklersek, açık onayınızı almadan yüklemeyeceğiz ve bu sayfayı güncelleyeceğiz.
+Çerezler, bir siteyi ziyaret ettiğinizde tarayıcınıza kaydedilen küçük dosyalardır. Kitisel ({{site}}) hizmetin çalışması için **zorunlu çerezleri** ve sadece onay verirseniz **analitik çerezleri** kullanır. Reklam çerezi kullanmayız.
 
 ## Kullandığımız çerezler
 
@@ -11,6 +11,16 @@ Son güncelleme: 12 Ekim 2026
 - **upvine_oauth:** Google ile girişte güvenlik doğrulaması için. Süre: 10 dakika.
 - **upvine_locale:** seçtiğiniz arayüz dilini hatırlar. Süre: 1 yıl.
 - **upvine_theme:** açık/koyu tema seçiminizi hatırlar. Süre: 1 yıl.
+- **upvine_consent:** analitik çerezlerle ilgili seçiminizi (kabul/ret) hatırlar. Süre: 6 ay; sonra yeniden sorarız.
+
+## Analitik çerezler (onayınızla)
+
+Sitenin tanıtım sayfalarında (ana sayfa, fiyatlar, blog gibi) ziyaretlerin nasıl gerçekleştiğini anlamak için **Google Analytics 4** (Google LLC, ABD) kullanırız. Bu çerezler, ilk ziyaretinizde açılan banttan **"Kabul et"** demediğiniz sürece yüklenmez. Reddederseniz site aynı şekilde çalışır. Müşteri panelinde ve yönetim panelinde analitik kullanılmaz.
+
+- **_ga:** ziyaretçileri birbirinden ayırmak için rastgele bir kimlik. Süre: 2 yıl.
+- **_ga_<kimlik>:** oturum bilgisini tutar. Süre: 2 yıl.
+
+Google Analytics'te IP adresleri saklanmaz, reklam ve kişiselleştirme özellikleri kapalıdır. Toplanan veriler (ziyaret edilen sayfalar, cihaz ve tarayıcı türü, yaklaşık konum, ziyaret süresi) Google'ın sunucularında, yurt dışında işlenir. Bu aktarım açık rızanıza dayanır. Onayınızı istediğiniz zaman sayfanın altındaki **"Çerez tercihleri"** bağlantısından geri alabilirsiniz; geri aldığınızda analitik çerezleri silinir.
 
 ## Üçüncü taraf çerezleri
 

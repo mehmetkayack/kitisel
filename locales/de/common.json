@@ -113,5 +113,13 @@
     "linkBody": "Der markierte Text wird mit dieser Adresse verlinkt. Leer lassen, um den Link zu entfernen.",
     "linkUrl": "Adresse",
     "linkApply": "Übernehmen"
+  },
+  "consent": {
+    "title": "Ihre Cookie-Auswahl",
+    "body": "Wir möchten Google-Analytics-Cookies verwenden, um zu verstehen, wie die Website genutzt wird. Ohne Ihre Zustimmung werden sie nicht geladen; die Website funktioniert genauso.",
+    "policy": "Cookie-Richtlinie",
+    "accept": "Akzeptieren",
+    "reject": "Ablehnen",
+    "settings": "Cookie-Einstellungen"
   }
 }

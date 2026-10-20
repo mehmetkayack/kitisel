@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 12 October 2026
+Last updated: 21 October 2026
 
 This policy explains which data we process when you use Kitisel ({{site}}), why, who we share it with and what your rights are. Kitisel is provided by {{companyName}}. Users in Türkiye can find additional information in the [KVKK Privacy Notice](/legal/kvkk).
 
@@ -30,7 +30,7 @@ We use Google LLC's Gemini API for article writing, topic suggestions and analys
 
 We don't sell your data or share it for advertising. We work with these service providers (sub-processors) to run the service:
 
-- **Google LLC (USA):** Gemini API (AI), Sign in with Google, Search Console API.
+- **Google LLC (USA):** Gemini API (AI), Sign in with Google, Search Console API and, if you agree, Google Analytics (visit statistics on marketing pages).
 - **Hosting provider:** {{hosting}}. Servers, database and backups are kept here.
 - **Email delivery service:** verification, password reset and notification emails.
 - **İyzi Ödeme ve Elektronik Para Hizmetleri A.Ş. (iyzico):** payment processing, once payments are available.
@@ -56,7 +56,7 @@ Connection details are encrypted with AES-256-GCM. Passwords are hashed with arg
 
 ## Cookies
 
-We only use cookies that the service needs to work. Details: [Cookie Policy](/legal/cookies).
+We use cookies the service needs to work and, only if you agree, Google Analytics cookies on marketing pages. Details: [Cookie Policy](/legal/cookies).
 
 ## Your rights
 

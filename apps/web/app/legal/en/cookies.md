@@ -1,8 +1,8 @@
 # Cookie Policy
 
-Last updated: 12 October 2026
+Last updated: 21 October 2026
 
-Cookies are small files saved in your browser when you visit a site. Kitisel ({{site}}) **only uses cookies that are strictly necessary for the service to work**. We don't use advertising, tracking or analytics cookies, so we don't ask for cookie consent. If we add an analytics tool in the future, we won't load it without your explicit consent and we will update this page.
+Cookies are small files saved in your browser when you visit a site. Kitisel ({{site}}) uses **strictly necessary cookies** for the service to work and, only if you agree, **analytics cookies**. We don't use advertising cookies.
 
 ## Cookies we use
 
@@ -11,6 +11,16 @@ Cookies are small files saved in your browser when you visit a site. Kitisel ({{
 - **upvine_oauth:** security check during Sign in with Google. Lifetime: 10 minutes.
 - **upvine_locale:** remembers your interface language. Lifetime: 1 year.
 - **upvine_theme:** remembers your light/dark theme choice. Lifetime: 1 year.
+- **upvine_consent:** remembers your analytics choice (accept/reject). Lifetime: 6 months; then we ask again.
+
+## Analytics cookies (with your consent)
+
+On the marketing pages (home, pricing, blog and similar) we use **Google Analytics 4** (Google LLC, USA) to understand how visits happen. These cookies are **not loaded unless you click "Accept"** in the banner shown on your first visit. If you reject, the site works the same. Analytics is not used in the customer app or the admin panel.
+
+- **_ga:** a random ID to tell visitors apart. Lifetime: 2 years.
+- **_ga_<id>:** keeps session state. Lifetime: 2 years.
+
+Google Analytics does not store IP addresses, and advertising and personalisation features are off. The data collected (pages visited, device and browser type, approximate location, visit duration) is processed on Google's servers outside your country, based on your explicit consent. You can withdraw consent at any time with the **"Cookie settings"** link at the bottom of the page; analytics cookies are then deleted.
 
 ## Third-party cookies
 

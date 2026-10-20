@@ -113,5 +113,13 @@
     "linkBody": "Seçili metin bu adrese bağlanır. Boş bırakırsanız link kaldırılır.",
     "linkUrl": "Adres",
     "linkApply": "Uygula"
+  },
+  "consent": {
+    "title": "Çerez tercihiniz",
+    "body": "Siteyi nasıl kullandığınızı anlamak için Google Analytics çerezlerini kullanmak istiyoruz. Onay vermezseniz yüklenmez; site aynı şekilde çalışır.",
+    "policy": "Çerez Politikası",
+    "accept": "Kabul et",
+    "reject": "Reddet",
+    "settings": "Çerez tercihleri"
   }
 }

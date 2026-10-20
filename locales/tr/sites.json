@@ -132,6 +132,7 @@
     "selected": "Seçilen konu: {{value}}",
     "errors": {
       "ai_not_configured": "Yapay zekâ hizmeti kurulu olmadığı için otomatik konu önerisi kapalı. Kendi konularınızı ekleyebilirsiniz.",
+      "ai_rejected": "Yapay zekâ servisi isteği kabul etmedi, bu yüzden konu önerilemedi. Kendi konularınızı ekleyebilir ya da biraz sonra tekrar deneyebilirsiniz.",
       "ai_budget": "Otomatik öneriler için bugünkü sınıra ulaştık. Yarın tekrar deneyin veya şimdi kendi konularınızı ekleyin.",
       "ai_unavailable": "Öneri hizmeti şu an yoğun. Lütfen birkaç dakika sonra tekrar deneyin.",
       "internal": "Konu önerirken bir sorun oluştu. Lütfen tekrar deneyin.",

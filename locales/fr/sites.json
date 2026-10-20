@@ -132,6 +132,7 @@
     "selected": "Sujets choisis : {{value}}",
     "errors": {
       "ai_not_configured": "Les suggestions automatiques de sujets sont désactivées, car le service d’IA n’est pas configuré. Vous pouvez ajouter vos propres sujets.",
+      "ai_rejected": "Le service d’IA n’a pas accepté la demande, nous n’avons donc pas pu suggérer de sujets. Vous pouvez ajouter vos propres sujets ou réessayer plus tard.",
       "ai_budget": "Nous avons atteint la limite du jour pour les suggestions automatiques. Réessayez demain ou ajoutez vos propres sujets dès maintenant.",
       "ai_unavailable": "Le service de suggestions est très sollicité en ce moment. Réessayez dans quelques minutes.",
       "internal": "Un problème est survenu pendant la suggestion des sujets. Réessayez.",
