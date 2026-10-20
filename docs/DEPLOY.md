@@ -31,7 +31,7 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-swap.conf && sudo sysctl --system
 ```
 
-İmajın derlenmesi (bir kez ayarlanır): kodu GitHub'da `main`'e push'layın; **Actions → Docker imajı**
+İmajın derlenmesi (bir kez ayarlanır): kodu GitHub'da `design/kitisel` (ya da `main`) dalına push'layın; **Actions → Docker imajı**
 iş akışı imajı `ghcr.io/mehmetkayack/kitisel:latest` olarak yayınlar. Turnstile/reCAPTCHA **site**
 anahtarlarını (gizli olmayanlar) depoda **Settings → Secrets and variables → Actions → Variables**
 altına `TURNSTILE_SITE_KEY` ve `RECAPTCHA_SITE_KEY` adıyla ekleyin; değiştirince iş akışını yeniden
@@ -123,7 +123,7 @@ Admin paneli: `https://<alan-adı>/admin`. Demo verisi (`db:seed`) production'da
 
 ## 7. Güncelleme
 
-Kodu `main`'e push'layın, **Actions → Docker imajı** bitince (yaklaşık 5–10 dk) sunucuda:
+Kodu `design/kitisel` dalına push'layın, **Actions → Docker imajı** bitince (yaklaşık 5–10 dk) sunucuda:
 
 ```bash
 cd /opt/kitisel

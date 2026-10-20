@@ -1,6 +1,6 @@
 name: Docker imajı
 
-# main'e her push'ta (ve elle) production imajını derler, GitHub Container Registry'ye koyar:
+# Yayın dalına (design/kitisel; ileride main) her push'ta (ve elle) production imajını derler, GitHub Container Registry'ye koyar:
 #   ghcr.io/<sahip>/<depo>:latest  ve  :<commit-sha>
 # Sunucu derlemez, sadece indirir (docs/DEPLOY.md). Web paketine gömülen herkese açık site anahtarları
 # depo ayarlarındaki Variables'tan gelir: Settings → Secrets and variables → Actions → Variables
@@ -8,7 +8,7 @@ name: Docker imajı
 
 on:
   push:
-    branches: [main]
+    branches: [main, design/kitisel]
   workflow_dispatch:
 
 concurrency:
