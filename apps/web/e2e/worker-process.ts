@@ -21,6 +21,12 @@ export async function startE2EWorker(): Promise<() => Promise<void>> {
       E2E_FAKE_EXTERNALS: 'true',
       ENCRYPTION_KEY: E2E_ENCRYPTION_KEY,
       ARTICLE_QUOTA_OVERRIDE: '',
+      // E-postalar yerel Mailpit'e (geliştiricinin .env'indeki gerçek SMTP kullanılmaz)
+      SMTP_HOST: '127.0.0.1',
+      SMTP_PORT: '1025',
+      SMTP_SECURE: 'false',
+      SMTP_USER: '',
+      SMTP_PASSWORD: '',
     },
     stdio: ['ignore', 'pipe', 'pipe'],
   });

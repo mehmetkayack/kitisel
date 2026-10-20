@@ -41,6 +41,8 @@ export const ERROR_CODES = [
   'post_changed',
   'regeneration_limit',
   'rewrite_limit',
+  'slug_taken',
+  'captcha_low_score',
 ] as const;
 
 export type ErrorCode = (typeof ERROR_CODES)[number];

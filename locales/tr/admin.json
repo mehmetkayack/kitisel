@@ -14,7 +14,9 @@
     "invoices": "Kesilecek faturalar",
     "queues": "İş kuyrukları",
     "aiCosts": "Yapay zekâ maliyetleri",
-    "flags": "Prompt'lar ve özellik bayrakları"
+    "flags": "Prompt'lar ve özellik bayrakları",
+    "messages": "Mesajlar",
+    "blog": "Blog"
   },
   "overview": {
     "title": "Genel Bakış",
@@ -176,6 +178,99 @@
       "starter": "Starter",
       "growth": "Growth",
       "agency": "Agency"
+    }
+  },
+  "messages": {
+    "title": "Mesajlar",
+    "description": "İletişim formundan gelen mesajlar. Açtığınız yeni mesaj okundu olarak işaretlenir.",
+    "searchPlaceholder": "Ad, e-posta veya şirket",
+    "filter": "Göster",
+    "filters": {
+      "inbox": "Gelen kutusu",
+      "new": "Yeni",
+      "read": "Okunan",
+      "archived": "Arşiv"
+    },
+    "date": "Tarih",
+    "name": "Ad soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "company": "Şirket",
+    "message": "Mesaj",
+    "statusLabel": "Durum",
+    "status": {
+      "new": "Yeni",
+      "read": "Okundu",
+      "archived": "Arşivde"
+    },
+    "empty": "Henüz mesaj yok. İletişim formundan gelen mesajlar burada listelenir.",
+    "back": "Mesajlar",
+    "reply": "E-postayla yanıtla",
+    "replySubject": "Kitisel iletişim formu mesajınız",
+    "archive": "Arşivle",
+    "unarchive": "Arşivden çıkar",
+    "markUnread": "Okunmadı yap",
+    "saved": {
+      "new": "Okunmadı olarak işaretlendi.",
+      "read": "Arşivden çıkarıldı.",
+      "archived": "Mesaj arşivlendi."
+    },
+    "sender": "Gönderen",
+    "language": "Site dili",
+    "score": "reCAPTCHA puanı",
+    "scoreNone": "Doğrulama kapalı",
+    "readAt": "Okunma",
+    "unreadSr": "okunmamış mesaj"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Sitedeki blog yazıları. Her yazı tek bir dilde yayımlanır.",
+    "new": "Yeni yazı",
+    "newDescription": "Taslak olarak kaydedip kapak ekleyebilir, hazır olunca yayımlayabilirsiniz.",
+    "searchPlaceholder": "Başlık veya adres",
+    "language": "Dil",
+    "allLanguages": "Tüm diller",
+    "empty": "Henüz yazı yok. \"Yeni yazı\" ile ilk yazınızı ekleyin.",
+    "postTitle": "Başlık",
+    "statusLabel": "Durum",
+    "status": {
+      "draft": "Taslak",
+      "published": "Yayında"
+    },
+    "statusHint": "Taslak sitede görünmez.",
+    "publishedAt": "Yayın tarihi",
+    "updatedAt": "Son değişiklik",
+    "slug": "Adres",
+    "slugHint": "Sadece küçük harf, rakam ve tire. Yayından sonra değiştirmeyin; eski linkler çalışmaz.",
+    "excerpt": "Kısa özet",
+    "excerptHint": "Blog listesinde ve meta açıklama boşsa arama sonucunda görünür (en fazla 320 karakter).",
+    "body": "Yazı",
+    "seo": "Arama motoru",
+    "seoHint": "Boş bırakırsanız başlık ve kısa özet kullanılır.",
+    "metaTitle": "Meta başlık",
+    "metaDescription": "Meta açıklama",
+    "save": "Kaydet",
+    "savedDraft": "Taslak kaydedildi.",
+    "savedPublished": "Yazı kaydedildi ve yayında.",
+    "delete": "Yazıyı sil",
+    "deleteTitle": "Bu yazı silinsin mi?",
+    "deleteBody": "Yazı sitede görünmez olur ve listeden kalkar. Adresi yeni bir yazıda kullanılabilir.",
+    "deleted": "Yazı silindi.",
+    "view": "Sitede gör",
+    "back": "Blog",
+    "cover": {
+      "title": "Kapak görseli",
+      "hint": "JPEG, PNG, WebP veya AVIF; en az 600×300 px, en fazla 10 MB. Görsel kırpılmaz, 1600 px genişliğe küçültülür.",
+      "file": "Görsel dosyası",
+      "alt": "Alternatif metin",
+      "altHint": "Görseli göremeyenler için kısa açıklama.",
+      "invalid": "Bu dosya kullanılamıyor. En az 600×300 px, en fazla 10 MB bir JPEG, PNG, WebP veya AVIF seçin.",
+      "upload": "Kapağı yükle",
+      "replace": "Kapağı değiştir",
+      "remove": "Kapağı kaldır",
+      "saved": "Kapak kaydedildi.",
+      "removed": "Kapak kaldırıldı.",
+      "saveFirst": "Kapak görseli eklemek için önce yazıyı kaydedin."
     }
   }
 }

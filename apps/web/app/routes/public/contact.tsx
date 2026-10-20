@@ -6,6 +6,7 @@ import { data, Link } from 'react-router';
 import { isLocale } from '@upvine/config';
 import { Card, CardContent } from '@upvine/ui';
 import type { Route } from './+types/contact';
+import { ContactForm } from '../../components/marketing/contact-form';
 import { fixedT } from '../../lib/i18n';
 import { usePublicLayoutData } from '../../lib/public-layout';
 
@@ -32,65 +33,77 @@ function Row({ icon: Icon, label, children }: { icon: LucideIcon; label: string;
   );
 }
 
-/** İletişim: satıcı unvanı, adres, vergi bilgileri, e-posta ve telefon (`LEGAL_*`). */
+/**
+ * İletişim: form (reCAPTCHA v3, mesajlar admin panelinde) ve satıcı bilgileri: unvan, adres, e-posta ve
+ * telefon (`LEGAL_*`).
+ */
 export default function ContactPage({ params }: Route.ComponentProps) {
   const { t } = useTranslation('marketing');
   const { company } = usePublicLayoutData();
   const missing = (key: string) => `[${t(`legal.missing.${key}`)}]`;
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-12 sm:px-6">
-      <h1 className="text-3xl font-bold text-ink sm:text-4xl">{t('contact.title')}</h1>
-      <p className="measure text-ink-muted">{t('contact.body')}</p>
-      <Card>
-        <CardContent className="flex flex-col gap-5">
-          <h2 className="text-lg font-semibold text-ink">{company.name ?? missing('companyName')}</h2>
-          <Row icon={Mail} label={t('contact.email')}>
-            {company.email ? (
-              <a href={`mailto:${company.email}`} className="inline-flex min-h-11 items-center font-medium text-primary hover:underline">
-                {company.email}
-              </a>
-            ) : (
-              missing('email')
-            )}
-          </Row>
-          <Row icon={Phone} label={t('contact.phone')}>
-            {company.phone ? (
-              <a href={`tel:${company.phone.replace(/\s+/g, '')}`} className="inline-flex min-h-11 items-center font-medium text-primary hover:underline">
-                {company.phone}
-              </a>
-            ) : (
-              missing('phone')
-            )}
-          </Row>
-          <Row icon={MapPin} label={t('contact.address')}>
-            {company.address ?? missing('address')}
-          </Row>
-          <dl className="grid gap-x-6 gap-y-2 border-t border-border pt-4 text-sm sm:grid-cols-[auto_1fr]">
-            <dt className="text-ink-muted">{t('contact.tax')}</dt>
-            <dd className="text-ink">
-              {company.taxOffice ?? missing('taxOffice')} / {company.taxNumber ?? missing('taxNumber')}
-            </dd>
-            {company.mersis ? (
-              <>
-                <dt className="text-ink-muted">{t('contact.mersis')}</dt>
-                <dd className="text-ink">{company.mersis}</dd>
-              </>
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6">
+      <div className="flex flex-col gap-3">
+        <h1 className="text-3xl font-bold text-ink sm:text-4xl">{t('contact.title')}</h1>
+        <p className="measure text-ink-muted">{t('contact.body')}</p>
+      </div>
+      <div className="grid items-start gap-6 lg:grid-cols-[1.5fr_1fr]">
+        <Card>
+          <CardContent className="flex flex-col gap-5">
+            <h2 className="text-xl font-semibold text-ink">{t('contact.form.title')}</h2>
+            <ContactForm locale={params.locale} />
+          </CardContent>
+        </Card>
+        <Card className="bg-surface-muted">
+          <CardContent className="flex flex-col gap-5">
+            <h2 className="text-lg font-semibold text-ink">{company.name ?? missing('companyName')}</h2>
+            <Row icon={MapPin} label={t('contact.address')}>
+              {company.address ?? missing('address')}
+            </Row>
+            <Row icon={Mail} label={t('contact.email')}>
+              {company.email ? (
+                <a href={`mailto:${company.email}`} className="inline-flex min-h-11 items-center font-medium text-primary hover:underline">
+                  {company.email}
+                </a>
+              ) : (
+                missing('email')
+              )}
+            </Row>
+            <Row icon={Phone} label={t('contact.phone')}>
+              {company.phone ? (
+                <a href={`tel:${company.phone.replace(/\s+/g, '')}`} className="inline-flex min-h-11 items-center font-medium text-primary hover:underline">
+                  {company.phone}
+                </a>
+              ) : (
+                missing('phone')
+              )}
+            </Row>
+            {/* MERSİS ve KEP sadece doluysa (vergi bilgileri bu sayfada gösterilmez) */}
+            {company.mersis || company.kep ? (
+              <dl className="grid gap-x-6 gap-y-2 border-t border-border pt-4 text-sm sm:grid-cols-[auto_1fr]">
+                {company.mersis ? (
+                  <>
+                    <dt className="text-ink-muted">{t('contact.mersis')}</dt>
+                    <dd className="text-ink">{company.mersis}</dd>
+                  </>
+                ) : null}
+                {company.kep ? (
+                  <>
+                    <dt className="text-ink-muted">{t('contact.kep')}</dt>
+                    <dd className="break-words text-ink">{company.kep}</dd>
+                  </>
+                ) : null}
+              </dl>
             ) : null}
-            {company.kep ? (
-              <>
-                <dt className="text-ink-muted">{t('contact.kep')}</dt>
-                <dd className="break-words text-ink">{company.kep}</dd>
-              </>
-            ) : null}
-          </dl>
-        </CardContent>
-      </Card>
-      <p className="measure text-sm text-ink-muted">
-        {t('contact.privacy')}{' '}
-        <Link to={`/${params.locale}/legal/kvkk`} className="font-medium text-primary hover:underline">
-          {t('legal.docs.kvkk')}
-        </Link>
-      </p>
+            <p className="border-t border-border pt-4 text-sm text-ink-muted">
+              {t('contact.privacy')}{' '}
+              <Link to={`/${params.locale}/legal/kvkk`} className="font-medium text-primary hover:underline">
+                {t('legal.docs.kvkk')}
+              </Link>
+            </p>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

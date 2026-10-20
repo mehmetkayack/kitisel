@@ -14,7 +14,9 @@
     "invoices": "Invoices to issue",
     "queues": "Job queues",
     "aiCosts": "AI costs",
-    "flags": "Prompts and feature flags"
+    "flags": "Prompts and feature flags",
+    "messages": "Messages",
+    "blog": "Blog"
   },
   "overview": {
     "title": "Overview",
@@ -176,6 +178,99 @@
       "starter": "Starter",
       "growth": "Growth",
       "agency": "Agency"
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "description": "Messages from the contact form. A new message is marked as read when you open it.",
+    "searchPlaceholder": "Name, email or company",
+    "filter": "Show",
+    "filters": {
+      "inbox": "Inbox",
+      "new": "New",
+      "read": "Read",
+      "archived": "Archive"
+    },
+    "date": "Date",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "company": "Company",
+    "message": "Message",
+    "statusLabel": "Status",
+    "status": {
+      "new": "New",
+      "read": "Read",
+      "archived": "Archived"
+    },
+    "empty": "No messages yet. Messages from the contact form appear here.",
+    "back": "Messages",
+    "reply": "Reply by email",
+    "replySubject": "Your message to Kitisel",
+    "archive": "Archive",
+    "unarchive": "Move to inbox",
+    "markUnread": "Mark as unread",
+    "saved": {
+      "new": "Marked as unread.",
+      "read": "Moved to inbox.",
+      "archived": "Message archived."
+    },
+    "sender": "Sender",
+    "language": "Site language",
+    "score": "reCAPTCHA score",
+    "scoreNone": "Verification off",
+    "readAt": "Opened",
+    "unreadSr": "unread messages"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Blog posts on the website. Each post is published in one language.",
+    "new": "New post",
+    "newDescription": "Save it as a draft, add a cover and publish when it’s ready.",
+    "searchPlaceholder": "Title or address",
+    "language": "Language",
+    "allLanguages": "All languages",
+    "empty": "No posts yet. Add your first one with \"New post\".",
+    "postTitle": "Title",
+    "statusLabel": "Status",
+    "status": {
+      "draft": "Draft",
+      "published": "Published"
+    },
+    "statusHint": "Drafts aren’t visible on the site.",
+    "publishedAt": "Published",
+    "updatedAt": "Last changed",
+    "slug": "Address",
+    "slugHint": "Lowercase letters, numbers and hyphens only. Don’t change it after publishing; old links will break.",
+    "excerpt": "Short summary",
+    "excerptHint": "Shown in the blog list and in search results when the meta description is empty (up to 320 characters).",
+    "body": "Post",
+    "seo": "Search engines",
+    "seoHint": "If left empty, the title and short summary are used.",
+    "metaTitle": "Meta title",
+    "metaDescription": "Meta description",
+    "save": "Save",
+    "savedDraft": "Draft saved.",
+    "savedPublished": "Post saved and published.",
+    "delete": "Delete post",
+    "deleteTitle": "Delete this post?",
+    "deleteBody": "The post disappears from the site and the list. Its address can be used for a new post.",
+    "deleted": "Post deleted.",
+    "view": "View on site",
+    "back": "Blog",
+    "cover": {
+      "title": "Cover image",
+      "hint": "JPEG, PNG, WebP or AVIF; at least 600×300 px, up to 10 MB. The image isn’t cropped; it’s resized to 1600 px wide.",
+      "file": "Image file",
+      "alt": "Alt text",
+      "altHint": "A short description for people who can’t see the image.",
+      "invalid": "This file can’t be used. Choose a JPEG, PNG, WebP or AVIF of at least 600×300 px and up to 10 MB.",
+      "upload": "Upload cover",
+      "replace": "Replace cover",
+      "remove": "Remove cover",
+      "saved": "Cover saved.",
+      "removed": "Cover removed.",
+      "saveFirst": "Save the post first to add a cover image."
     }
   }
 }

@@ -13,6 +13,7 @@ await build({
   target: 'node24',
   sourcemap: true,
   external,
-  banner: { js: "import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);" },
+  // Kaynak kodda da `createRequire` içe aktarılabildiği için takma adla (aksi hâlde "already been declared")
+  banner: { js: "import { createRequire as __bundleCreateRequire } from 'node:module'; const require = __bundleCreateRequire(import.meta.url);" },
 });
 console.warn('✓ worker built → dist/index.js');

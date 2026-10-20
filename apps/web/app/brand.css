@@ -56,3 +56,8 @@
     letter-spacing: -0.01em;
   }
 }
+
+/* reCAPTCHA v3 rozeti: gizli, iletişim formunun altında kullanım bilgisi gösterilir (Google'ın izin verdiği yöntem) */
+.grecaptcha-badge {
+  visibility: hidden;
+}

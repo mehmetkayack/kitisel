@@ -3,22 +3,21 @@ import {
   BarChart3,
   Bot,
   CalendarCheck,
+  Check,
   CheckCircle2,
   FileSearch,
   Globe2,
   Minus,
   PenLine,
-  Search,
   ShieldCheck,
-  Sparkles,
   UploadCloud,
   X,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { isLocale } from '@upvine/config';
-import { Badge, Button, StatCard, StatusBadge, cn } from '@upvine/ui';
+import { Button, StatCard, StatusBadge, cn } from '@upvine/ui';
 import type { ContentStatus } from '@upvine/ui';
 import type { Route } from './+types/home';
 import { FreeAnalysisForm } from '../../components/free-analysis-form';
@@ -49,43 +48,51 @@ export function meta({ params }: Route.MetaArgs) {
 
 function Hero({ locale }: { locale: string }) {
   const { t } = useTranslation('marketing');
-  const tAnalysis = useTranslation('analysis').t;
   return (
     <section className="bg-night text-night-foreground">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-        <div className="flex min-w-0 flex-col gap-5 text-center lg:text-left">
-          <Badge
-            tone="neutral"
-            className="self-center bg-night-2 whitespace-normal text-brand-light lg:self-start"
-          >
-            <Sparkles aria-hidden />
+      <div className="mx-auto grid w-full max-w-[75rem] items-center gap-10 px-4 pt-10 pb-16 sm:px-6 sm:pt-16 sm:pb-24 lg:grid-cols-[1.4fr_1fr]">
+        <div className="flex min-w-0 flex-col gap-6">
+          <span className="self-start rounded-full bg-night-2 px-3 py-1 text-sm font-semibold text-brand-light">
             {t('hero.badge')}
-          </Badge>
-          <h1 className="text-4xl leading-[1.08] text-night-foreground sm:text-5xl">
-            {t('hero.title')}
+          </span>
+          <h1 className="text-[2.6rem] leading-[1.04] text-wrap text-night-foreground sm:text-6xl lg:text-[4.25rem]">
+            <Trans
+              t={t}
+              i18nKey="hero.title"
+              components={{ accent: <span className="text-brand-light" /> }}
+            />
           </h1>
-          <p className="measure mx-auto text-lg text-night-text lg:mx-0">{t('hero.subtitle')}</p>
-          <ul className="mx-auto flex flex-col gap-2 text-left text-sm text-night-text lg:mx-0">
+          <p className="measure text-lg text-night-text">{t('hero.subtitle')}</p>
+          {/* Tek ana eylem: ücretsiz analiz (başlıktaki "Ücretsiz analiz" buraya iner) */}
+          <div id="analiz" className="scroll-mt-6">
+            <FreeAnalysisForm locale={locale} variant="hero" />
+          </div>
+          <ul className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-night-muted">
             {(['point1', 'point2', 'point3'] as const).map((k) => (
-              <li key={k} className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-brand-light" aria-hidden />
+              <li key={k} className="inline-flex items-center gap-1.5">
+                <Check className="size-4 shrink-0 text-night-muted" aria-hidden />
                 {t(`hero.${k}`)}
               </li>
             ))}
           </ul>
         </div>
-        <div className="flex min-w-0 flex-col gap-3">
-          {/* Tek ana eylem: ücretsiz analiz, kayıt gerekmez (Bölüm 6.6) */}
-          <FreeAnalysisForm locale={locale} compact />
-          <p className="text-center text-sm text-night-text">
-            {t('hero.or')}{' '}
-            <Link
-              to={`/${locale}/signup`}
-              className="font-semibold text-brand-light underline-offset-4 hover:underline"
-            >
-              {tAnalysis('home.secondary')}
-            </Link>
-          </p>
+        <div className="flex min-w-0 flex-col items-center">
+          {/* Örnek ekran kartı + Kit: sayfadaki tek büyük maskot (marka kuralı) */}
+          <div className="relative z-10 flex flex-col gap-1 self-center rounded-card bg-surface px-4 py-3 text-ink shadow-popover lg:self-start lg:ml-6">
+            <span className="inline-flex items-center gap-1 text-sm font-semibold text-growth-text">
+              <Check className="size-4" aria-hidden />
+              {t('hero.cardStatus')}
+            </span>
+            <span className="font-semibold">{t('hero.cardText')}</span>
+            <span className="text-xs text-ink-subtle">{t('hero.cardNote')}</span>
+          </div>
+          <img
+            src="/brand/kit-ariyor.svg"
+            alt=""
+            width={164}
+            height={158}
+            className="-mt-2 h-auto w-72 sm:w-80"
+          />
         </div>
       </div>
     </section>
@@ -94,36 +101,52 @@ function Hero({ locale }: { locale: string }) {
 
 function HowItWorks() {
   const { t } = useTranslation('marketing');
-  const steps: { key: string; icon: LucideIcon }[] = [
-    { key: 'step1', icon: Search },
-    { key: 'step2', icon: CalendarCheck },
-    { key: 'step3', icon: UploadCloud },
-  ];
   return (
     <section
+      id="nasil"
       aria-labelledby="how"
-      className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16"
+      className="mx-auto flex w-full max-w-6xl scroll-mt-6 flex-col gap-10 px-4 py-16 sm:px-6 sm:py-20"
     >
-      <SectionHeading id="how" eyebrow={t('how.eyebrow')} title={t('how.title')} />
+      <SectionHeading id="how" eyebrow={t('how.eyebrow')} title={t('how.title')} align="left" />
       <ol className="grid gap-6 md:grid-cols-3">
-        {steps.map((s, i) => (
+        {(['step1', 'step2', 'step3'] as const).map((key, i) => (
           <li
-            key={s.key}
+            key={key}
             className="flex flex-col gap-3 rounded-card border border-border bg-surface p-6"
           >
-            <div className="flex items-center gap-3">
-              <span className="flex size-10 items-center justify-center rounded-full bg-primary-soft text-primary">
-                <s.icon className="size-5" aria-hidden />
-              </span>
-              <span className="text-sm font-semibold text-ink-muted">
-                {t('how.stepLabel', { value: i + 1 })}
-              </span>
-            </div>
-            <h3 className="text-lg font-semibold text-ink">{t(`how.${s.key}.title`)}</h3>
-            <p className="text-ink-muted">{t(`how.${s.key}.body`)}</p>
+            <span
+              aria-hidden
+              className="flex size-9 items-center justify-center rounded-control bg-primary-soft font-bold text-primary"
+            >
+              {i + 1}
+            </span>
+            <h3 className="text-lg font-bold text-ink">{t(`how.${key}.title`)}</h3>
+            <p className="text-sm text-ink-muted">{t(`how.${key}.body`)}</p>
           </li>
         ))}
       </ol>
+    </section>
+  );
+}
+
+/** "Neden Kitisel?" krem panel (tasarım): dört kısa güvence. */
+function WhyKitisel() {
+  const { t } = useTranslation('marketing');
+  return (
+    <section aria-labelledby="why" className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6 sm:pb-20">
+      <div className="flex flex-col gap-8 rounded-[28px] border border-border bg-primary-soft p-8 sm:p-12">
+        <h2 id="why" className="text-3xl tracking-tight text-ink">
+          {t('why.title')}
+        </h2>
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {(['verified', 'refresh', 'yours', 'noCredits'] as const).map((k) => (
+            <li key={k} className="flex flex-col gap-2">
+              <h3 className="font-bold text-ink">{t(`why.${k}.title`)}</h3>
+              <p className="text-sm text-ink-muted">{t(`why.${k}.body`)}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
@@ -200,7 +223,7 @@ function Comparison() {
       aria-labelledby="compare"
       className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16"
     >
-      <SectionHeading id="compare" eyebrow={t('compare.eyebrow')} eyebrowLang="en" title={t('compare.title')} />
+      <SectionHeading id="compare" eyebrow={t('compare.eyebrow')} title={t('compare.title')} />
       <div className="overflow-x-auto rounded-card border border-border bg-surface">
         <table className="w-full min-w-[640px] border-collapse text-left">
           <caption className="sr-only">{t('compare.title')}</caption>
@@ -337,51 +360,56 @@ function FinalCta({ locale }: { locale: string }) {
   const { t } = useTranslation('marketing');
   const tAnalysis = useTranslation('analysis').t;
   return (
-    <section aria-labelledby="final" className="mx-auto w-full max-w-6xl px-4 py-16">
-      <div className="flex flex-col items-center gap-8 rounded-[28px] bg-night px-6 py-10 text-center text-night-foreground sm:flex-row sm:px-12 sm:text-left">
-        {/* Kit: sayfadaki tek büyük maskot (marka kuralı) */}
-        <img
-          src="/brand/kit-buldu.svg"
-          alt=""
-          width={164}
-          height={158}
-          className="h-32 w-auto shrink-0 sm:h-40"
-        />
-        <div className="flex min-w-0 flex-1 flex-col items-center gap-4 sm:items-start">
-          <h2 id="final" className="text-2xl tracking-tight text-night-foreground sm:text-4xl">
-            {t('final.title')}
+    <section
+      aria-labelledby="final"
+      className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-20"
+    >
+      <div className="flex flex-col gap-8 rounded-[28px] bg-night px-6 py-10 text-night-foreground sm:px-12 sm:py-14 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex min-w-0 flex-col gap-3">
+          <h2 id="final" className="text-3xl tracking-tight text-night-foreground sm:text-5xl">
+            <Trans
+              t={t}
+              i18nKey="final.title"
+              components={{ accent: <span className="text-brand-light" /> }}
+            />
           </h2>
           <p className="measure text-night-text">{t('final.body')}</p>
-          <Button
-            asChild
-            variant="secondary"
-            size="lg"
-            className="h-auto border-transparent bg-brand py-3 whitespace-normal text-night hover:bg-brand-light"
-          >
-            <Link to={`/${locale}/free-analysis`}>
-              {tAnalysis('home.cta')}
-              <ArrowRight aria-hidden />
-            </Link>
-          </Button>
         </div>
+        <Button
+          asChild
+          size="lg"
+          className="h-auto shrink-0 self-start bg-brand py-3 whitespace-normal text-night hover:bg-brand-light lg:self-center"
+        >
+          <Link to={`/${locale}/free-analysis`}>
+            {tAnalysis('home.cta')}
+            <ArrowRight aria-hidden />
+          </Link>
+        </Button>
       </div>
     </section>
   );
 }
 
+/** Ana sayfada fiyatlar: tasarımdaki başlık ve alt satır */
+function HomePricing({ locale }: { locale: string }) {
+  const { t } = useTranslation('marketing');
+  return <Pricing locale={locale} title={t('pricing.homeTitle')} body={t('pricing.homeBody')} />;
+}
+
 /**
- * Pazarlama ana sayfası (Bölüm 6.6): Hero (ücretsiz analiz formu) → 3 adım → özellikler →
- * farklılaşma tablosu → panel önizlemesi → fiyatlar → SSS → son çağrı. Tek birincil eylem: analiz.
+ * Pazarlama ana sayfası (Bölüm 6.6, Kitisel tasarımı): Hero (analiz formu + Kit) → nasıl çalışır →
+ * Neden Kitisel → özellikler → karşılaştırma → panel önizlemesi → fiyatlar → SSS → son çağrı.
  */
 export default function Home({ params }: Route.ComponentProps) {
   return (
     <div className="flex w-full flex-col">
       <Hero locale={params.locale} />
       <HowItWorks />
+      <WhyKitisel />
       <Features />
       <Comparison />
       <PanelPreview />
-      <Pricing locale={params.locale} />
+      <HomePricing locale={params.locale} />
       <Faq />
       <FinalCta locale={params.locale} />
     </div>

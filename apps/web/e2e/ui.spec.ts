@@ -104,7 +104,7 @@ test('yasal sayfalar: alt bilgiden açılır, satıcı bilgisi yer tutucusu gör
 
   expect((await page.goto('/tr/legal/yok'))?.status()).toBe(404);
   await page.goto('/tr/pricing');
-  await expect(page.getByRole('heading', { level: 1, name: 'Sade fiyatlar, kredi hesabı yok' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Basit fiyatlar. Kredi yok, sürpriz yok.' })).toBeVisible();
   await page.goto('/tr/contact');
   await expect(page.getByRole('heading', { level: 1, name: 'İletişim' })).toBeVisible();
   await expectNoA11yViolations(page);

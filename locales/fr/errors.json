@@ -37,5 +37,7 @@
   "cms_update_failed": "L’article n’a pas pu être mis à jour sur votre site. Testez la connexion dans les Paramètres et réessayez.",
   "post_changed": "L’article a été modifié sur votre site après la préparation de cette suggestion. Nous ne l’avons pas appliquée pour ne pas perdre vos modifications ; demandez une nouvelle suggestion.",
   "regeneration_limit": "Vous pouvez réécrire cet article entièrement jusqu’à {{limit}} fois. Vous pouvez toujours le modifier dans l’éditeur ou réécrire les sections une par une.",
-  "rewrite_limit": "Vous avez atteint la limite de réécriture de sections ({{limit}}) pour cet article. Vous pouvez toujours modifier le texte dans l’éditeur."
+  "rewrite_limit": "Vous avez atteint la limite de réécriture de sections ({{limit}}) pour cet article. Vous pouvez toujours modifier le texte dans l’éditeur.",
+  "slug_taken": "Un article avec cette adresse existe déjà dans cette langue. Modifiez l’adresse puis enregistrez à nouveau.",
+  "captcha_low_score": "Votre message semblait automatisé et n’a pas pu être accepté. Réessayez dans quelques minutes ou écrivez-nous directement par e-mail."
 }

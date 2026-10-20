@@ -22,6 +22,8 @@ export const RATE_LIMITS = {
   siteAnalysis: { name: 'analysis', windowMs: 60 * 60_000, limit: 20 },
   /** Ücretsiz analiz: IP başına günde 3 (Bölüm 7.2) */
   freeAnalysis: { name: 'free', windowMs: 24 * 60 * 60_000, limit: 3 },
+  /** İletişim formu: IP başına saatte 5 mesaj */
+  contact: { name: 'contact', windowMs: 60 * 60_000, limit: 5 },
 } as const satisfies Record<string, RateLimitRule>;
 
 export type RateLimiterFactory = (rule: RateLimitRule) => RequestHandler;

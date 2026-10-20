@@ -37,5 +37,7 @@
   "cms_update_failed": "No se pudo actualizar la entrada en tu sitio. Prueba la conexión en Ajustes y vuelve a intentarlo.",
   "post_changed": "La entrada se cambió en tu sitio después de preparar esta sugerencia. No la aplicamos para no perder tus cambios; solicita una sugerencia nueva.",
   "regeneration_limit": "Puedes reescribir este artículo desde cero hasta {{limit}} veces. Aún puedes editarlo en el editor o reescribir secciones una a una.",
-  "rewrite_limit": "Has alcanzado el límite de reescritura de secciones ({{limit}}) para este artículo. Aún puedes editar el texto en el editor."
+  "rewrite_limit": "Has alcanzado el límite de reescritura de secciones ({{limit}}) para este artículo. Aún puedes editar el texto en el editor.",
+  "slug_taken": "Ya existe una entrada con esta dirección en este idioma. Cambia la dirección y vuelve a guardar.",
+  "captcha_low_score": "No pudimos aceptar tu mensaje porque parecía automático. Vuelve a intentarlo en unos minutos o escríbenos directamente por correo."
 }

@@ -7,6 +7,7 @@ import { AiUsageLog, BrandProfile, ContentItem, ExistingPage, Keyword, Site, Sit
 import { Article, ArticleImage, ArticleRewrite, ArticleVersion, FreeAnalysis, Publication, SiteCredential } from './content';
 import { AiVisibilityCheck, AiVisibilityPrompt, GscConnection, GscDailyMetric } from './results';
 import { ContentRefresh } from './refresh';
+import { BlogPost, ContactMessage } from './marketing';
 
 export { AuditLog, EmailVerification, Membership, Organization, PasswordReset, RefreshToken, User };
 export { AiUsageLog, BrandProfile, ContentItem, ExistingPage, Keyword, Site, SiteAudit };
@@ -14,6 +15,8 @@ export { Article, ArticleImage, ArticleRewrite, ArticleVersion, FreeAnalysis, Pu
 export { AiVisibilityCheck, AiVisibilityPrompt, GscConnection, GscDailyMetric };
 export type { SyncStatus } from './results';
 export { ContentRefresh };
+export { BlogPost, ContactMessage };
+export type { BlogPostStatus, ContactMessageStatus } from './marketing';
 export type { RefreshChange, RefreshOriginal, RefreshStatus, RefreshSuggestion } from './refresh';
 export { CREDENTIAL_KINDS } from './content';
 export type { ArticleFaq, ArticleVersionSource, CredentialKind, FreeAnalysisStatus, RewriteStatus } from './content';
@@ -67,6 +70,8 @@ export function initModels(sequelize: Sequelize): void {
   AiVisibilityPrompt.initModel(sequelize);
   AiVisibilityCheck.initModel(sequelize);
   ContentRefresh.initModel(sequelize);
+  ContactMessage.initModel(sequelize);
+  BlogPost.initModel(sequelize);
 
   Membership.belongsTo(Organization, { foreignKey: 'organizationId', as: 'organization' });
   Membership.belongsTo(User, { foreignKey: 'userId', as: 'user' });

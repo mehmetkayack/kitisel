@@ -1,6 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import type { ReactNode } from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { PLAN_CODES, PLANS } from '@upvine/config';
 import type { BillingInterval, PlanCode } from '@upvine/config';
@@ -15,18 +16,26 @@ export function SectionHeading({
   as: Heading = 'h2',
   onDark = false,
   eyebrowLang,
+  align = 'center',
 }: {
   id: string;
   eyebrow: string;
-  title: string;
-  body?: string;
+  title: ReactNode;
+  body?: ReactNode;
   as?: 'h1' | 'h2';
   onDark?: boolean;
+  /** Tasarımda "Nasıl çalışır" sola, diğerleri ortaya hizalı */
+  align?: 'center' | 'left';
   /** Üst başlık marka adını içeriyorsa 'en': büyük harfte Türkçe İ çıkmasın (KITISEL) */
   eyebrowLang?: string;
 }) {
   return (
-    <div className="mx-auto flex max-w-2xl flex-col items-center gap-3 text-center">
+    <div
+      className={cn(
+        'flex max-w-2xl flex-col gap-3',
+        align === 'center' ? 'mx-auto items-center text-center' : 'items-start text-left',
+      )}
+    >
       <span
         lang={eyebrowLang}
         className={cn(
@@ -38,7 +47,10 @@ export function SectionHeading({
       </span>
       <Heading
         id={id}
-        className={cn('text-3xl tracking-tight sm:text-4xl', onDark ? 'text-night-foreground' : 'text-ink')}
+        className={cn(
+          'text-3xl tracking-tight sm:text-4xl lg:text-5xl',
+          onDark ? 'text-night-foreground' : 'text-ink',
+        )}
       >
         {title}
       </Heading>
@@ -53,8 +65,28 @@ export function SectionHeading({
  * Paketler ve fiyatlar (ana sayfa ve /pricing). Fiyatlar `PLANS`'tan; iptal/iade politikası fiyatların
  * hemen altında tek cümle + politika linki (Bölüm 6).
  */
-export function Pricing({ locale, asPage = false }: { locale: string; asPage?: boolean }) {
+export function Pricing({
+  locale,
+  asPage = false,
+  title,
+  body,
+}: {
+  locale: string;
+  asPage?: boolean;
+  /** Ana sayfada farklı başlık ve alt satır (tasarım) */
+  title?: ReactNode;
+  body?: ReactNode;
+}) {
   const { t } = useTranslation('marketing');
+  // Fiyat sayfası başlığında vurgulu kısım: koyu bantta açık turuncu
+  const heading = title ?? (
+    <Trans
+      t={t}
+      i18nKey="pricing.title"
+      components={{ accent: <span className={asPage ? 'text-brand-light' : 'text-primary'} /> }}
+    />
+  );
+  const subtitle = body ?? t('pricing.body');
   const [billing, setBilling] = useState<BillingInterval>('monthly');
   const money = (cents: number) =>
     new Intl.NumberFormat(locale, {
@@ -100,8 +132,8 @@ export function Pricing({ locale, asPage = false }: { locale: string; asPage?: b
             <SectionHeading
               id="pricing"
               eyebrow={t('pricing.eyebrow')}
-              title={t('pricing.title')}
-              body={t('pricing.body')}
+              title={heading}
+              body={subtitle}
               as="h1"
               onDark
             />
@@ -113,8 +145,8 @@ export function Pricing({ locale, asPage = false }: { locale: string; asPage?: b
           <SectionHeading
             id="pricing"
             eyebrow={t('pricing.eyebrow')}
-            title={t('pricing.title')}
-            body={t('pricing.body')}
+            title={heading}
+            body={subtitle}
           />
           {intervals}
         </>
@@ -181,11 +213,12 @@ export function Pricing({ locale, asPage = false }: { locale: string; asPage?: b
                         </li>
                       ))}
                     </ul>
+                    {/* Öne çıkan paket dolu buton, diğerleri ember çerçeveli (tasarım) */}
                     <Button
                       asChild
-                      variant="secondary"
+                      variant={code === featured ? 'primary' : 'secondary'}
                       block
-                      className="border-primary text-primary"
+                      className={code === featured ? undefined : 'border-primary text-primary'}
                     >
                       <Link to={`/${locale}/signup`}>{t('pricing.start')}</Link>
                     </Button>

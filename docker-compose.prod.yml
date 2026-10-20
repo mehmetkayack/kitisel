@@ -1,0 +1,150 @@
+# Kitisel production: tek sunucuda Docker Compose.
+#
+#   cp .env.production.example .env.production     # değerleri doldurun
+#   docker compose -f docker-compose.prod.yml --env-file .env.production up -d --build
+#
+# Küçük sunucuda (1-2 GB RAM) imaj derlenmez, GitHub Actions'ın derlediği imaj indirilir:
+#   APP_IMAGE=ghcr.io/<sahip>/<depo>:latest  (.env.production)  →  pull + up -d --no-build
+# Bellek ayarları 1 GB RAM + 2 GB swap için; daha büyük sunucuda .env.production'dan büyütün.
+#
+# Ayrıntılı kurulum, ilk yönetici, yedekleme ve güncelleme: docs/DEPLOY.md
+# Dışarıya sadece Caddy açılır (80/443, otomatik HTTPS). MySQL ve Redis sadece iç ağda.
+name: kitisel
+
+x-app: &app
+  image: ${APP_IMAGE:-kitisel-app:latest}
+  env_file: .env.production
+  environment: &app-env
+    NODE_ENV: production
+    MYSQL_HOST: mysql
+    MYSQL_PORT: '3306'
+    REDIS_URL: redis://redis:6379
+  restart: unless-stopped
+  logging:
+    driver: json-file
+    options: { max-size: 10m, max-file: '5' }
+
+services:
+  # Migration'lar: her `up`ta bir kez çalışır, bitmeden API ve worker başlamaz
+  migrate:
+    <<: *app
+    build:
+      context: .
+      dockerfile: docker/node.Dockerfile
+      args:
+        TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY:-}
+        RECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY:-}
+    command: ['node', 'packages/db/dist/cli.js', 'up']
+    restart: 'no'
+    depends_on:
+      mysql: { condition: service_healthy }
+
+  api:
+    <<: *app
+    command: ['node', 'apps/api/dist/index.js']
+    environment:
+      <<: *app-env
+      API_PORT: '4000'
+      NODE_OPTIONS: --max-old-space-size=${API_HEAP_MB:-192}
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+      redis: { condition: service_healthy }
+    healthcheck:
+      test: ['CMD', 'node', '-e', "fetch('http://127.0.0.1:4000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  worker:
+    <<: *app
+    command: ['node', 'apps/worker/dist/index.js']
+    environment:
+      <<: *app-env
+      # Tarama, görsel işleme (sharp) ve bilgi grafiği en çok belleği worker kullanır
+      NODE_OPTIONS: --max-old-space-size=${WORKER_HEAP_MB:-320}
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+      redis: { condition: service_healthy }
+
+  web:
+    <<: *app
+    working_dir: /app/apps/web
+    command: ['node', '../../node_modules/@react-router/serve/bin.cjs', './build/server/index.js']
+    environment:
+      <<: *app-env
+      PORT: '3000'
+      HOST: 0.0.0.0
+      NODE_OPTIONS: --max-old-space-size=${WEB_HEAP_MB:-160}
+      # Blog SSR yazıları API'den konteynerler arası okur
+      INTERNAL_API_URL: http://api:4000
+    depends_on:
+      api: { condition: service_healthy }
+    healthcheck:
+      test: ['CMD', 'node', '-e', "fetch('http://127.0.0.1:3000/en').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  caddy:
+    image: caddy:2.10.2-alpine
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+    environment:
+      DOMAIN: ${DOMAIN:?DOMAIN .env.production içinde tanımlı olmalı}
+      ACME_EMAIL: ${ACME_EMAIL:?ACME_EMAIL .env.production içinde tanımlı olmalı}
+    volumes:
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - web
+      - api
+
+  mysql:
+    image: mysql:8.4.11
+    restart: unless-stopped
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      # Düşük bellek (varsayılanlarla MySQL tek başına ~450 MB kullanır)
+      - --performance-schema=OFF
+      - --innodb-buffer-pool-size=${MYSQL_BUFFER_POOL:-128M}
+      - --innodb-log-buffer-size=8M
+      - --max-connections=40
+      - --table-open-cache=256
+      - --skip-name-resolve
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?MYSQL_ROOT_PASSWORD .env.production içinde tanımlı olmalı}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-kitisel}
+      MYSQL_USER: ${MYSQL_USER:?MYSQL_USER .env.production içinde tanımlı olmalı}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?MYSQL_PASSWORD .env.production içinde tanımlı olmalı}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 -uroot -p"$$MYSQL_ROOT_PASSWORD" --silent']
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  redis:
+    image: redis:7.4-alpine
+    restart: unless-stopped
+    # BullMQ: kalıcılık açık, bellek dolarsa anahtar silinmez (iş kaybolmasın)
+    command: ['redis-server', '--appendonly', 'yes', '--maxmemory', '${REDIS_MAXMEMORY:-96mb}', '--maxmemory-policy', 'noeviction']
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      retries: 10
+
+volumes:
+  mysql-data:
+  redis-data:
+  caddy-data:
+  caddy-config:

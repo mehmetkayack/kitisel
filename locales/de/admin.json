@@ -14,7 +14,9 @@
     "invoices": "Auszustellende Rechnungen",
     "queues": "Job-Warteschlangen",
     "aiCosts": "KI-Kosten",
-    "flags": "Prompts und Feature-Flags"
+    "flags": "Prompts und Feature-Flags",
+    "messages": "Nachrichten",
+    "blog": "Blog"
   },
   "overview": {
     "title": "Überblick",
@@ -176,6 +178,99 @@
       "starter": "Starter",
       "growth": "Growth",
       "agency": "Agency"
+    }
+  },
+  "messages": {
+    "title": "Nachrichten",
+    "description": "Nachrichten aus dem Kontaktformular. Eine neue Nachricht wird beim Öffnen als gelesen markiert.",
+    "searchPlaceholder": "Name, E-Mail oder Unternehmen",
+    "filter": "Anzeigen",
+    "filters": {
+      "inbox": "Posteingang",
+      "new": "Neu",
+      "read": "Gelesen",
+      "archived": "Archiv"
+    },
+    "date": "Datum",
+    "name": "Vollständiger Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "company": "Unternehmen",
+    "message": "Nachricht",
+    "statusLabel": "Status",
+    "status": {
+      "new": "Neu",
+      "read": "Gelesen",
+      "archived": "Archiviert"
+    },
+    "empty": "Noch keine Nachrichten. Nachrichten aus dem Kontaktformular erscheinen hier.",
+    "back": "Nachrichten",
+    "reply": "Per E-Mail antworten",
+    "replySubject": "Ihre Nachricht an Kitisel",
+    "archive": "Archivieren",
+    "unarchive": "In den Posteingang",
+    "markUnread": "Als ungelesen markieren",
+    "saved": {
+      "new": "Als ungelesen markiert.",
+      "read": "In den Posteingang verschoben.",
+      "archived": "Nachricht archiviert."
+    },
+    "sender": "Absender",
+    "language": "Sprache der Website",
+    "score": "reCAPTCHA-Wert",
+    "scoreNone": "Prüfung aus",
+    "readAt": "Gelesen",
+    "unreadSr": "ungelesene Nachrichten"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Blogbeiträge auf der Website. Jeder Beitrag erscheint in einer Sprache.",
+    "new": "Neuer Beitrag",
+    "newDescription": "Als Entwurf speichern, Titelbild hinzufügen und veröffentlichen, wenn er fertig ist.",
+    "searchPlaceholder": "Titel oder Adresse",
+    "language": "Sprache",
+    "allLanguages": "Alle Sprachen",
+    "empty": "Noch keine Beiträge. Fügen Sie mit „Neuer Beitrag“ den ersten hinzu.",
+    "postTitle": "Titel",
+    "statusLabel": "Status",
+    "status": {
+      "draft": "Entwurf",
+      "published": "Veröffentlicht"
+    },
+    "statusHint": "Entwürfe sind auf der Website nicht sichtbar.",
+    "publishedAt": "Veröffentlicht",
+    "updatedAt": "Zuletzt geändert",
+    "slug": "Adresse",
+    "slugHint": "Nur Kleinbuchstaben, Ziffern und Bindestriche. Nach der Veröffentlichung nicht ändern, sonst funktionieren alte Links nicht mehr.",
+    "excerpt": "Kurzfassung",
+    "excerptHint": "Erscheint in der Blogliste und in Suchergebnissen, wenn die Meta-Beschreibung leer ist (max. 320 Zeichen).",
+    "body": "Beitrag",
+    "seo": "Suchmaschinen",
+    "seoHint": "Leer gelassen werden Titel und Kurzfassung verwendet.",
+    "metaTitle": "Meta-Titel",
+    "metaDescription": "Meta-Beschreibung",
+    "save": "Speichern",
+    "savedDraft": "Entwurf gespeichert.",
+    "savedPublished": "Beitrag gespeichert und veröffentlicht.",
+    "delete": "Beitrag löschen",
+    "deleteTitle": "Diesen Beitrag löschen?",
+    "deleteBody": "Der Beitrag verschwindet von der Website und aus der Liste. Seine Adresse kann für einen neuen Beitrag verwendet werden.",
+    "deleted": "Beitrag gelöscht.",
+    "view": "Auf der Website ansehen",
+    "back": "Blog",
+    "cover": {
+      "title": "Titelbild",
+      "hint": "JPEG, PNG, WebP oder AVIF; mindestens 600×300 px, höchstens 10 MB. Das Bild wird nicht beschnitten, sondern auf 1600 px Breite verkleinert.",
+      "file": "Bilddatei",
+      "alt": "Alternativtext",
+      "altHint": "Kurze Beschreibung für Menschen, die das Bild nicht sehen.",
+      "invalid": "Diese Datei kann nicht verwendet werden. Wählen Sie ein JPEG, PNG, WebP oder AVIF mit mindestens 600×300 px und höchstens 10 MB.",
+      "upload": "Titelbild hochladen",
+      "replace": "Titelbild ersetzen",
+      "remove": "Titelbild entfernen",
+      "saved": "Titelbild gespeichert.",
+      "removed": "Titelbild entfernt.",
+      "saveFirst": "Speichern Sie den Beitrag zuerst, um ein Titelbild hinzuzufügen."
     }
   }
 }

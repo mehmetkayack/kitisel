@@ -37,5 +37,7 @@
   "cms_update_failed": "Yazı sitenizde güncellenemedi. Bağlantınızı Ayarlar'dan test edip tekrar deneyin.",
   "post_changed": "Yazı, öneri hazırlandıktan sonra sitenizde değiştirilmiş. Değişiklikleriniz kaybolmasın diye uygulamadık; güncel hâli için yeni öneri isteyin.",
   "regeneration_limit": "Bu yazıyı en fazla {{limit}} kez baştan yeniden yazdırabilirsiniz. Editörde düzenleyebilir ya da bölümleri tek tek yeniden yazdırabilirsiniz.",
-  "rewrite_limit": "Bu yazı için bölüm yeniden yazma sınırına ({{limit}}) ulaştınız. Metni editörde elle düzenleyebilirsiniz."
+  "rewrite_limit": "Bu yazı için bölüm yeniden yazma sınırına ({{limit}}) ulaştınız. Metni editörde elle düzenleyebilirsiniz.",
+  "slug_taken": "Bu dilde aynı adresle bir yazı zaten var. Adresi değiştirip tekrar kaydedin.",
+  "captcha_low_score": "Mesajınız otomatik gönderim gibi göründüğü için alınamadı. Birkaç dakika sonra tekrar deneyin ya da bize doğrudan e-posta gönderin."
 }

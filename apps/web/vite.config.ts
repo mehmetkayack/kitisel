@@ -12,12 +12,17 @@ export default defineConfig(({ mode }) => {
   // Yasal sayfaların satıcı bilgileri sunucuda (SSR) process.env'den okunur; geliştirmede kök .env'den.
   // Production'da web sunucusu ortam değişkenlerini doğrudan alır (tarayıcı paketine girmez).
   for (const [k, v] of Object.entries(env)) if (k.startsWith('LEGAL_') && process.env[k] === undefined) process.env[k] = v;
+  // Blog sayfaları SSR'da yazıları API'den okur (sunucudan sunucuya)
+  process.env.API_URL ??= apiUrl;
 
   return {
     plugins: [tailwindcss(), reactRouter()],
     cacheDir: env.VITE_CACHE_DIR || undefined,
     // Sadece herkese açık değerler (Turnstile site anahtarı gizli değildir; gizli anahtar API'de kalır).
-    define: { __TURNSTILE_SITE_KEY__: JSON.stringify(env.TURNSTILE_SITE_KEY ?? '') },
+    define: {
+      __TURNSTILE_SITE_KEY__: JSON.stringify(env.TURNSTILE_SITE_KEY ?? ''),
+      __RECAPTCHA_SITE_KEY__: JSON.stringify(env.RECAPTCHA_SITE_KEY ?? ''),
+    },
     resolve: { alias: workspaceAliases() },
     // İlk ziyarette 'yeni bağımlılık bulundu, sayfa yeniden yükleniyor' olmasın (e2e kararlılığı)
     optimizeDeps: {

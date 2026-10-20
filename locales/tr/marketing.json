@@ -4,29 +4,49 @@
     "description": "Kitisel web siteniz için SEO yazılarını araştırır, yazar, doğrular ve yayınlar; ardından Google'daki sıralarını takip eder."
   },
   "hero": {
-    "title": "Sizin için araştırılan, doğrulanan ve yayınlanan yazılarla web sitenizi büyütün",
-    "subtitle": "Kitisel konularınızı planlar, markanızın diliyle yazar, her bilgiyi doğrular ve sitenizde yayınlar. Kontrol her zaman sizde.",
-    "badge": "Ücretsiz site analizi, kayıt gerekmez",
-    "point1": "Sitenizin 25 noktalık teknik SEO kontrolü",
-    "point2": "Müşterilerinizin aradığı konular ve tahmini arama hacmi",
-    "point3": "Paylaşılabilir rapor, yaklaşık bir dakikada",
-    "or": "ya da"
+    "title": "Aramada <accent>bir adım önde.</accent>",
+    "subtitle": "Kitisel sitenizde aranan konuları bulur, bilgileri doğrulanmış makaleler yazar, görselleriyle birlikte yayınlar ve Google'daki sıranızı takip eder. Siz işinize bakarken.",
+    "badge": "Otomatik SEO içerik platformu",
+    "point1": "Kart gerekmez",
+    "point2": "60 saniyede sonuç",
+    "point3": "İstediğiniz an iptal",
+    "cardStatus": "Her şey yolunda",
+    "cardText": "Sıradaki yazı Perşembe 10:00'da yayında",
+    "cardNote": "Örnek ekran"
   },
   "how": {
     "eyebrow": "Nasıl çalışır",
-    "title": "3 adımda düzenli büyüyen bir blog",
-    "stepLabel": "{{value}}. adım",
+    "title": "Adresinizi verin, gerisini Kit halletsin.",
     "step1": {
-      "title": "Sitenizi analiz edelim",
-      "body": "Adresinizi girin; sitenizi tarar, markanızı tanır ve müşterilerinizin aradığı konuları çıkarırız."
+      "title": "Sitenizi tanır",
+      "body": "Markanızı, sektörünüzü ve mevcut yazılarınızı okur. Gerçek arama verisiyle müşterilerinizin aradığı konuları bulur."
     },
     "step2": {
-      "title": "Planı onaylayın",
-      "body": "Konular takviminize yerleşir. Her yazıyı yayından önce okuyabilir, düzenleyebilir ya da reddedebilirsiniz."
+      "title": "Yazar ve doğrular",
+      "body": "Markanızın sesiyle makaleyi yazar, her bilgiyi kaynağından kontrol eder, kapak görseli ve infografik hazırlar."
     },
     "step3": {
-      "title": "Yayınlansın, sonuçları izleyin",
-      "body": "Onaylanan yazılar sitenizde yayınlanır. Google'da görünme, tıklama ve sıralarınızı panelden takip edersiniz."
+      "title": "Yayınlar ve takip eder",
+      "body": "İsterseniz önce onayınıza sunar, sonra sitenize yayınlar. Google'daki sırasını her hafta ölçer ve size gösterir."
+    }
+  },
+  "why": {
+    "title": "Neden Kitisel?",
+    "verified": {
+      "title": "Doğrulanmış bilgiler",
+      "body": "Her sayı ve iddia yayından önce kaynağından kontrol edilir."
+    },
+    "refresh": {
+      "title": "Eski yazılarınızı da yeniler",
+      "body": "Sırası düşen sayfaları bulur ve güncel hâle getirir."
+    },
+    "yours": {
+      "title": "Her şey sizin sitenizde",
+      "body": "Yazılar ve görseller sizin sitenize yüklenir. Abonelik bitse de sizde kalır."
+    },
+    "noCredits": {
+      "title": "Kredi yok, sürpriz yok",
+      "body": "Net kotalar, tek tıkla iptal ve ilk 14 günde koşulsuz iade."
     }
   },
   "features": {
@@ -67,7 +87,7 @@
     }
   },
   "compare": {
-    "eyebrow": "Neden Kitisel",
+    "eyebrow": "Karşılaştırma",
     "title": "Diğer yollarla karşılaştırma",
     "criteria": "Ölçüt",
     "columns": {
@@ -112,15 +132,15 @@
   },
   "pricing": {
     "eyebrow": "Fiyatlar",
-    "title": "Sade fiyatlar, kredi hesabı yok",
-    "body": "Her pakette sabit aylık yazı hakkı. 7 gün ücretsiz deneyin.",
+    "title": "Basit fiyatlar. <accent>Kredi yok, sürpriz yok.</accent>",
+    "body": "Her pakette makale kotanız net. Paket ne kadar büyürse Kit o kadar sık yazar. İstediğiniz an iptal edersiniz.",
     "intervalLabel": "Ödeme sıklığı",
     "monthly": "Aylık",
     "yearly": "Yıllık (2 ay bedava)",
     "perMonth": "/ ay",
     "billedYearly": "Yıllık {{value}} olarak faturalanır",
     "popular": "En popüler",
-    "start": "Ücretsiz deneyin",
+    "start": "7 gün ücretsiz dene",
     "policy": "İstediğiniz zaman iptal edebilirsiniz; ilk ödemeden sonraki 14 gün içinde koşulsuz iade.",
     "plans": {
       "starter": {
@@ -147,7 +167,9 @@
       "aiVisibility": "Yapay zekâ görünürlük takibi"
     },
     "policyLink": "İptal ve iade politikası",
-    "exVat": "+KDV"
+    "exVat": "+KDV",
+    "homeTitle": "Bir ajansın küçük bir kısmı fiyatına.",
+    "homeBody": "7 gün deneme · 14 gün koşulsuz iade · Tek tıkla iptal"
   },
   "faq": {
     "eyebrow": "Sık sorulanlar",
@@ -178,8 +200,8 @@
     }
   },
   "final": {
-    "title": "Sitenizin bugün nerede durduğunu görün",
-    "body": "Ücretsiz analiz yaklaşık bir dakika sürer ve kayıt gerektirmez."
+    "title": "Siz uyurken, <accent>Kit çalışır.</accent>",
+    "body": "Sitenizin ücretsiz analiziyle başlayın. 60 saniyede ilk konu önerileriniz hazır."
   },
   "legal": {
     "title": "Yasal belgeler",
@@ -224,13 +246,46 @@
   "contact": {
     "metaTitle": "İletişim · Kitisel",
     "title": "İletişim",
-    "body": "Sorularınız, önerileriniz veya destek talepleriniz için bize e-postayla yazın. Genellikle 1 iş günü içinde yanıt veririz.",
+    "body": "Sorularınız, önerileriniz veya destek talepleriniz için formu doldurun ya da bize e-posta gönderin. Genellikle 1 iş günü içinde yanıt veririz.",
     "email": "E-posta",
     "phone": "Telefon",
     "address": "Adres",
-    "tax": "Vergi dairesi / numarası",
     "mersis": "MERSİS numarası",
     "kep": "KEP adresi",
-    "privacy": "Kişisel verileriniz hakkındaki başvurular için:"
+    "privacy": "Kişisel verileriniz hakkındaki başvurular için:",
+    "form": {
+      "title": "Bize yazın",
+      "name": "Ad soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "company": "Şirket",
+      "message": "Mesajınız",
+      "optional": "(isteğe bağlı)",
+      "consent": "Gönderdiğiniz bilgiler sadece talebinizi yanıtlamak için kullanılır.",
+      "submit": "Mesajı gönder",
+      "sentTitle": "Mesajınız bize ulaştı",
+      "sentBody": "Teşekkürler. Genellikle 1 iş günü içinde e-posta adresinize yanıt veririz.",
+      "another": "Yeni mesaj yaz",
+      "recaptcha": "Bu form Google reCAPTCHA ile korunur; Google’ın",
+      "googlePrivacy": "Gizlilik Politikası",
+      "googleTerms": "Hizmet Şartları geçerlidir"
+    }
+  },
+  "blog": {
+    "metaTitle": "Blog · Kitisel",
+    "eyebrow": "Kitisel blog",
+    "title": "Aramada öne çıkmak için pratik notlar",
+    "body": "Küçük işletmeler için SEO, içerik ve yapay zekâ aramaları hakkında kısa, uygulanabilir yazılar.",
+    "emptyTitle": "İlk yazılar hazırlanıyor",
+    "emptyBody": "Blog yazıları çok yakında burada. Bu arada sitenizin durumunu ücretsiz analizle görebilirsiniz.",
+    "ctaTitle": "Sitenizin durumunu merak ediyor musunuz?",
+    "ctaBody": "Adresinizi yazın, 2 dakikada ücretsiz raporunuz hazır.",
+    "ctaButton": "Sitemi ücretsiz analiz et",
+    "readingTime": "{{minutes}} dk okuma",
+    "pageN": "Sayfa {{page}}",
+    "pagination": "Blog sayfaları",
+    "newer": "Daha yeni yazılar",
+    "older": "Daha eski yazılar",
+    "back": "Tüm yazılar"
   }
 }

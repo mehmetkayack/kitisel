@@ -9,6 +9,7 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "node build.mjs",
     "migrate": "tsx src/cli.ts up",
     "migrate:down": "tsx src/cli.ts down",
     "seed": "tsx src/cli.ts seed",

@@ -39,6 +39,8 @@ const STATUS_BY_CODE: Record<ErrorCode, number> = {
   post_changed: 409,
   regeneration_limit: 403,
   rewrite_limit: 403,
+  slug_taken: 409,
+  captcha_low_score: 400,
 };
 
 /**

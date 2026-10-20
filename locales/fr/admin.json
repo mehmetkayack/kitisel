@@ -14,7 +14,9 @@
     "invoices": "Factures à émettre",
     "queues": "Files de tâches",
     "aiCosts": "Coûts d’IA",
-    "flags": "Prompts et fonctionnalités"
+    "flags": "Prompts et fonctionnalités",
+    "messages": "Messages",
+    "blog": "Blog"
   },
   "overview": {
     "title": "Vue d’ensemble",
@@ -176,6 +178,99 @@
       "starter": "Starter",
       "growth": "Growth",
       "agency": "Agency"
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "description": "Messages du formulaire de contact. Un nouveau message est marqué comme lu à son ouverture.",
+    "searchPlaceholder": "Nom, e-mail ou entreprise",
+    "filter": "Afficher",
+    "filters": {
+      "inbox": "Boîte de réception",
+      "new": "Nouveaux",
+      "read": "Lus",
+      "archived": "Archives"
+    },
+    "date": "Date",
+    "name": "Nom complet",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "company": "Entreprise",
+    "message": "Message",
+    "statusLabel": "Statut",
+    "status": {
+      "new": "Nouveau",
+      "read": "Lu",
+      "archived": "Archivé"
+    },
+    "empty": "Aucun message pour l’instant. Les messages du formulaire de contact apparaissent ici.",
+    "back": "Messages",
+    "reply": "Répondre par e-mail",
+    "replySubject": "Votre message à Kitisel",
+    "archive": "Archiver",
+    "unarchive": "Remettre dans la boîte",
+    "markUnread": "Marquer comme non lu",
+    "saved": {
+      "new": "Marqué comme non lu.",
+      "read": "Remis dans la boîte de réception.",
+      "archived": "Message archivé."
+    },
+    "sender": "Expéditeur",
+    "language": "Langue du site",
+    "score": "Score reCAPTCHA",
+    "scoreNone": "Vérification désactivée",
+    "readAt": "Lu",
+    "unreadSr": "messages non lus"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Articles du blog du site. Chaque article est publié dans une seule langue.",
+    "new": "Nouvel article",
+    "newDescription": "Enregistrez-le en brouillon, ajoutez une image de couverture et publiez-le quand il est prêt.",
+    "searchPlaceholder": "Titre ou adresse",
+    "language": "Langue",
+    "allLanguages": "Toutes les langues",
+    "empty": "Aucun article pour l’instant. Ajoutez le premier avec « Nouvel article ».",
+    "postTitle": "Titre",
+    "statusLabel": "Statut",
+    "status": {
+      "draft": "Brouillon",
+      "published": "Publié"
+    },
+    "statusHint": "Les brouillons ne sont pas visibles sur le site.",
+    "publishedAt": "Publié le",
+    "updatedAt": "Dernière modification",
+    "slug": "Adresse",
+    "slugHint": "Lettres minuscules, chiffres et tirets uniquement. Ne la modifiez pas après publication : les anciens liens ne fonctionneraient plus.",
+    "excerpt": "Résumé court",
+    "excerptHint": "Affiché dans la liste du blog et dans les résultats de recherche si la méta-description est vide (320 caractères max.).",
+    "body": "Article",
+    "seo": "Moteurs de recherche",
+    "seoHint": "Laissés vides, le titre et le résumé court sont utilisés.",
+    "metaTitle": "Méta-titre",
+    "metaDescription": "Méta-description",
+    "save": "Enregistrer",
+    "savedDraft": "Brouillon enregistré.",
+    "savedPublished": "Article enregistré et publié.",
+    "delete": "Supprimer l’article",
+    "deleteTitle": "Supprimer cet article ?",
+    "deleteBody": "L’article disparaît du site et de la liste. Son adresse peut être utilisée pour un nouvel article.",
+    "deleted": "Article supprimé.",
+    "view": "Voir sur le site",
+    "back": "Blog",
+    "cover": {
+      "title": "Image de couverture",
+      "hint": "JPEG, PNG, WebP ou AVIF ; au moins 600×300 px, 10 Mo maximum. L’image n’est pas recadrée : elle est réduite à 1600 px de large.",
+      "file": "Fichier image",
+      "alt": "Texte alternatif",
+      "altHint": "Une courte description pour les personnes qui ne voient pas l’image.",
+      "invalid": "Ce fichier ne peut pas être utilisé. Choisissez un JPEG, PNG, WebP ou AVIF d’au moins 600×300 px et de 10 Mo maximum.",
+      "upload": "Importer la couverture",
+      "replace": "Remplacer la couverture",
+      "remove": "Retirer la couverture",
+      "saved": "Couverture enregistrée.",
+      "removed": "Couverture retirée.",
+      "saveFirst": "Enregistrez d’abord l’article pour ajouter une image de couverture."
     }
   }
 }

@@ -37,5 +37,7 @@
   "cms_update_failed": "Der Beitrag konnte auf Ihrer Website nicht aktualisiert werden. Testen Sie die Verbindung in den Einstellungen und versuchen Sie es erneut.",
   "post_changed": "Der Beitrag wurde auf Ihrer Website geändert, nachdem dieser Vorschlag erstellt wurde. Damit Ihre Änderungen nicht verloren gehen, haben wir ihn nicht angewendet. Fordern Sie einen neuen Vorschlag an.",
   "regeneration_limit": "Sie können diesen Artikel höchstens {{limit}}-mal komplett neu schreiben lassen. Sie können ihn weiterhin im Editor bearbeiten oder einzelne Abschnitte neu schreiben lassen.",
-  "rewrite_limit": "Sie haben das Limit für Abschnitts-Neuschreibungen ({{limit}}) für diesen Artikel erreicht. Sie können den Text weiterhin im Editor bearbeiten."
+  "rewrite_limit": "Sie haben das Limit für Abschnitts-Neuschreibungen ({{limit}}) für diesen Artikel erreicht. Sie können den Text weiterhin im Editor bearbeiten.",
+  "slug_taken": "In dieser Sprache gibt es bereits einen Beitrag mit dieser Adresse. Ändern Sie die Adresse und speichern Sie erneut.",
+  "captcha_low_score": "Ihre Nachricht wirkte automatisiert und konnte nicht angenommen werden. Versuchen Sie es in ein paar Minuten erneut oder schreiben Sie uns direkt eine E-Mail."
 }

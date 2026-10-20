@@ -125,6 +125,16 @@ export const envSchema = z.object({
   TURNSTILE_SITE_KEY: optionalString,
   TURNSTILE_SECRET_KEY: optionalString,
 
+  // Google reCAPTCHA v3 (iletişim formu). Production'da gizli anahtar yoksa form gönderimi reddedilir.
+  RECAPTCHA_SITE_KEY: optionalString,
+  RECAPTCHA_SECRET_KEY: optionalString,
+  /** Bu puanın altındaki gönderimler bot sayılır (0 = bot, 1 = insan; Google önerisi 0,5) */
+  RECAPTCHA_MIN_SCORE: z.coerce.number().min(0).max(1).default(0.5),
+  /** Yeni iletişim mesajı bildirimi bu adrese (boşsa LEGAL_EMAIL; ikisi de boşsa bildirim yok) */
+  CONTACT_NOTIFY_EMAIL: optionalString,
+  /** Bildirim e-postasının dili */
+  CONTACT_NOTIFY_LOCALE: z.enum(['en', 'de', 'es', 'fr', 'tr']).default('tr'),
+
   // Yasal sayfalar (Gizlilik, KVKK, Mesafeli Satış...): satıcı bilgileri. Gizli değildir; web sunucusu okur.
   LEGAL_COMPANY_NAME: optionalString,
   LEGAL_ADDRESS: optionalString,

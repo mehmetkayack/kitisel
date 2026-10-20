@@ -18,6 +18,7 @@ Fazlar ve ilerleme: [docs/phases/](docs/phases/). **Her fazın sonunda dur, öze
 | `pnpm --filter @upvine/api test:unit` | Sadece veritabanı gerektirmeyen API birim testleri |
 | `pnpm test:e2e` | Playwright + axe. Kendi API (4100), web (5174), worker'ı (sahte site + sahte yapay zekâ, `E2E_FAKE_EXTERNALS`), kuyruk öneki (`upvine-e2e`) ve veritabanını (`<MYSQL_DATABASE>_e2e`, her seferinde sıfırdan + seed) kurar; `pnpm dev` açıkken de çalışır, geliştirme verisine dokunmaz. Mailpit açık olmalı |
 | `pnpm build` | API/worker: esbuild → `dist/`; web: React Router → `build/` |
+| `docker compose -f docker-compose.prod.yml --env-file .env.production up -d --build` | Production (tek sunucu): Caddy (HTTPS) + web + api + worker + MySQL + Redis; `migrate` her açılışta. Rehber: [docs/DEPLOY.md](docs/DEPLOY.md) |
 
 ## Klasör yapısı
 
@@ -38,7 +39,7 @@ packages/keywords    KeywordProvider + DataForSEO Labs (anahtar yoksa NoKeywordP
 packages/billing     Faz 3'e kadar iskelet
 locales/{en,de,es,fr,tr}/*.json  Tüm arayüz, hata ve e-posta metinleri
 scripts/        i18n kontrolü, ham renk kontrolü, Vite/Vitest alias üretici
-docker/         Dockerfile (Faz 0 iskeleti) ve MySQL init
+docker/         Production imajı (node.Dockerfile), Caddyfile, yedekleme betiği, yerel MySQL init
 ```
 
 ## Mimari kurallar
@@ -66,6 +67,7 @@ docker/         Dockerfile (Faz 0 iskeleti) ve MySQL init
 - **Anlamsal benzerlik:** embedding'ler (`gemini-embedding-001`, 768 boyut, normalize) `existing_pages.embedding` ve `content_items.embedding`'de Float32 BLOB; hesap `VectorStore` + `cosine` ile uygulamada. Konu tekrarı ≥ 0,94 (ürün/kategori sayfasıyla 0,96), iç link ≥ 0,75. Yapay zekâ yoksa kelime benzerliğine (Jaccard) düşülür.
 - **Ücretsiz analiz** (`/api/v1/free-analyses`, oturumsuz): IP başına günde 3, alan adı başına 24 saat önbellek, IP sadece anahtarlı hash olarak saklanır, Turnstile anahtarı varsa zorunlu. Rapor paylaşım token'ıyla açılır (`noindex`), PDF = yazdırma görünümü.
 - **Yasal sayfalar** (`/{dil}/legal/:slug`, `/pricing`, `/about`, `/contact`): metinler `apps/web/app/legal/{tr,en}/*.md` (sınırlı Markdown, HTML üretmez; `{{companyName}}` gibi yer tutucular). Satıcı bilgileri `LEGAL_*` ortam değişkenlerinden sadece sunucuda (`company.server.ts`, yerleşim loader'ı); boşsa sayfada `[Şirket unvanı]`. Türkçe bağlayıcı; de/es/fr'de İngilizce sürüm + not. Metin değişikliği = `Son güncelleme` tarihi de değişir.
+- **İletişim formu ve blog** (`/api/v1/contact`, `/api/v1/blog`, admin `/contact-messages`, `/blog-posts`): kiracıya bağlı değil (Kitisel'in kendi sitesi). İletişim: Google reCAPTCHA v3 (`RECAPTCHA_*`, eylem `contact`, puan < `RECAPTCHA_MIN_SCORE` → `captcha_low_score`); gizli anahtar yoksa geliştirmede atlanır, production'da reddedilir. Mesajlar `contact_messages`'ta (IP anahtarlı hash), admin'de açılınca okundu olur. Kayıttan sonra `CONTACT_NOTIFY_EMAIL` (boşsa `LEGAL_EMAIL`) adresine bildirim, yanıt adresi gönderen; gönderilemezse sadece log. E2E'de SMTP Mailpit'e, reCAPTCHA/Turnstile boşa sabitli (geliştirici `.env`'i testleri etkilemez). Blog: yazı dile özel (`locale` + `slug`, benzersizlik silinmemişler arasında uygulamada), gövde `sanitizeArticleHtml` ile temizlenir, kapak satırda (WebP, `?v=` sürümlü adres). `/{dil}/blog` SSR'da API'yi `API_URL` ile okur; yazı sayfasında diğer dillere hreflang yok.
 - **Dış adreslere istek** sadece `createSafeHttpClient` ile (SSRF: her bağlantıda DNS sonucu genel adres mi kontrol edilir, yönlendirmeler dahil).
 - **Gizli bilgiler** sadece `.env`; şema `packages/config/src/env.ts`, örnek `.env.example` — ikisi her zaman senkron.
 
@@ -172,6 +174,13 @@ docker/         Dockerfile (Faz 0 iskeleti) ve MySQL init
 | 2026-10-12 | Satıcı bilgileri `LEGAL_*` ortam değişkenleri, web sunucusunda çalışma anında | Gizli değil ama ortama göre değişiyor; yeniden derlemeden güncellenebilsin. Geliştirmede `vite.config.ts` kök `.env`'den `process.env`'e aktarır. |
 | 2026-10-13 | **Fiyatlar $29 / $79 / $199** (spec $39 / $89 / $229), Starter ayda 10 yazı (12 değil); fiyatlar KDV hariç, kartta "+KDV" | Kullanıcı kararı: hızlı satış. Giriş paketi psikolojik eşiğin altında, Growth hedef paket (Starter'ın 2,7 katı fiyata 3 kat yazı), Agency çapa. Yıllık = 10 ay. |
 | 2026-10-13 | Yazı başına yeniden yazım sınırı: baştan 3 kez (`content_items.regeneration_count`, sadece başarılı yeniden üretim sayılır), editörde bölüm yeniden yazımı 20 kez (`REGENERATIONS_PER_ARTICLE`, `SECTION_REWRITES_PER_ARTICLE`) | Yeniden yazım aylık hak tüketmiyor; sınırsızken tek yazı için yapay zekâ maliyeti katlanabiliyordu. Hata mesajları artık `details`'teki değerlerle doldurulur (`{{limit}}`). |
+| 2026-10-19 | **Blog ve iletişim formu** (kullanıcı isteği): blog yazıları admin panelinden, iletişim mesajları veritabanında + admin listesinde | Blog sayfası SEO için SSR (API'den sunucudan sunucuya). Yazı başına tek dil; çeviri ayrı yazı. Gövdede görsel yok (editör kuralı), sadece kapak. |
+| 2026-10-19 | İletişim formunda **reCAPTCHA v3** (Turnstile değil), rozet gizli + form altında Google bilgilendirmesi | Kullanıcı kararı: Google reCAPTCHA, görünmez sürüm. Rozet gizlenirse metin zorunlu (Google kuralı). Production'da anahtarsız form korumasız çalışmasın diye reddedilir. |
+| 2026-10-19 | Admin paneli Kitisel görünümüne geçmedi; Mesajlar ve Blog admin'in mevcut (Upvine) stilinde | Rebrand kapsamı admin'i dışarıda bırakıyordu; yeni ekranlar mevcut admin bileşenleriyle. |
+| 2026-10-20 | **Production: tek sunucu Docker Compose + Caddy** | Tek imaj (api/worker/web/migrate aynı node_modules), süreç `command` ile seçilir. Caddy otomatik HTTPS ve aynı alan adında `/api` → api (SameSite=Strict çerezler, CORS yok). MySQL/Redis dışarı açık değil; Redis `noeviction` + AOF (BullMQ). Migration ayrı tek seferlik servis, bitmeden api/worker başlamaz. |
+| 2026-10-20 | Web SSR'da site kökü `WEB_URL`'den (`publicOrigin`); blog SSR `INTERNAL_API_URL` | react-router-serve ters vekil başlıklarına güvenmiyor: Caddy arkasında canonical/hreflang/og:url `http://` çıkıyordu. `API_URL` herkese açık adres (WordPress dönüşü) olarak kalır. |
+| 2026-10-20 | esbuild banner'ında `createRequire` takma adla | Worker kaynağı da `createRequire` içe aktarıyordu; derlenmiş worker `already been declared` ile hiç açılmıyordu (yerelde `tsx` kullanıldığı için görünmüyordu). |
+| 2026-10-20 | İmaj GitHub Actions'ta derlenir (`ghcr.io/mehmetkayack/kitisel`), sunucu sadece indirir; compose düşük bellek ayarlı (MySQL 128M buffer pool, performance_schema kapalı; Node heap sınırları; Redis 96 MB) | Kullanıcı denemeye 1 vCPU / 1 GB RAM sunucuyla başlıyor: web derlemesi ~2 GB istiyor, sunucuda derlenemez. 2 GB swap şart; değerler `.env.production`'dan büyütülebilir. |
 | 2026-10-10 | e2e axe taraması bildirim alanını (`data-sonner-toaster`) hariç tutar | Gelip giden, yığılan bildirimler rastgele kontrast hatası veriyordu. Bildirimler `/dev/ui`'da, animasyon bitince açık ve koyu temada ayrıca denetlenir. |
 
 ## Bilinen tuzaklar (bu makine)

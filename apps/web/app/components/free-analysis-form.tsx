@@ -15,7 +15,11 @@ const formSchema = z.object({ url: siteUrlSchema });
 type FormValues = z.infer<typeof formSchema>;
 
 /** Cloudflare Turnstile: site anahtarı tanımlıysa yüklenir (kötüye kullanım önlemi, Bölüm 7.2). */
-function useTurnstile(locale: string): { ref: RefObject<HTMLDivElement | null>; token: string | null; reset: () => void } {
+function useTurnstile(locale: string): {
+  ref: RefObject<HTMLDivElement | null>;
+  token: string | null;
+  reset: () => void;
+} {
   const ref = useRef<HTMLDivElement | null>(null);
   const widget = useRef<string | null>(null);
   const [token, setToken] = useState<string | null>(null);
@@ -24,7 +28,12 @@ function useTurnstile(locale: string): { ref: RefObject<HTMLDivElement | null>; 
     if (!key || !ref.current) return;
     const render = () => {
       if (!window.turnstile || !ref.current || widget.current) return;
-      widget.current = window.turnstile.render(ref.current, { sitekey: key, callback: setToken, 'expired-callback': () => setToken(null), language: locale });
+      widget.current = window.turnstile.render(ref.current, {
+        sitekey: key,
+        callback: setToken,
+        'expired-callback': () => setToken(null),
+        language: locale,
+      });
     };
     if (window.turnstile) render();
     else {
@@ -49,14 +58,29 @@ function useTurnstile(locale: string): { ref: RefObject<HTMLDivElement | null>; 
  * Ücretsiz site analizi formu (Bölüm 7.2): kayıt gerektirmez, rapor paylaşılabilir linkte açılır.
  * Ana sayfanın hero'sunda ve /free-analysis sayfasında aynı bileşen.
  */
-export function FreeAnalysisForm({ locale, className, compact = false }: { locale: string; className?: string; compact?: boolean }) {
+export function FreeAnalysisForm({
+  locale,
+  className,
+  compact = false,
+  variant = 'card',
+}: {
+  locale: string;
+  className?: string;
+  compact?: boolean;
+  /** hero: ana sayfanın koyu bandında satır içi (adres + buton), etiket ekran okuyucuya */
+  variant?: 'card' | 'hero';
+}) {
   const { t } = useTranslation('analysis');
   const fieldError = useFieldError();
   const navigate = useNavigate();
   const turnstile = useTurnstile(locale);
   const [serverError, setServerError] = useState<string | null>(null);
   // Tek alanlı form: doğrulama gönderimde (bkz. sihirbaz adres adımı)
-  const form = useForm<FormValues>({ resolver: zodResolver(formSchema), mode: 'onSubmit', defaultValues: { url: '' } });
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    mode: 'onSubmit',
+    defaultValues: { url: '' },
+  });
   const { errors, isSubmitting } = form.formState;
 
   const onSubmit = form.handleSubmit(async (values) => {
@@ -65,7 +89,11 @@ export function FreeAnalysisForm({ locale, className, compact = false }: { local
       const res = await api<{ token: string }>('/free-analyses', {
         method: 'POST',
         auth: false,
-        body: { url: values.url, locale, ...(turnstile.token ? { turnstileToken: turnstile.token } : {}) },
+        body: {
+          url: values.url,
+          locale,
+          ...(turnstile.token ? { turnstileToken: turnstile.token } : {}),
+        },
       });
       await navigate(`/${locale}/free-analysis/r/${res.token}`);
     } catch (err) {
@@ -79,14 +107,86 @@ export function FreeAnalysisForm({ locale, className, compact = false }: { local
     }
   });
 
+  if (variant === 'hero') {
+    return (
+      <form
+        method="post"
+        onSubmit={onSubmit}
+        noValidate
+        // Koyu bantta hata metni açık kırmızı (kontrast)
+        className={cn(
+          'flex w-full max-w-xl flex-col gap-3 text-left [--danger:var(--danger-on-night)]',
+          className,
+        )}
+      >
+        <FormError message={serverError} />
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
+          <Field
+            label={t('form.label')}
+            hideLabel
+            error={fieldError(errors.url?.message)}
+            className="min-w-0 flex-1"
+          >
+            <Input
+              type="text"
+              inputMode="url"
+              autoComplete="url"
+              autoCapitalize="none"
+              spellCheck={false}
+              placeholder={t('form.placeholder')}
+              className="min-h-12 border-night-2 bg-night-2 text-night-foreground placeholder:text-night-muted hover:border-night-muted"
+              {...form.register('url')}
+            />
+          </Field>
+          <Button
+            type="submit"
+            size="lg"
+            loading={isSubmitting}
+            disabled={!!__TURNSTILE_SITE_KEY__ && !turnstile.token}
+            className="h-auto min-h-12 shrink-0 self-start bg-brand py-2 whitespace-normal text-night hover:bg-brand-light"
+          >
+            {t('form.submit')}
+          </Button>
+        </div>
+        {__TURNSTILE_SITE_KEY__ ? <div ref={turnstile.ref} /> : null}
+      </form>
+    );
+  }
+
   return (
-    <form method="post" onSubmit={onSubmit} noValidate className={cn('flex w-full flex-col gap-4 rounded-card border border-border bg-surface p-5 text-left shadow-card sm:p-6', className)}>
+    <form
+      method="post"
+      onSubmit={onSubmit}
+      noValidate
+      className={cn(
+        'flex w-full flex-col gap-4 rounded-card border border-border bg-surface p-5 text-left shadow-card sm:p-6',
+        className,
+      )}
+    >
       <FormError message={serverError} />
-      <Field label={t('form.label')} hint={compact ? undefined : t('form.hint')} error={fieldError(errors.url?.message)}>
-        <Input type="text" inputMode="url" autoComplete="url" autoCapitalize="none" spellCheck={false} placeholder={t('form.placeholder')} {...form.register('url')} />
+      <Field
+        label={t('form.label')}
+        hint={compact ? undefined : t('form.hint')}
+        error={fieldError(errors.url?.message)}
+      >
+        <Input
+          type="text"
+          inputMode="url"
+          autoComplete="url"
+          autoCapitalize="none"
+          spellCheck={false}
+          placeholder={t('form.placeholder')}
+          {...form.register('url')}
+        />
       </Field>
       {__TURNSTILE_SITE_KEY__ ? <div ref={turnstile.ref} /> : null}
-      <Button type="submit" size="lg" block loading={isSubmitting} disabled={!!__TURNSTILE_SITE_KEY__ && !turnstile.token}>
+      <Button
+        type="submit"
+        size="lg"
+        block
+        loading={isSubmitting}
+        disabled={!!__TURNSTILE_SITE_KEY__ && !turnstile.token}
+      >
         <Search aria-hidden />
         {t('form.submit')}
       </Button>

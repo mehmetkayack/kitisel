@@ -37,5 +37,16 @@
     "button": "Ouvrir le rapport",
     "expires": "Le lien du rapport reste valable 30 jours.",
     "ignore": "Vous recevez cet e-mail car vous l’avez demandé sur Kitisel. Nous n’enverrons pas d’e-mails marketing sans votre accord."
+  },
+  "contactNotification": {
+    "subject": "Nouveau message de contact : {{name}}",
+    "preview": "{{name}} a écrit via le formulaire de contact.",
+    "heading": "Nouveau message de contact",
+    "fromLabel": "De",
+    "phoneLabel": "Téléphone",
+    "companyLabel": "Entreprise",
+    "none": "—",
+    "button": "Ouvrir dans l’administration",
+    "footer": "Vous recevez cet e-mail car un nouveau message est arrivé via le formulaire de contact Kitisel. « Répondre » va directement à l’expéditeur."
   }
 }

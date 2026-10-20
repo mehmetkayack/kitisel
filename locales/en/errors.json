@@ -37,5 +37,7 @@
   "cms_update_failed": "The post couldn’t be updated on your site. Test your connection in Settings and try again.",
   "post_changed": "The post was changed on your site after this suggestion was prepared. We didn’t apply it so your changes aren’t lost; request a new suggestion.",
   "regeneration_limit": "You can rewrite this article from scratch up to {{limit}} times. You can still edit it in the editor or rewrite sections one by one.",
-  "rewrite_limit": "You’ve reached the section rewrite limit ({{limit}}) for this article. You can still edit the text in the editor."
+  "rewrite_limit": "You’ve reached the section rewrite limit ({{limit}}) for this article. You can still edit the text in the editor.",
+  "slug_taken": "A post with this address already exists in this language. Change the address and save again.",
+  "captcha_low_score": "We couldn’t accept your message because it looked automated. Please try again in a few minutes or email us directly."
 }

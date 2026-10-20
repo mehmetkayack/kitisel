@@ -43,6 +43,8 @@ export {
 export type { ArticleData, ImageData } from './repositories/content';
 export type { AuditEntry } from './repositories/audit-logs';
 export { refreshesRepository } from './repositories/refreshes';
+export { blogPostsRepository, contactMessagesRepository } from './repositories/marketing';
+export type { BlogPostData } from './repositories/marketing';
 export { contentStatsRepository, gscConnectionsRepository, gscMetricsRepository, visibilityRepository } from './repositories/results';
 export type { GscAggregate, GscRowInput } from './repositories/results';
 export { cleanTitle, cosine, fromBlob, mysqlVectorStore, pageEmbeddingText, siteTitleSuffixes, toBlob } from './vector-store';

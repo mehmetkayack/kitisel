@@ -16,6 +16,8 @@ import { meRoutes } from './modules/me/me.routes';
 import { adminRoutes } from './modules/admin/admin.routes';
 import { connectionCallbackRoutes, contentRoutes, sitesRoutes } from './modules/sites/sites.routes';
 import { freeAnalysisRoutes } from './modules/free-analysis/free-analysis.routes';
+import { contactRoutes } from './modules/contact/contact.routes';
+import { blogRoutes } from './modules/blog/blog.routes';
 import { buildOpenApiDocument } from './openapi';
 
 export function createApp(deps: AppDeps): express.Express {
@@ -67,6 +69,8 @@ export function createApp(deps: AppDeps): express.Express {
   v1.use('/sites', sitesRoutes(deps));
   v1.use('/content', contentRoutes(deps));
   v1.use('/free-analyses', freeAnalysisRoutes(deps));
+  v1.use('/contact', contactRoutes(deps));
+  v1.use('/blog', blogRoutes(deps));
   v1.use('/connections', connectionCallbackRoutes(deps));
   app.use('/api/v1', v1);
 

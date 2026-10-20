@@ -4,29 +4,49 @@
     "description": "Kitisel investiga, escribe, verifica y publica artículos SEO para tu web, y luego sigue su posición en Google."
   },
   "hero": {
-    "title": "Haz crecer tu web con artículos investigados, verificados y publicados por ti",
-    "subtitle": "Kitisel planifica tus temas, escribe con la voz de tu marca, verifica cada dato y publica en tu sitio. Tú siempre tienes el control.",
-    "badge": "Análisis gratuito del sitio, sin registro",
-    "point1": "Revisión técnica SEO de 25 puntos de tu sitio",
-    "point2": "Temas que buscan tus clientes, con volumen estimado",
-    "point3": "Un informe para compartir en un minuto aproximadamente",
-    "or": "o"
+    "title": "<accent>Un paso por delante</accent> en la búsqueda.",
+    "subtitle": "Kitisel encuentra los temas que la gente busca, escribe artículos con datos verificados, los publica en tu sitio con sus imágenes y sigue tu posición en Google. Mientras tú te ocupas de tu negocio.",
+    "badge": "Plataforma de contenido SEO automatizado",
+    "point1": "Sin tarjeta",
+    "point2": "Resultados en 60 segundos",
+    "point3": "Cancela cuando quieras",
+    "cardStatus": "Todo en orden",
+    "cardText": "El próximo artículo se publica el jueves a las 10:00",
+    "cardNote": "Pantalla de ejemplo"
   },
   "how": {
     "eyebrow": "Cómo funciona",
-    "title": "Un blog que crece de forma constante en 3 pasos",
-    "stepLabel": "Paso {{value}}",
+    "title": "Danos tu dirección. Kit se encarga del resto.",
     "step1": {
-      "title": "Analizamos tu sitio",
-      "body": "Escribe tu dirección; rastreamos tu sitio, conocemos tu marca y encontramos los temas que buscan tus clientes."
+      "title": "Conoce tu sitio",
+      "body": "Lee tu marca, tu sector y tus entradas actuales. Encuentra con datos de búsqueda reales los temas que buscan tus clientes."
     },
     "step2": {
-      "title": "Apruebas el plan",
-      "body": "Los temas llegan a tu calendario. Puedes leer, editar o rechazar cada artículo antes de publicarlo."
+      "title": "Escribe y verifica",
+      "body": "Escribe el artículo con la voz de tu marca, comprueba cada dato en su fuente y prepara la imagen de portada y una infografía."
     },
     "step3": {
-      "title": "Se publica y sigues los resultados",
-      "body": "Los artículos aprobados se publican en tu sitio. Sigue impresiones, clics y posiciones en Google desde el panel."
+      "title": "Publica y mide",
+      "body": "Si quieres, primero te lo envía para aprobarlo y luego lo publica en tu sitio. Mide cada semana su posición en Google y te la muestra."
+    }
+  },
+  "why": {
+    "title": "¿Por qué Kitisel?",
+    "verified": {
+      "title": "Datos verificados",
+      "body": "Cada cifra y afirmación se comprueba en su fuente antes de publicarse."
+    },
+    "refresh": {
+      "title": "También renueva tus entradas antiguas",
+      "body": "Encuentra las páginas que pierden posiciones y las actualiza."
+    },
+    "yours": {
+      "title": "Todo queda en tu sitio",
+      "body": "Los artículos y las imágenes se suben a tu sitio. Siguen siendo tuyos aunque canceles."
+    },
+    "noCredits": {
+      "title": "Sin créditos ni sorpresas",
+      "body": "Cuotas claras, cancelación con un clic y reembolso sin preguntas en los primeros 14 días."
     }
   },
   "features": {
@@ -67,7 +87,7 @@
     }
   },
   "compare": {
-    "eyebrow": "Por qué Kitisel",
+    "eyebrow": "Comparación",
     "title": "Cómo se compara",
     "criteria": "Criterio",
     "columns": {
@@ -112,15 +132,15 @@
   },
   "pricing": {
     "eyebrow": "Precios",
-    "title": "Precios sencillos, sin créditos",
-    "body": "Cada plan incluye una cuota fija de artículos al mes. Pruébalo gratis 7 días.",
+    "title": "Precios simples. <accent>Sin créditos ni sorpresas.</accent>",
+    "body": "Cada plan tiene una cuota de artículos clara. Cuanto mayor es el plan, más a menudo escribe Kit. Cancela cuando quieras.",
     "intervalLabel": "Periodo de facturación",
     "monthly": "Mensual",
     "yearly": "Anual (2 meses gratis)",
     "perMonth": "/ mes",
     "billedYearly": "Se factura {{value}} al año",
     "popular": "El más elegido",
-    "start": "Prueba gratis",
+    "start": "Prueba 7 días gratis",
     "policy": "Cancela cuando quieras; reembolso completo en los 14 días siguientes al primer pago, sin preguntas.",
     "plans": {
       "starter": {
@@ -147,7 +167,9 @@
       "aiVisibility": "Seguimiento de visibilidad en IA"
     },
     "policyLink": "Política de cancelación y reembolso",
-    "exVat": "+ IVA"
+    "exVat": "+ IVA",
+    "homeTitle": "Una fracción de lo que cuesta una agencia.",
+    "homeBody": "7 días de prueba · Reembolso en 14 días · Cancelación con un clic"
   },
   "faq": {
     "eyebrow": "Preguntas frecuentes",
@@ -178,8 +200,8 @@
     }
   },
   "final": {
-    "title": "Descubre en qué punto está tu sitio hoy",
-    "body": "El análisis gratuito tarda un minuto aproximadamente y no requiere registro."
+    "title": "Mientras duermes, <accent>Kit trabaja.</accent>",
+    "body": "Empieza con un análisis gratuito de tu sitio. Tus primeras ideas de temas estarán listas en 60 segundos."
   },
   "legal": {
     "title": "Documentos legales",
@@ -224,13 +246,46 @@
   "contact": {
     "metaTitle": "Contacto · Kitisel",
     "title": "Contacto",
-    "body": "Escríbenos por correo con tus preguntas, sugerencias o solicitudes de soporte. Normalmente respondemos en 1 día hábil.",
+    "body": "Rellena el formulario o escríbenos por correo con tus preguntas, ideas o solicitudes de soporte. Solemos responder en 1 día hábil.",
     "email": "Correo electrónico",
     "phone": "Teléfono",
     "address": "Dirección",
-    "tax": "Oficina tributaria / número fiscal",
     "mersis": "Número MERSIS",
     "kep": "Correo registrado (KEP)",
-    "privacy": "Para solicitudes sobre tus datos personales:"
+    "privacy": "Para solicitudes sobre tus datos personales:",
+    "form": {
+      "title": "Escríbenos",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "company": "Empresa",
+      "message": "Tu mensaje",
+      "optional": "(opcional)",
+      "consent": "Solo usamos lo que nos envías para responder a tu solicitud.",
+      "submit": "Enviar mensaje",
+      "sentTitle": "Hemos recibido tu mensaje",
+      "sentBody": "Gracias. Solemos responder a tu correo en 1 día hábil.",
+      "another": "Escribir otro mensaje",
+      "recaptcha": "Este formulario está protegido por Google reCAPTCHA; se aplican la",
+      "googlePrivacy": "Política de privacidad",
+      "googleTerms": "y los Términos del servicio de Google"
+    }
+  },
+  "blog": {
+    "metaTitle": "Blog · Kitisel",
+    "eyebrow": "Blog de Kitisel",
+    "title": "Notas prácticas para que te encuentren en las búsquedas",
+    "body": "Artículos breves y prácticos sobre SEO, contenido y búsqueda con IA para pequeñas empresas.",
+    "emptyTitle": "Estamos preparando las primeras entradas",
+    "emptyBody": "Las entradas del blog llegarán pronto. Mientras tanto, mira cómo está tu sitio con un análisis gratuito.",
+    "ctaTitle": "¿Quieres saber cómo está tu sitio?",
+    "ctaBody": "Escribe tu dirección y tendrás un informe gratuito en 2 minutos.",
+    "ctaButton": "Analizar mi sitio gratis",
+    "readingTime": "{{minutes}} min de lectura",
+    "pageN": "Página {{page}}",
+    "pagination": "Páginas del blog",
+    "newer": "Entradas más recientes",
+    "older": "Entradas anteriores",
+    "back": "Todas las entradas"
   }
 }

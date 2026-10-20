@@ -15,6 +15,8 @@ export default [
     route('pricing', 'routes/public/pricing.tsx'),
     route('about', 'routes/public/about.tsx'),
     route('contact', 'routes/public/contact.tsx'),
+    route('blog', 'routes/public/blog.tsx'),
+    route('blog/:slug', 'routes/public/blog-post.tsx'),
     route('legal/:slug', 'routes/public/legal.tsx'),
     layout('routes/public/auth-layout.tsx', [
       route('login', 'routes/public/login.tsx'),
@@ -44,6 +46,10 @@ export default [
     route('organizations', 'routes/admin/organizations.tsx'),
     route('organizations/:id', 'routes/admin/organization.tsx'),
     route('audit', 'routes/admin/audit.tsx'),
+    route('messages', 'routes/admin/messages.tsx'),
+    route('messages/:id', 'routes/admin/message.tsx'),
+    route('blog', 'routes/admin/blog.tsx'),
+    route('blog/:id', 'routes/admin/blog-edit.tsx'),
     route(':section', 'routes/admin/coming-soon.tsx'),
   ]),
 

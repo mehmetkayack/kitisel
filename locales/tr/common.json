@@ -10,6 +10,12 @@
     "results": "Sonuçlar",
     "settings": "Ayarlar"
   },
+  "siteNav": {
+    "howItWorks": "Nasıl çalışır",
+    "pricing": "Fiyatlar",
+    "freeAnalysis": "Ücretsiz analiz",
+    "blog": "Blog"
+  },
   "actions": {
     "save": "Kaydet",
     "cancel": "Vazgeç",
@@ -54,7 +60,9 @@
     "shopifyToken": "\"shpat_\" ile başlayan token'ı yapıştırın.",
     "wixKey": "API anahtarının tamamını yapıştırın.",
     "wixSiteId": "Site kimliği 8-4-4-4-12 biçiminde olmalı.",
-    "questionMin": "Soru en az 8 karakter olmalı."
+    "questionMin": "Soru en az 8 karakter olmalı.",
+    "phone": "Geçerli bir telefon numarası girin, örneğin +90 532 123 45 67.",
+    "slugTaken": "Bu dilde aynı adresle bir yazı zaten var. Adresi değiştirin."
   },
   "status": {
     "planned": "Planlandı",
@@ -75,7 +83,8 @@
     "about": "Hakkımızda",
     "contact": "İletişim",
     "payments": "Ödemeler, lisanslı ödeme kuruluşu iyzico altyapısıyla güvenle alınır. Kart bilgileriniz bizde saklanmaz.",
-    "operatedBy": "Kitisel, {{company}} hizmetidir."
+    "operatedBy": "Kitisel, {{company}} hizmetidir.",
+    "blog": "Blog"
   },
   "notFound": {
     "title": "Bu sayfayı bulamadık",

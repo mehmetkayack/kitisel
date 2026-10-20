@@ -37,5 +37,16 @@
     "button": "Abrir el informe",
     "expires": "El enlace al informe es válido durante 30 días.",
     "ignore": "Recibes este correo porque lo pediste en Kitisel. No te enviaremos correos de marketing sin tu consentimiento."
+  },
+  "contactNotification": {
+    "subject": "Nuevo mensaje de contacto: {{name}}",
+    "preview": "{{name}} escribió desde el formulario de contacto.",
+    "heading": "Nuevo mensaje de contacto",
+    "fromLabel": "De",
+    "phoneLabel": "Teléfono",
+    "companyLabel": "Empresa",
+    "none": "—",
+    "button": "Abrir en el panel de administración",
+    "footer": "Recibes este correo porque llegó un mensaje nuevo desde el formulario de contacto de Kitisel. \"Responder\" va directamente al remitente."
   }
 }

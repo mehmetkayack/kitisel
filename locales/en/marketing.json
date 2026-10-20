@@ -4,29 +4,49 @@
     "description": "Kitisel researches, writes, fact-checks and publishes SEO articles for your website, then tracks how they rank."
   },
   "hero": {
-    "title": "Grow your website with articles that are researched, fact-checked and published for you",
-    "subtitle": "Kitisel plans your topics, writes in your brand’s voice, checks every fact and publishes to your site. You always stay in control.",
-    "badge": "Free site analysis, no sign-up needed",
-    "point1": "A 25-point technical SEO check of your site",
-    "point2": "Topics your customers search for, with estimated volume",
-    "point3": "A shareable report in about a minute",
-    "or": "or"
+    "title": "<accent>One step ahead</accent> in search.",
+    "subtitle": "Kitisel finds the topics people search for, writes fact-checked articles, publishes them to your site with their images and tracks your Google ranking. While you run your business.",
+    "badge": "Automated SEO content platform",
+    "point1": "No card needed",
+    "point2": "Results in 60 seconds",
+    "point3": "Cancel anytime",
+    "cardStatus": "All good",
+    "cardText": "Next article goes live Thursday at 10:00",
+    "cardNote": "Sample screen"
   },
   "how": {
     "eyebrow": "How it works",
-    "title": "A steadily growing blog in 3 steps",
-    "stepLabel": "Step {{value}}",
+    "title": "Give us your address. Kit takes care of the rest.",
     "step1": {
-      "title": "We analyze your site",
-      "body": "Enter your address; we crawl your site, learn your brand and find the topics your customers search for."
+      "title": "Gets to know your site",
+      "body": "Reads your brand, industry and existing posts. Finds the topics your customers search for using real search data."
     },
     "step2": {
-      "title": "You approve the plan",
-      "body": "Topics land on your calendar. Read, edit or reject every article before it goes live."
+      "title": "Writes and fact-checks",
+      "body": "Writes the article in your brand’s voice, checks every fact against its source, and prepares a cover image and infographic."
     },
     "step3": {
-      "title": "It gets published, you watch the results",
-      "body": "Approved articles are published to your site. Track impressions, clicks and positions on Google from the dashboard."
+      "title": "Publishes and tracks",
+      "body": "Sends it for your approval first if you like, then publishes it to your site. Measures its Google ranking every week and shows you."
+    }
+  },
+  "why": {
+    "title": "Why Kitisel?",
+    "verified": {
+      "title": "Fact-checked information",
+      "body": "Every number and claim is checked against its source before publishing."
+    },
+    "refresh": {
+      "title": "Refreshes your old posts too",
+      "body": "Finds pages that are losing rank and brings them up to date."
+    },
+    "yours": {
+      "title": "Everything lives on your site",
+      "body": "Articles and images are uploaded to your site. They stay yours even if you cancel."
+    },
+    "noCredits": {
+      "title": "No credits, no surprises",
+      "body": "Clear quotas, one-click cancellation and a no-questions-asked refund in the first 14 days."
     }
   },
   "features": {
@@ -67,7 +87,7 @@
     }
   },
   "compare": {
-    "eyebrow": "Why Kitisel",
+    "eyebrow": "Comparison",
     "title": "How it compares",
     "criteria": "Criterion",
     "columns": {
@@ -112,15 +132,15 @@
   },
   "pricing": {
     "eyebrow": "Pricing",
-    "title": "Simple pricing, no credits to count",
-    "body": "A fixed monthly article allowance in every plan. Try it free for 7 days.",
+    "title": "Simple pricing. <accent>No credits, no surprises.</accent>",
+    "body": "Every plan has a clear article quota. The bigger the plan, the more often Kit writes. Cancel anytime.",
     "intervalLabel": "Billing period",
     "monthly": "Monthly",
     "yearly": "Yearly (2 months free)",
     "perMonth": "/ month",
     "billedYearly": "Billed {{value}} yearly",
     "popular": "Most popular",
-    "start": "Start free trial",
+    "start": "Start your 7-day free trial",
     "policy": "Cancel anytime; full refund within 14 days of your first payment, no questions asked.",
     "plans": {
       "starter": {
@@ -147,7 +167,9 @@
       "aiVisibility": "AI visibility tracking"
     },
     "policyLink": "Cancellation and refund policy",
-    "exVat": "+ VAT"
+    "exVat": "+ VAT",
+    "homeTitle": "A fraction of what an agency costs.",
+    "homeBody": "7-day trial · 14-day no-questions refund · One-click cancellation"
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -178,8 +200,8 @@
     }
   },
   "final": {
-    "title": "See where your site stands today",
-    "body": "The free analysis takes about a minute and needs no sign-up."
+    "title": "While you sleep, <accent>Kit works.</accent>",
+    "body": "Start with a free analysis of your site. Your first topic ideas are ready in 60 seconds."
   },
   "legal": {
     "title": "Legal documents",
@@ -224,13 +246,46 @@
   "contact": {
     "metaTitle": "Contact · Kitisel",
     "title": "Contact",
-    "body": "Email us with questions, suggestions or support requests. We usually reply within 1 business day.",
+    "body": "Fill in the form or email us with questions, ideas or support requests. We usually reply within 1 business day.",
     "email": "Email",
     "phone": "Phone",
     "address": "Address",
-    "tax": "Tax office / number",
     "mersis": "MERSIS number",
     "kep": "Registered email (KEP)",
-    "privacy": "For requests about your personal data:"
+    "privacy": "For requests about your personal data:",
+    "form": {
+      "title": "Send us a message",
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "message": "Your message",
+      "optional": "(optional)",
+      "consent": "We only use what you send to reply to your request.",
+      "submit": "Send message",
+      "sentTitle": "We’ve received your message",
+      "sentBody": "Thank you. We usually reply to your email within 1 business day.",
+      "another": "Write another message",
+      "recaptcha": "This form is protected by Google reCAPTCHA; Google’s",
+      "googlePrivacy": "Privacy Policy",
+      "googleTerms": "Terms of Service apply"
+    }
+  },
+  "blog": {
+    "metaTitle": "Blog · Kitisel",
+    "eyebrow": "Kitisel blog",
+    "title": "Practical notes for getting found in search",
+    "body": "Short, actionable posts on SEO, content and AI search for small businesses.",
+    "emptyTitle": "The first posts are on their way",
+    "emptyBody": "Blog posts are coming soon. Meanwhile, see how your site is doing with a free analysis.",
+    "ctaTitle": "Curious how your site is doing?",
+    "ctaBody": "Enter your address and get a free report in 2 minutes.",
+    "ctaButton": "Analyze my site for free",
+    "readingTime": "{{minutes}} min read",
+    "pageN": "Page {{page}}",
+    "pagination": "Blog pages",
+    "newer": "Newer posts",
+    "older": "Older posts",
+    "back": "All posts"
   }
 }

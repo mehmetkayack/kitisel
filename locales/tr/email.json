@@ -37,5 +37,16 @@
     "button": "Raporu aç",
     "expires": "Rapor linki 30 gün geçerlidir.",
     "ignore": "Bu e-postayı Kitisel üzerinden istediğiniz için alıyorsunuz. İzin vermediyseniz size pazarlama e-postası göndermeyiz."
+  },
+  "contactNotification": {
+    "subject": "Yeni iletişim mesajı: {{name}}",
+    "preview": "{{name}} iletişim formundan yazdı.",
+    "heading": "Yeni iletişim mesajı",
+    "fromLabel": "Gönderen",
+    "phoneLabel": "Telefon",
+    "companyLabel": "Şirket",
+    "none": "—",
+    "button": "Admin panelinde aç",
+    "footer": "Bu e-postayı Kitisel iletişim formuna yeni bir mesaj geldiği için alıyorsunuz. \"Yanıtla\" doğrudan gönderene gider."
   }
 }

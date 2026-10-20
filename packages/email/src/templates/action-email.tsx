@@ -37,7 +37,7 @@ export function ActionEmail(props: ActionEmailProps) {
             {props.heading}
           </Heading>
           {props.paragraphs.map((p) => (
-            <Text key={p} style={{ color: c.ink, fontSize: 16, lineHeight: 1.6, margin: '0 0 16px' }}>
+            <Text key={p} style={{ color: c.ink, fontSize: 16, lineHeight: 1.6, margin: '0 0 16px', whiteSpace: 'pre-wrap' }}>
               {p}
             </Text>
           ))}

@@ -14,7 +14,9 @@
     "invoices": "Facturas por emitir",
     "queues": "Colas de tareas",
     "aiCosts": "Costes de IA",
-    "flags": "Prompts y funciones"
+    "flags": "Prompts y funciones",
+    "messages": "Mensajes",
+    "blog": "Blog"
   },
   "overview": {
     "title": "Resumen",
@@ -176,6 +178,99 @@
       "starter": "Starter",
       "growth": "Growth",
       "agency": "Agency"
+    }
+  },
+  "messages": {
+    "title": "Mensajes",
+    "description": "Mensajes del formulario de contacto. Un mensaje nuevo se marca como leído al abrirlo.",
+    "searchPlaceholder": "Nombre, correo o empresa",
+    "filter": "Mostrar",
+    "filters": {
+      "inbox": "Bandeja de entrada",
+      "new": "Nuevos",
+      "read": "Leídos",
+      "archived": "Archivo"
+    },
+    "date": "Fecha",
+    "name": "Nombre completo",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "company": "Empresa",
+    "message": "Mensaje",
+    "statusLabel": "Estado",
+    "status": {
+      "new": "Nuevo",
+      "read": "Leído",
+      "archived": "Archivado"
+    },
+    "empty": "Aún no hay mensajes. Los mensajes del formulario de contacto aparecen aquí.",
+    "back": "Mensajes",
+    "reply": "Responder por correo",
+    "replySubject": "Tu mensaje a Kitisel",
+    "archive": "Archivar",
+    "unarchive": "Mover a la bandeja",
+    "markUnread": "Marcar como no leído",
+    "saved": {
+      "new": "Marcado como no leído.",
+      "read": "Movido a la bandeja de entrada.",
+      "archived": "Mensaje archivado."
+    },
+    "sender": "Remitente",
+    "language": "Idioma del sitio",
+    "score": "Puntuación reCAPTCHA",
+    "scoreNone": "Verificación desactivada",
+    "readAt": "Leído",
+    "unreadSr": "mensajes sin leer"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Entradas del blog del sitio. Cada entrada se publica en un idioma.",
+    "new": "Nueva entrada",
+    "newDescription": "Guárdala como borrador, añade una portada y publícala cuando esté lista.",
+    "searchPlaceholder": "Título o dirección",
+    "language": "Idioma",
+    "allLanguages": "Todos los idiomas",
+    "empty": "Aún no hay entradas. Añade la primera con \"Nueva entrada\".",
+    "postTitle": "Título",
+    "statusLabel": "Estado",
+    "status": {
+      "draft": "Borrador",
+      "published": "Publicada"
+    },
+    "statusHint": "Los borradores no se ven en el sitio.",
+    "publishedAt": "Publicada",
+    "updatedAt": "Último cambio",
+    "slug": "Dirección",
+    "slugHint": "Solo minúsculas, números y guiones. No la cambies tras publicar; los enlaces antiguos dejarán de funcionar.",
+    "excerpt": "Resumen breve",
+    "excerptHint": "Aparece en la lista del blog y en los resultados de búsqueda si la meta descripción está vacía (máx. 320 caracteres).",
+    "body": "Entrada",
+    "seo": "Buscadores",
+    "seoHint": "Si los dejas vacíos, se usan el título y el resumen breve.",
+    "metaTitle": "Meta título",
+    "metaDescription": "Meta descripción",
+    "save": "Guardar",
+    "savedDraft": "Borrador guardado.",
+    "savedPublished": "Entrada guardada y publicada.",
+    "delete": "Eliminar entrada",
+    "deleteTitle": "¿Eliminar esta entrada?",
+    "deleteBody": "La entrada desaparece del sitio y de la lista. Su dirección se puede usar para una entrada nueva.",
+    "deleted": "Entrada eliminada.",
+    "view": "Ver en el sitio",
+    "back": "Blog",
+    "cover": {
+      "title": "Imagen de portada",
+      "hint": "JPEG, PNG, WebP o AVIF; mínimo 600×300 px, máximo 10 MB. La imagen no se recorta; se reduce a 1600 px de ancho.",
+      "file": "Archivo de imagen",
+      "alt": "Texto alternativo",
+      "altHint": "Una descripción breve para quien no puede ver la imagen.",
+      "invalid": "No se puede usar este archivo. Elige un JPEG, PNG, WebP o AVIF de al menos 600×300 px y hasta 10 MB.",
+      "upload": "Subir portada",
+      "replace": "Cambiar portada",
+      "remove": "Quitar portada",
+      "saved": "Portada guardada.",
+      "removed": "Portada quitada.",
+      "saveFirst": "Guarda la entrada primero para añadir una portada."
     }
   }
 }

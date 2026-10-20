@@ -6,6 +6,8 @@ export interface OutgoingEmail {
   subject: string;
   html: string;
   text: string;
+  /** "Yanıtla" bu adrese gider (ör. iletişim formunu gönderen kişi) */
+  replyTo?: string;
 }
 
 /** E-posta gönderim sağlayıcısı arayüzü (SMTP, Resend veya testlerde bellek). */

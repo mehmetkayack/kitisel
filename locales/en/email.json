@@ -37,5 +37,16 @@
     "button": "Open the report",
     "expires": "The report link stays valid for 30 days.",
     "ignore": "You receive this email because you asked for it on Kitisel. We will not send marketing emails unless you agreed to them."
+  },
+  "contactNotification": {
+    "subject": "New contact message: {{name}}",
+    "preview": "{{name}} wrote via the contact form.",
+    "heading": "New contact message",
+    "fromLabel": "From",
+    "phoneLabel": "Phone",
+    "companyLabel": "Company",
+    "none": "—",
+    "button": "Open in admin panel",
+    "footer": "You’re receiving this because a new message arrived through the Kitisel contact form. \"Reply\" goes straight to the sender."
   }
 }

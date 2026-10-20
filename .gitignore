@@ -9,6 +9,8 @@ test-results/
 .env
 .env.local
 .env.*.local
+.env.production
+backups/
 !.env.example
 .DS_Store
 Thumbs.db

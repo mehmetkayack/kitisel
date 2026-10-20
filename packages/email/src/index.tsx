@@ -61,6 +61,39 @@ export function renderArticleReady(locale: Locale, vars: { name: string; url: st
   return renderAction('articleReady', locale, vars);
 }
 
+/** Yeni iletişim formu mesajı: yöneticiye bildirim (5 dil). Mesaj düz metin olarak, satır sonlarıyla. */
+export async function renderContactNotification(
+  locale: Locale,
+  vars: { name: string; email: string; phone: string | null; company: string | null; message: string; url: string },
+): Promise<RenderedEmail> {
+  const t = emailT(locale);
+  const k = (key: string, extra: Record<string, string> = {}) => t(`contactNotification.${key}`, { ...vars, ...extra });
+  const none = k('none');
+  const details = [
+    `${k('fromLabel')}: ${vars.name} <${vars.email}>`,
+    `${k('phoneLabel')}: ${vars.phone ?? none}`,
+    `${k('companyLabel')}: ${vars.company ?? none}`,
+  ].join('\n');
+  const element = (
+    <ActionEmail
+      lang={locale}
+      preview={k('preview')}
+      heading={k('heading')}
+      paragraphs={[details, vars.message]}
+      buttonLabel={k('button')}
+      buttonUrl={vars.url}
+      fallbackLabel={t('fallbackLink')}
+      footer={k('footer')}
+    />
+  );
+  return {
+    // Konu satırına satır sonu girmesin (başlık enjeksiyonu)
+    subject: k('subject').replace(/[\r\n]+/g, ' '),
+    html: await render(element),
+    text: await render(element, { plainText: true }),
+  };
+}
+
 /** Ücretsiz analiz raporu linki (5 dil) */
 export function renderFreeAnalysisReport(locale: Locale, vars: { url: string; domain: string; score: number }) {
   return renderAction('freeAnalysis', locale, vars);

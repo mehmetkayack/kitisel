@@ -10,6 +10,12 @@
     "results": "Ergebnisse",
     "settings": "Einstellungen"
   },
+  "siteNav": {
+    "howItWorks": "So funktioniert’s",
+    "pricing": "Preise",
+    "freeAnalysis": "Kostenlose Analyse",
+    "blog": "Blog"
+  },
   "actions": {
     "save": "Speichern",
     "cancel": "Abbrechen",
@@ -54,7 +60,9 @@
     "shopifyToken": "Fügen Sie das Token ein, das mit „shpat_“ beginnt.",
     "wixKey": "Fügen Sie den vollständigen API-Schlüssel ein.",
     "wixSiteId": "Die Website-ID hat das Format 8-4-4-4-12 Zeichen.",
-    "questionMin": "Die Frage muss mindestens 8 Zeichen lang sein."
+    "questionMin": "Die Frage muss mindestens 8 Zeichen lang sein.",
+    "phone": "Bitte geben Sie eine gültige Telefonnummer ein, z. B. +49 30 1234567.",
+    "slugTaken": "In dieser Sprache gibt es bereits einen Beitrag mit dieser Adresse. Wählen Sie eine andere."
   },
   "status": {
     "planned": "Geplant",
@@ -75,7 +83,8 @@
     "about": "Über uns",
     "contact": "Kontakt",
     "payments": "Zahlungen werden sicher über den lizenzierten Zahlungsdienstleister iyzico abgewickelt. Wir speichern Ihre Kartendaten nicht.",
-    "operatedBy": "Kitisel ist ein Dienst von {{company}}."
+    "operatedBy": "Kitisel ist ein Dienst von {{company}}.",
+    "blog": "Blog"
   },
   "notFound": {
     "title": "Diese Seite gibt es nicht",

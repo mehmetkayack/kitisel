@@ -23,13 +23,15 @@ export interface FieldProps {
   error?: ReactNode;
   /** Etiketin yanında "?" açıklama balonu vb. */
   labelAddon?: ReactNode;
+  /** Etiket görsel olarak gizlenir, ekran okuyucuya okunur (tasarımda etiketsiz tek alanlı formlar) */
+  hideLabel?: boolean;
   id?: string;
   className?: string;
   children: ReactNode;
 }
 
 /** Etiket + ipucu + hata mesajı. Her form alanında `label` zorunludur (erişilebilirlik). */
-export function Field({ label, hint, error, labelAddon, id, className, children }: FieldProps) {
+export function Field({ label, hint, error, labelAddon, hideLabel = false, id, className, children }: FieldProps) {
   const autoId = useId();
   const fieldId = id ?? autoId;
   const hintId = hint ? `${fieldId}-hint` : undefined;
@@ -39,7 +41,7 @@ export function Field({ label, hint, error, labelAddon, id, className, children 
   return (
     <FieldContext.Provider value={{ id: fieldId, describedBy, invalid: !!error }}>
       <div className={cn('flex flex-col gap-1.5', className)}>
-        <div className="flex items-center gap-1.5">
+        <div className={cn('flex items-center gap-1.5', hideLabel && 'sr-only')}>
           <label htmlFor={fieldId} className="text-sm font-medium text-ink">
             {label}
           </label>

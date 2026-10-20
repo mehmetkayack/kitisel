@@ -8,3 +8,8 @@
 .env.*
 !.env.example
 .git
+backups
+_after
+_kitisel-kit
+**/.vite*
+node_modules/.vite*

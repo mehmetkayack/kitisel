@@ -37,5 +37,16 @@
     "button": "Bericht öffnen",
     "expires": "Der Link zum Bericht ist 30 Tage gültig.",
     "ignore": "Sie erhalten diese E-Mail, weil Sie sie bei Kitisel angefordert haben. Werbe-E-Mails senden wir nur mit Ihrer Zustimmung."
+  },
+  "contactNotification": {
+    "subject": "Neue Kontaktnachricht: {{name}}",
+    "preview": "{{name}} hat über das Kontaktformular geschrieben.",
+    "heading": "Neue Kontaktnachricht",
+    "fromLabel": "Von",
+    "phoneLabel": "Telefon",
+    "companyLabel": "Unternehmen",
+    "none": "—",
+    "button": "Im Admin-Bereich öffnen",
+    "footer": "Sie erhalten diese E-Mail, weil über das Kitisel-Kontaktformular eine neue Nachricht eingegangen ist. „Antworten“ geht direkt an den Absender."
   }
 }

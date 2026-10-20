@@ -179,6 +179,7 @@
   --night-text: #cbd5e1;
   --night-muted: #94a3b8;
   --night-foreground: #f8fafc;
+  --danger-on-night: #fca5a5; /* koyu bantta hata metni: #0f172a üstünde 9:1 */
 }
 
 /* Koyu tema: kitte koyu palet yok; marka kurallarındaki koyu zemin tonlarından türetildi. */

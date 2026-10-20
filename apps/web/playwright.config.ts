@@ -44,6 +44,17 @@ export default defineConfig({
         ENCRYPTION_KEY: E2E_ENCRYPTION_KEY,
         // Deneme hakkı (3) test edilir; geliştirici .env'indeki hak artırımı uygulanmaz
         ARTICLE_QUOTA_OVERRIDE: '',
+        // İletişim formu: Google'a istek gitmez (doğrulama geliştirmede atlanır)
+        RECAPTCHA_SECRET_KEY: '',
+        // Cloudflare Turnstile da testte kapalı (dış servise istek yok)
+        TURNSTILE_SECRET_KEY: '',
+        // E-postalar her zaman yerel Mailpit'e (geliştiricinin .env'inde gerçek SMTP olsa da dışarı e-posta gitmez)
+        SMTP_HOST: '127.0.0.1',
+        SMTP_PORT: '1025',
+        SMTP_SECURE: 'false',
+        SMTP_USER: '',
+        SMTP_PASSWORD: '',
+        CONTACT_NOTIFY_EMAIL: 'owner@example.com',
       },
     },
     {
@@ -56,6 +67,10 @@ export default defineConfig({
         API_URL: `http://localhost:${E2E_API_PORT}`,
         // Dev sunucusuyla aynı anda çalışabilsin diye ayrı Vite önbelleği
         VITE_CACHE_DIR: '../../node_modules/.vite-e2e',
+        RECAPTCHA_SITE_KEY: '',
+        // Canonical/hreflang kökü (publicOrigin) test sunucusunun adresi olsun
+        WEB_URL: BASE_URL,
+        TURNSTILE_SITE_KEY: '',
         // Yasal sayfalar: satıcı bilgisi .env'de dolu olsa da testte boş (yer tutucular denetlenir)
         LEGAL_COMPANY_NAME: '',
         LEGAL_ADDRESS: '',

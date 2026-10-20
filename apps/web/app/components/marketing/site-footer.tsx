@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { LEGAL_SLUGS } from '../../legal/documents';
 import { KitiselLogo } from '../brand/kitisel-logo';
+import { LanguageSelect, ThemeSelect } from '../preference-controls';
 
 const linkClass = 'inline-flex min-h-11 items-center text-ink-muted hover:text-ink hover:underline';
 
@@ -22,6 +23,7 @@ export function SiteFooter({
   const product = [
     { to: 'pricing', label: t('footer.pricing') },
     { to: 'free-analysis', label: t('footer.freeAnalysis') },
+    { to: 'blog', label: t('footer.blog') },
     { to: 'about', label: t('footer.about') },
     { to: 'contact', label: t('footer.contact') },
   ];
@@ -59,7 +61,14 @@ export function SiteFooter({
           </nav>
         </div>
         <div className="flex flex-col gap-2 border-t border-border pt-6 text-ink-muted">
-          <KitiselLogo to={`/${locale}`} className="self-start" />
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <KitiselLogo to={`/${locale}`} />
+            {/* Dil ve tema (tasarımda başlıkta yer yok) */}
+            <div className="flex flex-wrap gap-2">
+              <LanguageSelect mode="public" />
+              <ThemeSelect />
+            </div>
+          </div>
           <p className="flex items-start gap-2">
             <ShieldCheck className="mt-0.5 size-4 shrink-0 text-growth-text" aria-hidden />
             {t('footer.payments')}

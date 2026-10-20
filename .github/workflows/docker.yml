@@ -1,0 +1,53 @@
+name: Docker imajı
+
+# main'e her push'ta (ve elle) production imajını derler, GitHub Container Registry'ye koyar:
+#   ghcr.io/<sahip>/<depo>:latest  ve  :<commit-sha>
+# Sunucu derlemez, sadece indirir (docs/DEPLOY.md). Web paketine gömülen herkese açık site anahtarları
+# depo ayarlarındaki Variables'tan gelir: Settings → Secrets and variables → Actions → Variables
+#   TURNSTILE_SITE_KEY, RECAPTCHA_SITE_KEY   (gizli anahtarlar buraya DEĞİL, sunucudaki .env.production'a)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: docker-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: İmaj adı (küçük harf)
+        id: name
+        run: echo "image=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/node.Dockerfile
+          push: true
+          tags: |
+            ${{ steps.name.outputs.image }}:latest
+            ${{ steps.name.outputs.image }}:${{ github.sha }}
+          build-args: |
+            TURNSTILE_SITE_KEY=${{ vars.TURNSTILE_SITE_KEY }}
+            RECAPTCHA_SITE_KEY=${{ vars.RECAPTCHA_SITE_KEY }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
