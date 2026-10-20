@@ -7,7 +7,7 @@ import { emailT } from './i18n';
 import { ActionEmail } from './templates/action-email';
 
 export type { Mailer, OutgoingEmail } from './mailer';
-export { createMailer, createSmtpMailer, MemoryMailer } from './mailer';
+export { createBrevoMailer, createMailer, createResendMailer, createSmtpMailer, MemoryMailer, parseAddress } from './mailer';
 
 export interface RenderedEmail {
   subject: string;

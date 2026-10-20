@@ -421,15 +421,18 @@ export function TopicsStep({ site, onNext, onBack }: StepProps) {
   const requested = useRef(false);
   const [removing, setRemoving] = useState<string | null>(null);
   const running = site.topicsStatus === 'running';
+  // Analiz yapay zekâ tanımlanmadan önce yapıldıysa kayıtta "yapay zekâ yok" hatası kalır; artık
+  // hazırsa bu hata geçersizdir (gösterilmez, öneri yeniden başlar).
+  const staleAiError = site.aiAvailable && site.topicsStatus === 'failed' && site.topicsError === 'ai_not_configured';
 
   // İlk girişte konu yoksa öneri otomatik başlar (yapay zekâ kuruluysa).
   useEffect(() => {
     if (requested.current || !topics.isSuccess || !site.aiAvailable) return;
-    if (site.topicsStatus === 'idle' && topics.data.length === 0) {
+    if ((site.topicsStatus === 'idle' || staleAiError) && topics.data.length === 0) {
       requested.current = true;
       generateTopics.mutate();
     }
-  }, [topics.isSuccess, topics.data, site.aiAvailable, site.topicsStatus, generateTopics]);
+  }, [topics.isSuccess, topics.data, site.aiAvailable, site.topicsStatus, staleAiError, generateTopics]);
 
   // Öneri bitince listeyi yenile.
   const previous = useRef(site.topicsStatus);
@@ -456,7 +459,7 @@ export function TopicsStep({ site, onNext, onBack }: StepProps) {
   };
 
   const list = topics.data ?? [];
-  const errorCode = site.topicsStatus === 'failed' ? (site.topicsError ?? 'internal') : null;
+  const errorCode = site.topicsStatus === 'failed' && !staleAiError ? (site.topicsError ?? 'internal') : null;
 
   return (
     <WizardFrame step="topics" title={t('topics.title')} description={t('topics.body')} onBack={onBack}>

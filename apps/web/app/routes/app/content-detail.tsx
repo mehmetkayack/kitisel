@@ -328,11 +328,12 @@ export default function ContentDetailPage() {
             <Button variant="secondary" onClick={() => retryPublish.mutate()} loading={retryPublish.isPending}>
               {t('retryPublish')}
             </Button>
-          ) : d.errorMessage !== 'ai_not_configured' ? (
+          ) : (
+            // "Yapay zekâ yok" hatasında da: anahtar sonradan tanımlandıysa yeniden yazar, hâlâ yoksa sunucu söyler
             <Button variant="secondary" onClick={() => generate.mutate()} loading={generate.isPending}>
               {t('retry')}
             </Button>
-          ) : undefined
+          )
         }
       >
         {errorText}

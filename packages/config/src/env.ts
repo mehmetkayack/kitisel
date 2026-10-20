@@ -96,7 +96,8 @@ export const envSchema = z.object({
   IYZICO_BASE_URL: z.url().default('https://sandbox-api.iyzipay.com'),
 
   // E-posta
-  EMAIL_PROVIDER: z.enum(['smtp', 'resend']).default('smtp'),
+  /** smtp; ya da SMTP portları kapalı sunucularda (ör. DigitalOcean) HTTPS API'li servis: resend, brevo */
+  EMAIL_PROVIDER: z.enum(['smtp', 'resend', 'brevo']).default('smtp'),
   EMAIL_FROM: z.string().default('Upvine <no-reply@upvine.local>'),
   SMTP_HOST: z.string().default('127.0.0.1'),
   SMTP_PORT: z.coerce.number().int().positive().default(1025),
@@ -104,6 +105,7 @@ export const envSchema = z.object({
   SMTP_USER: optionalString,
   SMTP_PASSWORD: optionalString,
   RESEND_API_KEY: optionalString,
+  BREVO_API_KEY: optionalString,
 
   // Dosya depolama (Cloudflare R2, S3 uyumlu)
   R2_ACCOUNT_ID: optionalString,
