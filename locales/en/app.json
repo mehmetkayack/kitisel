@@ -2,7 +2,8 @@
   "userMenu": {
     "label": "Account menu",
     "settings": "Account settings",
-    "admin": "Admin panel"
+    "admin": "Admin panel",
+    "billing": "Plan and billing"
   },
   "verifyBanner": {
     "text": "Please confirm your email address. We sent a link to {{email}}.",
@@ -86,5 +87,142 @@
   "impersonation": {
     "text": "You are viewing Kitisel as {{name}} ({{email}}). This view is read-only.",
     "exit": "Exit view"
+  },
+  "billing": {
+    "title": "Plan and billing",
+    "description": "Choose your plan and pay by card or bank transfer. Each payment opens one period (a month or a year).",
+    "notAllowed": "Only the account owner or an admin can make payments.",
+    "unavailableTitle": "Payments are closed right now",
+    "unavailableBody": "Payment methods aren’t set up yet. To get a plan, write to us from the contact page.",
+    "status": {
+      "pending": "Pending",
+      "paid": "Paid",
+      "failed": "Failed",
+      "canceled": "Canceled"
+    },
+    "interval": {
+      "monthly": "Monthly",
+      "yearly": "Yearly"
+    },
+    "per": {
+      "monthly": "month",
+      "yearly": "year"
+    },
+    "method": {
+      "card": "Card",
+      "bank_transfer": "Bank transfer"
+    },
+    "currency": {
+      "USD": "To the USD account (dollars)",
+      "TRY": "To the TRY account (Turkish lira)"
+    },
+    "current": {
+      "title": "Your plan: {{plan}}",
+      "trialTitle": "You’re on the trial",
+      "paid": "Your paid period ends on {{date}}. We send a renewal reminder 3 days before.",
+      "complimentary": "This plan was set up for you by the Kitisel team.",
+      "complimentaryUntil": "This plan was set up for you by the Kitisel team until {{date}}.",
+      "trial": "You have 3 articles a month and 1 site. Choose a plan to raise your limits."
+    },
+    "return": {
+      "failedTitle": "The payment didn’t go through",
+      "failedBody": "Your card wasn’t charged. Check your card details and try again, or pay by bank transfer.",
+      "paidTitle": "Payment received",
+      "paidBody": "Your plan is active. We also emailed you a payment summary.",
+      "dismiss": "Dismiss",
+      "waitingTitle": "Confirming your payment",
+      "waitingBody": "Waiting for confirmation from PayTR. This usually takes a few seconds; you can close the page and your plan will open once it’s confirmed."
+    },
+    "transfer": {
+      "title": "Waiting for your bank transfer",
+      "body": "Send the payment for the {{plan}} plan ({{interval}}) to the account below.",
+      "holder": "Recipient",
+      "bank": "Bank",
+      "iban": "IBAN",
+      "amount": "Amount",
+      "reference": "Payment reference",
+      "copy": "Copy {{field}}",
+      "copied": "Copied.",
+      "referenceNote": "Be sure to enter {{reference}} as the payment reference; we use this code to match your payment.",
+      "rateNote": "{{usd}} was converted at the CBRT selling rate at the time of the order ({{rate}} TRY).",
+      "approvalNote": "Your plan opens once the payment reaches our account (usually within 1 business day), and we’ll email you.",
+      "cancel": "Cancel this order",
+      "canceled": "Bank transfer order canceled.",
+      "created": "Your transfer details are ready. You don’t need to do anything else after paying."
+    },
+    "card": {
+      "title": "Secure payment",
+      "body": "Enter your card details in PayTR’s secure payment form. Kitisel never sees or stores your card details.",
+      "frameTitle": "PayTR secure payment form",
+      "back": "Change payment method"
+    },
+    "form": {
+      "title": "Choose a plan",
+      "body": "Prices are in US dollars (USD). VAT is added for billing addresses in Turkey.",
+      "renewTitle": "Renew your plan",
+      "renewBody": "The new period starts when the current one ends. To change plans, write to us from the contact page.",
+      "plan": "Plan",
+      "planLine": "{{price}} / {{per}} · {{articles}} articles a month · {{sites}} site(s)",
+      "interval": "Billing period",
+      "monthlyHint": "You pay again each month.",
+      "yearlyHint": "12 months for the price of 10.",
+      "billingInfo": "Billing details",
+      "billingType": "Invoice type",
+      "type": {
+        "individual": "Individual",
+        "company": "Company"
+      },
+      "fullName": "Full name",
+      "companyName": "Company name",
+      "phone": "Phone",
+      "phoneHint": "Required by the payment provider.",
+      "country": "Country",
+      "countryPlaceholder": "Choose a country",
+      "taxId": "Tax number / VAT ID",
+      "taxIdOptional": "National ID number (optional)",
+      "taxIdHint": "Leave it empty to be invoiced as a consumer.",
+      "taxOffice": "Tax office",
+      "address": "Billing address",
+      "method": "Payment method",
+      "methodHint": {
+        "card": "Credit or debit card. Your plan opens as soon as the payment is confirmed.",
+        "bank_transfer": "You send the payment to our bank account. Your plan opens once it arrives."
+      },
+      "onlyMethod": "Payment method: {{method}}",
+      "transferCurrency": "Which account will you send to?",
+      "currencyHint": {
+        "USD": "You send the amount in dollars.",
+        "TRY": "The amount is converted to TRY at the CBRT selling rate."
+      },
+      "summary": "Summary",
+      "subtotal": "{{plan}} · {{interval}}",
+      "vat": "VAT ({{rate}}%)",
+      "vatExempt": "VAT (outside Turkey, none)",
+      "total": "Total",
+      "tryNote": "The TRY amount is calculated at today’s CBRT rate and shown in the next step.",
+      "noAutoRenew": "There are no automatic charges. We send a renewal reminder 3 days before your period ends.",
+      "accept": "I have read and accept the <sales>Distance Sales Agreement</sales> and the <pre>Pre-Information Form</pre>. <refund>Cancellation and refund policy</refund>",
+      "submitCard": "Pay {{amount}}",
+      "submitTransfer": "Show transfer details",
+      "secure": "Payments are processed by PayTR, licensed by the Central Bank of Turkey, with 3D Secure."
+    },
+    "history": {
+      "title": "Payment history",
+      "empty": "No payments yet.",
+      "date": "Date",
+      "plan": "Plan",
+      "method": "Method",
+      "amount": "Amount",
+      "reference": "Reference",
+      "period": "Period ends",
+      "status": "Status"
+    },
+    "settingsTitle": "Plan and billing",
+    "settingsBody": "See your plan, renew or upgrade it, and check your payment history.",
+    "settingsAction": "Plan and billing",
+    "test": {
+      "title": "Test mode",
+      "body": "Bank details aren’t set yet, so a sample test account is shown. Don’t send real money to it; you can try the flow by approving the order in the admin panel. For a real account, add BANK_ACCOUNT_HOLDER and the IBANs to the .env file."
+    }
   }
 }

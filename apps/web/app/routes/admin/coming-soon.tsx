@@ -1,4 +1,4 @@
-import { Bot, CreditCard, Flag, ListChecks, ReceiptText, Undo2 } from 'lucide-react';
+import { Bot, Flag, ListChecks, ReceiptText, Undo2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { data, Link } from 'react-router';
 import { Button, EmptyState } from '@upvine/ui';
@@ -7,7 +7,6 @@ import { PageHeader } from '../../components/page-header';
 
 /** Verisi sonraki fazlarda gelecek admin bölümleri (spec Bölüm 8): ne geleceğini açıklayan boş durum. */
 const SECTIONS = {
-  billing: { key: 'billing', icon: CreditCard },
   refunds: { key: 'refunds', icon: Undo2 },
   invoices: { key: 'invoices', icon: ReceiptText },
   queues: { key: 'queues', icon: ListChecks },

@@ -16,6 +16,6 @@ Kullanıcı isteğiyle spec Bölüm 7.16'nın verisi mevcut olan kısmı Faz 0 �
 
 | Bölüm | Faz |
 |---|---|
-| Abonelikler, iade talepleri, kesilecek faturalar | Faz 3 (iyzico) |
+| İade talepleri, kesilecek faturalar | Faz 3 (PayTR). **Ödemeler** (kart + havale siparişleri, havale onayı) 2026-10-21'de eklendi: `/admin/billing` |
 | İş kuyrukları (Bull Board), YZ maliyetleri, Gemini 429 oranı ve günlük bütçe | Faz 1 |
 | Prompt şablonu sürümleri ve özellik bayrakları | Faz 6 |

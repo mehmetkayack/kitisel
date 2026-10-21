@@ -7,6 +7,7 @@ import {
   GscDailyMetric,
   ArticleRewrite,
   ArticleVersion,
+  BillingOrder,
   ContentRefresh,
   Membership,
   Site,
@@ -54,6 +55,8 @@ describe('kiracı izolasyonu', () => {
     await expect(AiVisibilityCheck.findAll({ where: { promptId: 'x' } })).rejects.toBeInstanceOf(TenantGuardError);
     // İçerik yenileme önerileri
     await expect(ContentRefresh.findAll({ where: { siteId: 'x' } })).rejects.toBeInstanceOf(TenantGuardError);
+    // Ödeme siparişleri (PayTR bildirimi ve admin listesi sadece withoutTenantGuard ile)
+    await expect(BillingOrder.findOne({ where: { reference: 'KTX' } })).rejects.toBeInstanceOf(TenantGuardError);
   });
 
   it('repository sadece istenen organizasyonun verisini döner', async () => {

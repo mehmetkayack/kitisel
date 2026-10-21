@@ -388,7 +388,7 @@ describe('editör ve sürüm geçmişi', () => {
 });
 
 describe('indirme', () => {
-  it('ZIP: HTML + Markdown + görsel dosyaları, görseller göreli adresle; HTML/MD görseli gömülü', async () => {
+  it('ZIP: HTML + Markdown + kapak dosyası, görseller göreli adresle; HTML/MD görseli gömülü; eski bilgi grafiği eklenmez', async () => {
     const { token, orgId, site, topic } = await setup();
     const article = await addArticle(orgId, site.id, topic.id);
     await articlesRepository.replaceImage(orgId, article.id, { kind: 'infographic', source: 'generated', prompt: null, mimeType: 'image/webp', data: Buffer.from('RIFFinfoWEBP'), width: 1080, height: 1350, fileName: 'implant-infographic.webp', altText: 'Özet' });
@@ -405,14 +405,13 @@ describe('indirme', () => {
     expect(res.headers['content-type']).toBe('application/zip');
     const files = unzipSync(new Uint8Array(res.body as Buffer));
     expect(Object.keys(files).sort()).toEqual([
-      'implant-tedavisi-suresi/images/implant-infographic.webp',
       'implant-tedavisi-suresi/images/x.webp',
       'implant-tedavisi-suresi/implant-tedavisi-suresi.md',
       'implant-tedavisi-suresi/index.html',
     ]);
     const html = strFromU8(files['implant-tedavisi-suresi/index.html']!);
     expect(html).toContain('<img src="images/x.webp"');
-    expect(html).toContain('<figure><img src="images/implant-infographic.webp" alt="Özet"');
+    expect(html).not.toContain('infographic');
     expect(strFromU8(files['implant-tedavisi-suresi/implant-tedavisi-suresi.md']!)).toContain('![Kapak](images/x.webp)');
 
     const embedded = await api().get(`/api/v1/content/${topic.id}/download?format=html`).set(auth(token)).expect(200);

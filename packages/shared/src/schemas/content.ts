@@ -92,7 +92,6 @@ export interface ArticleDto {
   /** `site`: sitedeki bir sayfanın görselinden (görsel modeli yoksa), `generated`: marka renklerinden, `user`: kullanıcı yükledi */
   cover: { dataUrl: string; alt: string; source: 'ai' | 'generated' | 'site' | 'user' } | null;
   /** Ana çıkarımlar bilgi grafiği (4:5). Yayında yazının içine eklenir. */
-  infographic: { dataUrl: string; alt: string; width: number; height: number } | null;
   updatedAt: string;
 }
 

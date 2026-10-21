@@ -16,6 +16,7 @@ import { contentTick, generateArticle, publishArticle } from './jobs/content-job
 import type { ContentDeps } from './jobs/content-jobs';
 import { runFreeAnalysis } from './jobs/free-analysis';
 import { createReviewNotifier } from './notifications';
+import { billingTick } from './jobs/billing-jobs';
 import { syncPosts } from './jobs/posts-sync';
 import { planningTick, resultsTick, runVisibility, syncSearchConsole } from './jobs/results-jobs';
 import { analyzeSite, generateTopics, RetryableJobError } from './jobs/site-jobs';
@@ -61,7 +62,8 @@ const deps: JobDeps = {
   logger,
 };
 
-const contentDeps: ContentDeps = { ...deps, onReviewReady: createReviewNotifier(env, createMailer(env)) };
+const mailer = createMailer(env);
+const contentDeps: ContentDeps = { ...deps, onReviewReady: createReviewNotifier(env, mailer) };
 
 async function beat(): Promise<void> {
   try {
@@ -163,6 +165,9 @@ const contentWorker = new Worker<ContentJobData | Record<string, never>, void, C
         });
         if (planned) logger.info({ sites: planned }, 'planning tick');
       }
+      // Ödenmiş dönem: yenileme hatırlatması ve süresi dolanlar
+      const billed = await billingTick({ env, mailer, logger });
+      if (billed.reminded || billed.lapsed) logger.info(billed, 'billing tick');
       return;
     }
     const data = job.data as ContentJobData;

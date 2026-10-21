@@ -32,10 +32,8 @@ echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-swap.conf && sudo sysctl --s
 ```
 
 İmajın derlenmesi (bir kez ayarlanır): kodu GitHub'da `design/kitisel` (ya da `main`) dalına push'layın; **Actions → Docker imajı**
-iş akışı imajı `ghcr.io/mehmetkayack/kitisel:latest` olarak yayınlar. Turnstile/reCAPTCHA **site**
-anahtarlarını (gizli olmayanlar) depoda **Settings → Secrets and variables → Actions → Variables**
-altına `TURNSTILE_SITE_KEY` ve `RECAPTCHA_SITE_KEY` adıyla ekleyin; değiştirince iş akışını yeniden
-çalıştırın.
+iş akışı imajı `ghcr.io/mehmetkayack/kitisel:latest` olarak yayınlar. İmaja anahtar gömülmez:
+Turnstile/reCAPTCHA site anahtarları dahil tüm değerler sunucudaki `.env.production`'dan çalışma anında okunur.
 
 ## 2. DNS
 
@@ -89,6 +87,11 @@ Dış servis panellerinde canlı alan adını ekleyin:
   `https://<alan-adı>/api/v1/auth/google/callback` ve `https://<alan-adı>/api/v1/connections/search-console/callback`;
   Authorized JavaScript origins: `https://<alan-adı>`. İzin ekranını "In production"a alın.
 - **reCAPTCHA** ve **Turnstile**: alan adı listesine `<alan-adı>`.
+- **PayTR** (kartla ödeme): Mağaza Paneli → Destek & Kurulum → Entegrasyon Bilgileri'nden `PAYTR_MERCHANT_ID/KEY/SALT`;
+  Destek & Kurulum → Ayarlar → Bildirim URL'i: `https://<alan-adı>/api/v1/billing/paytr/callback`. Test için
+  `PAYTR_TEST_MODE=true` (PayTR test kartları), canlı satışta `false`. USD tahsilat için PayTR kurumsal ekibiyle görüşün.
+- **Havale/EFT**: `BANK_ACCOUNT_HOLDER`, `BANK_NAME` ve en az bir IBAN (`BANK_IBAN_USD`, `BANK_IBAN_TRY`). Siparişler
+  admin → Ödemeler'de; ödeme hesaba geçince "Ödeme alındı" ile onaylayın.
 
 ## 5. Başlatma
 

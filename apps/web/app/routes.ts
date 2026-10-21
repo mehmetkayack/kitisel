@@ -35,6 +35,7 @@ export default [
     route('calendar', 'routes/app/calendar.tsx'),
     route('results', 'routes/app/results.tsx'),
     route('settings', 'routes/app/settings.tsx'),
+    route('billing', 'routes/app/billing.tsx'),
     route('onboarding', 'routes/app/onboarding.tsx'),
   ]),
 
@@ -50,6 +51,8 @@ export default [
     route('messages/:id', 'routes/admin/message.tsx'),
     route('blog', 'routes/admin/blog.tsx'),
     route('blog/:id', 'routes/admin/blog-edit.tsx'),
+    route('billing', 'routes/admin/billing.tsx'),
+    route('billing/:id', 'routes/admin/billing-order.tsx'),
     route(':section', 'routes/admin/coming-soon.tsx'),
   ]),
 

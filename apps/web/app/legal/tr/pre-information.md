@@ -1,6 +1,6 @@
 # Ön Bilgilendirme Formu
 
-Son güncelleme: 12 Ekim 2026
+Son güncelleme: 21 Ekim 2026
 
 Bu form, Mesafeli Sözleşmeler Yönetmeliği'nin 5. maddesi uyarınca, sözleşme kurulmadan önce Alıcı'yı bilgilendirmek amacıyla hazırlanmıştır.
 
@@ -18,15 +18,15 @@ Kitisel; sitenizi analiz eden, konu öneren, yapay zekâ ile blog yazıları ür
 
 ## Toplam fiyat
 
-Seçtiğiniz paket ve ödeme sıklığına göre vergiler dahil toplam tutar, ödeme sayfasında onayınızdan önce gösterilir. Fiyatlar ABD doları (USD) cinsindendir. Abonelik iptal edilene kadar her dönem aynı tutarla yenilenir. Fiyat değişikliği olursa yenilemeden önce bildirilir.
+Seçtiğiniz paket ve ödeme sıklığına göre vergiler dahil toplam tutar, ödeme sayfasında onayınızdan önce gösterilir. Fiyatlar ABD doları (USD) cinsindendir. Her ödeme seçilen dönemi (bir ay veya bir yıl) kapsar; yenileme sizin onayınızla yapılır ve otomatik tahsilat yoktur. Fiyat değişikliği olursa yenilemeden önce bildirilir.
 
 ## Ödeme ve ifa
 
-Ödeme iyzico altyapısıyla kredi veya banka kartından alınır. Hizmet, ödeme onaylandığı anda hesabınızda etkinleşir ve elektronik ortamda sunulur. Fiziksel teslimat yoktur.
+Ödeme PayTR altyapısıyla kredi veya banka kartından ya da ödeme sayfasında gösterilen banka hesabımıza havale/EFT ile alınır. TL hesabına havalede tutar, sipariş anındaki TCMB döviz satış kuruyla hesaplanır. Hizmet, kartla ödemede ödeme onaylandığı anda, havale/EFT'de ödeme hesabımıza geçtiğinde hesabınızda etkinleşir ve elektronik ortamda sunulur. Fiziksel teslimat yoktur.
 
 ## Sözleşme süresi ve feshi
 
-Abonelik aylık veya yıllıktır ve dönem sonunda otomatik yenilenir. İstediğiniz zaman panelden ya da {{email}} adresine yazarak iptal edebilirsiniz; iptal ödenmiş dönemin sonunda geçerli olur.
+Paketler aylık veya yıllık dönemler hâlinde satılır ve dönem sonunda otomatik yenilenmez. Dönem bitmeden size yenileme hatırlatması göndeririz; yenilemezseniz ek ücret alınmaz ve hizmet ödenmiş dönemin sonuna kadar sürer.
 
 ## Cayma hakkı
 

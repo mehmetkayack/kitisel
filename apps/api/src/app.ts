@@ -18,6 +18,8 @@ import { connectionCallbackRoutes, contentRoutes, sitesRoutes } from './modules/
 import { freeAnalysisRoutes } from './modules/free-analysis/free-analysis.routes';
 import { contactRoutes } from './modules/contact/contact.routes';
 import { blogRoutes } from './modules/blog/blog.routes';
+import { billingRoutes } from './modules/billing/billing.routes';
+import { createBillingService } from './modules/billing/billing.service';
 import { buildOpenApiDocument } from './openapi';
 
 export function createApp(deps: AppDeps): express.Express {
@@ -61,16 +63,18 @@ export function createApp(deps: AppDeps): express.Express {
 
   app.use('/api/health', healthRoutes(deps));
 
+  const billing = createBillingService({ env, logger: deps.logger, sequelize: deps.sequelize, mailer: deps.mailer, fetch: deps.fetch });
   const v1 = express.Router();
   v1.use(deps.rateLimiter(RATE_LIMITS.api));
   v1.use('/auth', authRoutes(deps));
   v1.use('/me', meRoutes(deps));
-  v1.use('/admin', adminRoutes(deps));
+  v1.use('/admin', adminRoutes(deps, billing));
   v1.use('/sites', sitesRoutes(deps));
   v1.use('/content', contentRoutes(deps));
   v1.use('/free-analyses', freeAnalysisRoutes(deps));
   v1.use('/contact', contactRoutes(deps));
   v1.use('/blog', blogRoutes(deps));
+  v1.use('/billing', billingRoutes(deps, billing));
   v1.use('/connections', connectionCallbackRoutes(deps));
   app.use('/api/v1', v1);
 

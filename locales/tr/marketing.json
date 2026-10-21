@@ -23,7 +23,7 @@
     },
     "step2": {
       "title": "Yazar ve doğrular",
-      "body": "Markanızın sesiyle makaleyi yazar, her bilgiyi kaynağından kontrol eder, kapak görseli ve infografik hazırlar."
+      "body": "Markanızın sesiyle makaleyi yazar, her bilgiyi kaynağından kontrol eder ve kapak görselini hazırlar."
     },
     "step3": {
       "title": "Yayınlar ve takip eder",
@@ -141,7 +141,7 @@
     "billedYearly": "Yıllık {{value}} olarak faturalanır",
     "popular": "En popüler",
     "start": "7 gün ücretsiz dene",
-    "policy": "İstediğiniz zaman iptal edebilirsiniz; ilk ödemeden sonraki 14 gün içinde koşulsuz iade.",
+    "policy": "Otomatik çekim yok, her dönemi siz yenilersiniz; ilk ödemeden sonraki 14 gün içinde koşulsuz iade.",
     "plans": {
       "starter": {
         "name": "Starter",
@@ -169,7 +169,7 @@
     "policyLink": "İptal ve iade politikası",
     "exVat": "+KDV",
     "homeTitle": "Bir ajansın küçük bir kısmı fiyatına.",
-    "homeBody": "7 gün deneme · 14 gün koşulsuz iade · Tek tıkla iptal"
+    "homeBody": "7 gün deneme · 14 gün koşulsuz iade · Otomatik çekim yok"
   },
   "faq": {
     "eyebrow": "Sık sorulanlar",

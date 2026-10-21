@@ -2,7 +2,8 @@
   "userMenu": {
     "label": "Menu du compte",
     "settings": "Paramètres du compte",
-    "admin": "Administration"
+    "admin": "Administration",
+    "billing": "Forfait et paiement"
   },
   "verifyBanner": {
     "text": "Veuillez confirmer votre adresse e-mail. Nous avons envoyé un lien à {{email}}.",
@@ -86,5 +87,142 @@
   "impersonation": {
     "text": "Vous consultez Kitisel en tant que {{name}} ({{email}}). Cette vue est en lecture seule.",
     "exit": "Quitter la vue"
+  },
+  "billing": {
+    "title": "Forfait et paiement",
+    "description": "Choisissez votre forfait et payez par carte ou par virement. Chaque paiement ouvre une période (un mois ou un an).",
+    "notAllowed": "Seul le propriétaire du compte ou un administrateur peut effectuer un paiement.",
+    "unavailableTitle": "Les paiements sont fermés pour le moment",
+    "unavailableBody": "Les moyens de paiement ne sont pas encore configurés. Pour obtenir un forfait, écrivez-nous depuis la page de contact.",
+    "status": {
+      "pending": "En attente",
+      "paid": "Payé",
+      "failed": "Échoué",
+      "canceled": "Annulé"
+    },
+    "interval": {
+      "monthly": "Mensuel",
+      "yearly": "Annuel"
+    },
+    "per": {
+      "monthly": "mois",
+      "yearly": "an"
+    },
+    "method": {
+      "card": "Carte",
+      "bank_transfer": "Virement bancaire"
+    },
+    "currency": {
+      "USD": "Sur le compte en USD (dollars)",
+      "TRY": "Sur le compte en TRY (livres turques)"
+    },
+    "current": {
+      "title": "Votre forfait : {{plan}}",
+      "trialTitle": "Vous êtes en période d’essai",
+      "paid": "Votre période payée se termine le {{date}}. Nous envoyons un rappel de renouvellement 3 jours avant.",
+      "complimentary": "Ce forfait a été configuré pour vous par l’équipe Kitisel.",
+      "complimentaryUntil": "Ce forfait a été configuré pour vous par l’équipe Kitisel jusqu’au {{date}}.",
+      "trial": "Vous disposez de 3 articles par mois et d’un site. Choisissez un forfait pour augmenter vos limites."
+    },
+    "return": {
+      "failedTitle": "Le paiement n’a pas abouti",
+      "failedBody": "Votre carte n’a pas été débitée. Vérifiez vos informations de carte et réessayez, ou payez par virement.",
+      "paidTitle": "Paiement reçu",
+      "paidBody": "Votre forfait est actif. Nous vous avons aussi envoyé un récapitulatif par e-mail.",
+      "dismiss": "Fermer",
+      "waitingTitle": "Confirmation de votre paiement",
+      "waitingBody": "En attente de la confirmation de PayTR. Cela prend généralement quelques secondes ; vous pouvez fermer la page, votre forfait s’ouvrira dès la confirmation."
+    },
+    "transfer": {
+      "title": "Virement en attente",
+      "body": "Envoyez le paiement du forfait {{plan}} ({{interval}}) sur le compte ci-dessous.",
+      "holder": "Bénéficiaire",
+      "bank": "Banque",
+      "iban": "IBAN",
+      "amount": "Montant",
+      "reference": "Libellé",
+      "copy": "Copier : {{field}}",
+      "copied": "Copié.",
+      "referenceNote": "Indiquez impérativement {{reference}} dans le libellé ; nous utilisons ce code pour identifier votre paiement.",
+      "rateNote": "{{usd}} a été converti au taux de vente de la Banque centrale de Turquie au moment de la commande ({{rate}} TRY).",
+      "approvalNote": "Votre forfait s’ouvre dès que le paiement arrive sur notre compte (généralement sous 1 jour ouvré) et nous vous prévenons par e-mail.",
+      "cancel": "Annuler cette commande",
+      "canceled": "Commande par virement annulée.",
+      "created": "Vos informations de virement sont prêtes. Après le paiement, vous n’avez rien d’autre à faire."
+    },
+    "card": {
+      "title": "Paiement sécurisé",
+      "body": "Saisissez vos informations de carte dans le formulaire de paiement sécurisé de PayTR. Kitisel ne voit ni ne conserve vos données de carte.",
+      "frameTitle": "Formulaire de paiement sécurisé PayTR",
+      "back": "Changer de moyen de paiement"
+    },
+    "form": {
+      "title": "Choisissez un forfait",
+      "body": "Les prix sont en dollars américains (USD). La TVA est ajoutée pour les adresses de facturation en Turquie.",
+      "renewTitle": "Renouvelez votre forfait",
+      "renewBody": "La nouvelle période commence à la fin de l’actuelle. Pour changer de forfait, écrivez-nous depuis la page de contact.",
+      "plan": "Forfait",
+      "planLine": "{{price}} / {{per}} · {{articles}} articles par mois · {{sites}} site(s)",
+      "interval": "Période de facturation",
+      "monthlyHint": "Vous payez à nouveau chaque mois.",
+      "yearlyHint": "12 mois pour le prix de 10.",
+      "billingInfo": "Informations de facturation",
+      "billingType": "Type de facture",
+      "type": {
+        "individual": "Particulier",
+        "company": "Entreprise"
+      },
+      "fullName": "Nom complet",
+      "companyName": "Raison sociale",
+      "phone": "Téléphone",
+      "phoneHint": "Exigé par le prestataire de paiement.",
+      "country": "Pays",
+      "countryPlaceholder": "Choisissez un pays",
+      "taxId": "Numéro fiscal / TVA",
+      "taxIdOptional": "Numéro d’identité (facultatif)",
+      "taxIdHint": "Laissez vide pour être facturé en tant que particulier.",
+      "taxOffice": "Centre des impôts",
+      "address": "Adresse de facturation",
+      "method": "Moyen de paiement",
+      "methodHint": {
+        "card": "Carte de crédit ou de débit. Votre forfait s’ouvre dès la confirmation du paiement.",
+        "bank_transfer": "Vous envoyez le paiement sur notre compte bancaire. Votre forfait s’ouvre à réception."
+      },
+      "onlyMethod": "Moyen de paiement : {{method}}",
+      "transferCurrency": "Sur quel compte allez-vous envoyer ?",
+      "currencyHint": {
+        "USD": "Vous envoyez le montant en dollars.",
+        "TRY": "Le montant est converti en TRY au taux de vente de la Banque centrale de Turquie."
+      },
+      "summary": "Récapitulatif",
+      "subtotal": "{{plan}} · {{interval}}",
+      "vat": "TVA ({{rate}} %)",
+      "vatExempt": "TVA (hors Turquie, aucune)",
+      "total": "Total",
+      "tryNote": "Le montant en TRY est calculé au taux du jour de la Banque centrale de Turquie et affiché à l’étape suivante.",
+      "noAutoRenew": "Aucun prélèvement automatique. Nous envoyons un rappel de renouvellement 3 jours avant la fin de la période.",
+      "accept": "J’ai lu et j’accepte le <sales>Contrat de vente à distance</sales> et le <pre>Formulaire d’information préalable</pre>. <refund>Politique d’annulation et de remboursement</refund>",
+      "submitCard": "Payer {{amount}}",
+      "submitTransfer": "Afficher les informations de virement",
+      "secure": "Le paiement est traité par PayTR, agréé par la Banque centrale de Turquie, avec 3D Secure."
+    },
+    "history": {
+      "title": "Historique des paiements",
+      "empty": "Aucun paiement pour le moment.",
+      "date": "Date",
+      "plan": "Forfait",
+      "method": "Moyen",
+      "amount": "Montant",
+      "reference": "Référence",
+      "period": "Fin de période",
+      "status": "Statut"
+    },
+    "settingsTitle": "Forfait et paiement",
+    "settingsBody": "Consultez votre forfait, renouvelez-le ou passez à un forfait supérieur, et voyez votre historique de paiements.",
+    "settingsAction": "Forfait et paiement",
+    "test": {
+      "title": "Mode test",
+      "body": "Aucune information bancaire n’est encore saisie, un compte de test fictif est donc affiché. N’y envoyez pas d’argent réel ; vous pouvez tester le parcours en validant la commande dans l’administration. Pour un vrai compte, ajoutez BANK_ACCOUNT_HOLDER et les IBAN dans le fichier .env."
+    }
   }
 }

@@ -104,9 +104,8 @@ describe('generateArticle', () => {
     const images = await articlesRepository.images(orgId, article.id);
     expect(images[0]).toMatchObject({ kind: 'cover', source: 'generated', mimeType: 'image/webp', width: 1600 });
     expect(images[0]!.data.subarray(0, 4).toString()).toBe('RIFF');
-    // Bilgi grafiği: ana çıkarımlardan, 4:5, alt metin çıkarımları içerir
-    expect(images[1]).toMatchObject({ kind: 'infographic', source: 'generated', mimeType: 'image/webp', width: 1080, height: 1350 });
-    expect(images[1]!.altText).toContain('Tedavi planı muayene ile netleşir.');
+    // Bilgi grafiği üretilmez: sadece kapak
+    expect(images).toHaveLength(1);
     expect(notified).toHaveLength(1);
     // Çağrılar: araştırma + yazım + doğrulama + kapak denemesi (iyileştirme gerekmedi)
     expect(ai.calls.map((c) => c.operation)).toEqual(['article.research', 'article.draft', 'article.fact_check', 'article.cover']);
@@ -262,8 +261,8 @@ describe('publishArticle', () => {
     const { orgId, items } = await scheduledArticle({ kind: 'wordpress', ...FAKE_WORDPRESS });
     await publishArticle(deps(), { orgId, contentItemId: items[0]!.id }, final);
     const calls = fakeOutbox.map((r) => `${r.method} ${new URL(r.url).pathname}`);
-    // Kapak + bilgi grafiği medya kütüphanesine, sonra yazı
-    expect(calls).toEqual(['GET /wp-json/', 'POST /wp-json/wp/v2/media', 'POST /wp-json/wp/v2/media/5', 'POST /wp-json/wp/v2/media', 'POST /wp-json/wp/v2/media/5', 'POST /wp-json/wp/v2/posts']);
+    // Kapak medya kütüphanesine, sonra yazı (bilgi grafiği gönderilmez)
+    expect(calls).toEqual(['GET /wp-json/', 'POST /wp-json/wp/v2/media', 'POST /wp-json/wp/v2/media/5', 'POST /wp-json/wp/v2/posts']);
     const post = JSON.parse(fakeOutbox.at(-1)!.body) as { featured_media: number; status: string };
     expect(post).toMatchObject({ featured_media: 5, status: 'publish' });
     expect((await contentWorkflowRepository.findItem(orgId, items[0]!.id))?.status).toBe('published');

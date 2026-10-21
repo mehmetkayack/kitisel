@@ -17,9 +17,6 @@ WORKDIR /repo
 FROM base AS build
 COPY . .
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store pnpm install --frozen-lockfile
-ARG TURNSTILE_SITE_KEY=""
-ARG RECAPTCHA_SITE_KEY=""
-ENV TURNSTILE_SITE_KEY=${TURNSTILE_SITE_KEY} RECAPTCHA_SITE_KEY=${RECAPTCHA_SITE_KEY}
 RUN pnpm --filter @upvine/db --filter @upvine/api --filter @upvine/worker --filter @upvine/web build
 # Çalışma imajına sadece production bağımlılıkları
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store pnpm install --frozen-lockfile --prod

@@ -9,6 +9,7 @@ import { companyInfo } from '../../lib/company.server';
 import { publicOrigin } from '../../lib/origin.server';
 import { MEASUREMENT_ID } from '../../lib/analytics';
 import { AnalyticsConsent } from '../../components/marketing/analytics-consent';
+import { readCaptchaKeys } from '../../lib/captcha-keys';
 
 export const links: Route.LinksFunction = brandLinks;
 
@@ -17,7 +18,8 @@ export function loader({ params, request }: Route.LoaderArgs) {
   // Satıcı bilgileri (alt bilgi, İletişim, yasal sayfalar): sunucudaki LEGAL_* değişkenlerinden
   // Google Analytics ölçüm kimliği (gizli değil; boşsa analitik ve onay bandı yok)
   const ga = process.env.GA_MEASUREMENT_ID?.trim() ?? '';
-  return { origin: publicOrigin(request), company: companyInfo(), analyticsId: MEASUREMENT_ID.test(ga) ? ga : null };
+  // Turnstile / reCAPTCHA site anahtarları (gizli değil): çalışma anında, yeniden derleme gerekmez
+  return { origin: publicOrigin(request), company: companyInfo(), analyticsId: MEASUREMENT_ID.test(ga) ? ga : null, captcha: readCaptchaKeys() };
 }
 
 /**

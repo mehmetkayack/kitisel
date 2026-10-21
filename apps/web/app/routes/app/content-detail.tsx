@@ -172,18 +172,6 @@ function Preview({ article }: { article: ArticleDto }) {
         {t('detail.words', { value: fmt.number(article.wordCount) })} · {t('detail.version', { value: article.version })}
       </p>
       <div className="article-body" dangerouslySetInnerHTML={{ __html: safe }} />
-      {article.infographic ? (
-        <figure className="flex max-w-md flex-col gap-2">
-          <img
-            src={article.infographic.dataUrl}
-            alt={article.infographic.alt}
-            width={article.infographic.width}
-            height={article.infographic.height}
-            className="w-full rounded-card border border-border"
-          />
-          <figcaption className="text-xs text-ink-muted">{t('review.infographicCaption')}</figcaption>
-        </figure>
-      ) : null}
     </article>
   );
 }

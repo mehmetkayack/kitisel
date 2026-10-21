@@ -8,6 +8,7 @@ import { Article, ArticleImage, ArticleRewrite, ArticleVersion, FreeAnalysis, Pu
 import { AiVisibilityCheck, AiVisibilityPrompt, GscConnection, GscDailyMetric } from './results';
 import { ContentRefresh } from './refresh';
 import { BlogPost, ContactMessage } from './marketing';
+import { BillingOrder } from './billing';
 
 export { AuditLog, EmailVerification, Membership, Organization, PasswordReset, RefreshToken, User };
 export { AiUsageLog, BrandProfile, ContentItem, ExistingPage, Keyword, Site, SiteAudit };
@@ -16,6 +17,8 @@ export { AiVisibilityCheck, AiVisibilityPrompt, GscConnection, GscDailyMetric };
 export type { SyncStatus } from './results';
 export { ContentRefresh };
 export { BlogPost, ContactMessage };
+export { BillingOrder };
+export type { BillingMethod, BillingOrderStatus, TransferCurrency } from './billing';
 export type { BlogPostStatus, ContactMessageStatus } from './marketing';
 export type { RefreshChange, RefreshOriginal, RefreshStatus, RefreshSuggestion } from './refresh';
 export { CREDENTIAL_KINDS } from './content';
@@ -72,6 +75,7 @@ export function initModels(sequelize: Sequelize): void {
   ContentRefresh.initModel(sequelize);
   ContactMessage.initModel(sequelize);
   BlogPost.initModel(sequelize);
+  BillingOrder.initModel(sequelize);
 
   Membership.belongsTo(Organization, { foreignKey: 'organizationId', as: 'organization' });
   Membership.belongsTo(User, { foreignKey: 'userId', as: 'user' });
@@ -79,5 +83,6 @@ export function initModels(sequelize: Sequelize): void {
   ContentItem.hasOne(Article, { foreignKey: 'contentItemId', as: 'article' });
   ArticleVersion.belongsTo(User, { foreignKey: 'userId', as: 'user' });
   ContentItem.belongsTo(Site, { foreignKey: 'siteId', as: 'site' });
+  BillingOrder.belongsTo(Organization, { foreignKey: 'organizationId', as: 'organization' });
   initialized = true;
 }

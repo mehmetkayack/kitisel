@@ -2,9 +2,8 @@ name: Docker imajı
 
 # Yayın dalına (design/kitisel; ileride main) her push'ta (ve elle) production imajını derler, GitHub Container Registry'ye koyar:
 #   ghcr.io/<sahip>/<depo>:latest  ve  :<commit-sha>
-# Sunucu derlemez, sadece indirir (docs/DEPLOY.md). Web paketine gömülen herkese açık site anahtarları
-# depo ayarlarındaki Variables'tan gelir: Settings → Secrets and variables → Actions → Variables
-#   TURNSTILE_SITE_KEY, RECAPTCHA_SITE_KEY   (gizli anahtarlar buraya DEĞİL, sunucudaki .env.production'a)
+# Sunucu derlemez, sadece indirir (docs/DEPLOY.md). İmaja hiçbir anahtar gömülmez: tüm değerler (Turnstile /
+# reCAPTCHA site anahtarları dahil) çalışma anında sunucudaki .env.production'dan okunur.
 
 on:
   push:
@@ -46,8 +45,5 @@ jobs:
           tags: |
             ${{ steps.name.outputs.image }}:latest
             ${{ steps.name.outputs.image }}:${{ github.sha }}
-          build-args: |
-            TURNSTILE_SITE_KEY=${{ vars.TURNSTILE_SITE_KEY }}
-            RECAPTCHA_SITE_KEY=${{ vars.RECAPTCHA_SITE_KEY }}
           cache-from: type=gha
           cache-to: type=gha,mode=max

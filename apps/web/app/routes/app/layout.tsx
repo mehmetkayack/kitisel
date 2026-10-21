@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { CalendarDays, Eye, FileText, House, LogOut, Settings, ShieldCheck, TrendingUp, UserRound } from 'lucide-react';
+import { CalendarDays, CreditCard, Eye, FileText, House, LogOut, Settings, ShieldCheck, TrendingUp, UserRound } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, NavLink, Outlet, redirect, useNavigate } from 'react-router';
@@ -196,6 +196,12 @@ function UserMenu() {
           <Link to="/app/settings">
             <Settings aria-hidden />
             {tApp('userMenu.settings')}
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link to="/app/billing">
+            <CreditCard aria-hidden />
+            {tApp('userMenu.billing')}
           </Link>
         </DropdownMenuItem>
         {user.isSuperadmin && !impersonating ? (

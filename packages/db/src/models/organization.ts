@@ -22,7 +22,7 @@ export class Organization extends Model<
   declare slug: string;
   declare plan: string | null;
   declare planStatus: CreationOptional<PlanStatus>;
-  /** trial: paket yok; paid: ödeme (Faz 3); complimentary: admin'in verdiği ödemesiz paket */
+  /** trial: paket yok; paid: ödenmiş dönem (`currentPeriodEnd`'e kadar); complimentary: admin'in verdiği ödemesiz paket */
   declare planSource: CreationOptional<'trial' | 'paid' | 'complimentary'>;
   declare articleQuotaOverride: CreationOptional<number | null>;
   declare entitlementExpiresAt: CreationOptional<Date | null>;
@@ -35,6 +35,10 @@ export class Organization extends Model<
   declare billingAddress: string | null;
   declare billingCountry: string | null;
   declare taxId: string | null;
+  declare billingPhone: CreationOptional<string | null>;
+  declare taxOffice: CreationOptional<string | null>;
+  /** Yenileme hatırlatması bu dönem sonu için gönderildi */
+  declare renewalRemindedFor: CreationOptional<Date | null>;
   declare createdAt: CreationOptional<Date>;
   declare updatedAt: CreationOptional<Date>;
   declare deletedAt: Date | null;
@@ -63,6 +67,9 @@ export class Organization extends Model<
         billingAddress: { type: DataTypes.STRING(500), allowNull: true },
         billingCountry: { type: DataTypes.CHAR(2), allowNull: true },
         taxId: { type: DataTypes.STRING(64), allowNull: true },
+        billingPhone: { type: DataTypes.STRING(20), allowNull: true },
+        taxOffice: { type: DataTypes.STRING(120), allowNull: true },
+        renewalRemindedFor: { type: DataTypes.DATE, allowNull: true },
         createdAt: DataTypes.DATE,
         updatedAt: DataTypes.DATE,
         deletedAt: DataTypes.DATE,

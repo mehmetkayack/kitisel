@@ -1,4 +1,4 @@
-import { effectivePlan, orgArticleLimit, orgSiteLimit, quotaPeriodStart } from '@upvine/config';
+import { effectivePlan, entitlementActive, orgArticleLimit, orgSiteLimit, quotaPeriodStart } from '@upvine/config';
 import { adminRepository, auditLogsRepository, refreshTokensRepository, usersRepository } from '@upvine/db';
 import type { AuditLog, User } from '@upvine/db';
 import { PLAN_STATUSES } from '@upvine/shared';
@@ -234,8 +234,9 @@ export function createAdminService(deps: AppDeps) {
       const org = await adminRepository.findOrganization(id);
       if (!org) throw new AppError('not_found');
       const before = { plan: org.plan, planSource: org.planSource, articleQuotaOverride: org.articleQuotaOverride, expiresAt: iso(org.entitlementExpiresAt), note: org.entitlementNote };
-      // Ödemeli (iyzico) aboneliğin paketi buradan değiştirilmez; sadece ek hak ve not.
-      const paid = org.planSource === 'paid';
+      // Ödenmiş dönemi süren paketin (PayTR / havale) paketi buradan değiştirilmez; sadece ek hak ve not.
+      // Dönemi bitmişse admin ödemesiz paket verebilir.
+      const paid = org.planSource === 'paid' && entitlementActive(org);
       await adminRepository.updateEntitlements(id, {
         plan: paid ? org.plan : input.plan,
         planStatus: paid ? org.planStatus : input.plan ? 'active' : 'none',

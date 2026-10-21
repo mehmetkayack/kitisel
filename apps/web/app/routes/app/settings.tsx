@@ -10,7 +10,7 @@ import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, Car
 import { ConnectionPanel } from '../../components/connections/connection-panel';
 import { SearchConsolePanel } from '../../components/results/search-console-panel';
 import { LanguageSelect, ThemeSelect } from '../../components/preference-controls';
-import { useSearchParams } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 import { PageHeader } from '../../components/page-header';
 import { useFieldError } from '../../components/auth-ui';
 import { api, ApiError } from '../../lib/api';
@@ -25,7 +25,7 @@ const nameSchema = z.object({ name: updateMeSchema.shape.name.unwrap() });
 type NameForm = z.infer<typeof nameSchema>;
 
 /**
- * Ayarlar: Hesap, Site bağlantısı ve Search Console. Marka, Ekip, Faturalandırma ve Bildirimler ilgili fazlarda (Bölüm 8).
+ * Ayarlar: Hesap, Paket ve ödeme (ayrı sayfa), Site bağlantısı ve Search Console. Marka, Ekip ve Bildirimler ilgili fazlarda (Bölüm 8).
  */
 export default function SettingsPage() {
   const { t } = useTranslation('app');
@@ -96,6 +96,17 @@ export default function SettingsPage() {
             </Button>
           </CardFooter>
         </form>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle as="h2">{t('billing.settingsTitle')}</CardTitle>
+          <CardDescription>{t('billing.settingsBody')}</CardDescription>
+        </CardHeader>
+        <CardFooter>
+          <Button asChild variant="secondary">
+            <Link to="/app/billing">{t('billing.settingsAction')}</Link>
+          </Button>
+        </CardFooter>
       </Card>
       {site ? (
         <Card>

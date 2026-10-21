@@ -39,5 +39,9 @@
   "regeneration_limit": "Puedes reescribir este artículo desde cero hasta {{limit}} veces. Aún puedes editarlo en el editor o reescribir secciones una a una.",
   "rewrite_limit": "Has alcanzado el límite de reescritura de secciones ({{limit}}) para este artículo. Aún puedes editar el texto en el editor.",
   "slug_taken": "Ya existe una entrada con esta dirección en este idioma. Cambia la dirección y vuelve a guardar.",
-  "captcha_low_score": "No pudimos aceptar tu mensaje porque parecía automático. Vuelve a intentarlo en unos minutos o escríbenos directamente por correo."
+  "captcha_low_score": "No pudimos aceptar tu mensaje porque parecía automático. Vuelve a intentarlo en unos minutos o escríbenos directamente por correo.",
+  "billing_unavailable": "Este método de pago no está disponible ahora. Elige otro método o escríbenos.",
+  "payment_provider_error": "No pudimos abrir la página de pago. Vuelve a intentarlo en unos minutos; si sigue fallando, puedes pagar por transferencia bancaria.",
+  "exchange_rate_unavailable": "No pudimos obtener el tipo de cambio actual, así que no se pudo calcular el importe en TRY. Elige la cuenta en USD o inténtalo de nuevo en breve.",
+  "plan_change_unavailable": "No puedes cambiar de plan antes de que termine el periodo pagado. Puedes renovar el mismo plan o escribirnos para cambiarlo."
 }

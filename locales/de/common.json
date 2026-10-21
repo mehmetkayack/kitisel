@@ -62,7 +62,10 @@
     "wixSiteId": "Die Website-ID hat das Format 8-4-4-4-12 Zeichen.",
     "questionMin": "Die Frage muss mindestens 8 Zeichen lang sein.",
     "phone": "Bitte geben Sie eine gültige Telefonnummer ein, z. B. +49 30 1234567.",
-    "slugTaken": "In dieser Sprache gibt es bereits einen Beitrag mit dieser Adresse. Wählen Sie eine andere."
+    "slugTaken": "In dieser Sprache gibt es bereits einen Beitrag mit dieser Adresse. Wählen Sie eine andere.",
+    "taxIdRequired": "Geben Sie für eine Firmenrechnung die Steuernummer ein.",
+    "taxOfficeRequired": "Geben Sie für Firmen in der Türkei das Finanzamt ein.",
+    "acceptTerms": "Bitte stimmen Sie dem Vertrag und dem Vorabinformationsformular zu, um fortzufahren."
   },
   "status": {
     "planned": "Geplant",
@@ -82,7 +85,7 @@
     "freeAnalysis": "Kostenlose Analyse",
     "about": "Über uns",
     "contact": "Kontakt",
-    "payments": "Zahlungen werden sicher über den lizenzierten Zahlungsdienstleister iyzico abgewickelt. Wir speichern Ihre Kartendaten nicht.",
+    "payments": "Zahlungen werden sicher über PayTR abgewickelt, ein von der türkischen Zentralbank lizenziertes Zahlungsinstitut. Wir speichern Ihre Kartendaten nicht.",
     "operatedBy": "Kitisel ist ein Dienst von {{company}}.",
     "blog": "Blog"
   },

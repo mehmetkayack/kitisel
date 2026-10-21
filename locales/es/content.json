@@ -80,7 +80,6 @@
     "downloadHtml": "Archivo HTML",
     "downloadMd": "Archivo Markdown",
     "downloadZip": "ZIP (HTML, Markdown e imágenes)",
-    "infographicCaption": "Infografía: se añade después de la primera sección al publicar. También puedes compartirla en redes sociales.",
     "coverSite": "La portada usa la imagen de la página de tu sitio más cercana a este tema.",
     "coverUser": "Subiste esta portada.",
     "regenerateLeft": "Reescribir (quedan {{left}}/{{limit}})"

@@ -23,7 +23,7 @@
     },
     "step2": {
       "title": "Writes and fact-checks",
-      "body": "Writes the article in your brand’s voice, checks every fact against its source, and prepares a cover image and infographic."
+      "body": "Writes the article in your brand’s voice, checks every fact against its source, and prepares a cover image."
     },
     "step3": {
       "title": "Publishes and tracks",
@@ -141,7 +141,7 @@
     "billedYearly": "Billed {{value}} yearly",
     "popular": "Most popular",
     "start": "Start your 7-day free trial",
-    "policy": "Cancel anytime; full refund within 14 days of your first payment, no questions asked.",
+    "policy": "No automatic charges, you renew each period yourself; full refund within 14 days of your first payment, no questions asked.",
     "plans": {
       "starter": {
         "name": "Starter",
@@ -169,7 +169,7 @@
     "policyLink": "Cancellation and refund policy",
     "exVat": "+ VAT",
     "homeTitle": "A fraction of what an agency costs.",
-    "homeBody": "7-day trial · 14-day no-questions refund · One-click cancellation"
+    "homeBody": "7-day trial · 14-day no-questions refund · No automatic charges"
   },
   "faq": {
     "eyebrow": "FAQ",

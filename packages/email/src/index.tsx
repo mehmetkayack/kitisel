@@ -15,7 +15,7 @@ export interface RenderedEmail {
   text: string;
 }
 
-type ActionTemplate = 'verifyEmail' | 'resetPassword' | 'articleReady' | 'freeAnalysis';
+type ActionTemplate = 'verifyEmail' | 'resetPassword' | 'articleReady' | 'freeAnalysis' | 'paymentReceived' | 'renewalReminder' | 'bankTransferOrder';
 
 async function renderAction(
   template: ActionTemplate,
@@ -97,4 +97,19 @@ export async function renderContactNotification(
 /** Ücretsiz analiz raporu linki (5 dil) */
 export function renderFreeAnalysisReport(locale: Locale, vars: { url: string; domain: string; score: number }) {
   return renderAction('freeAnalysis', locale, vars);
+}
+
+/** Ödeme alındı: paket ve dönem sonu (5 dil) */
+export function renderPaymentReceived(locale: Locale, vars: { name: string; url: string; plan: string; until: string; amount: string; reference: string }) {
+  return renderAction('paymentReceived', locale, vars);
+}
+
+/** Ödenmiş dönem bitmek üzere: yenileme hatırlatması (5 dil) */
+export function renderRenewalReminder(locale: Locale, vars: { name: string; url: string; plan: string; until: string }) {
+  return renderAction('renewalReminder', locale, vars);
+}
+
+/** Yeni havale/EFT siparişi: yöneticiye bildirim (5 dil) */
+export function renderBankTransferOrder(locale: Locale, vars: { url: string; org: string; plan: string; amount: string; reference: string }) {
+  return renderAction('bankTransferOrder', locale, vars);
 }

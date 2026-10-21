@@ -23,7 +23,7 @@
     },
     "step2": {
       "title": "Schreibt und prüft",
-      "body": "Schreibt den Artikel in Ihrer Markenstimme, prüft jede Angabe an der Quelle und erstellt Titelbild und Infografik."
+      "body": "Schreibt den Artikel in Ihrer Markenstimme, prüft jede Angabe an der Quelle und erstellt das Titelbild."
     },
     "step3": {
       "title": "Veröffentlicht und misst",
@@ -141,7 +141,7 @@
     "billedYearly": "Jährlich {{value}}",
     "popular": "Am beliebtesten",
     "start": "7 Tage kostenlos testen",
-    "policy": "Jederzeit kündbar; volle Rückerstattung innerhalb von 14 Tagen nach der ersten Zahlung, ohne Angabe von Gründen.",
+    "policy": "Keine automatischen Abbuchungen, Sie verlängern jeden Zeitraum selbst; volle Rückerstattung innerhalb von 14 Tagen nach der ersten Zahlung, ohne Angabe von Gründen.",
     "plans": {
       "starter": {
         "name": "Starter",
@@ -169,7 +169,7 @@
     "policyLink": "Kündigungs- und Erstattungsrichtlinie",
     "exVat": "zzgl. MwSt.",
     "homeTitle": "Ein Bruchteil der Kosten einer Agentur.",
-    "homeBody": "7 Tage testen · 14 Tage Geld zurück · Kündigung mit einem Klick"
+    "homeBody": "7 Tage testen · 14 Tage Geld zurück · Keine automatischen Abbuchungen"
   },
   "faq": {
     "eyebrow": "Häufige Fragen",

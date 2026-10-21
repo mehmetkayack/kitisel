@@ -48,5 +48,32 @@
     "none": "—",
     "button": "Abrir en el panel de administración",
     "footer": "Recibes este correo porque llegó un mensaje nuevo desde el formulario de contacto de Kitisel. \"Responder\" va directamente al remitente."
+  },
+  "paymentReceived": {
+    "subject": "Pago recibido: Kitisel {{plan}}",
+    "preview": "Tu plan {{plan}} está activo hasta el {{until}}.",
+    "heading": "Pago recibido",
+    "body": "Hemos recibido tu pago de {{amount}} (referencia: {{reference}}). Tu plan {{plan}} está activo hasta el {{until}}.",
+    "expires": "Te enviaremos la factura por correo aparte con los datos de facturación que indicaste al pagar.",
+    "button": "Abrir facturación",
+    "ignore": "Recibes este correo porque se realizó un pago en tu cuenta de Kitisel."
+  },
+  "renewalReminder": {
+    "subject": "Tu plan {{plan}} de Kitisel termina el {{until}}",
+    "preview": "Renueva tu plan para seguir sin interrupciones.",
+    "heading": "Renueva tu plan",
+    "body": "El periodo pagado de tu plan {{plan}} termina el {{until}}. Renuévalo antes para seguir sin interrupciones; el nuevo periodo empieza cuando termina el actual.",
+    "expires": "Si no renuevas, no se borra ningún dato; tus límites vuelven al nivel de prueba (3 artículos al mes, 1 sitio).",
+    "button": "Renovar mi plan",
+    "ignore": "Recibes este correo porque tu plan de Kitisel está a punto de vencer."
+  },
+  "bankTransferOrder": {
+    "subject": "Nuevo pedido por transferencia: {{reference}}",
+    "preview": "{{org}} creó un pedido por transferencia de {{amount}}.",
+    "heading": "Transferencia pendiente de aprobación",
+    "body": "{{org}} creó un pedido por transferencia para el plan {{plan}} por {{amount}} (referencia: {{reference}}).",
+    "expires": "Aprueba el pedido en el panel de administración cuando el pago llegue a tu cuenta; el plan se activa al instante.",
+    "button": "Abrir en el panel",
+    "ignore": "Recibes este correo porque se creó un nuevo pedido por transferencia en Kitisel."
   }
 }

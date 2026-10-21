@@ -23,7 +23,7 @@
     },
     "step2": {
       "title": "Rédige et vérifie",
-      "body": "Rédige l’article avec la voix de votre marque, vérifie chaque information à la source et prépare l’image de couverture et une infographie."
+      "body": "Rédige l’article avec la voix de votre marque, vérifie chaque information à la source et prépare l’image de couverture."
     },
     "step3": {
       "title": "Publie et mesure",
@@ -141,7 +141,7 @@
     "billedYearly": "Facturé {{value}} par an",
     "popular": "Le plus choisi",
     "start": "Essai gratuit de 7 jours",
-    "policy": "Résiliable à tout moment ; remboursement intégral sous 14 jours après le premier paiement, sans justification.",
+    "policy": "Aucun prélèvement automatique, vous renouvelez chaque période vous-même ; remboursement intégral sous 14 jours après le premier paiement, sans justification.",
     "plans": {
       "starter": {
         "name": "Starter",
@@ -169,7 +169,7 @@
     "policyLink": "Politique de résiliation et de remboursement",
     "exVat": "HT",
     "homeTitle": "Une fraction du prix d’une agence.",
-    "homeBody": "7 jours d’essai · Remboursement sous 14 jours · Résiliation en un clic"
+    "homeBody": "7 jours d’essai · Remboursement sous 14 jours · Aucun prélèvement automatique"
   },
   "faq": {
     "eyebrow": "Questions fréquentes",

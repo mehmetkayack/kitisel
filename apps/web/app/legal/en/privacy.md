@@ -12,7 +12,7 @@ This policy explains which data we process when you use Kitisel ({{site}}), why,
 - **Search Console data:** once connected, your site's Google search performance (queries, pages, clicks, impressions, position).
 - **Usage and security logs:** sign-in times, IP address, browser details, important actions (for example adding a site connection), error logs.
 - **Free analysis:** the site address you enter and, if you choose, your email address. To prevent abuse we store an irreversible hash of your IP address, not the address itself.
-- **Payments:** once payments are available, card details are processed directly by the payment institution iyzico; we never see or store your card number.
+- **Payments:** your billing details (name or company name, address, country, phone, tax or ID number, tax office) and payment records (plan, amount, date, order number). Card details are processed directly by the payment institution PayTR; we never see or store your card number. For bank transfers, we use the sender details shown on our bank statement to match your payment.
 
 ## Why we process data
 
@@ -33,7 +33,7 @@ We don't sell your data or share it for advertising. We work with these service 
 - **Google LLC (USA):** Gemini API (AI), Sign in with Google, Search Console API and, if you agree, Google Analytics (visit statistics on marketing pages).
 - **Hosting provider:** {{hosting}}. Servers, database and backups are kept here.
 - **Email delivery service:** verification, password reset and notification emails.
-- **İyzi Ödeme ve Elektronik Para Hizmetleri A.Ş. (iyzico):** payment processing, once payments are available.
+- **PayTR Ödeme ve Elektronik Para Kuruluşu A.Ş. (PayTR):** card payment processing (your name, email, phone, address, IP address and the amount are sent to PayTR).
 - **Cloudflare, Inc.:** bot check (Turnstile) on the free analysis form, if enabled.
 - **DataForSEO:** keyword volume and difficulty data. Only keywords are sent, no personal data.
 - **Sites you connect:** articles are sent to your site with your approval or according to the automatic publishing setting you chose.

@@ -44,7 +44,7 @@ Durum: **çekirdek tamamlandı, yerelde doğrulandı (2026-10-10)** — kullanı
 - [x] Seçilen bölümü yapay zekâyla yeniden yazdır: geliştir / genişlet / kısalt / sadeleştir / örnek ekle / kendi talimatım; worker `assist` kuyruğu (makale üretiminin arkasında beklemez), sonuç önizlenir, "Yerine koy" ile editöre; saatte 60 istek
 
 ### İndirme ve görseller
-- [x] Bilgi grafiği (satori + sharp, 1080×1350 WebP): başlık + 4-6 ana çıkarım (yazım çağrısının çıktısı, `article.v2`), marka renkleri (AA kontrastlı seçilir), Inter fontu; Arapça/İbranice/Hintçe/CJK/Tay dışında
+- [x] ~~Bilgi grafiği~~ (2026-10-21 kullanıcı isteğiyle kapatıldı) (satori + sharp, 1080×1350 WebP): başlık + 4-6 ana çıkarım (yazım çağrısının çıktısı, `article.v2`), marka renkleri (AA kontrastlı seçilir), Inter fontu; Arapça/İbranice/Hintçe/CJK/Tay dışında
 - [x] Yayında yazının ilk bölümünden sonra eklenir (WordPress, Ghost, Shopify, Webflow); webhook'ta ayrı alan
 - [x] ZIP indirme: `index.html` + Markdown + `images/` (görseller göreli adresle); HTML ve Markdown tek dosyada gömülü görselle
 
@@ -91,7 +91,7 @@ Durum: **çekirdek tamamlandı, yerelde doğrulandı (2026-10-10)** — kullanı
 ## Kalanlar
 | İş | Not |
 |---|---|
-| Ödeme (iyzico): paket seçimi, deneme, abonelik, iade | Kullanıcı isteğiyle ertelendi |
+| Ödemede otomatik yenileme (kart saklama + tekrarlayan ödeme), iade talebi + PayTR İade API'si, fatura listesi, ek makale paketi | 2026-10-21: kart (PayTR iFrame) + havale/EFT ile dönemlik ödeme yapıldı; kalanlar PayTR onayından sonra |
 | Shopify ve Wix için Upvine'ın kendi uygulamasıyla OAuth | Shopify Partner / Wix Dev Center'da uygulama kaydı ve HTTPS dönüş adresi gerekiyor (kullanıcı kararı) |
 | Yoast/Rank Math meta alanları | WordPress eklentisiyle (Faz 5) |
 | Embedding ile konu kümeleri (pillar + destek yazıları) | Tekrar koruması ve iç linkler hazır |
@@ -100,7 +100,7 @@ Durum: **çekirdek tamamlandı, yerelde doğrulandı (2026-10-10)** — kullanı
 
 ### Canlıya çıkış (beta, ödeme kuruluşu başvurusu), 2026-10-12
 - [x] Yasal sayfalar (`/{dil}/legal/*`): Gizlilik, Kullanım Koşulları, Çerez, İptal/İade/Teslimat, Mesafeli Satış, Ön Bilgilendirme, KVKK Aydınlatma, DPA. Türkçe + İngilizce (de/es/fr İngilizce sürüm + not). Satıcı bilgileri `LEGAL_*` değişkenlerinden; boşsa [yer tutucu]. **Avukat kontrolü gerekli.**
-- [x] Fiyatlar (`/pricing`), Hakkımızda, İletişim sayfaları; alt bilgide tüm yasal belgeler, iyzico notu, satıcı unvanı; kayıt formunda Koşullar/Gizlilik/KVKK linkleri
-- [ ] Ödeme sayfasında Mesafeli Satış + Ön Bilgilendirme onay kutusu (iyzico entegrasyonuyla, Faz 3)
+- [x] Fiyatlar (`/pricing`), Hakkımızda, İletişim sayfaları; alt bilgide tüm yasal belgeler, ödeme kuruluşu notu (PayTR), satıcı unvanı; kayıt formunda Koşullar/Gizlilik/KVKK linkleri
+- [x] Ödeme sayfasında Mesafeli Satış + Ön Bilgilendirme onay kutusu (2026-10-21, `/app/billing`)
 - [ ] Hesap silme ve veri dışa aktarma (panelden; şimdilik e-postayla talep)
 

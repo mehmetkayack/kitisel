@@ -80,7 +80,6 @@
     "downloadHtml": "HTML file",
     "downloadMd": "Markdown file",
     "downloadZip": "ZIP (HTML, Markdown and images)",
-    "infographicCaption": "Infographic: added after the first section when published. You can also share it on social media.",
     "coverSite": "The cover uses the image from the page on your site closest to this topic.",
     "coverUser": "You uploaded this cover.",
     "regenerateLeft": "Rewrite ({{left}}/{{limit}} left)"

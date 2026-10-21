@@ -48,5 +48,32 @@
     "none": "—",
     "button": "Admin panelinde aç",
     "footer": "Bu e-postayı Kitisel iletişim formuna yeni bir mesaj geldiği için alıyorsunuz. \"Yanıtla\" doğrudan gönderene gider."
+  },
+  "paymentReceived": {
+    "subject": "Ödemeniz alındı: Kitisel {{plan}}",
+    "preview": "{{plan}} paketiniz {{until}} tarihine kadar açık.",
+    "heading": "Ödemeniz alındı",
+    "body": "{{amount}} tutarındaki ödemeniz alındı (referans: {{reference}}). {{plan}} paketiniz {{until}} tarihine kadar açık.",
+    "expires": "Faturanız, ödeme sırasında verdiğiniz fatura bilgileriyle ayrıca e-postayla gönderilir.",
+    "button": "Ödeme sayfasını aç",
+    "ignore": "Bu e-postayı Kitisel hesabınızda ödeme yapıldığı için alıyorsunuz."
+  },
+  "renewalReminder": {
+    "subject": "Kitisel {{plan}} paketiniz {{until}} tarihinde bitiyor",
+    "preview": "Kesintisiz devam etmek için paketinizi yenileyin.",
+    "heading": "Paketinizi yenileyin",
+    "body": "{{plan}} paketinizin ödenmiş dönemi {{until}} tarihinde bitiyor. Kesintisiz devam etmek için bu tarihten önce yenileyin; yeni dönem mevcut dönemin sonundan başlar.",
+    "expires": "Yenilemezseniz hiçbir veriniz silinmez; haklarınız deneme düzeyine (ayda 3 yazı, 1 site) döner.",
+    "button": "Paketimi yenile",
+    "ignore": "Bu e-postayı Kitisel paketinizin süresi dolmak üzere olduğu için alıyorsunuz."
+  },
+  "bankTransferOrder": {
+    "subject": "Yeni havale siparişi: {{reference}}",
+    "preview": "{{org}}, {{amount}} tutarında havale/EFT siparişi oluşturdu.",
+    "heading": "Havale/EFT onay bekliyor",
+    "body": "{{org}}, {{plan}} paketi için {{amount}} tutarında havale/EFT siparişi oluşturdu (referans: {{reference}}).",
+    "expires": "Ödeme hesabınıza geçince siparişi admin panelinden onaylayın; paket o an açılır.",
+    "button": "Admin panelinde aç",
+    "ignore": "Bu e-postayı Kitisel’de yeni bir havale siparişi oluşturulduğu için alıyorsunuz."
   }
 }

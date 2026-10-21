@@ -25,8 +25,9 @@ export interface TestContext {
 }
 
 export function createTestContext(overrides: Parameters<typeof loadEnv>[0] = {}): TestContext {
-  // Geçersiz kılmalar da şemadan geçer (sayı, boolean dönüşümleri).
-  const env = loadEnv({ NODE_ENV: 'test', ...overrides });
+  // Geçersiz kılmalar da şemadan geçer (sayı, boolean dönüşümleri). Geliştiricinin `.env`'indeki gerçek
+  // captcha anahtarları testleri bozmasın: boş başlar, gereken test kendisi verir.
+  const env = loadEnv({ NODE_ENV: 'test', TURNSTILE_SECRET_KEY: '', RECAPTCHA_SECRET_KEY: '', ...overrides });
   const sequelize = connectDb(env, { database: env.MYSQL_TEST_DATABASE });
   const mailer = new MemoryMailer();
   const jobs = new MemoryJobQueue();

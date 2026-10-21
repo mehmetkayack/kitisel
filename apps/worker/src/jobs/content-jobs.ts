@@ -47,7 +47,6 @@ import type { ContentJobData, GenerationStep, VerificationReport } from '@upvine
 import type { Logger } from 'pino';
 import type { AIProvider } from '@upvine/ai';
 import { createCover, rankSiteImages, siteImageCover } from './cover';
-import { createInfographic, infographicSupported } from './infographic';
 import { DUPLICATE_SIMILARITY, semanticLinks } from './semantic';
 import { isDuplicateTopic, RetryableJobError } from './site-jobs';
 import type { JobRun } from './site-jobs';
@@ -352,22 +351,6 @@ export async function generateArticle(deps: ContentDeps, data: ContentJobData, r
         siteImageCover(deps.http, rankSiteImages(await existingPagesRepository.withImages(orgId, site.id), { vector: item.embedding, text: `${item.title} ${keyword}` })),
     });
 
-    // Bilgi grafiği: ana çıkarımlar + marka renkleri (yapay zekâ çağrısı yok). Fontu olmayan dillerde atlanır.
-    let infographic: Awaited<ReturnType<typeof createInfographic>> | null = null;
-    if (infographicSupported(language) && out.keyTakeaways.length >= 3) {
-      try {
-        infographic = await createInfographic({
-          title: out.title,
-          points: out.keyTakeaways,
-          brandName: ctx.brand.brandName,
-          domain: site.domain,
-          brandColors: brand?.brandColors ?? null,
-        });
-      } catch (err) {
-        log.warn({ err }, 'infographic failed');
-      }
-    }
-
     const regenerated = !!item.article;
     const article = await articlesRepository.saveForItem(orgId, {
       siteId: site.id,
@@ -400,21 +383,8 @@ export async function generateArticle(deps: ContentDeps, data: ContentJobData, r
       fileName: `${slug}.webp`,
       altText: cover.alt ?? coverAlt,
     });
-    if (infographic) {
-      await articlesRepository.replaceImage(orgId, article.id, {
-        kind: 'infographic',
-        source: 'generated',
-        prompt: null,
-        mimeType: infographic.mimeType,
-        data: infographic.data,
-        width: infographic.width,
-        height: infographic.height,
-        fileName: `${slug}-infographic.webp`,
-        altText: `${out.title}: ${out.keyTakeaways.join(' ')}`.slice(0, 300),
-      });
-    } else {
-      await articlesRepository.removeImage(orgId, article.id, 'infographic');
-    }
+    // Bilgi grafiği artık üretilmiyor (kullanıcı kararı, 2026-10-21); eski yazılardaki yeniden üretimde silinir.
+    await articlesRepository.removeImage(orgId, article.id, 'infographic');
 
     // 6. Durum: onay modunda incelemeye; otomatik modda kalite eşiğini geçerse yayına hazır (Bölüm 7.6 madde 10)
     const autoOk = site.publishMode === 'auto' && seo.score >= SEO_PASS_SCORE && verification.checked;
@@ -449,7 +419,6 @@ export async function publishArticle(deps: ContentDeps, data: ContentJobData, ru
   const article = item.article;
   const images = await articlesRepository.images(orgId, article.id);
   const cover = images.find((i) => i.kind === 'cover') ?? null;
-  const infographic = images.find((i) => i.kind === 'infographic') ?? null;
   const existing = await publicationsRepository.latestForArticle(orgId, article.id);
   const publication =
     existing && existing.status === 'pending' ? existing : await publicationsRepository.create(orgId, { siteId: item.siteId, articleId: article.id, provider: stored.kind });
@@ -470,9 +439,8 @@ export async function publishArticle(deps: ContentDeps, data: ContentJobData, ru
         language: article.language,
         schema: Array.isArray(article.schemaJson) ? article.schemaJson : [],
         cover: cover ? { data: cover.data, mimeType: cover.mimeType, fileName: cover.fileName, alt: cover.altText } : null,
-        infographic: infographic
-          ? { data: infographic.data, mimeType: infographic.mimeType, fileName: infographic.fileName, alt: infographic.altText, width: infographic.width, height: infographic.height }
-          : null,
+        // Bilgi grafiği gönderilmez (eski yazılarda kayıtlı olsa bile)
+        infographic: null,
         authorName: (await brandProfilesRepository.findForSite(orgId, item.siteId))?.brandName ?? undefined,
       },
       'publish',

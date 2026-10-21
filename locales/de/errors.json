@@ -39,5 +39,9 @@
   "regeneration_limit": "Sie können diesen Artikel höchstens {{limit}}-mal komplett neu schreiben lassen. Sie können ihn weiterhin im Editor bearbeiten oder einzelne Abschnitte neu schreiben lassen.",
   "rewrite_limit": "Sie haben das Limit für Abschnitts-Neuschreibungen ({{limit}}) für diesen Artikel erreicht. Sie können den Text weiterhin im Editor bearbeiten.",
   "slug_taken": "In dieser Sprache gibt es bereits einen Beitrag mit dieser Adresse. Ändern Sie die Adresse und speichern Sie erneut.",
-  "captcha_low_score": "Ihre Nachricht wirkte automatisiert und konnte nicht angenommen werden. Versuchen Sie es in ein paar Minuten erneut oder schreiben Sie uns direkt eine E-Mail."
+  "captcha_low_score": "Ihre Nachricht wirkte automatisiert und konnte nicht angenommen werden. Versuchen Sie es in ein paar Minuten erneut oder schreiben Sie uns direkt eine E-Mail.",
+  "billing_unavailable": "Diese Zahlungsart ist gerade nicht verfügbar. Wählen Sie eine andere oder kontaktieren Sie uns.",
+  "payment_provider_error": "Die Zahlungsseite konnte nicht geöffnet werden. Versuchen Sie es in ein paar Minuten erneut; alternativ können Sie per Überweisung zahlen.",
+  "exchange_rate_unavailable": "Der aktuelle Wechselkurs konnte nicht abgerufen werden, daher ließ sich der TRY-Betrag nicht berechnen. Wählen Sie das USD-Konto oder versuchen Sie es gleich noch einmal.",
+  "plan_change_unavailable": "Vor Ende des bezahlten Zeitraums ist kein Paketwechsel möglich. Sie können dasselbe Paket verlängern oder uns für einen Wechsel kontaktieren."
 }

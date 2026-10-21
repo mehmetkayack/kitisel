@@ -1,6 +1,6 @@
 # Pre-Information Form
 
-Last updated: 12 October 2026
+Last updated: 21 October 2026
 
 This form informs the Buyer before the contract is concluded, as required by Article 5 of the Turkish Distance Contracts Regulation. The Turkish version is the binding one.
 
@@ -18,15 +18,15 @@ Kitisel is a software service that analyzes your site, suggests topics, writes b
 
 ## Total price
 
-The total amount including taxes for the chosen plan and billing interval is shown on the checkout page before you confirm. Prices are in US dollars (USD). The subscription renews at the same price each period until cancelled. Any price change is announced before renewal.
+The total amount including taxes for the chosen plan and billing interval is shown on the checkout page before you confirm. Prices are in US dollars (USD). Each payment covers the chosen period (one month or one year); renewal is your choice and there are no automatic charges. Any price change is announced before renewal.
 
 ## Payment and performance
 
-Payment is taken from a credit or debit card through iyzico. The service is activated in your account as soon as the payment is confirmed and is provided electronically. There is no physical delivery.
+Payment is taken from a credit or debit card through PayTR, or by bank transfer to our bank account shown on the checkout page. For transfers to the TRY account, the amount is calculated at the CBRT selling rate at the time of the order. The service is activated in your account as soon as a card payment is confirmed, or when a bank transfer reaches our account, and is provided electronically. There is no physical delivery.
 
 ## Term and termination
 
-The subscription is monthly or yearly and renews automatically at the end of each period. You can cancel at any time in the app or by writing to {{email}}; cancellation takes effect at the end of the paid period.
+Plans are sold in monthly or yearly periods and do not renew automatically. We send you a renewal reminder before the period ends; if you don't renew, nothing more is charged and the service continues until the end of the paid period.
 
 ## Right of withdrawal
 

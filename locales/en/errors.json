@@ -39,5 +39,9 @@
   "regeneration_limit": "You can rewrite this article from scratch up to {{limit}} times. You can still edit it in the editor or rewrite sections one by one.",
   "rewrite_limit": "You’ve reached the section rewrite limit ({{limit}}) for this article. You can still edit the text in the editor.",
   "slug_taken": "A post with this address already exists in this language. Change the address and save again.",
-  "captcha_low_score": "We couldn’t accept your message because it looked automated. Please try again in a few minutes or email us directly."
+  "captcha_low_score": "We couldn’t accept your message because it looked automated. Please try again in a few minutes or email us directly.",
+  "billing_unavailable": "This payment method isn’t available right now. Choose another method or contact us.",
+  "payment_provider_error": "We couldn’t open the payment page. Please try again in a few minutes; if it keeps failing, you can pay by bank transfer.",
+  "exchange_rate_unavailable": "We couldn’t get the current exchange rate, so the TRY amount couldn’t be calculated. Choose the USD account or try again shortly.",
+  "plan_change_unavailable": "You can’t change plans before your paid period ends. You can renew the same plan, or contact us to change plans."
 }

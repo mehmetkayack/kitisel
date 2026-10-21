@@ -19,16 +19,16 @@ Sen kıdemli bir full-stack mühendis, SaaS mimarı ve ürün tasarımcısısın
 - **Frontend:** React, TypeScript
 - **Veritabanı:** MySQL 8, ORM olarak Sequelize
 - **Yapay zekâ:** Google Gemini
-- **Ödeme:** iyzico (abonelik API'si), fiyatlar **USD**
+- **Ödeme:** PayTR (iFrame/Direkt API + kart saklamayla tekrarlayan ödeme; abonelik mantığı bizde), fiyatlar **USD**
 
 **Çalışma kuralları:**
 - **Fazlara bölerek çalış** (Bölüm 15). Her fazın sonunda dur. Ne yaptığını, nasıl test edileceğini ve açık kalan konuları özetle, sonra onayımı bekle.
 - Her fazın başında görevleri bir yapılacaklar listesine yaz ve ilerledikçe işaretle.
 - Proje kökünde bir `CLAUDE.md` oluştur ve güncel tut: mimari kararlar, komutlar, klasör yapısı, tasarım kuralları.
-- **Harici API'lerin (Gemini, iyzico, WordPress, Shopify, Webflow, Ghost, Wix, DataForSEO, Google Search Console) güncel resmî dokümantasyonunu kod yazmadan önce kontrol et.** Model adlarını, endpoint'leri ve SDK sürümlerini ezberden yazma. iyzico dokümantasyonu `docs.iyzico.com` adresinde. Sayfa URL'lerinin sonuna `.md` eklenince markdown sürümü açılıyor.
+- **Harici API'lerin (Gemini, PayTR, WordPress, Shopify, Webflow, Ghost, Wix, DataForSEO, Google Search Console) güncel resmî dokümantasyonunu kod yazmadan önce kontrol et.** Model adlarını, endpoint'leri ve SDK sürümlerini ezberden yazma. PayTR dokümantasyonu `dev.paytr.com` adresinde.
 - Gizli bilgileri asla koda gömme. Her şey `.env` dosyasından gelsin ve `.env.example` her zaman güncel kalsın.
 - TypeScript `strict` modda çalış. `any` kullanma.
-- Her dış servis bir **arayüzün (interface) arkasında** dursun. Gemini ve iyzico ileride değiştirilebilir (Bölüm 4).
+- Her dış servis bir **arayüzün (interface) arkasında** dursun. Gemini ve PayTR ileride değiştirilebilir (Bölüm 4).
 - Belirsiz bir karar varsa makul bir varsayım yap, `CLAUDE.md` içindeki "Kararlar" bölümüne yaz ve devam et. Sadece geri dönüşü zor kararlarda bana sor.
 - **Kullanılabilirlik bir özellik değil, şarttır.** Bölüm 6'daki tasarım ve UX kuralları her ekran için kabul kriteridir.
 
@@ -41,7 +41,7 @@ Sen kıdemli bir full-stack mühendis, SaaS mimarı ve ürün tasarımcısısın
 1. Siteyi analiz eder. Marka, sektör, hedef kitle ve teknik SEO durumunu çıkarır.
 2. Gerçek arama verisiyle anahtar kelime ve konu fırsatlarını bulur.
 3. Bir içerik takvimi oluşturur.
-4. Her konu için şunları üretir: SEO uyumlu, doğrulanmış bilgi içeren makale, kapak görseli, infografik, iç linkler ve schema.
+4. Her konu için şunları üretir: SEO uyumlu, doğrulanmış bilgi içeren makale, kapak görseli, iç linkler ve schema. (İnfografik 2026-10-21'de kullanıcı kararıyla kaldırıldı.)
 5. Makaleyi müşterinin sitesine yayınlar. Müşteri isterse önce onayına sunar.
 6. Sıralamayı ve Search Console verisini takip eder.
 7. Sıralaması düşen eski yazıları yeniler ve teknik SEO hatalarını düzeltir.
@@ -112,7 +112,7 @@ Kurallar:
 | Arka plan işleri | BullMQ ve Redis (ayrı `worker` süreci), zamanlanmış işler için repeatable jobs |
 | Yapay zekâ | Google Gemini API, resmî `@google/genai` SDK (Bölüm 9) |
 | Anahtar kelime verisi | DataForSEO API (birincil). Gemini tahminleri yedektir ve "tahmini" diye işaretlenir |
-| Ödeme | **iyzico abonelik API'si.** Resmî `iyzipay` Node paketini kullan, abonelik metotları eksikse kendi ince istemcini yaz (IYZWSv2 imzalama) |
+| Ödeme | **PayTR** (iFrame API, Direkt API + Kart Saklama, İade API, Durum Sorgu). Resmî Node SDK yok: `fetch` + HMAC-SHA256 (`paytr_token`) imzalı ince istemci yaz |
 | E-posta | Resend veya SMTP (Nodemailer), şablonlar için React Email |
 | Dosya depolama | S3 uyumlu depolama (Cloudflare R2). Sadece geçici dosyalar burada tutulur |
 | Site tarama | `undici` ve `cheerio`, JavaScript ile render edilen siteler için isteğe bağlı Playwright |
@@ -151,7 +151,7 @@ packages/
   seo/          # tarayıcı, denetim kuralları, SEO skorlama, iç link motoru
   publishers/   # CMS adaptörleri
   keywords/     # KeywordProvider, DataForSEO
-  billing/      # BillingProvider arayüzü, iyzico implementasyonu
+  billing/      # BillingProvider arayüzü, PayTR implementasyonu
   email/        # e-posta şablonları (5 dil)
   config/       # paketler, kotalar, desteklenen diller
   ui/           # tasarım token'ları ve ortak React bileşenleri
@@ -202,7 +202,7 @@ interface BillingProvider {
 }
 ```
 
-- Yapay zekâ sağlayıcısı `AI_PROVIDER=gemini`, ödeme sağlayıcısı `BILLING_PROVIDER=iyzico` ortam değişkeniyle seçilir. İleride Stripe, Paddle veya Claude eklenmesi sadece yeni bir implementasyon dosyası gerektirmeli.
+- Yapay zekâ sağlayıcısı `AI_PROVIDER=gemini`, ödeme sağlayıcısı `BILLING_PROVIDER=paytr` ortam değişkeniyle seçilir. İleride Stripe, Paddle veya Claude eklenmesi sadece yeni bir implementasyon dosyası gerektirmeli.
 - Her yapay zekâ çağrısı `ai_usage_logs` tablosuna yazılır. Admin panelinde kiracı başına maliyet görünür.
 - Prompt şablonları `packages/ai/prompts/` altında, sürüm numaralı dosyalarda dursun.
 - Aynı yaklaşım `KeywordProvider` ve `Publisher` için de geçerli.
@@ -273,8 +273,8 @@ Tablolar (başlangıç noktası, gerektikçe genişlet):
 - `gsc_daily_metrics`: site, sayfa, sorgu, tarih, gösterim, tıklama, CTR, pozisyon (tarih ve site üzerinde bileşik indeks)
 - `ai_visibility_checks`: site, prompt, model, bahsedildi mi, alıntılanan URL, tarih
 - `tech_fixes`: site, sayfa URL'i, sorun türü, mevcut değer, önerilen değer, durum (`pending`, `applied`, `dismissed`, `reverted`)
-- `subscriptions`: organizasyon, sağlayıcı (`iyzico`), iyzico abonelik referans kodu, iyzico müşteri referans kodu, plan kodu, fiyatlandırma planı referans kodu, aralık, durum, deneme bitişi, dönem başlangıcı ve sonu, dönem sonunda iptal edilecek mi
-- `payments`: organizasyon, abonelik, iyzico ödeme id'si, sipariş referans kodu, tutar, para birimi, durum, iade edilen tutar, ödeme tarihi
+- `subscriptions`: organizasyon, sağlayıcı (`paytr`), PayTR kullanıcı token'ı (`utoken`, şifreli), kayıtlı kart token'ı (`ctoken`, şifreli), kartın markası ve son 4 hanesi (sadece gösterim), plan kodu, fiyat (sent), aralık, durum, deneme bitişi, dönem başlangıcı ve sonu, sonraki tahsilat zamanı, başarısız deneme sayısı, dönem sonunda iptal edilecek mi
+- `payments`: organizasyon, abonelik, sipariş numarası (`merchant_oid`, benzersiz), tür (ilk ödeme, yenileme, yükseltme farkı, ek paket), tutar, para birimi, durum, PayTR hata kodu ve mesajı, iade edilen tutar, ödeme tarihi
 - `refund_requests`: organizasyon, ödeme, sebep, durum, işleyen admin
 - `usage_counters`: organizasyon, dönem başlangıcı, üretilen makale, yenilenen makale, analiz sorgusu, takip edilen anahtar kelime
 - `processed_webhook_events`: sağlayıcı, event id veya hash (benzersiz), işlenme zamanı
@@ -423,7 +423,7 @@ Adımlar (her adım tek ekran, üstte ilerleme çubuğu):
 5. Önerilen ilk 10 konu (kullanıcı çıkarabilir)
 6. CMS bağlantısı ("Şimdilik atla" seçeneği belirgin)
 7. Yayın modu ve sıklığı
-8. Paket seçimi ve iyzico ödeme formu
+8. Paket seçimi ve PayTR ödeme formu
 
 Kurallar:
 - İlerleme kaydedilir, kullanıcı kaldığı yerden devam eder.
@@ -550,14 +550,18 @@ Her adaptör için güncel dokümantasyonu kontrol et. Kimlik bilgileri şifreli
 - E-posta ile davet ve rol atama.
 - Agency paketi: çoklu site ve üst barda site değiştirici, beyaz etiketli PDF raporlar, müşteriye salt okunur paylaşım linki.
 
-### 7.15 Faturalandırma (iyzico, USD)
+### 7.15 Faturalandırma (PayTR, USD)
 
-**Paketler.** Değerler `packages/config/plans.ts` içinde tanımlanır. iyzico ürün ve fiyatlandırma planları `pnpm billing:setup` script'iyle API üzerinden oluşturulur ve referans kodları veritabanına yazılır.
+> 2026-10-21: ödeme sağlayıcısı iyzico yerine **PayTR** (kullanıcı kararı). PayTR'de hazır abonelik ürünü ve plan nesnesi yoktur; abonelik mantığı bizde, tahsilat kayıtlı karttan tekrarlayan ödemeyle.
+>
+> **2026-10-21 uygulanan ilk sürüm (kullanıcı kararları):** kart = PayTR **iFrame API** (kart saklanmaz), ayrıca **havale/EFT** (USD veya TL hesabı; TL'de sipariş anındaki TCMB döviz satış kuru). **Dönemlik ödeme:** her ödeme bir ay / yıl açar, aynı paket hâlâ açıksa yeni dönem mevcut dönemin sonundan başlar; otomatik çekim yok, dönem sonuna 3 gün kala hatırlatma e-postası, dönem bitince haklar denemeye döner. KDV yalnız Türkiye fatura adresine (`BILLING_VAT_RATE`, varsayılan %20). Havale admin panelinden onaylanır. Dönem içinde paket değişikliği destek üzerinden. Aşağıdaki kart saklama + tekrarlayan ödeme, deneme başında kart, portalda kart güncelleme/iptal, iade API'si, ek makale paketi ve fatura listesi **sonraki adım**dır (PayTR onayı gelince).
+
+**Paketler.** Değerler `packages/config/plans.ts` içinde tanımlanır. PayTR tarafında ürün/plan oluşturulmaz; fiyat değişikliğinde mevcut abonelikler eski fiyatla devam eder (fiyat `subscriptions` kaydında saklanır).
 
 | | **Starter** | **Growth** | **Agency** |
 |---|---|---|---|
-| Aylık fiyat | $29 | $79 | $199 |
-| Yıllık fiyat (2 ay hediye) | $290/yıl | $790/yıl | $1.990/yıl |
+| Aylık fiyat | $39 | $79 | $199 |
+| Yıllık fiyat (2 ay hediye) | $390/yıl | $790/yıl | $1.990/yıl |
 | Site sayısı | 1 | 1 | 5 |
 | Yeni makale / ay | 10 | 30 | 100 (siteler arasında paylaşılır) |
 | İçerik yenileme / ay | 3 | 10 | 40 |
@@ -571,25 +575,29 @@ Her adaptör için güncel dokümantasyonu kontrol et. Kimlik bilgileri şifreli
 | Beyaz etiketli rapor | — | — | ✓ |
 | Ekip üyesi | 1 | 3 | 10 |
 
-**iyzico entegrasyon detayları** (her adımı `docs.iyzico.com` üzerindeki abonelik dokümantasyonuyla doğrula):
+**PayTR entegrasyon detayları** (her adımı `dev.paytr.com` üzerindeki güncel dokümantasyonla doğrula):
 
-- **Ürün ve planlar:** Her paket ve aralık için bir fiyatlandırma planı oluşturulur: `currencyCode: USD`, `paymentInterval: MONTHLY` veya `YEARLY`, `planPaymentType: RECURRING`, deneme için `trialPeriodDays: 7`. Bir planın fiyatı sonradan değiştirilemez (sadece ad ve deneme süresi güncellenebilir). Fiyat değişikliğinde yeni plan oluşturulur ve eski abonelikler eski planda kalır. Bunu `plans` tablosunda sürümleyerek yönet.
-- **Ödeme akışı:** iyzico abonelik **Checkout Form** başlatılır (3D Secure). Form içeriği frontend'de bir modal veya ayrı sayfada gösterilir. Callback URL'e dönen token ile sonuç sorgulanır, abonelik ve müşteri referans kodları kaydedilir. Ödeme formu kullanıcının arayüz dilinde açılır (`locale`).
-- **Deneme:** 7 gün, 3 makale. Deneme süresinde iyzico sadece kartı doğrular, ödeme deneme sonunda alınır. Deneme bitiminden 3 gün önce kendi zamanlanmış işimizle hatırlatma e-postası gönderilir: tarih, tutar ve tek tıkla iptal linki. Ödeme ekranında deneme bitiş tarihi ve tutar açıkça yazar.
-- **Webhook:** iyzico abonelik bildirimleri (başarılı ve başarısız tahsilat olayları) için bir webhook uç noktası yazılır. İmza doğrulaması iyzico'nun güncel imza yöntemine göre yapılır. Ham gövde (raw body) korunur. `processed_webhook_events` ile idempotency sağlanır. Webhook gelmezse diye günlük bir **uzlaştırma (reconciliation) işi** iyzico'dan abonelik durumlarını sorgulayıp veritabanını senkronize eder.
-- **Başarılı tahsilat:** Ödeme kaydedilir, dönem tarihleri güncellenir ve kotalar sıfırlanır.
-- **Başarısız tahsilat:** Kullanıcıya kart güncelleme linkiyle e-posta gider. 7 gün ek süre tanınır, sonra yayınlar durdurulur (veri silinmez). iyzico'nun yeniden deneme (retry) metodu kullanılabilir.
-- **Kendi müşteri portalımız** (Ayarlar → Faturalandırma), çünkü iyzico'da Stripe Customer Portal benzeri hazır bir sayfa yok:
-  - Mevcut paket, sonraki ödeme tarihi ve tutarı, kota kullanımı (ilerleme çubuklarıyla).
-  - **Paket değiştirme:** iyzico abonelik yükseltme (upgrade) metodu. Yükseltme hemen, düşürme dönem sonunda geçerli olur.
-  - **Kart güncelleme:** iyzico kart güncelleme checkout formu.
-  - **İptal:** tek tıkla iyzico iptal metodu. Kısa bir "neden ayrılıyorsunuz?" anketi gösterilir ama iptali engellemez. Erişim ödenmiş dönemin sonuna kadar devam eder (iyzico iptali anında yapıyorsa dönem sonu tarihini kendi veritabanımızda tut ve erişimi o tarihe kadar açık bırak).
+- **Kimlik ve imza:** `PAYTR_MERCHANT_ID`, `PAYTR_MERCHANT_KEY`, `PAYTR_MERCHANT_SALT` (Mağaza Paneli → Entegrasyon Bilgileri). Her isteğin `paytr_token`'ı: ilgili alanlar + `merchant_salt` birleştirilir, `merchant_key` ile HMAC-SHA256, Base64. Key ve salt asla istek gövdesine eklenmez, tarayıcıya gitmez. Ayrı test sunucusu yok: `PAYTR_TEST_MODE=true` iken `test_mode=1`.
+- **Para birimi:** `currency: USD` (PayTR TL, USD, EUR, GBP, RUB destekler). Tutarlar 100 ile çarpılmış tam sayı (`payment_amount`). USD tahsilatın hesaba hangi para biriminde geçeceği PayTR sözleşmesinde netleştirilir.
+- **Abonelik modeli:** PayTR'nin hazır abonelik ürünü yok. Dönem, durum, sonraki tahsilat zamanı ve yeniden denemeler `subscriptions` tablosunda bizim tarafımızda tutulur.
+  - **İlk ödeme ve kart saklama:** Direkt API + Kart Saklama (`store_card`), 3D Secure ile. Kart formu tarayıcıdan doğrudan `https://www.paytr.com/odeme`'ye gönderilir; kart verisi sunucumuza gelmez (PCI kapsamını PayTR ile teyit et). PayTR'nin döndürdüğü `utoken` kullanıcıya bağlanır (şifreli saklanır); kartın `ctoken`'ı "Kayıtlı Kart Listesi" (CAPI LIST) ile alınır.
+  - **Yenileme:** dakikalık zamanlayıcı, tahsilat zamanı gelen abonelikler için "Kayıtlı Kart Tekrarlayan Ödeme" isteği başlatır (`utoken`, `ctoken`, `recurring_payment=1`, `non_3d=1`). Kullanıcıya form gösterilmez. **Bu iki izin (Non-3D ve tekrarlayan ödeme) mağaza hesabında PayTR onayıyla açılır; başvuruda iste.** Onay çıkmazsa yedek akış: dönem sonunda kullanıcıya ödeme linki (iFrame) e-postası, ödenmezse ek süre.
+  - Yanıt `success` / `failed` (`try_again` bayrağı: kapalı kartta tekrar deneme yok) / `wait_callback` (sonuç bildirimle gelir).
+- **Bildirim URL'i** (`POST /api/v1/billing/paytr/callback`, Mağaza Paneli → Destek & Kurulum → Ayarlar'a girilir): `merchant_oid`, `status`, `total_amount`, `hash` (+ başarısızsa `failed_reason_code/msg`). Doğrulama: `base64(HMAC-SHA256(merchant_oid + merchant_salt + status + total_amount, merchant_key))`. Yanıt düz metin `OK` olmalı, başka hiçbir şey yazılmaz; `OK` gelmezse PayTR tekrar gönderir. Aynı bildirim birden çok kez gelebilir: `merchant_oid` ile idempotent (`processed_webhook_events`), işlenmiş siparişte sadece `OK`. Muhasebe için `total_amount` esas alınır. Günlük **uzlaştırma işi**, sonuçsuz kalan siparişleri Durum Sorgu API'siyle senkronize eder.
+- **Deneme:** 7 gün, 3 makale. Deneme başında kart saklanır (kart doğrulama yöntemini ve tutarını PayTR ile netleştir), ilk tahsilat deneme sonunda yenileme işiyle yapılır. Deneme bitiminden 3 gün önce hatırlatma e-postası: tarih, tutar ve tek tıkla iptal linki. Ödeme ekranında deneme bitiş tarihi ve tutar açıkça yazar.
+- **Başarılı tahsilat:** ödeme kaydedilir, dönem tarihleri ilerletilir ve kotalar sıfırlanır.
+- **Başarısız tahsilat:** kullanıcıya kart güncelleme linkiyle e-posta. 7 günlük ek sürede birkaç kez yeniden denenir (`try_again` izin veriyorsa), sonra yayınlar durdurulur (veri silinmez).
+- **Kendi müşteri portalımız** (Ayarlar → Faturalandırma):
+  - Mevcut paket, sonraki ödeme tarihi ve tutarı, kota kullanımı (ilerleme çubuklarıyla), kayıtlı kart (marka + son 4 hane).
+  - **Paket değiştirme:** bizim mantığımız. Yükseltme hemen; kalan dönem için oransal fark kayıtlı karttan tek seferlik çekilir. Düşürme dönem sonunda geçerli olur.
+  - **Kart güncelleme:** yeni kart ekleme (3D, aynı `utoken` ile) ve eski kartın silinmesi (Kayıtlı Kart Silme).
+  - **İptal:** tek tık; PayTR'de iptal edilecek bir abonelik yok, dönem sonunda yenileme yapılmaz. Kısa bir "neden ayrılıyorsunuz?" anketi gösterilir ama iptali engellemez. Erişim ödenmiş dönemin sonuna kadar sürer. Hesap silinirse kayıtlı kart da silinir.
   - Ödeme geçmişi ve makbuzlar.
-- **İade:** İlk ödemeden sonraki 14 gün içinde koşulsuz tam iade. Panelde "İade talep et" butonu. Talep `refund_requests` tablosuna düşer, config'e göre otomatik veya admin onayıyla iyzico iade API'si üzerinden işlenir. Abonelik ödemelerinin API ile iade edilebilirliğini dokümantasyonda doğrula. Mümkün değilse admin panelinde "iyzico merchant panelinden manuel iade yapıldı" işaretleme akışı kur.
-- **Ek makale paketi:** Kota dolarsa "ek 10 makale" tek seferlik ödeme olarak alınabilir (iyzico tek seferlik checkout form, sabit fiyat, kredi değil).
+- **İade:** ilk ödemeden sonraki 14 gün içinde koşulsuz tam iade. Panelde "İade talep et" butonu. Talep `refund_requests` tablosuna düşer, config'e göre otomatik veya admin onayıyla **İade API**'si (`/odeme/iade`, `merchant_oid` + `return_amount`; kısmi iade destekli) üzerinden işlenir. İade süre sınırını PayTR ile teyit et; API ile yapılamayan durumlar için admin panelinde "PayTR panelinden manuel iade yapıldı" işaretleme akışı kur.
+- **Ek makale paketi:** kota dolarsa "ek 10 makale" tek seferlik ödeme (iFrame API ya da kayıtlı karttan, sabit fiyat, kredi değil).
 - **Fatura:** Türkiye'de faaliyet gösteren bir şirket olarak her ödeme için e-Arşiv veya e-Fatura kesilmesi gerekir. `InvoiceProvider` adında bir arayüz tanımla ve şimdilik "manuel" implementasyonla bırak (admin panelinde kesilecek faturaların listesi ve CSV dışa aktarma). İleride Paraşüt veya benzeri bir servisle entegre edilecek. Faturalandırma formunda ülke, şirket adı, vergi numarası veya VAT ID ve adres alınır.
 - **Kota kontrolü** hem API'de hem worker'da yapılır. Worker kotası dolan veya aboneliği askıda olan organizasyon için iş başlatmaz.
-- **Ortam notu:** iyzico abonelik özelliğinin merchant hesabında aktif olması gerekir ve sandbox'ta abonelik desteği sınırlı olabilir. Bunu `README.md`'de belirt. Testlerde iyzico'yu mock'la (MSW). Sandbox anahtarlarıyla manuel test için ayrı bir rehber yaz.
+- **Ortam notu:** Non-3D ve tekrarlayan ödeme izinleri PayTR onayına bağlı; durumunu `README.md`'de belirt. Testlerde PayTR'yi mock'la (MSW); `test_mode=1` ile manuel test için ayrı bir rehber yaz (test kartları: dev.paytr.com → Direkt API → Test Kart Bilgileri).
 - Her şey `BillingProvider` arayüzünün arkasında olsun. İleride yurt dışı satışlar için Stripe veya Paddle eklenebilmeli.
 
 ### 7.16 Admin paneli (`/admin`, sadece `superadmin`)
@@ -658,10 +666,10 @@ Her adaptör için güncel dokümantasyonu kontrol et. Kimlik bilgileri şifreli
 - Refresh token çerezleri için CSRF koruması (double-submit token veya `sameSite=strict`).
 - Sequelize'da ham SQL kullanılacaksa sadece parametreli sorgular (`replacements`). String birleştirme ile SQL yazılmaz.
 - Yapay zekâ çıktısı HTML'i `sanitize-html` ile temizlenir. Frontend'de `dangerouslySetInnerHTML` sadece temizlenmiş içerikle ve DOMPurify'dan geçirilerek kullanılır.
-- Webhook imza doğrulaması (iyzico ve giden webhook'larımız).
-- Kart bilgisi **hiçbir zaman** bizim sunucumuza gelmez. Ödeme formu tamamen iyzico'nun checkout formudur.
+- Bildirim/webhook imza doğrulaması (PayTR bildirim hash'i ve giden webhook'larımız).
+- Kart bilgisi **hiçbir zaman** bizim sunucumuza gelmez. Kart, PayTR'nin iFrame'ine ya da tarayıcıdan doğrudan PayTR'ye gönderilen forma (Direkt API) girilir; sunucumuz sadece PayTR'nin verdiği token'ları saklar.
 - Audit log: kimlik bilgisi ekleme ve silme, paket değişikliği, impersonation, iade.
-- **GDPR ve KVKK:** veri dışa aktarma (JSON), hesap silme (30 gün yumuşak silme, ardından kalıcı silme), çerez onayı, açık rıza kayıtları, alt işlemci listesi (Google, iyzico, e-posta sağlayıcı, Cloudflare, hosting).
+- **GDPR ve KVKK:** veri dışa aktarma (JSON), hesap silme (30 gün yumuşak silme, ardından kalıcı silme), çerez onayı, açık rıza kayıtları, alt işlemci listesi (Google, PayTR, e-posta sağlayıcı, Cloudflare, hosting).
 - Günlük MySQL yedeği (`mysqldump` veya yönetilen servis yedeği), dokümante edilir.
 
 ---
@@ -679,10 +687,10 @@ Her adaptör için güncel dokümantasyonu kontrol et. Kimlik bilgileri şifreli
 
 ## 12. TEST STRATEJİSİ
 
-- **Birim testleri:** SEO skorlama, konu tekrarı tespiti, cosine benzerliği, kota hesaplama, şifreleme, iyzico imza üretimi ve webhook doğrulama, iç link seçimi, slug işlemleri.
+- **Birim testleri:** SEO skorlama, konu tekrarı tespiti, cosine benzerliği, kota hesaplama, şifreleme, PayTR `paytr_token` üretimi ve bildirim hash doğrulaması, iç link seçimi, slug işlemleri.
 - **API testleri (Supertest):** kimlik doğrulama akışları, yetkilendirme (roller), tüm CRUD uç noktaları. Test veritabanı Docker'da ayrı bir MySQL şemasıdır ve her testten önce migration'larla sıfırlanır.
-- **Entegrasyon testleri:** her `Publisher` adaptörü ve iyzico için MSW mock sunucuları. `FakeAIProvider` ile gerçek Gemini'ye istek atılmaz.
-- **Uçtan uca testler (Playwright):** kayıt, onboarding, ücretsiz analiz, ödeme (mock iyzico ile), makale üretimi, onaylama ve yayınlama (sahte WordPress ile), paket değiştirme, iptal, iade talebi.
+- **Entegrasyon testleri:** her `Publisher` adaptörü ve PayTR için MSW mock sunucuları. `FakeAIProvider` ile gerçek Gemini'ye istek atılmaz.
+- **Uçtan uca testler (Playwright):** kayıt, onboarding, ücretsiz analiz, ödeme (mock PayTR ile), makale üretimi, onaylama ve yayınlama (sahte WordPress ile), paket değiştirme, iptal, iade talebi.
 - **Erişilebilirlik testleri:** ana ekranlarda `@axe-core/playwright`, ihlal varsa test başarısız.
 - **Görsel kontrol:** her ana ekran 375 px ve 1440 px genişlikte, açık ve koyu temada, Almanca dilinde ekran görüntüsüyle kontrol edilir (taşma testi).
 - **Kiracı izolasyonu testleri.**
@@ -693,10 +701,10 @@ Her adaptör için güncel dokümantasyonu kontrol et. Kimlik bilgileri şifreli
 ## 13. YAYINA ALMA VE ORTAM
 
 - `docker-compose.yml`: MySQL 8 (`utf8mb4`), Redis, Mailpit ve isteğe bağlı phpMyAdmin. `pnpm dev` API'yi, worker'ı ve web'i birlikte başlatır.
-- `.env.example` tüm değişkenleri açıklamalarıyla içermeli: MySQL bağlantısı, Redis, JWT anahtarları, Google OAuth, Gemini, DataForSEO, iyzico (`IYZICO_API_KEY`, `IYZICO_SECRET_KEY`, `IYZICO_BASE_URL` sandbox ve production), e-posta, R2, Sentry, şifreleme anahtarı, Turnstile, uygulama URL'leri.
-- Script'ler: `pnpm db:migrate`, `pnpm db:seed` (demo organizasyon, site ve makaleler), `pnpm billing:setup` (iyzico ürün ve planlarını oluşturur).
+- `.env.example` tüm değişkenleri açıklamalarıyla içermeli: MySQL bağlantısı, Redis, JWT anahtarları, Google OAuth, Gemini, DataForSEO, PayTR (`PAYTR_MERCHANT_ID`, `PAYTR_MERCHANT_KEY`, `PAYTR_MERCHANT_SALT`, `PAYTR_TEST_MODE`), e-posta, R2, Sentry, şifreleme anahtarı, Turnstile, uygulama URL'leri.
+- Script'ler: `pnpm db:migrate`, `pnpm db:seed` (demo organizasyon, site ve makaleler). Paketler `packages/config/plans.ts`'te; PayTR'de ayrıca plan oluşturulmaz.
 - Production: API, worker ve web için ayrı Dockerfile'lar. Tek VPS'te Docker Compose ve Nginx (ters proxy, SSL için Let's Encrypt) **veya** Railway / Render. Yönetilen MySQL önerilir.
-- `README.md`: kurulum, yerel geliştirme, iyzico sandbox testi, Gemini API anahtarı alma, test WordPress sitesi (Docker), yayına alma adımları.
+- `README.md`: kurulum, yerel geliştirme, PayTR test modu, Gemini API anahtarı alma, test WordPress sitesi (Docker), yayına alma adımları.
 
 ---
 
@@ -741,8 +749,8 @@ Her fazın sonunda dur, özet ver ve onay bekle.
 
 **Faz 3 — Yayın ve faturalandırma**
 - WordPress (tek tıkla bağlantı), Shopify, webhook ve indirme adaptörleri. Planlı yayın, onay akışı, bildirimler.
-- iyzico: plan kurulum script'i, checkout form, deneme, webhook, uzlaştırma işi, kendi müşteri portalımız (paket değiştirme, kart güncelleme, iptal), 14 gün iade akışı, deneme hatırlatma e-postası, ek makale paketi, kota kontrolü, manuel fatura listesi.
-- Kabul: Test WordPress sitesine görsellerle yayın yapılıyor. Mock iyzico ile kayıt, deneme, ödeme, paket yükseltme, kart güncelleme, iptal ve iade uçtan uca çalışıyor. Kota dolunca üretim duruyor ve kullanıcıya net bir mesaj gösteriliyor.
+- PayTR: kart saklamalı ilk ödeme ve deneme, bildirim URL'i, yenileme zamanlayıcısı (kayıtlı karttan tekrarlayan ödeme, yeniden deneme), uzlaştırma işi (Durum Sorgu), kendi müşteri portalımız (paket değiştirme, kart güncelleme, iptal), 14 gün iade akışı (İade API), deneme hatırlatma e-postası, ek makale paketi, kota kontrolü, manuel fatura listesi.
+- Kabul: Test WordPress sitesine görsellerle yayın yapılıyor. Mock PayTR ile kayıt, deneme, ödeme, paket yükseltme, kart güncelleme, iptal ve iade uçtan uca çalışıyor. Kota dolunca üretim duruyor ve kullanıcıya net bir mesaj gösteriliyor.
 
 **Faz 4 — Ölçüm ve ek platformlar**
 - Search Console OAuth, günlük metrikler, dizinlenme kontrolü, Sonuçlar sayfası, ana sayfa metrikleri, haftalık e-posta raporu.

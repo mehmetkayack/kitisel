@@ -39,5 +39,9 @@
   "regeneration_limit": "Vous pouvez réécrire cet article entièrement jusqu’à {{limit}} fois. Vous pouvez toujours le modifier dans l’éditeur ou réécrire les sections une par une.",
   "rewrite_limit": "Vous avez atteint la limite de réécriture de sections ({{limit}}) pour cet article. Vous pouvez toujours modifier le texte dans l’éditeur.",
   "slug_taken": "Un article avec cette adresse existe déjà dans cette langue. Modifiez l’adresse puis enregistrez à nouveau.",
-  "captcha_low_score": "Votre message semblait automatisé et n’a pas pu être accepté. Réessayez dans quelques minutes ou écrivez-nous directement par e-mail."
+  "captcha_low_score": "Votre message semblait automatisé et n’a pas pu être accepté. Réessayez dans quelques minutes ou écrivez-nous directement par e-mail.",
+  "billing_unavailable": "Ce moyen de paiement n’est pas disponible pour le moment. Choisissez-en un autre ou contactez-nous.",
+  "payment_provider_error": "La page de paiement n’a pas pu s’ouvrir. Réessayez dans quelques minutes ; si le problème persiste, vous pouvez payer par virement.",
+  "exchange_rate_unavailable": "Le taux de change actuel n’a pas pu être obtenu, le montant en TRY n’a donc pas pu être calculé. Choisissez le compte en USD ou réessayez dans un instant.",
+  "plan_change_unavailable": "Vous ne pouvez pas changer de forfait avant la fin de la période payée. Vous pouvez renouveler le même forfait ou nous contacter pour en changer."
 }

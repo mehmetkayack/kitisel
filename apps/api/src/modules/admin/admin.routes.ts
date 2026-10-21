@@ -3,6 +3,8 @@ import type { Request, RequestHandler } from 'express';
 import { z } from 'zod';
 import {
   adminEntitlementsSchema,
+  adminOrderActionSchema,
+  adminOrderQuerySchema,
   adminUpdateUserSchema,
   auditQuerySchema,
   BLOG_COVER_UPLOAD,
@@ -13,7 +15,7 @@ import {
   pageQuerySchema,
   updateContactMessageSchema,
 } from '@upvine/shared';
-import type { AdminEntitlementsInput, AdminUpdateUserInput, BlogPostInput, UpdateContactMessageInput } from '@upvine/shared';
+import type { AdminEntitlementsInput, AdminOrderActionInput, AdminUpdateUserInput, BlogPostInput, UpdateContactMessageInput } from '@upvine/shared';
 import type { AppDeps } from '../../deps';
 import { AppError } from '../../lib/errors';
 import { requireAuth, requireSuperadmin } from '../../middleware/auth';
@@ -22,6 +24,7 @@ import { createAdminService } from './admin.service';
 import type { AdminActor } from './admin.service';
 import { createAdminMessagesService } from './admin-messages.service';
 import { createAdminBlogService } from '../blog/blog.service';
+import type { BillingService } from '../billing/billing.service';
 
 const idParam = z.string().length(36);
 
@@ -38,7 +41,7 @@ const actor = (req: Request): AdminActor => ({
 });
 
 /** /api/v1/admin — sadece superadmin (Bölüm 7.16). Controller'lar sadece HTTP ile ilgilenir. */
-export function adminRoutes(deps: AppDeps): Router {
+export function adminRoutes(deps: AppDeps, billing: BillingService): Router {
   const s = createAdminService(deps);
   const r = Router();
   r.use(requireAuth(deps.env), requireSuperadmin);
@@ -129,6 +132,23 @@ export function adminRoutes(deps: AppDeps): Router {
   });
   r.delete('/blog-posts/:id/cover', async (req, res) => {
     res.json(await blog.removeCover(parse(idParam, req.params.id), actor(req)));
+  });
+
+  // Ödemeler: tüm siparişler; havale onayı paketi açar
+  r.get('/billing/orders', async (req, res) => {
+    res.json(await billing.adminList(parse(adminOrderQuerySchema, req.query)));
+  });
+  r.get('/billing/orders/pending-count', async (_req, res) => {
+    res.json({ count: await billing.adminPendingCount() });
+  });
+  r.get('/billing/orders/:id', async (req, res) => {
+    res.json(await billing.adminGet(parse(idParam, req.params.id)));
+  });
+  r.post('/billing/orders/:id/approve', validateBody(adminOrderActionSchema), async (req, res) => {
+    res.json(await billing.adminApprove(parse(idParam, req.params.id), req.body as AdminOrderActionInput, actor(req)));
+  });
+  r.post('/billing/orders/:id/cancel', validateBody(adminOrderActionSchema), async (req, res) => {
+    res.json(await billing.adminCancel(parse(idParam, req.params.id), req.body as AdminOrderActionInput, actor(req)));
   });
   return r;
 }

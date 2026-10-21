@@ -80,7 +80,6 @@
     "downloadHtml": "HTML-Datei",
     "downloadMd": "Markdown-Datei",
     "downloadZip": "ZIP (HTML, Markdown und Bilder)",
-    "infographicCaption": "Infografik: wird beim Veröffentlichen nach dem ersten Abschnitt eingefügt. Sie können sie auch in sozialen Medien teilen.",
     "coverSite": "Das Titelbild stammt von der Seite Ihrer Website, die diesem Thema am nächsten ist.",
     "coverUser": "Dieses Titelbild haben Sie hochgeladen.",
     "regenerateLeft": "Neu schreiben ({{left}}/{{limit}} übrig)"

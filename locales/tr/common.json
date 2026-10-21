@@ -62,7 +62,10 @@
     "wixSiteId": "Site kimliği 8-4-4-4-12 biçiminde olmalı.",
     "questionMin": "Soru en az 8 karakter olmalı.",
     "phone": "Geçerli bir telefon numarası girin, örneğin +90 532 123 45 67.",
-    "slugTaken": "Bu dilde aynı adresle bir yazı zaten var. Adresi değiştirin."
+    "slugTaken": "Bu dilde aynı adresle bir yazı zaten var. Adresi değiştirin.",
+    "taxIdRequired": "Şirket faturası için vergi numarasını girin.",
+    "taxOfficeRequired": "Türkiye’deki şirketler için vergi dairesini girin.",
+    "acceptTerms": "Devam etmek için sözleşmeyi ve ön bilgilendirme formunu onaylayın."
   },
   "status": {
     "planned": "Planlandı",
@@ -82,7 +85,7 @@
     "freeAnalysis": "Ücretsiz analiz",
     "about": "Hakkımızda",
     "contact": "İletişim",
-    "payments": "Ödemeler, lisanslı ödeme kuruluşu iyzico altyapısıyla güvenle alınır. Kart bilgileriniz bizde saklanmaz.",
+    "payments": "Ödemeler, TCMB lisanslı ödeme kuruluşu PayTR altyapısıyla güvenle alınır. Kart bilgileriniz bizde saklanmaz.",
     "operatedBy": "Kitisel, {{company}} hizmetidir.",
     "blog": "Blog"
   },

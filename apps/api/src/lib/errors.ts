@@ -41,6 +41,10 @@ const STATUS_BY_CODE: Record<ErrorCode, number> = {
   rewrite_limit: 403,
   slug_taken: 409,
   captcha_low_score: 400,
+  billing_unavailable: 503,
+  payment_provider_error: 502,
+  exchange_rate_unavailable: 503,
+  plan_change_unavailable: 409,
 };
 
 /**

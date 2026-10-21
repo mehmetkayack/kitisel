@@ -9,16 +9,17 @@ import type { ContactFormValues } from '@upvine/shared';
 import { Alert, Button, Field, Input, Textarea } from '@upvine/ui';
 import { FormError, useFieldError } from '../auth-ui';
 import { api, ApiError } from '../../lib/api';
+import { useCaptchaKeys } from '../../lib/captcha-keys';
 
 /** reCAPTCHA v3'te bu formun eylem adı (API aynı adı bekler) */
 const RECAPTCHA_ACTION = 'contact';
 
 /**
- * Google reCAPTCHA v3 (görünmez): site anahtarı tanımlıysa betik bu sayfada yüklenir, token gönderim
+ * Google reCAPTCHA v3 (görünmez): site anahtarı (`RECAPTCHA_SITE_KEY`, çalışma anında) tanımlıysa betik bu sayfada yüklenir, token gönderim
  * anında alınır (2 dakika geçerli). Rozet gizli; Google'ın istediği bilgilendirme formun altında.
  */
 function useRecaptcha(locale: string): { enabled: boolean; token: () => Promise<string | undefined> } {
-  const key = __RECAPTCHA_SITE_KEY__;
+  const key = useCaptchaKeys().recaptcha;
   useEffect(() => {
     if (!key || document.querySelector('script[data-recaptcha]')) return;
     const script = document.createElement('script');

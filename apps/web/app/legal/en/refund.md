@@ -1,6 +1,6 @@
 # Cancellation, Refund and Delivery Policy
 
-Last updated: 12 October 2026
+Last updated: 21 October 2026
 
 This policy explains delivery, cancellation and refunds for Kitisel subscriptions provided by {{companyName}}.
 
@@ -10,21 +10,21 @@ Kitisel is not a physical product but a software service delivered over the inte
 
 ## Subscription and renewal
 
-- Plans are offered as monthly or yearly subscriptions and renew automatically for the same period at the end of each period.
-- The renewal fee is charged to your saved card at the start of the period.
-- You can change or cancel your plan in the app before renewal.
+- Plans are offered in monthly or yearly periods. You pay by card or bank transfer; each payment opens one period.
+- There are no automatic charges. We send you a renewal reminder 3 days before the period ends; to renew, pay on the “Plan and billing” page in the app and the new period starts when the current one ends.
+- To switch to another plan during a period, write to {{email}}.
 
 ## Cancellation
 
-You can cancel your subscription at any time at no extra cost, with one click in the app or by writing to {{email}}. Cancellation takes effect at the end of the paid period; you keep using the service until then and are not charged for the next period.
+Because there is no automatic renewal, you don't need to cancel: if you don't make a renewal payment, your plan simply ends at the end of the paid period. You keep using the service until then; afterwards your account and data are not deleted and your limits return to the trial level.
 
 ## Refunds
 
-- **First payment:** we give a **full, no-questions-asked refund within 14 days** of your first payment. Request it with “Request a refund” in the app or by writing to {{email}}.
-- **Renewal payments:** no partial refunds for renewed periods. If you don't want to renew, cancel before the period ends.
+- **First payment:** we give a **full, no-questions-asked refund within 14 days** of your first payment. Request it by writing to {{email}}.
+- **Renewal payments:** no partial refunds for renewed periods.
 - **Problems on our side:** if a fault in our service prevented you from using your plan, write to us; we will review it and offer an appropriate refund or extension.
 
-Refunds are made to the card used for payment. After approval, the time for the amount to appear on your card depends on your bank, usually 2-10 business days.
+Card payments are refunded to the card used; the time for the amount to appear on your card depends on your bank, usually 2-10 business days. Bank transfer payments are refunded to the sending account in the same currency.
 
 ## Right of withdrawal
 

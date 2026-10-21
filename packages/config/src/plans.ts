@@ -1,6 +1,6 @@
 /**
  * Paketler ve kotalar (Bölüm 7.15). Kredi sistemi yoktur; her pakette sabit kotalar vardır.
- * iyzico fiyatlandırma planı referansları Faz 3'te `pnpm billing:setup` ile veritabanına yazılır.
+ * PayTR'de plan nesnesi yoktur: fiyat ve dönem buradan okunur. Şimdilik her ödeme bir dönem açar (otomatik çekim yok).
  */
 export const PLAN_CODES = ['starter', 'growth', 'agency'] as const;
 export type PlanCode = (typeof PLAN_CODES)[number];
@@ -26,7 +26,7 @@ export interface PlanDefinition {
 export const PLANS: Record<PlanCode, PlanDefinition> = {
   starter: {
     code: 'starter',
-    priceCents: { monthly: 2900, yearly: 29000 },
+    priceCents: { monthly: 3900, yearly: 39000 },
     currency: 'USD',
     sites: 1,
     articlesPerMonth: 10,
@@ -70,6 +70,40 @@ export const PLANS: Record<PlanCode, PlanDefinition> = {
 
 export const TRIAL = { days: 7, articles: 3, reminderDaysBefore: 3 } as const;
 export const REFUND_WINDOW_DAYS = 14;
+/** Ödenmiş dönemin bitişinden kaç gün önce "yenileyin" e-postası gider (otomatik çekim yok: dönemlik ödeme) */
+export const RENEWAL_REMINDER_DAYS = 3;
+
+/** KDV oranı: sadece fatura ülkesi Türkiye ise (yurt dışı müşteriye hizmet ihracatı, KDV yok). */
+export function vatRateFor(country: string, trRate: number): number {
+  return country.toUpperCase() === 'TR' ? trRate : 0;
+}
+
+export interface OrderAmounts {
+  netCents: number;
+  vatRate: number;
+  vatCents: number;
+  totalCents: number;
+}
+
+/** Siparişin tutarları (USD, sent): paket fiyatı + fatura ülkesine göre KDV. */
+export function orderAmounts(plan: PlanCode, interval: BillingInterval, country: string, trVatRate: number): OrderAmounts {
+  const netCents = PLANS[plan].priceCents[interval];
+  const vatRate = vatRateFor(country, trVatRate);
+  const vatCents = Math.round((netCents * vatRate) / 100);
+  return { netCents, vatRate, vatCents, totalCents: netCents + vatCents };
+}
+
+/** Dönem sonu: aylıkta bir ay, yıllıkta bir yıl sonra. Ay sonu taşmaz (31 Ocak + 1 ay = 28/29 Şubat). */
+export function addBillingInterval(from: Date, interval: BillingInterval): Date {
+  const months = interval === 'monthly' ? 1 : 12;
+  const d = new Date(from.getTime());
+  const day = d.getUTCDate();
+  d.setUTCDate(1);
+  d.setUTCMonth(d.getUTCMonth() + months);
+  const lastDay = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 0)).getUTCDate();
+  d.setUTCDate(Math.min(day, lastDay));
+  return d;
+}
 /**
  * Yapay zekâ maliyetini sınırlamak için yazı başına: baştan yeniden üretim (ilk üretim hariç) ve editörde
  * bölüm yeniden yazımı. İkisi de aylık yazı hakkı tüketmez.
@@ -87,7 +121,7 @@ export function monthlyArticleLimit(plan: string | null, override?: number): num
   return TRIAL.articles;
 }
 
-/** Kota dönemi: takvim ayının başı (UTC). Abonelik dönemi Faz 3'te iyzico'dan gelecek. */
+/** Kota dönemi: takvim ayının başı (UTC). Abonelik dönemi Faz 3'te `subscriptions` tablosundan gelecek. */
 export function quotaPeriodStart(now: Date = new Date()): Date {
   return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
 }
@@ -112,11 +146,17 @@ export interface OrgEntitlement {
   articleQuotaOverride?: number | null;
   /** Ödemesiz paketin bitişi; null = süresiz */
   entitlementExpiresAt?: Date | null;
+  /** Ödenmiş dönemin sonu (planSource = paid) */
+  currentPeriodEnd?: Date | null;
 }
 
-/** Ödemesiz paketin süresi dolduysa haklar denemeye döner (paket ve özel hak birlikte). */
+/**
+ * Haklar geçerli mi: ödemeli pakette ödenmiş dönem bitmediyse, ödemesiz pakette bitiş tarihi geçmediyse.
+ * Dolduysa haklar denemeye döner (paket ve özel hak birlikte).
+ */
 export function entitlementActive(org: OrgEntitlement | null, now: Date = new Date()): boolean {
   if (!org) return false;
+  if (org.planSource === 'paid') return !!org.currentPeriodEnd && org.currentPeriodEnd.getTime() > now.getTime();
   if (org.planSource !== 'complimentary') return true;
   return !org.entitlementExpiresAt || org.entitlementExpiresAt.getTime() > now.getTime();
 }

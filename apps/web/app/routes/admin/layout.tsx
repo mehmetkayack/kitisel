@@ -74,11 +74,11 @@ const MAIN_NAV: NavItem[] = [
   { to: '/admin/audit', key: 'audit', icon: ScrollText },
   { to: '/admin/messages', key: 'messages', icon: Inbox },
   { to: '/admin/blog', key: 'blog', icon: Newspaper },
+  { to: '/admin/billing', key: 'billing', icon: CreditCard },
 ];
 
 /** Verisi sonraki fazlarda gelecek bölümler (spec Bölüm 8 admin rotaları) */
 const SOON_NAV: NavItem[] = [
-  { to: '/admin/billing', key: 'billing', icon: CreditCard },
   { to: '/admin/refunds', key: 'refunds', icon: Undo2 },
   { to: '/admin/invoices', key: 'invoices', icon: ReceiptText },
   { to: '/admin/queues', key: 'queues', icon: ListChecks },
@@ -95,6 +95,19 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
     refetchInterval: 60_000,
   });
   const unreadCount = unread.data?.count ?? 0;
+  // Onay bekleyen havale/EFT siparişleri
+  const pending = useQuery({
+    queryKey: ['admin', 'billing-pending'],
+    queryFn: () => api<{ count: number }>('/admin/billing/orders/pending-count'),
+    refetchInterval: 60_000,
+  });
+  const pendingCount = pending.data?.count ?? 0;
+  const badge = (count: number, sr: string) => (
+    <span className="ml-auto rounded-full bg-primary px-2 py-0.5 text-xs font-semibold text-primary-foreground tabular-nums">
+      {count}
+      <span className="sr-only"> {sr}</span>
+    </span>
+  );
   const link = (item: NavItem) => (
     <li key={item.key}>
       <NavLink
@@ -110,12 +123,8 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
       >
         <item.icon className="size-5 shrink-0" aria-hidden />
         {t(`nav.${item.key}`)}
-        {item.key === 'messages' && unreadCount > 0 ? (
-          <span className="ml-auto rounded-full bg-primary px-2 py-0.5 text-xs font-semibold text-primary-foreground tabular-nums">
-            {unreadCount}
-            <span className="sr-only"> {t('messages.unreadSr')}</span>
-          </span>
-        ) : null}
+        {item.key === 'messages' && unreadCount > 0 ? badge(unreadCount, t('messages.unreadSr')) : null}
+        {item.key === 'billing' && pendingCount > 0 ? badge(pendingCount, t('billing.pendingSr')) : null}
       </NavLink>
     </li>
   );

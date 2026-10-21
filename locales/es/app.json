@@ -2,7 +2,8 @@
   "userMenu": {
     "label": "Menú de la cuenta",
     "settings": "Ajustes de la cuenta",
-    "admin": "Panel de administración"
+    "admin": "Panel de administración",
+    "billing": "Plan y pagos"
   },
   "verifyBanner": {
     "text": "Confirma tu correo electrónico. Enviamos un enlace a {{email}}.",
@@ -86,5 +87,142 @@
   "impersonation": {
     "text": "Estás viendo Kitisel como {{name}} ({{email}}). Esta vista es de solo lectura.",
     "exit": "Salir de la vista"
+  },
+  "billing": {
+    "title": "Plan y pagos",
+    "description": "Elige tu plan y paga con tarjeta o por transferencia bancaria. Cada pago abre un periodo (un mes o un año).",
+    "notAllowed": "Solo el propietario de la cuenta o un administrador puede pagar.",
+    "unavailableTitle": "Los pagos están cerrados ahora",
+    "unavailableBody": "Los métodos de pago aún no están configurados. Para obtener un plan, escríbenos desde la página de contacto.",
+    "status": {
+      "pending": "Pendiente",
+      "paid": "Pagado",
+      "failed": "Fallido",
+      "canceled": "Cancelado"
+    },
+    "interval": {
+      "monthly": "Mensual",
+      "yearly": "Anual"
+    },
+    "per": {
+      "monthly": "mes",
+      "yearly": "año"
+    },
+    "method": {
+      "card": "Tarjeta",
+      "bank_transfer": "Transferencia bancaria"
+    },
+    "currency": {
+      "USD": "A la cuenta en USD (dólares)",
+      "TRY": "A la cuenta en TRY (liras turcas)"
+    },
+    "current": {
+      "title": "Tu plan: {{plan}}",
+      "trialTitle": "Estás en la prueba",
+      "paid": "Tu periodo pagado termina el {{date}}. Te enviamos un recordatorio de renovación 3 días antes.",
+      "complimentary": "El equipo de Kitisel configuró este plan para ti.",
+      "complimentaryUntil": "El equipo de Kitisel configuró este plan para ti hasta el {{date}}.",
+      "trial": "Tienes 3 artículos al mes y 1 sitio. Elige un plan para ampliar tus límites."
+    },
+    "return": {
+      "failedTitle": "El pago no se completó",
+      "failedBody": "No se cobró nada en tu tarjeta. Revisa los datos de la tarjeta y vuelve a intentarlo, o paga por transferencia.",
+      "paidTitle": "Pago recibido",
+      "paidBody": "Tu plan está activo. También te enviamos un resumen del pago por correo.",
+      "dismiss": "Cerrar",
+      "waitingTitle": "Confirmando tu pago",
+      "waitingBody": "Esperando la confirmación de PayTR. Suele tardar unos segundos; puedes cerrar la página y tu plan se activará cuando se confirme."
+    },
+    "transfer": {
+      "title": "Esperando tu transferencia",
+      "body": "Envía el pago del plan {{plan}} ({{interval}}) a la siguiente cuenta.",
+      "holder": "Beneficiario",
+      "bank": "Banco",
+      "iban": "IBAN",
+      "amount": "Importe",
+      "reference": "Concepto",
+      "copy": "Copiar {{field}}",
+      "copied": "Copiado.",
+      "referenceNote": "Escribe sin falta {{reference}} en el concepto; usamos este código para identificar tu pago.",
+      "rateNote": "{{usd}} se convirtió al tipo de venta del Banco Central de Turquía en el momento del pedido ({{rate}} TRY).",
+      "approvalNote": "Tu plan se activa cuando el pago llega a nuestra cuenta (normalmente en 1 día hábil) y te avisamos por correo.",
+      "cancel": "Cancelar este pedido",
+      "canceled": "Pedido por transferencia cancelado.",
+      "created": "Los datos de la transferencia están listos. Después de pagar no tienes que hacer nada más."
+    },
+    "card": {
+      "title": "Pago seguro",
+      "body": "Introduce los datos de tu tarjeta en el formulario de pago seguro de PayTR. Kitisel nunca ve ni guarda los datos de tu tarjeta.",
+      "frameTitle": "Formulario de pago seguro de PayTR",
+      "back": "Cambiar método de pago"
+    },
+    "form": {
+      "title": "Elige un plan",
+      "body": "Los precios están en dólares estadounidenses (USD). A las direcciones de facturación en Turquía se les añade IVA.",
+      "renewTitle": "Renueva tu plan",
+      "renewBody": "El nuevo periodo empieza cuando termina el actual. Para cambiar de plan, escríbenos desde la página de contacto.",
+      "plan": "Plan",
+      "planLine": "{{price}} / {{per}} · {{articles}} artículos al mes · {{sites}} sitio(s)",
+      "interval": "Periodo de facturación",
+      "monthlyHint": "Pagas de nuevo cada mes.",
+      "yearlyHint": "12 meses al precio de 10.",
+      "billingInfo": "Datos de facturación",
+      "billingType": "Tipo de factura",
+      "type": {
+        "individual": "Particular",
+        "company": "Empresa"
+      },
+      "fullName": "Nombre completo",
+      "companyName": "Razón social",
+      "phone": "Teléfono",
+      "phoneHint": "Lo exige el proveedor de pagos.",
+      "country": "País",
+      "countryPlaceholder": "Elige un país",
+      "taxId": "Número fiscal / NIF-IVA",
+      "taxIdOptional": "Número de documento de identidad (opcional)",
+      "taxIdHint": "Déjalo vacío para facturarte como consumidor.",
+      "taxOffice": "Oficina tributaria",
+      "address": "Dirección de facturación",
+      "method": "Método de pago",
+      "methodHint": {
+        "card": "Tarjeta de crédito o débito. Tu plan se activa en cuanto se confirma el pago.",
+        "bank_transfer": "Envías el pago a nuestra cuenta bancaria. Tu plan se activa cuando llega."
+      },
+      "onlyMethod": "Método de pago: {{method}}",
+      "transferCurrency": "¿A qué cuenta vas a enviar?",
+      "currencyHint": {
+        "USD": "Envías el importe en dólares.",
+        "TRY": "El importe se convierte a TRY al tipo de venta del Banco Central de Turquía."
+      },
+      "summary": "Resumen",
+      "subtotal": "{{plan}} · {{interval}}",
+      "vat": "IVA ({{rate}} %)",
+      "vatExempt": "IVA (fuera de Turquía, sin IVA)",
+      "total": "Total",
+      "tryNote": "El importe en TRY se calcula al tipo de cambio del día del Banco Central de Turquía y se muestra en el siguiente paso.",
+      "noAutoRenew": "No hay cargos automáticos. Te enviamos un recordatorio de renovación 3 días antes de que termine el periodo.",
+      "accept": "He leído y acepto el <sales>Contrato de venta a distancia</sales> y el <pre>Formulario de información previa</pre>. <refund>Política de cancelación y reembolso</refund>",
+      "submitCard": "Pagar {{amount}}",
+      "submitTransfer": "Ver datos de la transferencia",
+      "secure": "El pago lo procesa PayTR, autorizado por el Banco Central de Turquía, con 3D Secure."
+    },
+    "history": {
+      "title": "Historial de pagos",
+      "empty": "Aún no hay pagos.",
+      "date": "Fecha",
+      "plan": "Plan",
+      "method": "Método",
+      "amount": "Importe",
+      "reference": "Referencia",
+      "period": "Fin del periodo",
+      "status": "Estado"
+    },
+    "settingsTitle": "Plan y pagos",
+    "settingsBody": "Consulta tu plan, renuévalo o amplíalo y revisa tu historial de pagos.",
+    "settingsAction": "Plan y pagos",
+    "test": {
+      "title": "Modo de prueba",
+      "body": "Aún no hay datos bancarios, así que se muestra una cuenta de prueba de ejemplo. No envíes dinero real a ella; puedes probar el flujo aprobando el pedido en el panel de administración. Para una cuenta real, añade BANK_ACCOUNT_HOLDER y los IBAN al archivo .env."
+    }
   }
 }

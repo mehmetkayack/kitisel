@@ -1,6 +1,6 @@
 # Distance Sales Agreement
 
-Last updated: 12 October 2026
+Last updated: 21 October 2026
 
 This is a translation; the Turkish version is the binding one.
 
@@ -26,11 +26,11 @@ The scope of the service (monthly articles, number of sites, update suggestions,
 
 ## 4. Payment
 
-Payment is made by credit or debit card through iyzico (İyzi Ödeme ve Elektronik Para Hizmetleri A.Ş.). The subscription renews automatically on the same card at the start of each period until the Buyer cancels. The Seller does not see or store card details.
+Payment is made by credit or debit card through PayTR (PayTR Ödeme ve Elektronik Para Kuruluşu A.Ş.), or by bank transfer to the Seller's bank account shown on the checkout page. The Seller does not see or store card details. Each payment opens the service for the chosen period (one month or one year); there are no automatic charges. The Seller sends the Buyer a renewal reminder before the period ends; if the Buyer does not renew, nothing is charged for the next period. For bank transfers to the TRY account, the amount is calculated at the Central Bank of the Republic of Turkey selling rate at the time of the order and shown on the checkout page.
 
 ## 5. Delivery (performance)
 
-The service is activated in the Buyer's account immediately after the payment is confirmed and is provided electronically at {{site}}. There is no physical delivery.
+The service is activated in the Buyer's account immediately after the payment is confirmed (for bank transfers, when the payment reaches the Seller's account) and is provided electronically at {{site}}. There is no physical delivery.
 
 ## 6. Right of withdrawal
 

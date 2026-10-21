@@ -9,20 +9,16 @@ export default defineConfig(({ mode }) => {
   const apiUrl = env.API_URL || 'http://localhost:4000';
   // E2E testleri ayrı port ve önbellekle ikinci bir sunucu açar (bkz. e2e/env.ts)
   const port = Number(env.WEB_PORT || 5173);
-  // Yasal sayfaların satıcı bilgileri sunucuda (SSR) process.env'den okunur; geliştirmede kök .env'den.
-  // Production'da web sunucusu ortam değişkenlerini doğrudan alır (tarayıcı paketine girmez).
-  for (const [k, v] of Object.entries(env)) if ((k.startsWith('LEGAL_') || k === 'GA_MEASUREMENT_ID') && process.env[k] === undefined) process.env[k] = v;
+  // Yasal sayfaların satıcı bilgileri, GA kimliği ve bot koruması site anahtarları sunucuda (SSR) process.env'den
+  // okunur; geliştirmede kök .env'den. Production'da web sunucusu ortam değişkenlerini doğrudan alır (yeniden derleme yok).
+  const RUNTIME_KEYS = ['GA_MEASUREMENT_ID', 'TURNSTILE_SITE_KEY', 'RECAPTCHA_SITE_KEY'];
+  for (const [k, v] of Object.entries(env)) if ((k.startsWith('LEGAL_') || RUNTIME_KEYS.includes(k)) && process.env[k] === undefined) process.env[k] = v;
   // Blog sayfaları SSR'da yazıları API'den okur (sunucudan sunucuya)
   process.env.API_URL ??= apiUrl;
 
   return {
     plugins: [tailwindcss(), reactRouter()],
     cacheDir: env.VITE_CACHE_DIR || undefined,
-    // Sadece herkese açık değerler (Turnstile site anahtarı gizli değildir; gizli anahtar API'de kalır).
-    define: {
-      __TURNSTILE_SITE_KEY__: JSON.stringify(env.TURNSTILE_SITE_KEY ?? ''),
-      __RECAPTCHA_SITE_KEY__: JSON.stringify(env.RECAPTCHA_SITE_KEY ?? ''),
-    },
     resolve: { alias: workspaceAliases() },
     // İlk ziyarette 'yeni bağımlılık bulundu, sayfa yeniden yükleniyor' olmasın (e2e kararlılığı)
     optimizeDeps: {

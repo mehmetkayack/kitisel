@@ -43,6 +43,10 @@ export const ERROR_CODES = [
   'rewrite_limit',
   'slug_taken',
   'captcha_low_score',
+  'billing_unavailable',
+  'payment_provider_error',
+  'exchange_rate_unavailable',
+  'plan_change_unavailable',
 ] as const;
 
 export type ErrorCode = (typeof ERROR_CODES)[number];

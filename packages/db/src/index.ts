@@ -44,6 +44,8 @@ export type { ArticleData, ImageData } from './repositories/content';
 export type { AuditEntry } from './repositories/audit-logs';
 export { refreshesRepository } from './repositories/refreshes';
 export { blogPostsRepository, contactMessagesRepository } from './repositories/marketing';
+export { billingOrdersRepository, billingOrgRepository } from './repositories/billing';
+export type { BillingOrderData, BillingOrderPatch, BillingProfilePatch } from './repositories/billing';
 export type { BlogPostData } from './repositories/marketing';
 export { contentStatsRepository, gscConnectionsRepository, gscMetricsRepository, visibilityRepository } from './repositories/results';
 export type { GscAggregate, GscRowInput } from './repositories/results';

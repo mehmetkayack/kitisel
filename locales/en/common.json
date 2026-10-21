@@ -62,7 +62,10 @@
     "wixSiteId": "The site ID must look like 8-4-4-4-12 characters.",
     "questionMin": "The question must be at least 8 characters.",
     "phone": "Please enter a valid phone number, like +1 415 555 0132.",
-    "slugTaken": "A post with this address already exists in this language. Choose another address."
+    "slugTaken": "A post with this address already exists in this language. Choose another address.",
+    "taxIdRequired": "Enter the tax number for a company invoice.",
+    "taxOfficeRequired": "Enter the tax office for companies in Turkey.",
+    "acceptTerms": "Please accept the agreement and the pre-information form to continue."
   },
   "status": {
     "planned": "Planned",
@@ -82,7 +85,7 @@
     "freeAnalysis": "Free analysis",
     "about": "About",
     "contact": "Contact",
-    "payments": "Payments are processed securely by the licensed payment institution iyzico. We never store your card details.",
+    "payments": "Payments are processed securely by PayTR, a payment institution licensed by the Central Bank of Türkiye. We never store your card details.",
     "operatedBy": "Kitisel is a service of {{company}}.",
     "blog": "Blog"
   },

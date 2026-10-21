@@ -1,6 +1,6 @@
 # Mesafeli Satış Sözleşmesi
 
-Son güncelleme: 12 Ekim 2026
+Son güncelleme: 21 Ekim 2026
 
 ## 1. Taraflar
 
@@ -24,11 +24,11 @@ Hizmetin kapsamı (aylık yazı hakkı, site sayısı, yenileme önerisi, anahta
 
 ## 4. Ödeme
 
-Ödeme, iyzico (İyzi Ödeme ve Elektronik Para Hizmetleri A.Ş.) altyapısı üzerinden kredi kartı veya banka kartıyla yapılır. Abonelik, Alıcı iptal edene kadar her dönem başında aynı kart üzerinden otomatik olarak yenilenir. Satıcı kart bilgilerini görmez ve saklamaz.
+Ödeme, PayTR (PayTR Ödeme ve Elektronik Para Kuruluşu A.Ş.) altyapısı üzerinden kredi kartı veya banka kartıyla ya da ödeme sayfasında gösterilen Satıcı banka hesabına havale/EFT ile yapılır. Satıcı kart bilgilerini görmez ve saklamaz. Her ödeme, seçilen dönem (bir ay veya bir yıl) için hizmeti açar; otomatik tahsilat yapılmaz. Satıcı, dönem bitmeden önce Alıcı'ya yenileme hatırlatması gönderir; Alıcı yenilemezse sonraki dönem için ücret alınmaz. Havale/EFT'de TL hesabına yapılan ödemenin tutarı, sipariş anındaki Türkiye Cumhuriyet Merkez Bankası döviz satış kuruyla hesaplanıp ödeme sayfasında gösterilir.
 
 ## 5. Teslimat (ifa)
 
-Hizmet, ödemenin onaylanmasıyla birlikte Alıcı'nın hesabında anında etkinleşir ve {{site}} üzerinden elektronik ortamda sunulur. Fiziksel teslimat yoktur.
+Hizmet, ödemenin onaylanmasıyla (havale/EFT'de ödemenin Satıcı hesabına geçmesiyle) birlikte Alıcı'nın hesabında etkinleşir ve {{site}} üzerinden elektronik ortamda sunulur. Fiziksel teslimat yoktur.
 
 ## 6. Cayma hakkı
 

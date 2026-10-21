@@ -39,5 +39,9 @@
   "regeneration_limit": "Bu yazıyı en fazla {{limit}} kez baştan yeniden yazdırabilirsiniz. Editörde düzenleyebilir ya da bölümleri tek tek yeniden yazdırabilirsiniz.",
   "rewrite_limit": "Bu yazı için bölüm yeniden yazma sınırına ({{limit}}) ulaştınız. Metni editörde elle düzenleyebilirsiniz.",
   "slug_taken": "Bu dilde aynı adresle bir yazı zaten var. Adresi değiştirip tekrar kaydedin.",
-  "captcha_low_score": "Mesajınız otomatik gönderim gibi göründüğü için alınamadı. Birkaç dakika sonra tekrar deneyin ya da bize doğrudan e-posta gönderin."
+  "captcha_low_score": "Mesajınız otomatik gönderim gibi göründüğü için alınamadı. Birkaç dakika sonra tekrar deneyin ya da bize doğrudan e-posta gönderin.",
+  "billing_unavailable": "Bu ödeme yöntemi şu anda kullanılamıyor. Başka bir yöntem seçin ya da bize yazın.",
+  "payment_provider_error": "Ödeme sayfası açılamadı. Birkaç dakika sonra tekrar deneyin; sorun sürerse havale/EFT ile ödeyebilirsiniz.",
+  "exchange_rate_unavailable": "Güncel döviz kuru alınamadı, bu yüzden TL tutarı hesaplanamadı. USD hesabını seçin ya da biraz sonra tekrar deneyin.",
+  "plan_change_unavailable": "Ödenmiş döneminiz bitmeden paket değiştirilemez. Aynı paketi yenileyebilir ya da paket değişikliği için bize yazabilirsiniz."
 }

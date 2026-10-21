@@ -48,5 +48,32 @@
     "none": "—",
     "button": "Ouvrir dans l’administration",
     "footer": "Vous recevez cet e-mail car un nouveau message est arrivé via le formulaire de contact Kitisel. « Répondre » va directement à l’expéditeur."
+  },
+  "paymentReceived": {
+    "subject": "Paiement reçu : Kitisel {{plan}}",
+    "preview": "Votre forfait {{plan}} est actif jusqu’au {{until}}.",
+    "heading": "Paiement reçu",
+    "body": "Nous avons reçu votre paiement de {{amount}} (référence : {{reference}}). Votre forfait {{plan}} est actif jusqu’au {{until}}.",
+    "expires": "Votre facture vous sera envoyée séparément par e-mail avec les informations de facturation saisies lors du paiement.",
+    "button": "Ouvrir la facturation",
+    "ignore": "Vous recevez cet e-mail car un paiement a été effectué sur votre compte Kitisel."
+  },
+  "renewalReminder": {
+    "subject": "Votre forfait Kitisel {{plan}} se termine le {{until}}",
+    "preview": "Renouvelez votre forfait pour continuer sans interruption.",
+    "heading": "Renouvelez votre forfait",
+    "body": "La période payée de votre forfait {{plan}} se termine le {{until}}. Renouvelez avant cette date pour continuer sans interruption ; la nouvelle période commence à la fin de l’actuelle.",
+    "expires": "Si vous ne renouvelez pas, aucune donnée n’est supprimée ; vos limites reviennent au niveau d’essai (3 articles par mois, 1 site).",
+    "button": "Renouveler mon forfait",
+    "ignore": "Vous recevez cet e-mail car votre forfait Kitisel arrive bientôt à échéance."
+  },
+  "bankTransferOrder": {
+    "subject": "Nouvelle commande par virement : {{reference}}",
+    "preview": "{{org}} a créé une commande par virement de {{amount}}.",
+    "heading": "Virement en attente de validation",
+    "body": "{{org}} a créé une commande par virement pour le forfait {{plan}}, montant {{amount}} (référence : {{reference}}).",
+    "expires": "Validez la commande dans l’administration dès que le paiement arrive sur votre compte ; le forfait s’ouvre immédiatement.",
+    "button": "Ouvrir dans l’administration",
+    "ignore": "Vous recevez cet e-mail car une nouvelle commande par virement a été créée sur Kitisel."
   }
 }

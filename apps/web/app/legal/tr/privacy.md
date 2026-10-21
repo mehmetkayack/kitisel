@@ -12,7 +12,7 @@ Bu politika, Kitisel hizmetini ({{site}}) kullanırken hangi verilerinizi neden 
 - **Search Console verileri:** bağladığınızda sitenizin Google arama performansı (sorgular, sayfalar, tıklama, gösterim, sıra).
 - **Kullanım ve güvenlik kayıtları:** giriş zamanları, IP adresi, tarayıcı bilgisi, yaptığınız önemli işlemler (ör. site bağlantısı ekleme), hata kayıtları.
 - **Ücretsiz analiz:** girdiğiniz site adresi ve isterseniz e-posta adresiniz. Kötüye kullanımı önlemek için IP adresinizi ham hâliyle değil, geri döndürülemez bir özetle saklarız.
-- **Ödeme:** ödeme özelliği açıldığında kart bilgileriniz doğrudan ödeme kuruluşu iyzico tarafından işlenir; kart numaranızı biz görmeyiz ve saklamayız.
+- **Ödeme:** fatura bilgileriniz (ad veya unvan, adres, ülke, telefon, vergi veya kimlik numarası, vergi dairesi) ve ödeme kayıtlarınız (paket, tutar, tarih, sipariş numarası). Kart bilgileriniz doğrudan ödeme kuruluşu PayTR tarafından işlenir; kart numaranızı biz görmeyiz ve saklamayız. Havale/EFT'de banka hesap hareketimizde görünen gönderen bilgilerini ödemeyi eşleştirmek için kullanırız.
 
 ## Verileri neden işliyoruz
 
@@ -33,7 +33,7 @@ Verilerinizi satmayız ve reklam amacıyla paylaşmayız. Hizmeti sunmak için �
 - **Google LLC (ABD):** Gemini API (yapay zekâ), Google ile giriş, Search Console API ve onay verirseniz Google Analytics (tanıtım sayfalarında ziyaret istatistikleri).
 - **Barındırma sağlayıcısı:** {{hosting}}. Sunucular, veritabanı ve yedekler burada tutulur.
 - **E-posta gönderim hizmeti:** doğrulama, şifre sıfırlama ve bildirim e-postaları.
-- **İyzi Ödeme ve Elektronik Para Hizmetleri A.Ş. (iyzico):** ödeme özelliği açıldığında ödeme işlemleri.
+- **PayTR Ödeme ve Elektronik Para Kuruluşu A.Ş. (PayTR):** kartla ödeme işlemleri (ad, e-posta, telefon, adres, IP adresi ve tutar PayTR'ye iletilir).
 - **Cloudflare, Inc.:** ücretsiz analiz formunda robot doğrulaması (Turnstile), açıksa.
 - **DataForSEO:** anahtar kelime hacmi ve zorluk verisi. Sadece anahtar kelimeler gönderilir, kişisel veri gönderilmez.
 - **Bağladığınız siteler:** yazılar, sizin onayınız ya da seçtiğiniz otomatik yayın ayarıyla sitenize gönderilir.

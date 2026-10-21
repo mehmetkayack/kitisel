@@ -80,7 +80,6 @@
     "downloadHtml": "HTML dosyası",
     "downloadMd": "Markdown dosyası",
     "downloadZip": "ZIP (HTML, Markdown ve görseller)",
-    "infographicCaption": "Bilgi grafiği: yayında yazının ilk bölümünün sonuna eklenir. Sosyal medyada da paylaşabilirsiniz.",
     "coverSite": "Kapak, sitenizde bu konuya en yakın sayfanın görselinden seçildi.",
     "coverUser": "Kapağı siz yüklediniz.",
     "regenerateLeft": "Yeniden yaz ({{left}}/{{limit}} hak)"

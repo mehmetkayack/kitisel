@@ -48,5 +48,32 @@
     "none": "—",
     "button": "Open in admin panel",
     "footer": "You’re receiving this because a new message arrived through the Kitisel contact form. \"Reply\" goes straight to the sender."
+  },
+  "paymentReceived": {
+    "subject": "Payment received: Kitisel {{plan}}",
+    "preview": "Your {{plan}} plan is active until {{until}}.",
+    "heading": "Payment received",
+    "body": "We received your payment of {{amount}} (reference: {{reference}}). Your {{plan}} plan is active until {{until}}.",
+    "expires": "Your invoice will be emailed separately using the billing details you entered at checkout.",
+    "button": "Open billing",
+    "ignore": "You receive this email because a payment was made on your Kitisel account."
+  },
+  "renewalReminder": {
+    "subject": "Your Kitisel {{plan}} plan ends on {{until}}",
+    "preview": "Renew your plan to continue without interruption.",
+    "heading": "Renew your plan",
+    "body": "The paid period of your {{plan}} plan ends on {{until}}. Renew before then to continue without interruption; the new period starts when the current one ends.",
+    "expires": "If you don’t renew, none of your data is deleted; your limits return to the trial level (3 articles a month, 1 site).",
+    "button": "Renew my plan",
+    "ignore": "You receive this email because your Kitisel plan is about to expire."
+  },
+  "bankTransferOrder": {
+    "subject": "New bank transfer order: {{reference}}",
+    "preview": "{{org}} created a bank transfer order for {{amount}}.",
+    "heading": "Bank transfer awaiting approval",
+    "body": "{{org}} created a bank transfer order for the {{plan}} plan, amount {{amount}} (reference: {{reference}}).",
+    "expires": "Approve the order in the admin panel once the payment reaches your account; the plan opens immediately.",
+    "button": "Open in admin panel",
+    "ignore": "You receive this email because a new bank transfer order was created on Kitisel."
   }
 }

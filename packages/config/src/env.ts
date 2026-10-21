@@ -90,10 +90,21 @@ export const envSchema = z.object({
   DATAFORSEO_PASSWORD: optionalString,
 
   // Ödeme (Faz 3)
-  BILLING_PROVIDER: z.enum(['iyzico']).default('iyzico'),
-  IYZICO_API_KEY: optionalString,
-  IYZICO_SECRET_KEY: optionalString,
-  IYZICO_BASE_URL: z.url().default('https://sandbox-api.iyzipay.com'),
+  // Eski .env dosyalarındaki `iyzico` değeri uygulamayı düşürmesin (2026-10-21'de PayTR'ye geçildi)
+  BILLING_PROVIDER: z.preprocess((v) => (v === 'iyzico' ? 'paytr' : v), z.enum(['paytr']).default('paytr')),
+  /** PayTR Mağaza Paneli → Destek & Kurulum → Entegrasyon Bilgileri */
+  PAYTR_MERCHANT_ID: optionalString,
+  PAYTR_MERCHANT_KEY: optionalString,
+  PAYTR_MERCHANT_SALT: optionalString,
+  /** PayTR'de ayrı test sunucusu yok: istekler `test_mode=1` ile gönderilir. Canlıda false. */
+  PAYTR_TEST_MODE: bool.default(true),
+  /** KDV oranı (%): sadece fatura ülkesi Türkiye olan siparişlere eklenir; yurt dışı 0 (hizmet ihracatı) */
+  BILLING_VAT_RATE: z.coerce.number().min(0).max(100).default(20),
+  /** Havale/EFT: en az bir IBAN doluysa ödeme sayfasında seçenek olarak çıkar. TL hesabına TCMB döviz satış kuruyla. */
+  BANK_ACCOUNT_HOLDER: optionalString,
+  BANK_NAME: optionalString,
+  BANK_IBAN_USD: optionalString,
+  BANK_IBAN_TRY: optionalString,
 
   // E-posta
   /** smtp; ya da SMTP portları kapalı sunucularda (ör. DigitalOcean) HTTPS API'li servis: resend, brevo */

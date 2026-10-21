@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { effectivePlan, orgArticleLimit, orgFeatures, orgSiteLimit } from './plans';
+import { addBillingInterval, effectivePlan, orderAmounts, orgArticleLimit, orgFeatures, orgSiteLimit } from './plans';
 
 const now = new Date('2026-10-12T12:00:00Z');
 
@@ -29,7 +29,24 @@ describe('organizasyon hakları', () => {
     expect(orgSiteLimit(expired, now)).toBe(1);
     expect(orgArticleLimit(expired, 7, now)).toBe(7);
     expect(orgArticleLimit({ plan: null, planSource: 'complimentary', articleQuotaOverride: 50 }, 7, now)).toBe(50);
-    // Ödemeli paket bitiş tarihinden etkilenmez (dönem iyzico'dan, Faz 3)
-    expect(effectivePlan({ plan: 'starter', planSource: 'paid', entitlementExpiresAt: new Date('2026-01-01T00:00:00Z') }, now)).toBe('starter');
+    // Ödemeli paket admin bitiş tarihinden değil, ödenmiş dönemin sonundan etkilenir
+    const paid = { plan: 'starter', planSource: 'paid', entitlementExpiresAt: new Date('2026-01-01T00:00:00Z'), currentPeriodEnd: new Date('2026-11-12T12:00:00Z') };
+    expect(effectivePlan(paid, now)).toBe('starter');
+    expect(effectivePlan({ ...paid, currentPeriodEnd: new Date('2026-10-12T11:59:00Z') }, now)).toBeNull();
+    expect(effectivePlan({ ...paid, currentPeriodEnd: null }, now)).toBeNull();
+  });
+});
+
+describe('ödeme tutarları ve dönem', () => {
+  it('KDV sadece Türkiye fatura adresine eklenir', () => {
+    expect(orderAmounts('growth', 'monthly', 'TR', 20)).toEqual({ netCents: 7900, vatRate: 20, vatCents: 1580, totalCents: 9480 });
+    expect(orderAmounts('growth', 'monthly', 'de', 20)).toEqual({ netCents: 7900, vatRate: 0, vatCents: 0, totalCents: 7900 });
+    expect(orderAmounts('agency', 'yearly', 'tr', 20).totalCents).toBe(238800);
+  });
+
+  it('dönem sonu: ay sonu taşmaz, yıllık bir yıl', () => {
+    expect(addBillingInterval(new Date('2026-01-31T10:00:00Z'), 'monthly').toISOString()).toBe('2026-02-28T10:00:00.000Z');
+    expect(addBillingInterval(new Date('2026-10-21T10:00:00Z'), 'monthly').toISOString()).toBe('2026-11-21T10:00:00.000Z');
+    expect(addBillingInterval(new Date('2028-02-29T00:00:00Z'), 'yearly').toISOString()).toBe('2029-02-28T00:00:00.000Z');
   });
 });

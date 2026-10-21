@@ -48,5 +48,32 @@
     "none": "—",
     "button": "Im Admin-Bereich öffnen",
     "footer": "Sie erhalten diese E-Mail, weil über das Kitisel-Kontaktformular eine neue Nachricht eingegangen ist. „Antworten“ geht direkt an den Absender."
+  },
+  "paymentReceived": {
+    "subject": "Zahlung erhalten: Kitisel {{plan}}",
+    "preview": "Ihr Paket {{plan}} ist bis {{until}} aktiv.",
+    "heading": "Zahlung erhalten",
+    "body": "Wir haben Ihre Zahlung über {{amount}} erhalten (Referenz: {{reference}}). Ihr Paket {{plan}} ist bis {{until}} aktiv.",
+    "expires": "Ihre Rechnung erhalten Sie separat per E-Mail mit den beim Bezahlen angegebenen Rechnungsdaten.",
+    "button": "Zahlungsseite öffnen",
+    "ignore": "Sie erhalten diese E-Mail, weil in Ihrem Kitisel-Konto eine Zahlung erfolgt ist."
+  },
+  "renewalReminder": {
+    "subject": "Ihr Kitisel-Paket {{plan}} endet am {{until}}",
+    "preview": "Verlängern Sie Ihr Paket, um ohne Unterbrechung weiterzumachen.",
+    "heading": "Paket verlängern",
+    "body": "Der bezahlte Zeitraum Ihres Pakets {{plan}} endet am {{until}}. Verlängern Sie vorher, um ohne Unterbrechung weiterzumachen; der neue Zeitraum beginnt mit dem Ende des aktuellen.",
+    "expires": "Wenn Sie nicht verlängern, werden keine Daten gelöscht; Ihre Kontingente fallen auf das Testniveau zurück (3 Artikel pro Monat, 1 Website).",
+    "button": "Paket verlängern",
+    "ignore": "Sie erhalten diese E-Mail, weil Ihr Kitisel-Paket bald abläuft."
+  },
+  "bankTransferOrder": {
+    "subject": "Neue Überweisungsbestellung: {{reference}}",
+    "preview": "{{org}} hat eine Überweisungsbestellung über {{amount}} angelegt.",
+    "heading": "Überweisung wartet auf Freigabe",
+    "body": "{{org}} hat für das Paket {{plan}} eine Überweisungsbestellung über {{amount}} angelegt (Referenz: {{reference}}).",
+    "expires": "Geben Sie die Bestellung im Admin-Bereich frei, sobald die Zahlung eingegangen ist; das Paket wird sofort freigeschaltet.",
+    "button": "Im Admin-Bereich öffnen",
+    "ignore": "Sie erhalten diese E-Mail, weil bei Kitisel eine neue Überweisungsbestellung angelegt wurde."
   }
 }

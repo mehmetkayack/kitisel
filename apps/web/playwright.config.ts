@@ -57,6 +57,14 @@ export default defineConfig({
         SMTP_USER: '',
         SMTP_PASSWORD: '',
         CONTACT_NOTIFY_EMAIL: 'owner@example.com',
+        // Ödeme: kart (PayTR) kapalı, havale sadece USD hesabıyla (TCMB'ye istek yok); geliştirici .env'i etkilemez
+        PAYTR_MERCHANT_ID: '',
+        PAYTR_MERCHANT_KEY: '',
+        PAYTR_MERCHANT_SALT: '',
+        BANK_ACCOUNT_HOLDER: 'Kitisel Test',
+        BANK_NAME: 'Test Bank',
+        BANK_IBAN_USD: 'TR00 0000 0000 0000 0000 0000 01',
+        BANK_IBAN_TRY: '',
       },
     },
     {

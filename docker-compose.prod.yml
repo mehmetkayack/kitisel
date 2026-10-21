@@ -31,9 +31,6 @@ services:
     build:
       context: .
       dockerfile: docker/node.Dockerfile
-      args:
-        TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY:-}
-        RECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY:-}
     command: ['node', 'packages/db/dist/cli.js', 'up']
     restart: 'no'
     depends_on:

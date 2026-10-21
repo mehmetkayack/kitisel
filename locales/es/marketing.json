@@ -23,7 +23,7 @@
     },
     "step2": {
       "title": "Escribe y verifica",
-      "body": "Escribe el artículo con la voz de tu marca, comprueba cada dato en su fuente y prepara la imagen de portada y una infografía."
+      "body": "Escribe el artículo con la voz de tu marca, comprueba cada dato en su fuente y prepara la imagen de portada."
     },
     "step3": {
       "title": "Publica y mide",
@@ -141,7 +141,7 @@
     "billedYearly": "Se factura {{value}} al año",
     "popular": "El más elegido",
     "start": "Prueba 7 días gratis",
-    "policy": "Cancela cuando quieras; reembolso completo en los 14 días siguientes al primer pago, sin preguntas.",
+    "policy": "Sin cargos automáticos, tú renuevas cada periodo; reembolso completo en los 14 días siguientes al primer pago, sin preguntas.",
     "plans": {
       "starter": {
         "name": "Starter",
@@ -169,7 +169,7 @@
     "policyLink": "Política de cancelación y reembolso",
     "exVat": "+ IVA",
     "homeTitle": "Una fracción de lo que cuesta una agencia.",
-    "homeBody": "7 días de prueba · Reembolso en 14 días · Cancelación con un clic"
+    "homeBody": "7 días de prueba · Reembolso en 14 días · Sin cargos automáticos"
   },
   "faq": {
     "eyebrow": "Preguntas frecuentes",

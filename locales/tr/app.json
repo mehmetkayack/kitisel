@@ -2,7 +2,8 @@
   "userMenu": {
     "label": "Hesap menüsü",
     "settings": "Hesap ayarları",
-    "admin": "Yönetim paneli"
+    "admin": "Yönetim paneli",
+    "billing": "Paket ve ödeme"
   },
   "verifyBanner": {
     "text": "Lütfen e-posta adresinizi doğrulayın. {{email}} adresine bir bağlantı gönderdik.",
@@ -86,5 +87,142 @@
   "impersonation": {
     "text": "Kitisel’i {{name}} ({{email}}) olarak görüntülüyorsunuz. Bu görünüm salt okunurdur.",
     "exit": "Görüntülemeden çık"
+  },
+  "billing": {
+    "title": "Paket ve ödeme",
+    "description": "Paketinizi seçin, kartla ya da havale/EFT ile ödeyin. Her ödeme bir dönem (ay veya yıl) açar.",
+    "notAllowed": "Ödemeyi sadece hesabın sahibi veya yöneticisi yapabilir.",
+    "unavailableTitle": "Ödeme şu anda kapalı",
+    "unavailableBody": "Ödeme yöntemleri henüz ayarlanmadı. Paket almak için iletişim sayfasından bize yazın.",
+    "status": {
+      "pending": "Bekliyor",
+      "paid": "Ödendi",
+      "failed": "Başarısız",
+      "canceled": "İptal edildi"
+    },
+    "interval": {
+      "monthly": "Aylık",
+      "yearly": "Yıllık"
+    },
+    "per": {
+      "monthly": "ay",
+      "yearly": "yıl"
+    },
+    "method": {
+      "card": "Kart",
+      "bank_transfer": "Havale / EFT"
+    },
+    "currency": {
+      "USD": "USD hesabına (dolar)",
+      "TRY": "TL hesabına (Türk lirası)"
+    },
+    "current": {
+      "title": "Paketiniz: {{plan}}",
+      "trialTitle": "Deneme sürümündesiniz",
+      "paid": "Ödenmiş döneminiz {{date}} tarihinde bitiyor. Bitmeden 3 gün önce yenileme hatırlatması gönderiyoruz.",
+      "complimentary": "Bu paket size Kitisel ekibi tarafından tanımlandı.",
+      "complimentaryUntil": "Bu paket size Kitisel ekibi tarafından {{date}} tarihine kadar tanımlandı.",
+      "trial": "Ayda 3 yazı ve 1 site ile çalışıyorsunuz. Bir paket seçerek kotanızı artırın."
+    },
+    "return": {
+      "failedTitle": "Ödeme tamamlanamadı",
+      "failedBody": "Kartınızdan ücret alınmadı. Kart bilgilerinizi kontrol edip tekrar deneyebilir ya da havale/EFT ile ödeyebilirsiniz.",
+      "paidTitle": "Ödemeniz alındı",
+      "paidBody": "Paketiniz açıldı. Ödeme özetini e-postayla da gönderdik.",
+      "dismiss": "Kapat",
+      "waitingTitle": "Ödemeniz onaylanıyor",
+      "waitingBody": "PayTR’den onay bekleniyor. Bu genellikle birkaç saniye sürer; sayfayı kapatabilirsiniz, paketiniz onay gelince açılır."
+    },
+    "transfer": {
+      "title": "Havale/EFT bekleniyor",
+      "body": "{{plan}} paketi ({{interval}}) için aşağıdaki hesaba ödeme yapın.",
+      "holder": "Alıcı",
+      "bank": "Banka",
+      "iban": "IBAN",
+      "amount": "Tutar",
+      "reference": "Açıklama",
+      "copy": "{{field}} kopyala",
+      "copied": "Kopyalandı.",
+      "referenceNote": "Açıklamaya mutlaka {{reference}} yazın; ödemenizi bu kodla eşleştiriyoruz.",
+      "rateNote": "{{usd}} tutarı, sipariş anındaki TCMB döviz satış kuruyla ({{rate}} TL) hesaplandı.",
+      "approvalNote": "Ödeme hesabımıza geçince paketiniz açılır (genellikle 1 iş günü içinde) ve size e-posta göndeririz.",
+      "cancel": "Bu siparişten vazgeç",
+      "canceled": "Havale siparişi iptal edildi.",
+      "created": "Havale bilgileri hazır. Ödemeyi yaptıktan sonra onay için bir şey yapmanız gerekmez."
+    },
+    "card": {
+      "title": "Güvenli ödeme",
+      "body": "Kart bilgilerinizi PayTR’nin güvenli ödeme formuna girin. Kitisel kart bilgilerinizi görmez ve saklamaz.",
+      "frameTitle": "PayTR güvenli ödeme formu",
+      "back": "Ödeme yöntemini değiştir"
+    },
+    "form": {
+      "title": "Paket seçin",
+      "body": "Fiyatlar ABD doları (USD) cinsindendir. Türkiye’deki fatura adreslerine KDV eklenir.",
+      "renewTitle": "Paketinizi yenileyin",
+      "renewBody": "Yeni dönem, mevcut dönemin bittiği gün başlar. Paket değiştirmek için iletişim sayfasından bize yazın.",
+      "plan": "Paket",
+      "planLine": "{{price}} / {{per}} · ayda {{articles}} yazı · {{sites}} site",
+      "interval": "Ödeme dönemi",
+      "monthlyHint": "Her ay yeniden ödersiniz.",
+      "yearlyHint": "12 ay, 10 ay fiyatına.",
+      "billingInfo": "Fatura bilgileri",
+      "billingType": "Fatura türü",
+      "type": {
+        "individual": "Bireysel",
+        "company": "Kurumsal"
+      },
+      "fullName": "Ad soyad",
+      "companyName": "Şirket unvanı",
+      "phone": "Telefon",
+      "phoneHint": "Ödeme kuruluşu zorunlu tutuyor.",
+      "country": "Ülke",
+      "countryPlaceholder": "Ülke seçin",
+      "taxId": "Vergi numarası",
+      "taxIdOptional": "T.C. kimlik no (isteğe bağlı)",
+      "taxIdHint": "Boş bırakırsanız fatura nihai tüketici adına kesilir.",
+      "taxOffice": "Vergi dairesi",
+      "address": "Fatura adresi",
+      "method": "Ödeme yöntemi",
+      "methodHint": {
+        "card": "Kredi veya banka kartı. Paket ödeme onaylanınca hemen açılır.",
+        "bank_transfer": "Banka hesabımıza gönderirsiniz. Paket ödeme hesaba geçince açılır."
+      },
+      "onlyMethod": "Ödeme yöntemi: {{method}}",
+      "transferCurrency": "Hangi hesaba göndereceksiniz?",
+      "currencyHint": {
+        "USD": "Tutarı dolar olarak gönderirsiniz.",
+        "TRY": "Tutar, TCMB döviz satış kuruyla TL’ye çevrilir."
+      },
+      "summary": "Özet",
+      "subtotal": "{{plan}} · {{interval}}",
+      "vat": "KDV (%{{rate}})",
+      "vatExempt": "KDV (yurt dışı, yok)",
+      "total": "Toplam",
+      "tryNote": "TL tutarı, bir sonraki adımda günün TCMB kuruyla hesaplanıp gösterilir.",
+      "noAutoRenew": "Otomatik çekim yapılmaz. Dönem bitmeden 3 gün önce yenileme hatırlatması gönderiyoruz.",
+      "accept": "<sales>Mesafeli Satış Sözleşmesi</sales>’ni ve <pre>Ön Bilgilendirme Formu</pre>’nu okudum, onaylıyorum. <refund>İptal ve iade politikası</refund>",
+      "submitCard": "{{amount}} öde",
+      "submitTransfer": "Havale bilgilerini göster",
+      "secure": "Ödeme, TCMB lisanslı PayTR altyapısıyla 3D Secure ile alınır."
+    },
+    "history": {
+      "title": "Ödeme geçmişi",
+      "empty": "Henüz ödeme yok.",
+      "date": "Tarih",
+      "plan": "Paket",
+      "method": "Yöntem",
+      "amount": "Tutar",
+      "reference": "Referans",
+      "period": "Dönem sonu",
+      "status": "Durum"
+    },
+    "settingsTitle": "Paket ve ödeme",
+    "settingsBody": "Paketinizi görün, yenileyin ya da yükseltin; ödeme geçmişinize bakın.",
+    "settingsAction": "Paket ve ödeme",
+    "test": {
+      "title": "Test modu",
+      "body": "Banka bilgileri henüz girilmediği için örnek bir test hesabı gösteriliyor. Bu hesaba gerçek ödeme göndermeyin; siparişi admin panelinden onaylayarak akışı deneyebilirsiniz. Gerçek hesap için .env dosyasına BANK_ACCOUNT_HOLDER ve IBAN bilgilerini girin."
+    }
   }
 }

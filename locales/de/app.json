@@ -2,7 +2,8 @@
   "userMenu": {
     "label": "Kontomenü",
     "settings": "Kontoeinstellungen",
-    "admin": "Admin-Bereich"
+    "admin": "Admin-Bereich",
+    "billing": "Paket und Zahlung"
   },
   "verifyBanner": {
     "text": "Bitte bestätigen Sie Ihre E-Mail-Adresse. Wir haben einen Link an {{email}} gesendet.",
@@ -86,5 +87,142 @@
   "impersonation": {
     "text": "Sie sehen Kitisel als {{name}} ({{email}}). Diese Ansicht ist schreibgeschützt.",
     "exit": "Ansicht beenden"
+  },
+  "billing": {
+    "title": "Paket und Zahlung",
+    "description": "Wählen Sie Ihr Paket und zahlen Sie per Karte oder Überweisung. Jede Zahlung schaltet einen Zeitraum (Monat oder Jahr) frei.",
+    "notAllowed": "Nur der Kontoinhaber oder ein Admin kann Zahlungen vornehmen.",
+    "unavailableTitle": "Zahlungen sind derzeit nicht möglich",
+    "unavailableBody": "Die Zahlungsarten sind noch nicht eingerichtet. Schreiben Sie uns über die Kontaktseite, um ein Paket zu erhalten.",
+    "status": {
+      "pending": "Ausstehend",
+      "paid": "Bezahlt",
+      "failed": "Fehlgeschlagen",
+      "canceled": "Storniert"
+    },
+    "interval": {
+      "monthly": "Monatlich",
+      "yearly": "Jährlich"
+    },
+    "per": {
+      "monthly": "Monat",
+      "yearly": "Jahr"
+    },
+    "method": {
+      "card": "Karte",
+      "bank_transfer": "Überweisung"
+    },
+    "currency": {
+      "USD": "Auf das USD-Konto (Dollar)",
+      "TRY": "Auf das TRY-Konto (Türkische Lira)"
+    },
+    "current": {
+      "title": "Ihr Paket: {{plan}}",
+      "trialTitle": "Sie nutzen die Testversion",
+      "paid": "Ihr bezahlter Zeitraum endet am {{date}}. Drei Tage vorher erinnern wir Sie an die Verlängerung.",
+      "complimentary": "Dieses Paket wurde Ihnen vom Kitisel-Team eingerichtet.",
+      "complimentaryUntil": "Dieses Paket wurde Ihnen vom Kitisel-Team bis {{date}} eingerichtet.",
+      "trial": "Sie haben 3 Artikel pro Monat und 1 Website. Wählen Sie ein Paket, um Ihre Kontingente zu erhöhen."
+    },
+    "return": {
+      "failedTitle": "Die Zahlung wurde nicht abgeschlossen",
+      "failedBody": "Ihre Karte wurde nicht belastet. Prüfen Sie Ihre Kartendaten und versuchen Sie es erneut oder zahlen Sie per Überweisung.",
+      "paidTitle": "Zahlung erhalten",
+      "paidBody": "Ihr Paket ist aktiv. Eine Zahlungsübersicht haben wir Ihnen auch per E-Mail geschickt.",
+      "dismiss": "Schließen",
+      "waitingTitle": "Ihre Zahlung wird bestätigt",
+      "waitingBody": "Wir warten auf die Bestätigung von PayTR. Das dauert meist nur Sekunden; Sie können die Seite schließen, Ihr Paket wird nach der Bestätigung freigeschaltet."
+    },
+    "transfer": {
+      "title": "Überweisung ausstehend",
+      "body": "Überweisen Sie den Betrag für das Paket {{plan}} ({{interval}}) auf das folgende Konto.",
+      "holder": "Empfänger",
+      "bank": "Bank",
+      "iban": "IBAN",
+      "amount": "Betrag",
+      "reference": "Verwendungszweck",
+      "copy": "{{field}} kopieren",
+      "copied": "Kopiert.",
+      "referenceNote": "Geben Sie unbedingt {{reference}} als Verwendungszweck an; damit ordnen wir Ihre Zahlung zu.",
+      "rateNote": "{{usd}} wurde zum Devisenverkaufskurs der türkischen Zentralbank bei Bestellung umgerechnet ({{rate}} TRY).",
+      "approvalNote": "Ihr Paket wird freigeschaltet, sobald die Zahlung auf unserem Konto eingeht (meist innerhalb eines Werktags), und wir schicken Ihnen eine E-Mail.",
+      "cancel": "Diese Bestellung stornieren",
+      "canceled": "Überweisungsbestellung storniert.",
+      "created": "Ihre Überweisungsdaten sind bereit. Nach der Zahlung müssen Sie nichts weiter tun."
+    },
+    "card": {
+      "title": "Sichere Zahlung",
+      "body": "Geben Sie Ihre Kartendaten im sicheren Zahlungsformular von PayTR ein. Kitisel sieht und speichert Ihre Kartendaten nicht.",
+      "frameTitle": "Sicheres Zahlungsformular von PayTR",
+      "back": "Zahlungsart ändern"
+    },
+    "form": {
+      "title": "Paket wählen",
+      "body": "Preise in US-Dollar (USD). Bei Rechnungsadressen in der Türkei kommt die Mehrwertsteuer hinzu.",
+      "renewTitle": "Paket verlängern",
+      "renewBody": "Der neue Zeitraum beginnt, wenn der aktuelle endet. Für einen Paketwechsel schreiben Sie uns über die Kontaktseite.",
+      "plan": "Paket",
+      "planLine": "{{price}} / {{per}} · {{articles}} Artikel pro Monat · {{sites}} Website(s)",
+      "interval": "Abrechnungszeitraum",
+      "monthlyHint": "Sie zahlen jeden Monat erneut.",
+      "yearlyHint": "12 Monate zum Preis von 10.",
+      "billingInfo": "Rechnungsdaten",
+      "billingType": "Rechnungsart",
+      "type": {
+        "individual": "Privat",
+        "company": "Firma"
+      },
+      "fullName": "Vor- und Nachname",
+      "companyName": "Firmenname",
+      "phone": "Telefon",
+      "phoneHint": "Vom Zahlungsdienstleister vorgeschrieben.",
+      "country": "Land",
+      "countryPlaceholder": "Land wählen",
+      "taxId": "Steuernummer / USt-IdNr.",
+      "taxIdOptional": "Ausweisnummer (optional)",
+      "taxIdHint": "Leer lassen, um als Verbraucher abgerechnet zu werden.",
+      "taxOffice": "Finanzamt",
+      "address": "Rechnungsadresse",
+      "method": "Zahlungsart",
+      "methodHint": {
+        "card": "Kredit- oder Debitkarte. Ihr Paket wird sofort nach der Bestätigung freigeschaltet.",
+        "bank_transfer": "Sie überweisen auf unser Bankkonto. Ihr Paket wird nach Zahlungseingang freigeschaltet."
+      },
+      "onlyMethod": "Zahlungsart: {{method}}",
+      "transferCurrency": "Auf welches Konto überweisen Sie?",
+      "currencyHint": {
+        "USD": "Sie überweisen den Betrag in Dollar.",
+        "TRY": "Der Betrag wird zum Devisenverkaufskurs der türkischen Zentralbank in TRY umgerechnet."
+      },
+      "summary": "Übersicht",
+      "subtotal": "{{plan}} · {{interval}}",
+      "vat": "MwSt. ({{rate}} %)",
+      "vatExempt": "MwSt. (außerhalb der Türkei, keine)",
+      "total": "Gesamt",
+      "tryNote": "Der TRY-Betrag wird im nächsten Schritt zum Tageskurs der türkischen Zentralbank berechnet und angezeigt.",
+      "noAutoRenew": "Es gibt keine automatischen Abbuchungen. Drei Tage vor Ablauf erinnern wir Sie an die Verlängerung.",
+      "accept": "Ich habe den <sales>Fernabsatzvertrag</sales> und das <pre>Vorabinformationsformular</pre> gelesen und stimme zu. <refund>Kündigungs- und Erstattungsrichtlinie</refund>",
+      "submitCard": "{{amount}} bezahlen",
+      "submitTransfer": "Überweisungsdaten anzeigen",
+      "secure": "Die Zahlung wird über PayTR, lizenziert von der türkischen Zentralbank, mit 3D Secure abgewickelt."
+    },
+    "history": {
+      "title": "Zahlungsverlauf",
+      "empty": "Noch keine Zahlungen.",
+      "date": "Datum",
+      "plan": "Paket",
+      "method": "Zahlungsart",
+      "amount": "Betrag",
+      "reference": "Referenz",
+      "period": "Zeitraum endet",
+      "status": "Status"
+    },
+    "settingsTitle": "Paket und Zahlung",
+    "settingsBody": "Sehen Sie Ihr Paket, verlängern oder erweitern Sie es und prüfen Sie Ihren Zahlungsverlauf.",
+    "settingsAction": "Paket und Zahlung",
+    "test": {
+      "title": "Testmodus",
+      "body": "Es sind noch keine Bankdaten hinterlegt, daher wird ein Beispiel-Testkonto angezeigt. Überweisen Sie kein echtes Geld darauf; Sie können den Ablauf testen, indem Sie die Bestellung im Admin-Bereich freigeben. Für ein echtes Konto tragen Sie BANK_ACCOUNT_HOLDER und die IBANs in die .env-Datei ein."
+    }
   }
 }

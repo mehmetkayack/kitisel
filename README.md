@@ -119,6 +119,6 @@ Gemini ücretsiz katmanında görsel üretimi kotası olmayabilir: bu durumda ka
 
 ## Sonraki fazlarda eklenecek bölümler
 
-- iyzico sandbox testi — not: abonelik özelliğinin merchant hesabında aktif olması gerekir, sandbox'ta abonelik desteği sınırlı olabilir (Faz 3)
+- Otomatik yenileme (PayTR kayıtlı karttan tekrarlayan ödeme ve Non-3D izni mağaza hesabında PayTR onayıyla açılır). Şimdilik ödeme sayfası (`/app/billing`) kartla (PayTR iFrame, `PAYTR_TEST_MODE=true` ile test_mode=1; ayrı sandbox yok) ve havale/EFT ile dönemlik ödeme alır; havale admin → Ödemeler'den onaylanır
 - Test WordPress sitesi (Docker) (Faz 3)
 - Production yayına alma ve yedekleme (Faz 7)

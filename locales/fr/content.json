@@ -80,7 +80,6 @@
     "downloadHtml": "Fichier HTML",
     "downloadMd": "Fichier Markdown",
     "downloadZip": "ZIP (HTML, Markdown et images)",
-    "infographicCaption": "Infographie : ajoutée après la première section lors de la publication. Vous pouvez aussi la partager sur les réseaux sociaux.",
     "coverSite": "La couverture reprend l’image de la page de votre site la plus proche de ce sujet.",
     "coverUser": "Vous avez importé cette couverture.",
     "regenerateLeft": "Réécrire ({{left}}/{{limit}} restantes)"

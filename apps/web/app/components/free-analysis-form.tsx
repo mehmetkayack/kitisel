@@ -10,21 +10,23 @@ import { siteUrlSchema } from '@upvine/shared';
 import { Button, Field, Input, cn } from '@upvine/ui';
 import { FormError, useFieldError } from './auth-ui';
 import { api, ApiError } from '../lib/api';
+import { useCaptchaKeys } from '../lib/captcha-keys';
 
 const formSchema = z.object({ url: siteUrlSchema });
 type FormValues = z.infer<typeof formSchema>;
 
-/** Cloudflare Turnstile: site anahtarı tanımlıysa yüklenir (kötüye kullanım önlemi, Bölüm 7.2). */
+/** Cloudflare Turnstile: site anahtarı (`TURNSTILE_SITE_KEY`, çalışma anında) tanımlıysa yüklenir (kötüye kullanım önlemi, Bölüm 7.2). */
 function useTurnstile(locale: string): {
+  enabled: boolean;
   ref: RefObject<HTMLDivElement | null>;
   token: string | null;
   reset: () => void;
 } {
+  const key = useCaptchaKeys().turnstile;
   const ref = useRef<HTMLDivElement | null>(null);
   const widget = useRef<string | null>(null);
   const [token, setToken] = useState<string | null>(null);
   useEffect(() => {
-    const key = __TURNSTILE_SITE_KEY__;
     if (!key || !ref.current) return;
     const render = () => {
       if (!window.turnstile || !ref.current || widget.current) return;
@@ -43,8 +45,9 @@ function useTurnstile(locale: string): {
       script.onload = render;
       document.head.appendChild(script);
     }
-  }, [locale]);
+  }, [key, locale]);
   return {
+    enabled: !!key,
     ref,
     token,
     reset: () => {
@@ -142,13 +145,13 @@ export function FreeAnalysisForm({
             type="submit"
             size="lg"
             loading={isSubmitting}
-            disabled={!!__TURNSTILE_SITE_KEY__ && !turnstile.token}
+            disabled={turnstile.enabled && !turnstile.token}
             className="h-auto min-h-12 shrink-0 self-start bg-brand py-2 whitespace-normal text-night hover:bg-brand-light"
           >
             {t('form.submit')}
           </Button>
         </div>
-        {__TURNSTILE_SITE_KEY__ ? <div ref={turnstile.ref} /> : null}
+        {turnstile.enabled ? <div ref={turnstile.ref} /> : null}
       </form>
     );
   }
@@ -179,13 +182,13 @@ export function FreeAnalysisForm({
           {...form.register('url')}
         />
       </Field>
-      {__TURNSTILE_SITE_KEY__ ? <div ref={turnstile.ref} /> : null}
+      {turnstile.enabled ? <div ref={turnstile.ref} /> : null}
       <Button
         type="submit"
         size="lg"
         block
         loading={isSubmitting}
-        disabled={!!__TURNSTILE_SITE_KEY__ && !turnstile.token}
+        disabled={turnstile.enabled && !turnstile.token}
       >
         <Search aria-hidden />
         {t('form.submit')}

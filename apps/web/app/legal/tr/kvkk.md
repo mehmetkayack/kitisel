@@ -1,6 +1,6 @@
 # KVKK Aydınlatma Metni
 
-Son güncelleme: 12 Ekim 2026
+Son güncelleme: 21 Ekim 2026
 
 Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("KVKK") 10. maddesi uyarınca, Kitisel hizmeti ({{site}}) kapsamında kişisel verilerinizin işlenmesi hakkında sizi bilgilendirmek için hazırlanmıştır.
 
@@ -17,7 +17,7 @@ E-posta: {{email}}
 - **İletişim:** e-posta adresi; ödeme özelliği açıldığında fatura adresi ve telefon.
 - **Müşteri işlem:** siteniz, marka profiliniz, konu planınız, yazılarınız, paket ve kullanım bilgileriniz.
 - **İşlem güvenliği:** IP adresi, tarayıcı bilgisi, giriş ve işlem kayıtları, şifrenizin geri döndürülemez özeti, bağlantı erişim bilgileri (şifreli).
-- **Finans:** ödeme özelliği açıldığında ödeme ve fatura kayıtları. Kart bilgileriniz iyzico tarafından işlenir, tarafımızca saklanmaz.
+- **Finans:** ödeme özelliği açıldığında ödeme ve fatura kayıtları. Kart bilgileriniz PayTR tarafından işlenir ve saklanır, tarafımızca saklanmaz.
 - **Pazarlama:** sadece açık rızanız varsa e-posta adresiniz.
 
 ## İşleme amaçları ve hukuki sebepler

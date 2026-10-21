@@ -129,7 +129,8 @@ describe('admin işlemleri', () => {
     const admin = await adminSession();
     const user = await signup('paid@example.com', 'Paid');
     const orgId = user.user.organizations[0]!.id;
-    await ctx.sequelize.query("UPDATE organizations SET plan = 'starter', plan_status = 'active', plan_source = 'paid' WHERE id = ?", { replacements: [orgId] });
+    // Ödenmiş dönem sürüyor (bitmiş ödemeli pakete admin ödemesiz paket verebilir)
+    await ctx.sequelize.query("UPDATE organizations SET plan = 'starter', plan_status = 'active', plan_source = 'paid', current_period_end = DATE_ADD(NOW(), INTERVAL 10 DAY) WHERE id = ?", { replacements: [orgId] });
     const org = (await api().put(`/api/v1/admin/organizations/${orgId}/entitlements`).set(auth(admin.token)).send({ plan: 'agency', articleQuotaOverride: 40, expiresAt: null, note: null }).expect(200)).body as AdminOrgDetail;
     expect(org).toMatchObject({ plan: 'starter', planSource: 'paid', usage: { effectivePlan: 'starter', articleLimit: 40 } });
   });

@@ -27,8 +27,6 @@ import {
   buildArticleSchema,
   countWords,
   extractFaq,
-  figureHtml,
-  insertFigure,
   pickInternalLinks,
   sanitizeArticleHtml,
   scoreArticle,
@@ -136,7 +134,6 @@ function toTopic(item: ContentItem): TopicDto {
 async function articleDto(orgId: string, article: Article): Promise<ArticleDto> {
   const images = await articlesRepository.images(orgId, article.id);
   const cover = images.find((i) => i.kind === 'cover');
-  const infographic = images.find((i) => i.kind === 'infographic');
   return {
     id: article.id,
     title: article.title,
@@ -152,9 +149,6 @@ async function articleDto(orgId: string, article: Article): Promise<ArticleDto> 
     wordCount: article.wordCount,
     version: article.version,
     cover: cover ? { dataUrl: `data:${cover.mimeType};base64,${cover.data.toString('base64')}`, alt: cover.altText, source: cover.source } : null,
-    infographic: infographic
-      ? { dataUrl: `data:${infographic.mimeType};base64,${infographic.data.toString('base64')}`, alt: infographic.altText, width: infographic.width, height: infographic.height }
-      : null,
     updatedAt: article.updatedAt.toISOString(),
   };
 }
@@ -547,12 +541,10 @@ export function createContentService(deps: ContentDeps) {
       if (!article) throw new AppError('invalid_state');
       const images = await articlesRepository.images(ctx.orgId, article.id);
       const cover = images.find((i) => i.kind === 'cover') ?? null;
-      const infographic = images.find((i) => i.kind === 'infographic') ?? null;
       const dataUrl = (img: ArticleImage) => `data:${img.mimeType};base64,${img.data.toString('base64')}`;
       const fileUrl = (img: ArticleImage) => `images/${img.fileName}`;
       const files = (src: (img: ArticleImage) => string) => {
-        const body = infographic ? insertFigure(article.html, figureHtml(src(infographic), infographic.altText, infographic.width, infographic.height)) : article.html;
-        return { html: renderHtmlFile(article, body, cover ? { src: src(cover), alt: cover.altText, width: cover.width, height: cover.height } : null), md: renderMarkdownFile(article, body, cover ? { src: src(cover), alt: cover.altText } : null) };
+        return { html: renderHtmlFile(article, article.html, cover ? { src: src(cover), alt: cover.altText, width: cover.width, height: cover.height } : null), md: renderMarkdownFile(article, article.html, cover ? { src: src(cover), alt: cover.altText } : null) };
       };
       if (format === 'zip') {
         const { html, md } = files(fileUrl);
@@ -561,7 +553,7 @@ export function createContentService(deps: ContentDeps) {
           [`${article.slug}/${article.slug}.md`]: strToU8(md),
         };
         // Görseller zaten sıkıştırılmış (WebP): tekrar sıkıştırılmaz.
-        for (const img of [cover, infographic]) if (img) entries[`${article.slug}/${fileUrl(img)}`] = [new Uint8Array(img.data), { level: 0 }];
+        if (cover) entries[`${article.slug}/${fileUrl(cover)}`] = [new Uint8Array(cover.data), { level: 0 }];
         return { fileName: `${article.slug}.zip`, contentType: 'application/zip', body: Buffer.from(zipSync(entries)) };
       }
       const { html, md } = files(dataUrl);

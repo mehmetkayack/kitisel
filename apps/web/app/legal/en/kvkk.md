@@ -1,6 +1,6 @@
 # KVKK Privacy Notice
 
-Last updated: 12 October 2026
+Last updated: 21 October 2026
 
 This notice is provided under Article 10 of Turkish Personal Data Protection Law No. 6698 ("KVKK") to inform you about how your personal data is processed within the Kitisel service ({{site}}). The Turkish version is the binding one.
 
@@ -17,7 +17,7 @@ Email: {{email}}
 - **Contact:** email address; billing address and phone once payments are available.
 - **Customer transactions:** your site, brand profile, topic plan, articles, plan and usage.
 - **Transaction security:** IP address, browser details, sign-in and activity logs, an irreversible hash of your password, connection access details (encrypted).
-- **Finance:** payment and invoice records once payments are available. Card details are processed by iyzico and not stored by us.
+- **Finance:** payment and invoice records once payments are available. Card details are processed and stored by PayTR, not by us.
 - **Marketing:** your email address, only with your explicit consent.
 
 ## Purposes and legal grounds

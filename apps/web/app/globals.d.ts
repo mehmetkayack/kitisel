@@ -1,7 +1,3 @@
-/** vite.config.ts `define` ile gelen herkese açık değerler. */
-declare const __TURNSTILE_SITE_KEY__: string;
-declare const __RECAPTCHA_SITE_KEY__: string;
-
 interface Window {
   /** Cloudflare Turnstile (sadece site anahtarı tanımlıysa yüklenir) */
   turnstile?: {
