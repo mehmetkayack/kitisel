@@ -83,8 +83,20 @@ function clientIp(ip: string | undefined): string {
   return (ip ?? '').replace(/^::ffff:/, '');
 }
 
+/** Yerel ağ / loopback adresi (geliştirmede PayTR genel IP ister) */
+function isPrivateIp(ip: string): boolean {
+  return !ip || ip === '::1' || /^(127\.|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(ip) || /^f[cd]/i.test(ip);
+}
+
 function usd(cents: number, locale: Locale): string {
   return new Intl.NumberFormat(locale, { style: 'currency', currency: 'USD' }).format(cents / 100);
+}
+
+/** Siparişin tahsil edildiği tutar: TL'ye çevrildiyse TL, değilse USD */
+function chargedAmount(order: Pick<BillingOrder, 'transferCurrency' | 'transferAmountMinor' | 'totalCents'>, minor: number | null, locale: Locale): string {
+  return order.transferCurrency === 'TRY'
+    ? new Intl.NumberFormat(locale, { style: 'currency', currency: 'TRY' }).format((minor ?? order.transferAmountMinor ?? 0) / 100)
+    : usd(minor ?? order.totalCents, locale);
 }
 
 /**
@@ -116,6 +128,25 @@ export function createBillingService(deps: BillingDeps) {
       accounts.push({ ...demo, currency: 'USD', iban: 'TR00 0000 0000 0000 0000 0000 01' }, { ...demo, currency: 'TRY', iban: 'TR00 0000 0000 0000 0000 0000 02' });
     }
     return accounts;
+  }
+
+  /**
+   * PayTR genel IP ister. Geliştirmede istek localhost'tan gelir: makinenin genel IP'si bir kez sorulur
+   * (production'da Caddy arkasında gerçek istemci IP'si gelir, sorgu yapılmaz).
+   */
+  let devPublicIp: string | null = null;
+  async function paytrUserIp(ip: string | undefined): Promise<string> {
+    const own = clientIp(ip);
+    if (env.NODE_ENV === 'production' || !isPrivateIp(own)) return own;
+    if (devPublicIp) return devPublicIp;
+    try {
+      const res = await deps.fetch('https://api.ipify.org', { signal: AbortSignal.timeout(5000) });
+      const text = (await res.text()).trim();
+      if (/^[\d.:a-f]+$/i.test(text)) devPublicIp = text;
+    } catch (err) {
+      logger.warn({ err }, 'genel IP alınamadı (PayTR user_ip)');
+    }
+    return devPublicIp ?? own;
   }
 
   let rateCache: { value: ExchangeRate; at: number } | null = null;
@@ -151,7 +182,7 @@ export function createBillingService(deps: BillingDeps) {
         url: `${env.WEB_URL}/app/billing`,
         plan: PLANS[order.plan as PlanCode] ? order.plan.charAt(0).toUpperCase() + order.plan.slice(1) : order.plan,
         until,
-        amount: usd(order.paidCents ?? order.totalCents, locale),
+        amount: chargedAmount(order, order.paidCents, locale),
         reference: order.reference,
       });
       await deps.mailer.send({ to: user?.email ?? order.billingEmail, ...email });
@@ -237,6 +268,7 @@ export function createBillingService(deps: BillingDeps) {
         currentPeriodEnd: org.planSource === 'paid' ? (org.currentPeriodEnd?.toISOString() ?? null) : null,
         entitlementExpiresAt: org.planSource === 'complimentary' ? (org.entitlementExpiresAt?.toISOString() ?? null) : null,
         methods: { card: !!card, bankTransfer: bankAccounts().map((a) => a.currency) },
+        cardCurrency: env.PAYTR_CURRENCY === 'TL' ? 'TRY' : 'USD',
         bankAccounts: bankAccounts(),
         vatRate: env.BILLING_VAT_RATE,
         canManage: ctx.role === 'owner' || ctx.role === 'admin',
@@ -272,7 +304,9 @@ export function createBillingService(deps: BillingDeps) {
       if (org.planSource === 'paid' && effectivePlan(org) && org.plan !== input.plan) throw new AppError('plan_change_unavailable');
 
       const amounts = orderAmounts(input.plan, input.interval, input.country, env.BILLING_VAT_RATE);
-      const rate = input.method === 'bank_transfer' && input.transferCurrency === 'TRY' ? await usdTryRate() : null;
+      // TL tahsilat: havalede TL hesabı ya da kartta PAYTR_CURRENCY=TL (sipariş anındaki TCMB kuru siparişte saklanır)
+      const chargeTry = input.method === 'bank_transfer' ? input.transferCurrency === 'TRY' : env.PAYTR_CURRENCY === 'TL';
+      const rate = chargeTry ? await usdTryRate() : null;
       const profile = {
         billingType: input.billingType,
         billingName: input.billingName,
@@ -289,7 +323,8 @@ export function createBillingService(deps: BillingDeps) {
         interval: input.interval,
         method: input.method,
         ...amounts,
-        transferCurrency: input.method === 'bank_transfer' ? (input.transferCurrency ?? null) : null,
+        // Tahsilat para birimi (havale hesabı ya da kartta TL); USD kartta boş
+        transferCurrency: chargeTry ? 'TRY' : input.method === 'bank_transfer' ? (input.transferCurrency ?? null) : null,
         exchangeRate: rate ? rate.rate : null,
         // TL tutarı kuruşa yuvarlanır: USD sent × kur
         transferAmountMinor: rate ? Math.round(amounts.totalCents * rate.rate) : null,
@@ -319,13 +354,14 @@ export function createBillingService(deps: BillingDeps) {
       try {
         const { iframeUrl } = await card!.startCheckout({
           reference: order.reference,
-          userIp: clientIp(ctx.ip),
+          userIp: await paytrUserIp(ctx.ip),
           email: user.email,
           name: input.billingName,
           address: input.address,
           phone: input.phone,
           itemName: `Kitisel ${input.plan.charAt(0).toUpperCase()}${input.plan.slice(1)} (${input.interval === 'monthly' ? '1 month' : '1 year'})`,
-          amountCents: amounts.totalCents,
+          currency: order.transferCurrency === 'TRY' ? 'TL' : 'USD',
+          amountMinor: order.transferCurrency === 'TRY' ? order.transferAmountMinor! : amounts.totalCents,
           okUrl: `${env.WEB_URL}/app/billing?payment=success&order=${order.id}`,
           failUrl: `${env.WEB_URL}/app/billing?payment=failed&order=${order.id}`,
           lang: meta.locale === 'tr' ? 'tr' : 'en',
@@ -380,8 +416,12 @@ export function createBillingService(deps: BillingDeps) {
         return true;
       }
       // Başarılı: tahsil edilen tutar sipariş tutarından az olamaz (taksitte fazla olabilir), para birimi USD
-      if (n.totalCents < order.totalCents || (n.currency && n.currency !== 'USD')) {
-        logger.error({ reference: n.reference, totalCents: n.totalCents, expected: order.totalCents, currency: n.currency }, 'PayTR bildirimi: tutar/para birimi uyuşmuyor, paket açılmadı');
+      // TL siparişte PayTR "TL" (eski kayıtlarda "TRY") gönderir; tutar o para biriminin küçük biriminde
+      const tl = order.transferCurrency === 'TRY';
+      const expected = tl ? (order.transferAmountMinor ?? 0) : order.totalCents;
+      const currencyOk = !n.currency || (tl ? n.currency === 'TL' || n.currency === 'TRY' : n.currency === 'USD');
+      if (n.totalCents < expected || !currencyOk) {
+        logger.error({ reference: n.reference, totalCents: n.totalCents, expected, currency: n.currency }, 'PayTR bildirimi: tutar/para birimi uyuşmuyor, paket açılmadı');
         await billingOrdersRepository.updateForOrg(order.organizationId, order.id, { status: 'failed', failureCode: 'amount', failureMessage: `amount mismatch: ${n.totalCents} ${n.currency ?? ''}`.trim(), paidCents: n.totalCents });
         return true;
       }

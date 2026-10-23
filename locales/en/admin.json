@@ -317,6 +317,7 @@
     "noteHint": "For example, which account it arrived in. Saved to the audit log.",
     "approve": "Payment received, open plan",
     "cancel": "Cancel order",
-    "pendingSr": "bank transfers awaiting approval"
+    "pendingSr": "bank transfers awaiting approval",
+    "chargeAmount": "Charged amount (TRY)"
   }
 }

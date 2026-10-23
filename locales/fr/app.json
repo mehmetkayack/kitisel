@@ -204,7 +204,9 @@
       "accept": "J’ai lu et j’accepte le <sales>Contrat de vente à distance</sales> et le <pre>Formulaire d’information préalable</pre>. <refund>Politique d’annulation et de remboursement</refund>",
       "submitCard": "Payer {{amount}}",
       "submitTransfer": "Afficher les informations de virement",
-      "secure": "Le paiement est traité par PayTR, agréé par la Banque centrale de Turquie, avec 3D Secure."
+      "secure": "Le paiement est traité par PayTR, agréé par la Banque centrale de Turquie, avec 3D Secure.",
+      "cardTryNote": "Votre carte est débitée en livres turques : le montant est converti au taux de vente de la Banque centrale de Turquie au moment du paiement et affiché dans le formulaire.",
+      "submitCardTry": "Continuer vers le paiement"
     },
     "history": {
       "title": "Historique des paiements",

@@ -317,6 +317,7 @@
     "noteHint": "Zum Beispiel, auf welchem Konto sie eingegangen ist. Wird im Prüfprotokoll gespeichert.",
     "approve": "Zahlung erhalten, Paket freischalten",
     "cancel": "Bestellung stornieren",
-    "pendingSr": "Überweisungen warten auf Freigabe"
+    "pendingSr": "Überweisungen warten auf Freigabe",
+    "chargeAmount": "Abbuchungsbetrag (TRY)"
   }
 }

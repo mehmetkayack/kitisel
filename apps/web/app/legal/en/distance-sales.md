@@ -1,6 +1,6 @@
 # Distance Sales Agreement
 
-Last updated: 21 October 2026
+Last updated: 23 October 2026
 
 This is a translation; the Turkish version is the binding one.
 
@@ -22,7 +22,7 @@ This agreement sets out the rights and obligations of the parties, under Turkish
 
 ## 3. Main features and price
 
-The scope of the service (monthly articles, number of sites, update suggestions, tracked keywords, team members and other features), the chosen plan, billing interval (monthly / yearly) and the total price including taxes are as shown on the checkout page and the [Pricing](/pricing) page. Prices are in US dollars (USD). If your card uses another currency, your bank sets the exchange rate.
+The scope of the service (monthly articles, number of sites, update suggestions, tracked keywords, team members and other features), the chosen plan, billing interval (monthly / yearly) and the total price including taxes are as shown on the checkout page and the [Pricing](/pricing) page. Prices are in US dollars (USD). For card payments, the amount may be converted to Turkish lira at the Central Bank of the Republic of Turkey selling rate at the time of payment and charged in TRY; in that case the TRY amount is shown in the payment form before you confirm.
 
 ## 4. Payment
 

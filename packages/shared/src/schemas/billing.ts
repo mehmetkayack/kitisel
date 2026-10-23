@@ -57,7 +57,7 @@ export const checkoutSchema = z
     plan: z.enum(PLAN_CODES),
     interval: z.enum(['monthly', 'yearly']),
     method: z.enum(BILLING_METHODS),
-    /** Havalede hangi hesaba (USD hesabına USD, TL hesabına TCMB kuruyla TL) */
+    /** Havalede hangi hesaba (USD hesabına USD, TL hesabına TCMB kuruyla TL). Kartta tahsilat para birimi ortamdan. */
     transferCurrency: z.enum(TRANSFER_CURRENCIES).nullish(),
     ...billingProfileShape,
     /** Mesafeli Satış Sözleşmesi + Ön Bilgilendirme Formu onayı */
@@ -82,10 +82,11 @@ export interface BillingOrderDto {
   vatRate: number;
   vatCents: number;
   totalCents: number;
+  /** Tahsilat para birimi: TRY = TL (havale TL hesabı ya da kartta TL çekim), USD; USD kartta null */
   transferCurrency: TransferCurrencyValue | null;
   /** 1 USD = exchangeRate TL (sipariş anındaki TCMB döviz satış) */
   exchangeRate: number | null;
-  /** TL havalede ödenecek tutar (kuruş) */
+  /** TL tahsilatta tutar (kuruş) */
   transferAmountMinor: number | null;
   periodStart: string | null;
   periodEnd: string | null;
@@ -122,6 +123,8 @@ export interface BillingOverview {
   /** Ödemesiz (admin) paketin bitişi */
   entitlementExpiresAt: string | null;
   methods: { card: boolean; bankTransfer: TransferCurrencyValue[] };
+  /** Kartla tahsilat para birimi (TRY: USD fiyat TCMB kuruyla TL'ye çevrilir) */
+  cardCurrency: TransferCurrencyValue;
   bankAccounts: BankAccountDto[];
   /** Türkiye fatura adresinde eklenen KDV oranı (%) */
   vatRate: number;

@@ -76,7 +76,7 @@ export default function AdminBilling() {
             { key: 'org', header: t('billing.customer'), cell: (r) => <span className="break-words">{r.organizationName ?? r.billingName}</span> },
             { key: 'plan', header: t('billing.plan'), cell: (r) => `${planName(r.plan)} · ${tApp(`billing.interval.${r.interval}`)}` },
             { key: 'method', header: t('billing.method'), cell: (r) => tApp(`billing.method.${r.method}`) },
-            { key: 'amount', header: t('billing.amount'), cell: (r) => <span className="whitespace-nowrap tabular-nums">{r.method === 'bank_transfer' ? transferAmount(r, money) : money.usd(r.totalCents)}</span> },
+            { key: 'amount', header: t('billing.amount'), cell: (r) => <span className="whitespace-nowrap tabular-nums">{transferAmount(r, money)}</span> },
             { key: 'status', header: t('billing.status'), cell: (r) => <OrderStatusBadge status={r.status} /> },
           ]}
         />

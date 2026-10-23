@@ -317,6 +317,7 @@
     "noteHint": "Par exemple, le compte sur lequel il est arrivé. Enregistrée dans le journal d’audit.",
     "approve": "Paiement reçu, ouvrir le forfait",
     "cancel": "Annuler la commande",
-    "pendingSr": "virements en attente de validation"
+    "pendingSr": "virements en attente de validation",
+    "chargeAmount": "Montant débité (TRY)"
   }
 }

@@ -1,6 +1,6 @@
 # Ön Bilgilendirme Formu
 
-Son güncelleme: 21 Ekim 2026
+Son güncelleme: 23 Ekim 2026
 
 Bu form, Mesafeli Sözleşmeler Yönetmeliği'nin 5. maddesi uyarınca, sözleşme kurulmadan önce Alıcı'yı bilgilendirmek amacıyla hazırlanmıştır.
 
@@ -22,7 +22,7 @@ Seçtiğiniz paket ve ödeme sıklığına göre vergiler dahil toplam tutar, ö
 
 ## Ödeme ve ifa
 
-Ödeme PayTR altyapısıyla kredi veya banka kartından ya da ödeme sayfasında gösterilen banka hesabımıza havale/EFT ile alınır. TL hesabına havalede tutar, sipariş anındaki TCMB döviz satış kuruyla hesaplanır. Hizmet, kartla ödemede ödeme onaylandığı anda, havale/EFT'de ödeme hesabımıza geçtiğinde hesabınızda etkinleşir ve elektronik ortamda sunulur. Fiziksel teslimat yoktur.
+Ödeme PayTR altyapısıyla kredi veya banka kartından ya da ödeme sayfasında gösterilen banka hesabımıza havale/EFT ile alınır. Kartla ödemede ve TL hesabına havalede tutar, sipariş anındaki TCMB döviz satış kuruyla Türk lirasına çevrilir ve ödemeden önce gösterilir. Hizmet, kartla ödemede ödeme onaylandığı anda, havale/EFT'de ödeme hesabımıza geçtiğinde hesabınızda etkinleşir ve elektronik ortamda sunulur. Fiziksel teslimat yoktur.
 
 ## Sözleşme süresi ve feshi
 

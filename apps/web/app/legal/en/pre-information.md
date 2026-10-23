@@ -1,6 +1,6 @@
 # Pre-Information Form
 
-Last updated: 21 October 2026
+Last updated: 23 October 2026
 
 This form informs the Buyer before the contract is concluded, as required by Article 5 of the Turkish Distance Contracts Regulation. The Turkish version is the binding one.
 
@@ -22,7 +22,7 @@ The total amount including taxes for the chosen plan and billing interval is sho
 
 ## Payment and performance
 
-Payment is taken from a credit or debit card through PayTR, or by bank transfer to our bank account shown on the checkout page. For transfers to the TRY account, the amount is calculated at the CBRT selling rate at the time of the order. The service is activated in your account as soon as a card payment is confirmed, or when a bank transfer reaches our account, and is provided electronically. There is no physical delivery.
+Payment is taken from a credit or debit card through PayTR, or by bank transfer to our bank account shown on the checkout page. For card payments and transfers to the TRY account, the amount is converted to Turkish lira at the CBRT selling rate at the time of the order and shown before you pay. The service is activated in your account as soon as a card payment is confirmed, or when a bank transfer reaches our account, and is provided electronically. There is no physical delivery.
 
 ## Term and termination
 

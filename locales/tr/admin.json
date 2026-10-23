@@ -317,6 +317,7 @@
     "noteHint": "Ör. hangi hesaba geçtiği. Denetim kaydına yazılır.",
     "approve": "Ödeme alındı, paketi aç",
     "cancel": "Siparişi iptal et",
-    "pendingSr": "onay bekleyen havale"
+    "pendingSr": "onay bekleyen havale",
+    "chargeAmount": "Tahsilat tutarı (TL)"
   }
 }

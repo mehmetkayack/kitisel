@@ -25,8 +25,10 @@ export interface CardCheckoutInput {
   phone: string;
   /** Sepette görünen ürün adı */
   itemName: string;
-  /** USD, sent */
-  amountCents: number;
+  /** Tahsil edilecek para birimi (PayTR kodu) */
+  currency: 'TL' | 'USD';
+  /** Tutar, para biriminin küçük birimiyle (kuruş / sent) */
+  amountMinor: number;
   okUrl: string;
   failUrl: string;
   lang: 'tr' | 'en';
@@ -91,17 +93,17 @@ export function createPaytrProvider(cfg: PaytrConfig, fetchImpl: typeof fetch = 
     testMode: cfg.testMode,
 
     async startCheckout(input) {
-      const currency = 'USD';
+      const currency = input.currency;
       const testMode: 0 | 1 = cfg.testMode ? 1 : 0;
       // Sepet: [ürün adı, birim fiyat, adet] dizisi, base64 JSON
-      const userBasket = Buffer.from(JSON.stringify([[input.itemName, (input.amountCents / 100).toFixed(2), 1]])).toString('base64');
+      const userBasket = Buffer.from(JSON.stringify([[input.itemName, (input.amountMinor / 100).toFixed(2), 1]])).toString('base64');
       const fields = {
         userIp: input.userIp,
         merchantOid: input.reference,
         email: input.email,
-        paymentAmount: input.amountCents,
+        paymentAmount: input.amountMinor,
         userBasket,
-        // Abonelik ücreti tek çekim (USD'de taksit yok)
+        // Abonelik ücreti tek çekim (taksit yok)
         noInstallment: 1 as const,
         maxInstallment: 0,
         currency,

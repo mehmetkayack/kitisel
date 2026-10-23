@@ -5,7 +5,8 @@ import { membershipsRepository, organizationsRepository, usersRepository } from 
 import type { AdminBillingOrder, AuthResponse, BillingOverview, CheckoutResponse, Page } from '@upvine/shared';
 import { createTestContext } from './helpers';
 
-const PAYTR = { PAYTR_MERCHANT_ID: '123456', PAYTR_MERCHANT_KEY: 'test-key', PAYTR_MERCHANT_SALT: 'test-salt', PAYTR_TEST_MODE: 'true' };
+// Varsayılan testler USD kart tahsilatı; TL tahsilat ayrı bağlamda
+const PAYTR = { PAYTR_MERCHANT_ID: '123456', PAYTR_MERCHANT_KEY: 'test-key', PAYTR_MERCHANT_SALT: 'test-salt', PAYTR_TEST_MODE: 'true', PAYTR_CURRENCY: 'USD' };
 const BANK = { BANK_ACCOUNT_HOLDER: 'Kitisel Yazılım A.Ş.', BANK_NAME: 'Örnek Bank', BANK_IBAN_USD: 'TR00 0000 0000 0000 0000 0000 01', BANK_IBAN_TRY: 'TR00 0000 0000 0000 0000 0000 02' };
 const ctx = createTestContext({ ...PAYTR, ...BANK, BILLING_VAT_RATE: '20', CONTACT_NOTIFY_EMAIL: 'owner@kitisel.com', LEGAL_EMAIL: '' });
 const api = () => request(ctx.app);
@@ -15,18 +16,22 @@ const paytrCfg = { merchantId: '123456', merchantKey: 'test-key', merchantSalt: 
 const TCMB_XML = '<Tarih_Date Tarih="21.10.2026"><Currency Kod="USD" CurrencyCode="USD"><ForexSelling>40.0000</ForexSelling></Currency></Tarih_Date>';
 let tokenRequests: URLSearchParams[] = [];
 
+/** Sahte PayTR, TCMB ve genel IP servisi */
+const fakeFetch = (async (url: string | URL | Request, init?: RequestInit) => {
+  const u = String(url);
+  if (u.startsWith('https://www.paytr.com/odeme/api/get-token')) {
+    tokenRequests.push(init?.body as URLSearchParams);
+    return new Response(JSON.stringify({ status: 'success', token: 'tok123' }));
+  }
+  if (u.startsWith('https://www.tcmb.gov.tr/')) return new Response(TCMB_XML);
+  if (u.startsWith('https://api.ipify.org')) return new Response('85.1.2.3');
+  throw new Error(`beklenmeyen istek: ${u}`);
+}) as typeof fetch;
+
 beforeEach(async () => {
   await ctx.reset();
   tokenRequests = [];
-  ctx.setFetch((async (url: string | URL | Request, init?: RequestInit) => {
-    const u = String(url);
-    if (u.startsWith('https://www.paytr.com/odeme/api/get-token')) {
-      tokenRequests.push(init?.body as URLSearchParams);
-      return new Response(JSON.stringify({ status: 'success', token: 'tok123' }));
-    }
-    if (u.startsWith('https://www.tcmb.gov.tr/')) return new Response(TCMB_XML);
-    throw new Error(`beklenmeyen istek: ${u}`);
-  }) as typeof fetch);
+  ctx.setFetch(fakeFetch);
 });
 afterAll(() => ctx.close());
 
@@ -169,6 +174,9 @@ describe('kart (PayTR)', () => {
     expect(order).toMatchObject({ vatCents: 0, totalCents: 3900 });
 
     await api().post('/api/v1/billing/paytr/callback').type('form').send({ merchant_oid: order.reference, status: 'success', total_amount: '3900', hash: 'sahte' }).expect(400);
+    // Tarayıcıda açılırsa giriş hatası değil, açıklama
+    const get = await api().get('/api/v1/billing/paytr/callback').expect(405);
+    expect(get.text).toContain('POST');
     // Tutar eksik: OK döner (PayTR tekrarlamasın) ama paket açılmaz
     await callback(order.reference, 'success', '100').expect(200).expect('OK');
     let overview = (await api().get('/api/v1/billing').set(auth(token))).body as BillingOverview;
@@ -189,6 +197,38 @@ describe('kart (PayTR)', () => {
     expect(res.body.error.code).toBe('payment_provider_error');
     const overview = (await api().get('/api/v1/billing').set(auth(token))).body as BillingOverview;
     expect(overview.orders[0]).toMatchObject({ status: 'failed', interval: 'yearly' });
+  });
+});
+
+describe('kart: TL tahsilat (PayTR hesabında USD yok)', () => {
+  it('USD fiyat TCMB kuruyla TL’ye çevrilir, PayTR’ye TL gider, bildirim TL tutarıyla paketi açar', async () => {
+    const tl = createTestContext({ ...PAYTR, PAYTR_CURRENCY: 'TL', BILLING_VAT_RATE: '20' });
+    tl.setFetch(fakeFetch);
+    try {
+      const s = (await request(tl.app).post('/api/v1/auth/signup').send({ email: 'tl@example.com', name: 'TL', password: 'long-enough-password' }).expect(201)).body as AuthResponse;
+      const overview = (await request(tl.app).get('/api/v1/billing').set(auth(s.accessToken))).body as BillingOverview;
+      expect(overview.cardCurrency).toBe('TRY');
+      const { order } = (await request(tl.app).post('/api/v1/billing/checkout').set(auth(s.accessToken)).send({ ...billingInfo, plan: 'growth', interval: 'monthly', method: 'card' }).expect(201)).body as CheckoutResponse;
+      // $79 + %20 = $94,80 → × 40 = 3.792 TL
+      expect(order).toMatchObject({ totalCents: 9480, transferCurrency: 'TRY', exchangeRate: 40, transferAmountMinor: 379200 });
+      const sent = tokenRequests.at(-1)!;
+      expect(sent.get('currency')).toBe('TL');
+      expect(sent.get('payment_amount')).toBe('379200');
+      // Geliştirme/testte istek localhost'tan: PayTR'ye makinenin genel IP'si gider
+      expect(sent.get('user_ip')).toBe('85.1.2.3');
+
+      const send = (amount: string) =>
+        request(tl.app)
+          .post('/api/v1/billing/paytr/callback')
+          .type('form')
+          .send({ merchant_oid: order.reference, status: 'success', total_amount: amount, hash: paytrCallbackHash(paytrCfg, { merchantOid: order.reference, status: 'success', totalAmount: amount }), currency: 'TL', test_mode: '1' });
+      await send('379200').expect(200).expect('OK');
+      const after = (await request(tl.app).get('/api/v1/billing').set(auth(s.accessToken))).body as BillingOverview;
+      expect(after.plan).toBe('growth');
+      expect(after.orders[0]).toMatchObject({ status: 'paid' });
+    } finally {
+      await tl.close();
+    }
   });
 });
 

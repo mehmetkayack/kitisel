@@ -20,7 +20,7 @@ describe('PayTR', () => {
     const provider = createPaytrProvider(cfg, fetchImpl);
     const out = await provider.startCheckout({
       reference: 'KTABC', userIp: '85.1.2.3', email: 'a@b.com', name: 'Ayşe', address: 'İstanbul', phone: '5551112233',
-      itemName: 'Kitisel Growth', amountCents: 9480, okUrl: 'https://x/ok', failUrl: 'https://x/fail', lang: 'tr',
+      itemName: 'Kitisel Growth', currency: 'USD', amountMinor: 9480, okUrl: 'https://x/ok', failUrl: 'https://x/fail', lang: 'tr',
     });
     expect(out.iframeUrl).toBe('https://www.paytr.com/odeme/guvenli/tok123');
     const body = sent as unknown as URLSearchParams;
@@ -34,7 +34,7 @@ describe('PayTR', () => {
 
   it('token reddedilirse sebep hataya yazılır', async () => {
     const provider = createPaytrProvider(cfg, (async () => new Response(JSON.stringify({ status: 'failed', reason: 'Zorunlu alan degeri gecersiz: user_ip' }))) as typeof fetch);
-    await expect(provider.startCheckout({ reference: 'K', userIp: '', email: 'a@b.com', name: 'A', address: 'B', phone: '1', itemName: 'X', amountCents: 1, okUrl: 'o', failUrl: 'f', lang: 'en' })).rejects.toThrow(/user_ip/);
+    await expect(provider.startCheckout({ reference: 'K', userIp: '', email: 'a@b.com', name: 'A', address: 'B', phone: '1', itemName: 'X', currency: 'TL', amountMinor: 1, okUrl: 'o', failUrl: 'f', lang: 'en' })).rejects.toThrow(/user_ip/);
   });
 
   it('bildirim: doğru imza kabul, yanlış imza ve eksik alan reddedilir', () => {

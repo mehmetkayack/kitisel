@@ -34,6 +34,10 @@ export function billingRoutes(deps: AppDeps, service: BillingService): Router {
     const ok = await service.handlePaytrNotification((req.body ?? {}) as Record<string, unknown>);
     res.status(ok ? 200 : 400).type('text/plain').send(ok ? 'OK' : 'PAYTR notification failed: bad hash');
   });
+  // Adres tarayıcıda açılırsa (GET) giriş hatası yerine ne olduğunu söyle: sadece PayTR'nin POST bildirimi içindir
+  r.get('/paytr/callback', (_req, res) => {
+    res.status(405).set('Allow', 'POST').type('text/plain').send('PayTR notification URL: accepts POST requests from PayTR only.');
+  });
 
   r.use(requireAuth(deps.env));
   r.get('/', async (req, res) => {

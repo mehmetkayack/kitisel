@@ -204,7 +204,9 @@
       "accept": "Ich habe den <sales>Fernabsatzvertrag</sales> und das <pre>Vorabinformationsformular</pre> gelesen und stimme zu. <refund>Kündigungs- und Erstattungsrichtlinie</refund>",
       "submitCard": "{{amount}} bezahlen",
       "submitTransfer": "Überweisungsdaten anzeigen",
-      "secure": "Die Zahlung wird über PayTR, lizenziert von der türkischen Zentralbank, mit 3D Secure abgewickelt."
+      "secure": "Die Zahlung wird über PayTR, lizenziert von der türkischen Zentralbank, mit 3D Secure abgewickelt.",
+      "cardTryNote": "Ihre Karte wird in Türkischen Lira belastet: Der Betrag wird zum Devisenverkaufskurs der türkischen Zentralbank zum Zahlungszeitpunkt umgerechnet und im Zahlungsformular angezeigt.",
+      "submitCardTry": "Weiter zur Zahlung"
     },
     "history": {
       "title": "Zahlungsverlauf",

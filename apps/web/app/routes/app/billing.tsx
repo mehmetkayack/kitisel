@@ -468,6 +468,7 @@ function CheckoutForm({ data, initialPlan, onCard }: { data: BillingOverview; in
               </div>
             </dl>
             {values.method === 'bank_transfer' && values.transferCurrency === 'TRY' ? <p className="text-xs text-ink-muted">{t('billing.form.tryNote')}</p> : null}
+            {values.method === 'card' && data.cardCurrency === 'TRY' ? <p className="text-xs text-ink-muted">{t('billing.form.cardTryNote')}</p> : null}
             <p className="text-xs text-ink-muted">{t('billing.form.noAutoRenew')}</p>
           </section>
 
@@ -495,7 +496,11 @@ function CheckoutForm({ data, initialPlan, onCard }: { data: BillingOverview; in
         </CardContent>
         <CardFooter className="flex flex-col items-start gap-3">
           <Button type="submit" loading={isSubmitting}>
-            {values.method === 'card' ? t('billing.form.submitCard', { amount: money.usd(amounts.totalCents) }) : t('billing.form.submitTransfer')}
+            {values.method === 'card'
+              ? data.cardCurrency === 'TRY'
+                ? t('billing.form.submitCardTry')
+                : t('billing.form.submitCard', { amount: money.usd(amounts.totalCents) })
+              : t('billing.form.submitTransfer')}
           </Button>
           {values.method === 'card' ? (
             <p className="flex items-center gap-2 text-xs text-ink-muted">
@@ -529,7 +534,7 @@ function OrderHistory({ orders }: { orders: BillingOrderDto[] }) {
             { key: 'date', header: t('billing.history.date'), cell: (o) => <span className="whitespace-nowrap">{fmt.date(o.createdAt)}</span> },
             { key: 'plan', header: t('billing.history.plan'), cell: (o) => `${planName(o.plan)} · ${t(`billing.interval.${o.interval}`)}` },
             { key: 'method', header: t('billing.history.method'), cell: (o) => t(`billing.method.${o.method}`) },
-            { key: 'amount', header: t('billing.history.amount'), cell: (o) => <span className="tabular-nums">{o.method === 'bank_transfer' ? transferAmount(o, money) : money.usd(o.totalCents)}</span> },
+            { key: 'amount', header: t('billing.history.amount'), cell: (o) => <span className="tabular-nums">{transferAmount(o, money)}</span> },
             { key: 'reference', header: t('billing.history.reference'), cell: (o) => <span className="font-mono text-xs">{o.reference}</span> },
             {
               key: 'period',

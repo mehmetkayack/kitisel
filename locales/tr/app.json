@@ -204,7 +204,9 @@
       "accept": "<sales>Mesafeli Satış Sözleşmesi</sales>’ni ve <pre>Ön Bilgilendirme Formu</pre>’nu okudum, onaylıyorum. <refund>İptal ve iade politikası</refund>",
       "submitCard": "{{amount}} öde",
       "submitTransfer": "Havale bilgilerini göster",
-      "secure": "Ödeme, TCMB lisanslı PayTR altyapısıyla 3D Secure ile alınır."
+      "secure": "Ödeme, TCMB lisanslı PayTR altyapısıyla 3D Secure ile alınır.",
+      "cardTryNote": "Kartınızdan TL olarak çekilir: tutar, ödeme anındaki TCMB döviz satış kuruyla TL’ye çevrilir ve ödeme formunda gösterilir.",
+      "submitCardTry": "Ödemeye geç"
     },
     "history": {
       "title": "Ödeme geçmişi",

@@ -98,6 +98,11 @@ export const envSchema = z.object({
   PAYTR_MERCHANT_SALT: optionalString,
   /** PayTR'de ayrı test sunucusu yok: istekler `test_mode=1` ile gönderilir. Canlıda false. */
   PAYTR_TEST_MODE: bool.default(true),
+  /**
+   * Kartla tahsilat para birimi. TL: USD fiyat, sipariş anındaki TCMB döviz satış kuruyla TL'ye çevrilip TL çekilir.
+   * USD: mağaza hesabında USD tanımlıysa (PayTR kurumsal ekibi açar); yoksa token isteği "USD ... uye isyeri hesabi yok" ile reddedilir.
+   */
+  PAYTR_CURRENCY: z.enum(['TL', 'USD']).default('TL'),
   /** KDV oranı (%): sadece fatura ülkesi Türkiye olan siparişlere eklenir; yurt dışı 0 (hizmet ihracatı) */
   BILLING_VAT_RATE: z.coerce.number().min(0).max(100).default(20),
   /** Havale/EFT: en az bir IBAN doluysa ödeme sayfasında seçenek olarak çıkar. TL hesabına TCMB döviz satış kuruyla. */

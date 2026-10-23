@@ -317,6 +317,7 @@
     "noteHint": "Por ejemplo, a qué cuenta llegó. Se guarda en el registro de auditoría.",
     "approve": "Pago recibido, activar plan",
     "cancel": "Cancelar pedido",
-    "pendingSr": "transferencias pendientes de aprobación"
+    "pendingSr": "transferencias pendientes de aprobación",
+    "chargeAmount": "Importe cobrado (TRY)"
   }
 }

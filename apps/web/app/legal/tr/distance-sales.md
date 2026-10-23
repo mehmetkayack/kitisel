@@ -1,6 +1,6 @@
 # Mesafeli Satış Sözleşmesi
 
-Son güncelleme: 21 Ekim 2026
+Son güncelleme: 23 Ekim 2026
 
 ## 1. Taraflar
 
@@ -20,7 +20,7 @@ Bu sözleşme, Alıcı'nın {{site}} üzerinden elektronik ortamda satın aldı�
 
 ## 3. Hizmetin temel nitelikleri ve bedeli
 
-Hizmetin kapsamı (aylık yazı hakkı, site sayısı, yenileme önerisi, anahtar kelime takibi, ekip üyesi sayısı ve diğer özellikler), seçilen paket ve ödeme sıklığı (aylık / yıllık) ile vergiler dahil toplam bedel, ödeme sayfasında ve [Fiyatlar](/pricing) sayfasında gösterildiği gibidir. Fiyatlar ABD doları (USD) cinsindendir. Kartınızın para birimi farklıysa dönüşüm kurunu bankanız belirler.
+Hizmetin kapsamı (aylık yazı hakkı, site sayısı, yenileme önerisi, anahtar kelime takibi, ekip üyesi sayısı ve diğer özellikler), seçilen paket ve ödeme sıklığı (aylık / yıllık) ile vergiler dahil toplam bedel, ödeme sayfasında ve [Fiyatlar](/pricing) sayfasında gösterildiği gibidir. Fiyatlar ABD doları (USD) cinsindendir. Kartla ödemede tutar, ödeme anındaki Türkiye Cumhuriyet Merkez Bankası döviz satış kuruyla Türk lirasına çevrilip TL olarak tahsil edilebilir; bu durumda TL tutarı ödeme formunda onayınızdan önce gösterilir.
 
 ## 4. Ödeme
 

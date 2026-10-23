@@ -89,13 +89,13 @@ export default function AdminBillingOrderPage() {
               <DetailRow label={t('billing.total')}>
                 <span className="font-semibold">{money.usd(o.totalCents)}</span>
               </DetailRow>
-              {o.method === 'bank_transfer' ? (
-                <DetailRow label={t('billing.transferAmount')}>
+              {o.transferCurrency ? (
+                <DetailRow label={o.method === 'bank_transfer' ? t('billing.transferAmount') : t('billing.chargeAmount')}>
                   <span className="font-semibold">{transferAmount(o, money)}</span>
                   {o.exchangeRate ? <span className="block text-sm text-ink-muted">{t('billing.rate', { rate: fmt.number(o.exchangeRate) })}</span> : null}
                 </DetailRow>
               ) : null}
-              {o.paidCents !== null ? <DetailRow label={t('billing.paid')}>{money.usd(o.paidCents)}</DetailRow> : null}
+              {o.paidCents !== null ? <DetailRow label={t('billing.paid')}>{o.transferCurrency === 'TRY' ? money.tryMinor(o.paidCents) : money.usd(o.paidCents)}</DetailRow> : null}
               {o.paidAt ? <DetailRow label={t('billing.paidAt')}>{date(o.paidAt, true)}</DetailRow> : null}
               {o.periodStart && o.periodEnd ? (
                 <DetailRow label={t('billing.period')}>

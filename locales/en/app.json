@@ -204,7 +204,9 @@
       "accept": "I have read and accept the <sales>Distance Sales Agreement</sales> and the <pre>Pre-Information Form</pre>. <refund>Cancellation and refund policy</refund>",
       "submitCard": "Pay {{amount}}",
       "submitTransfer": "Show transfer details",
-      "secure": "Payments are processed by PayTR, licensed by the Central Bank of Turkey, with 3D Secure."
+      "secure": "Payments are processed by PayTR, licensed by the Central Bank of Turkey, with 3D Secure.",
+      "cardTryNote": "Your card is charged in Turkish lira: the amount is converted at the CBRT selling rate at the time of payment and shown in the payment form.",
+      "submitCardTry": "Continue to payment"
     },
     "history": {
       "title": "Payment history",
