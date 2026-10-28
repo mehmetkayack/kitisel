@@ -27,7 +27,7 @@ export interface ContentJobData {
 }
 
 /** Editör yardımcısı (kısa, etkileşimli işler): makale üretiminin arkasında beklemez. */
-export const ASSIST_JOBS = { rewrite: 'rewrite', refresh: 'refresh' } as const;
+export const ASSIST_JOBS = { rewrite: 'rewrite', refresh: 'refresh', translateTestimonial: 'translate-testimonial' } as const;
 export type AssistJobName = (typeof ASSIST_JOBS)[keyof typeof ASSIST_JOBS];
 
 export interface AssistJobData {
@@ -39,6 +39,11 @@ export interface AssistJobData {
 export interface RefreshJobData {
   orgId: string;
   refreshId: string;
+}
+
+/** Müşteri yorumunu diğer arayüz dillerine çevirme (`assist` kuyruğu, `translate-testimonial`). Kiracıya bağlı değil. */
+export interface TestimonialJobData {
+  testimonialId: string;
 }
 
 export const ASSIST_JOB_OPTIONS = {

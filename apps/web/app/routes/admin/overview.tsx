@@ -6,6 +6,7 @@ import type { AdminStats } from '@upvine/shared';
 import { Alert, Card, CardContent, CardHeader, CardTitle, DataTable, Skeleton, StatCard } from '@upvine/ui';
 import { PageHeader } from '../../components/page-header';
 import { HealthBadge, useFormatNumber } from '../../components/admin/admin-ui';
+import { SalesOverviewCard } from '../../components/admin/sales-overview-card';
 import { api, ApiError } from '../../lib/api';
 
 export function meta() {
@@ -56,6 +57,8 @@ export default function AdminOverview() {
             <StatCard label={t('overview.organizations')} value={num(s.organizations.total)} />
             <StatCard label={t('overview.sessions')} value={num(s.activeSessions)} help={t('overview.sessionsHint')} />
           </div>
+
+          <SalesOverviewCard />
 
           <div className="grid gap-6 xl:grid-cols-3">
             <Card className="xl:col-span-2">

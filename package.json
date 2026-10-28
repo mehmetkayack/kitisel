@@ -20,7 +20,8 @@
     "db:migrate": "pnpm --filter @upvine/db migrate",
     "db:migrate:down": "pnpm --filter @upvine/db migrate:down",
     "db:seed": "pnpm --filter @upvine/db seed",
-    "admin:grant": "pnpm --filter @upvine/db grant-admin"
+    "admin:grant": "pnpm --filter @upvine/db grant-admin",
+    "sales:import": "pnpm --filter @upvine/api sales:import"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

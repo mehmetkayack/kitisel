@@ -18,3 +18,4 @@ export * from './prompts/article.v2';
 export * from './prompts/visibility.v1';
 export * from './prompts/topics.v2';
 export * from './prompts/refresh.v1';
+export * from './prompts/testimonial-translate.v1';

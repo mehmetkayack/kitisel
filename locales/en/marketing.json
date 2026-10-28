@@ -287,5 +287,10 @@
     "newer": "Newer posts",
     "older": "Older posts",
     "back": "All posts"
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "What our customers say",
+    "rating": "Rated {{rating}} out of 5"
   }
 }

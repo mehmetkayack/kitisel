@@ -102,3 +102,51 @@ export class BlogPost extends Model<InferAttributes<BlogPost>, InferCreationAttr
     );
   }
 }
+
+export type TestimonialStatus = 'draft' | 'published';
+export type TestimonialTranslationStatus = 'pending' | 'running' | 'done' | 'failed';
+
+/** Bir dildeki çeviri; `user` = admin elle düzeltti (yeniden çeviride ezilmez) */
+export interface TestimonialTranslation {
+  quote: string;
+  authorTitle: string | null;
+  source: 'ai' | 'user';
+}
+
+/** Müşteri yorumu (ana sayfa). Kaynak dildeki metin + diğer dillere çeviriler. */
+export class Testimonial extends Model<InferAttributes<Testimonial>, InferCreationAttributes<Testimonial>> {
+  declare id: CreationOptional<string>;
+  declare authorName: string;
+  declare authorTitle: string | null;
+  declare website: string | null;
+  declare rating: number | null;
+  declare locale: string;
+  declare quote: string;
+  declare status: TestimonialStatus;
+  declare translations: CreationOptional<Record<string, TestimonialTranslation> | null>;
+  declare translationStatus: CreationOptional<TestimonialTranslationStatus>;
+  declare translationError: CreationOptional<string | null>;
+  declare createdAt: CreationOptional<Date>;
+  declare updatedAt: CreationOptional<Date>;
+
+  static initModel(sequelize: Sequelize): void {
+    Testimonial.init(
+      {
+        id: idColumn,
+        authorName: { type: DataTypes.STRING(120), allowNull: false },
+        authorTitle: { type: DataTypes.STRING(160), allowNull: true },
+        website: { type: DataTypes.STRING(255), allowNull: true },
+        rating: { type: DataTypes.TINYINT.UNSIGNED, allowNull: true },
+        locale: { type: DataTypes.STRING(5), allowNull: false },
+        quote: { type: DataTypes.TEXT, allowNull: false },
+        status: { type: DataTypes.ENUM('draft', 'published'), allowNull: false, defaultValue: 'draft' },
+        translations: { type: DataTypes.JSON, allowNull: true },
+        translationStatus: { type: DataTypes.ENUM('pending', 'running', 'done', 'failed'), allowNull: false, defaultValue: 'pending' },
+        translationError: { type: DataTypes.STRING(40), allowNull: true },
+        createdAt: DataTypes.DATE,
+        updatedAt: DataTypes.DATE,
+      },
+      { sequelize, tableName: 'testimonials', underscored: true },
+    );
+  }
+}

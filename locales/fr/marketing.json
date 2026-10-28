@@ -287,5 +287,10 @@
     "newer": "Articles plus récents",
     "older": "Articles plus anciens",
     "back": "Tous les articles"
+  },
+  "testimonials": {
+    "eyebrow": "Témoignages",
+    "title": "Ce que disent nos clients",
+    "rating": "{{rating}} sur 5"
   }
 }

@@ -15,9 +15,11 @@ import { migration as m0013 } from './2026_10_12_0013_content_refreshes';
 import { migration as m0014 } from './2026_10_13_0014_regeneration_count';
 import { migration as m0015 } from './2026_10_19_0015_contact_and_blog';
 import { migration as m0016 } from './2026_10_21_0016_billing_orders';
+import { migration as m0017 } from './2026_10_27_0017_sales_desk';
+import { migration as m0018 } from './2026_10_27_0018_testimonials';
 
 /**
  * Tüm migration'lar sırasıyla. Yeni migration eklerken dosyayı oluşturup buraya ekleyin.
  * Glob yerine açık liste: paketlenmiş (esbuild) çıktıda da çalışır ve sıra belirgindir.
  */
-export const migrations: Migration[] = [m0001, m0002, m0003, m0004, m0005, m0006, m0007, m0008, m0009, m0010, m0011, m0012, m0013, m0014, m0015, m0016];
+export const migrations: Migration[] = [m0001, m0002, m0003, m0004, m0005, m0006, m0007, m0008, m0009, m0010, m0011, m0012, m0013, m0014, m0015, m0016, m0017, m0018];

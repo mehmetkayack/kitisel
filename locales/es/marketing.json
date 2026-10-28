@@ -287,5 +287,10 @@
     "newer": "Entradas más recientes",
     "older": "Entradas anteriores",
     "back": "Todas las entradas"
+  },
+  "testimonials": {
+    "eyebrow": "Testimonios",
+    "title": "Lo que dicen nuestros clientes",
+    "rating": "{{rating}} de 5 puntos"
   }
 }

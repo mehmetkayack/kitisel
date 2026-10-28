@@ -6,6 +6,8 @@ export * from './schemas/content';
 export * from './schemas/results';
 export * from './schemas/marketing';
 export * from './schemas/billing';
+export * from './schemas/sales';
+export * from './schemas/testimonials';
 export * from './site-url';
 export * from './jobs';
 export * from './schedule';

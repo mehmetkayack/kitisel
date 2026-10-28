@@ -1,7 +1,7 @@
 import { Queue } from 'bullmq';
 import type { Redis } from 'ioredis';
 import { ASSIST_JOB_OPTIONS, FREE_ANALYSIS_JOB_OPTIONS, GENERATE_JOB_OPTIONS, PUBLISH_JOB_OPTIONS, QUEUES, SITE_JOB_OPTIONS, SITE_JOBS } from '@upvine/shared';
-import type { AssistJobData, AssistJobName, ContentJobData, FreeAnalysisJobData, RefreshJobData, SiteJobData, SiteJobName } from '@upvine/shared';
+import type { AssistJobData, AssistJobName, ContentJobData, FreeAnalysisJobData, RefreshJobData, SiteJobData, SiteJobName, TestimonialJobData } from '@upvine/shared';
 
 /**
  * Arka plan işleri (Bölüm 4.4): uzun işler HTTP isteğinde çalışmaz, kuyruğa atılır.
@@ -11,7 +11,7 @@ export interface JobQueue {
   enqueueSiteJob(name: SiteJobName, data: SiteJobData): Promise<void>;
   enqueueContentJob(name: 'generate' | 'publish', data: ContentJobData): Promise<void>;
   enqueueFreeAnalysis(data: FreeAnalysisJobData): Promise<void>;
-  enqueueAssistJob(name: AssistJobName, data: AssistJobData | RefreshJobData): Promise<void>;
+  enqueueAssistJob(name: AssistJobName, data: AssistJobData | RefreshJobData | TestimonialJobData): Promise<void>;
   close(): Promise<void>;
 }
 
@@ -19,14 +19,14 @@ export type QueuedJob =
   | { queue: 'site'; name: SiteJobName; data: SiteJobData }
   | { queue: 'content'; name: 'generate' | 'publish'; data: ContentJobData }
   | { queue: 'free'; name: 'analyze'; data: FreeAnalysisJobData }
-  | { queue: 'assist'; name: AssistJobName; data: AssistJobData | RefreshJobData };
+  | { queue: 'assist'; name: AssistJobName; data: AssistJobData | RefreshJobData | TestimonialJobData };
 
 export function createBullJobQueue(redis: Redis, prefix: string): JobQueue {
   // BullMQ kendi bağlantısını yönetir; ortak istemciyi bloklamamak için ayrı bağlantılar.
   const site = new Queue<SiteJobData, void, SiteJobName>(QUEUES.siteAnalysis, { connection: redis.duplicate(), prefix });
   const content = new Queue<ContentJobData>(QUEUES.content, { connection: redis.duplicate(), prefix });
   const free = new Queue<FreeAnalysisJobData>(QUEUES.freeAnalysis, { connection: redis.duplicate(), prefix });
-  const assist = new Queue<AssistJobData | RefreshJobData>(QUEUES.assist, { connection: redis.duplicate(), prefix });
+  const assist = new Queue<AssistJobData | RefreshJobData | TestimonialJobData>(QUEUES.assist, { connection: redis.duplicate(), prefix });
   return {
     async enqueueSiteJob(name, data) {
       await site.add(name, data, SITE_JOB_OPTIONS);
@@ -62,7 +62,7 @@ export class MemoryJobQueue implements JobQueue {
   async enqueueFreeAnalysis(data: FreeAnalysisJobData): Promise<void> {
     this.all.push({ queue: 'free', name: 'analyze', data });
   }
-  async enqueueAssistJob(name: AssistJobName, data: AssistJobData | RefreshJobData): Promise<void> {
+  async enqueueAssistJob(name: AssistJobName, data: AssistJobData | RefreshJobData | TestimonialJobData): Promise<void> {
     this.all.push({ queue: 'assist', name, data });
   }
   async close(): Promise<void> {}

@@ -5,13 +5,14 @@ import pino from 'pino';
 import { createAIProvider } from '@upvine/ai';
 import { createKeywordProvider, NoKeywordProvider } from '@upvine/keywords';
 import { loadEnv } from '@upvine/config/env';
-import { aiUsageRepository, connectDb, contentWorkflowRepository, freeAnalysesRepository, gscConnectionsRepository, refreshesRepository, sitesRepository } from '@upvine/db';
+import { aiUsageRepository, connectDb, contentWorkflowRepository, freeAnalysesRepository, gscConnectionsRepository, refreshesRepository, sitesRepository, testimonialsRepository } from '@upvine/db';
 import { createMailer } from '@upvine/email';
 import { createSafeHttpClient } from '@upvine/seo';
 import { ASSIST_JOBS, CONTENT_JOBS, GENERATE_JOB_OPTIONS, PUBLISH_JOB_OPTIONS, QUEUES, SITE_JOB_OPTIONS, SITE_JOBS } from '@upvine/shared';
-import type { AssistJobData, AssistJobName, ContentJobData, ContentJobName, FreeAnalysisJobData, RefreshJobData, SiteJobData, SiteJobName } from '@upvine/shared';
+import type { AssistJobData, AssistJobName, ContentJobData, ContentJobName, FreeAnalysisJobData, RefreshJobData, SiteJobData, SiteJobName, TestimonialJobData } from '@upvine/shared';
 import { rewriteSection } from './jobs/assist-jobs';
 import { generateRefresh } from './jobs/refresh-jobs';
+import { translateTestimonial } from './jobs/testimonial-jobs';
 import { contentTick, generateArticle, publishArticle } from './jobs/content-jobs';
 import type { ContentDeps } from './jobs/content-jobs';
 import { runFreeAnalysis } from './jobs/free-analysis';
@@ -201,9 +202,10 @@ contentWorker.on('error', (err) => logger.error({ err }, 'content worker error')
 // Dakikalık zamanlayıcı (tek kayıt; birden çok worker süreci olsa da bir kez çalışır).
 await contentQueue.upsertJobScheduler(CONTENT_JOBS.tick, { every: 60_000 }, { name: CONTENT_JOBS.tick, data: {}, opts: { removeOnComplete: true, removeOnFail: 100 } });
 
-// Editör yardımcısı: kısa, etkileşimli işler (bölüm yeniden yazımı, mevcut yazı için güncelleme önerisi).
+// Editör yardımcısı: kısa, etkileşimli işler (bölüm yeniden yazımı, mevcut yazı için güncelleme önerisi,
+// müşteri yorumu çevirisi).
 // Makale üretiminin arkasında beklemez.
-const assistWorker = new Worker<AssistJobData | RefreshJobData, void, AssistJobName>(
+const assistWorker = new Worker<AssistJobData | RefreshJobData | TestimonialJobData, void, AssistJobName>(
   QUEUES.assist,
   async (job) => {
     const finalAttempt = job.attemptsMade + 1 >= (job.opts.attempts ?? 1);
@@ -218,6 +220,18 @@ const assistWorker = new Worker<AssistJobData | RefreshJobData, void, AssistJobN
           throw err;
         }
       });
+      return;
+    }
+    if (job.name === ASSIST_JOBS.translateTestimonial) {
+      // Kitisel'in kendi sitesi: kullanım logu organizasyonsuz
+      const data = job.data as TestimonialJobData;
+      try {
+        await translateTestimonial(deps, data, { finalAttempt });
+      } catch (err) {
+        if (err instanceof RetryableJobError) throw err;
+        if (finalAttempt) await testimonialsRepository.update(data.testimonialId, { translationStatus: 'failed', translationError: 'internal' }).catch(() => {});
+        throw err;
+      }
       return;
     }
     const data = job.data as AssistJobData;

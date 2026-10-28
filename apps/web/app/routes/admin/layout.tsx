@@ -5,10 +5,12 @@ import {
   Building2,
   CreditCard,
   Flag,
+  Handshake,
   Inbox,
   LayoutDashboard,
   ListChecks,
   Menu,
+  MessageSquareQuote,
   Newspaper,
   ReceiptText,
   ScrollText,
@@ -74,6 +76,8 @@ const MAIN_NAV: NavItem[] = [
   { to: '/admin/audit', key: 'audit', icon: ScrollText },
   { to: '/admin/messages', key: 'messages', icon: Inbox },
   { to: '/admin/blog', key: 'blog', icon: Newspaper },
+  { to: '/admin/testimonials', key: 'testimonials', icon: MessageSquareQuote },
+  { to: '/admin/sales', key: 'sales', icon: Handshake },
   { to: '/admin/billing', key: 'billing', icon: CreditCard },
 ];
 

@@ -22,9 +22,15 @@ import type { ContentStatus } from '@upvine/ui';
 import type { Route } from './+types/home';
 import { FreeAnalysisForm } from '../../components/free-analysis-form';
 import { Pricing, SectionHeading } from '../../components/marketing/pricing';
+import { Testimonials } from '../../components/marketing/testimonials';
 import { fixedT } from '../../lib/i18n';
+import { fetchTestimonials } from '../../lib/testimonials.server';
 
 const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'] as const;
+
+export async function loader({ params }: Route.LoaderArgs) {
+  return { testimonials: isLocale(params.locale) ? await fetchTestimonials(params.locale) : [] };
+}
 
 export function meta({ params }: Route.MetaArgs) {
   if (!isLocale(params.locale)) return [];
@@ -404,9 +410,10 @@ function HomePricing({ locale }: { locale: string }) {
 
 /**
  * Pazarlama ana sayfası (Bölüm 6.6, Kitisel tasarımı): Hero (analiz formu + Kit) → nasıl çalışır →
- * Neden Kitisel → özellikler → karşılaştırma → panel önizlemesi → fiyatlar → SSS → son çağrı.
+ * Neden Kitisel → özellikler → karşılaştırma → panel önizlemesi → müşteri yorumları (varsa) → fiyatlar → SSS →
+ * son çağrı.
  */
-export default function Home({ params }: Route.ComponentProps) {
+export default function Home({ params, loaderData }: Route.ComponentProps) {
   return (
     <div className="flex w-full flex-col">
       <Hero locale={params.locale} />
@@ -415,6 +422,7 @@ export default function Home({ params }: Route.ComponentProps) {
       <Features />
       <Comparison />
       <PanelPreview />
+      <Testimonials items={loaderData.testimonials} />
       <HomePricing locale={params.locale} />
       <Faq />
       <FinalCta locale={params.locale} />

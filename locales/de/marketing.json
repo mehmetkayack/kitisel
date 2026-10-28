@@ -287,5 +287,10 @@
     "newer": "Neuere Beiträge",
     "older": "Ältere Beiträge",
     "back": "Alle Beiträge"
+  },
+  "testimonials": {
+    "eyebrow": "Kundenstimmen",
+    "title": "Das sagen unsere Kunden",
+    "rating": "{{rating}} von 5 Punkten"
   }
 }

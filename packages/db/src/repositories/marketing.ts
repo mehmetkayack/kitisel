@@ -1,7 +1,7 @@
 import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize';
-import { BlogPost, ContactMessage } from '../models';
-import type { BlogPostStatus, ContactMessageStatus } from '../models';
+import { BlogPost, ContactMessage, Testimonial } from '../models';
+import type { BlogPostStatus, ContactMessageStatus, TestimonialStatus } from '../models';
 
 /**
  * Halka açık sitenin verisi: iletişim mesajları ve blog yazıları. Kiracıya bağlı değildir;
@@ -128,5 +128,37 @@ export const blogPostsRepository = {
       limit: size + 1,
     });
     return { items: rows.slice(0, size), hasMore: rows.length > size };
+  },
+};
+
+export type TestimonialData = Pick<Testimonial, 'authorName' | 'authorTitle' | 'website' | 'rating' | 'locale' | 'quote' | 'status'>;
+export type TestimonialPatch = Partial<TestimonialData & Pick<Testimonial, 'translations' | 'translationStatus' | 'translationError'>>;
+
+/** Yorumlar az (onlarca): sayfalama yok. */
+export const testimonialsRepository = {
+  create(data: TestimonialData) {
+    return Testimonial.create(data);
+  },
+
+  findById(id: string) {
+    return Testimonial.findByPk(id);
+  },
+
+  async update(id: string, patch: TestimonialPatch): Promise<void> {
+    await Testimonial.update(patch, { where: { id } });
+  },
+
+  async remove(id: string): Promise<void> {
+    await Testimonial.destroy({ where: { id } });
+  },
+
+  /** Admin listesi: en yeni önce */
+  list() {
+    return Testimonial.findAll({ order: [['id', 'DESC']] });
+  },
+
+  /** Ana sayfa: yayımlanmış yorumlar, en yeni önce */
+  published(limit: number) {
+    return Testimonial.findAll({ where: { status: 'published' satisfies TestimonialStatus }, order: [['id', 'DESC']], limit });
   },
 };

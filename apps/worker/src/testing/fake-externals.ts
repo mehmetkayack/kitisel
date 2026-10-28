@@ -76,6 +76,13 @@ export function createFakeAI(): FakeAIProvider {
       metaDescription: 'Diş beyazlatma yöntemleri, ne kadar sürdüğü, kimlere uygun olduğu ve sonrasında nelere dikkat etmeniz gerektiği hekimlerimizden.',
       html: `<h2>Yöntemler</h2><p>${'Muayenehanede ve evde uygulanan beyazlatma yöntemleri farklı sürelerde sonuç verir. '.repeat(20)}</p><h2>Sonrası</h2><p>${'İlk günlerde renkli içeceklerden kaçınmak sonucu korur. '.repeat(20)}</p><p><a href="https://wp.example/implant-bakimi/">İmplant bakımı</a></p><h2>Sık sorulan sorular</h2><h3>Kalıcı mı?</h3><p>Bakıma göre birkaç yıl sürebilir.</p>`,
     }),
+    // Müşteri yorumu çevirisi: istenen her dile dil kodu önekiyle
+    'testimonial.translate': (prompt) => {
+      const quote = /^Testimonial: (.*)$/m.exec(prompt)?.[1] ?? '';
+      const title = /^Author title: (.*)$/m.exec(prompt)?.[1] ?? '';
+      const locales = [...prompt.matchAll(/\((en|de|es|fr|tr)\)/g)].map((m) => m[1]!);
+      return { translations: locales.map((locale) => ({ locale, quote: `[${locale}] ${quote}`, authorTitle: title ? `[${locale}] ${title}` : '' })) };
+    },
     'article.improve': () => {
       throw new Error('iyileştirme gerekmemeli');
     },

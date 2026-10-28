@@ -287,5 +287,10 @@
     "newer": "Daha yeni yazılar",
     "older": "Daha eski yazılar",
     "back": "Tüm yazılar"
+  },
+  "testimonials": {
+    "eyebrow": "Yorumlar",
+    "title": "Müşterilerimiz ne diyor?",
+    "rating": "5 üzerinden {{rating}} puan"
   }
 }

@@ -19,7 +19,11 @@ export async function setupTestDatabase(env: Env): Promise<Sequelize> {
 /** Testler arasında tabloları boşaltır (migration tablosu hariç). */
 export async function truncateAll(sequelize: Sequelize): Promise<void> {
   const tables = [
+    'sales_lead_events',
+    'sales_leads',
+    'sales_social_posts',
     'billing_orders',
+    'testimonials',
     'blog_posts',
     'contact_messages',
     'content_refreshes',

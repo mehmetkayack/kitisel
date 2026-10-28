@@ -25,6 +25,8 @@ import type { AdminActor } from './admin.service';
 import { createAdminMessagesService } from './admin-messages.service';
 import { createAdminBlogService } from '../blog/blog.service';
 import type { BillingService } from '../billing/billing.service';
+import { salesRoutes } from '../sales/sales.routes';
+import { adminTestimonialsRoutes } from '../testimonials/testimonials.routes';
 
 const idParam = z.string().length(36);
 
@@ -150,5 +152,10 @@ export function adminRoutes(deps: AppDeps, billing: BillingService): Router {
   r.post('/billing/orders/:id/cancel', validateBody(adminOrderActionSchema), async (req, res) => {
     res.json(await billing.adminCancel(parse(idParam, req.params.id), req.body as AdminOrderActionInput, actor(req)));
   });
+
+  // Satış masası (müşteri adayları, Instagram planı): yukarıdaki admin yetkisinin arkasında
+  r.use('/sales', salesRoutes(deps));
+  // Müşteri yorumları (ana sayfa)
+  r.use('/testimonials', adminTestimonialsRoutes(deps));
   return r;
 }

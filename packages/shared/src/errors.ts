@@ -47,6 +47,7 @@ export const ERROR_CODES = [
   'payment_provider_error',
   'exchange_rate_unavailable',
   'plan_change_unavailable',
+  'lead_exists',
 ] as const;
 
 export type ErrorCode = (typeof ERROR_CODES)[number];

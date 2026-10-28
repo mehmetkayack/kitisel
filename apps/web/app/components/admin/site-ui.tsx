@@ -1,6 +1,6 @@
-import { Archive, Circle, FileEdit, Globe, MailOpen } from 'lucide-react';
+import { AlertCircle, Archive, Check, Circle, FileEdit, Globe, Languages, Loader2, MailOpen } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import type { BlogStatus, ContactStatus } from '@upvine/shared';
+import type { BlogStatus, ContactStatus, TestimonialTranslationStatusValue } from '@upvine/shared';
 import { Badge } from '@upvine/ui';
 
 /** İletişim mesajı durumu: renk + ikon + metin */
@@ -42,6 +42,33 @@ export function BlogStatusBadge({ status }: { status: BlogStatus }) {
     <Badge tone="warning">
       <FileEdit aria-hidden />
       {t('blog.status.draft')}
+    </Badge>
+  );
+}
+
+/** Müşteri yorumu çeviri durumu: renk + ikon + metin */
+export function TranslationStatusBadge({ status }: { status: TestimonialTranslationStatusValue }) {
+  const { t } = useTranslation('admin');
+  if (status === 'done') {
+    return (
+      <Badge tone="success">
+        <Check aria-hidden />
+        {t('testimonials.translation.done')}
+      </Badge>
+    );
+  }
+  if (status === 'failed') {
+    return (
+      <Badge tone="danger">
+        <AlertCircle aria-hidden />
+        {t('testimonials.translation.failed')}
+      </Badge>
+    );
+  }
+  return (
+    <Badge tone="info">
+      {status === 'running' ? <Loader2 className="animate-spin motion-reduce:animate-none" aria-hidden /> : <Languages aria-hidden />}
+      {t(status === 'running' ? 'testimonials.translation.running' : 'testimonials.translation.pending')}
     </Badge>
   );
 }

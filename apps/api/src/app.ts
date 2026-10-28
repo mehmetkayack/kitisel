@@ -18,6 +18,7 @@ import { connectionCallbackRoutes, contentRoutes, sitesRoutes } from './modules/
 import { freeAnalysisRoutes } from './modules/free-analysis/free-analysis.routes';
 import { contactRoutes } from './modules/contact/contact.routes';
 import { blogRoutes } from './modules/blog/blog.routes';
+import { testimonialsRoutes } from './modules/testimonials/testimonials.routes';
 import { billingRoutes } from './modules/billing/billing.routes';
 import { createBillingService } from './modules/billing/billing.service';
 import { buildOpenApiDocument } from './openapi';
@@ -74,6 +75,7 @@ export function createApp(deps: AppDeps): express.Express {
   v1.use('/free-analyses', freeAnalysisRoutes(deps));
   v1.use('/contact', contactRoutes(deps));
   v1.use('/blog', blogRoutes(deps));
+  v1.use('/testimonials', testimonialsRoutes(deps));
   v1.use('/billing', billingRoutes(deps, billing));
   v1.use('/connections', connectionCallbackRoutes(deps));
   app.use('/api/v1', v1);

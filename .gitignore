@@ -18,3 +18,6 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .dev-running
+
+# Satış masası: müşteri adayı verisi (repoya girmez)
+_kitisel-satis/
