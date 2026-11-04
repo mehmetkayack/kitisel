@@ -151,7 +151,19 @@ export interface AdminBlogPostRow {
   updatedAt: string;
 }
 
+/** Aynı yazının diğer dil sürümü (admin ayrıntısında) */
+export interface BlogTranslationRef {
+  id: string;
+  locale: string;
+  title: string;
+  status: BlogStatus;
+}
+
 export interface AdminBlogPost extends AdminBlogPostRow {
+  /** `pipeline` = Kitisel'in yazım hattı yazdı (ya da çevirdi) */
+  origin: 'admin' | 'pipeline';
+  /** Diğer dil sürümleri (bu yazı hariç) */
+  translations: BlogTranslationRef[];
   excerpt: string;
   bodyHtml: string;
   metaTitle: string | null;

@@ -137,6 +137,10 @@
     "disconnected": "Tu sitio se ha desconectado.",
     "choose": "¿Cómo publicamos?",
     "kinds": {
+      "kitisel": {
+        "label": "Blog de Kitisel (interno)",
+        "hint": "Los artículos llegan a kitisel.com/blog como borradores y se traducen a 5 idiomas."
+      },
       "wordpress": {
         "label": "WordPress",
         "hint": "Publica entradas con la portada como imagen destacada."
@@ -251,6 +255,12 @@
       "siteIdHint": "El ID largo que aparece después de «/dashboard/» en la barra de direcciones del panel de tu sitio.",
       "authorNote": "Wix exige que las entradas las publique un miembro del sitio: usamos el primer miembro como autor.",
       "connect": "Conectar Wix"
+    },
+    "kitisel": {
+      "title": "El blog propio de Kitisel",
+      "body": "Cuando llega la fecha de un artículo, se añade en Admin → Blog como borrador. Tú lo lees y lo publicas; nada se publica solo.",
+      "languages": "El artículo también se traduce a los otros 4 idiomas de la interfaz, cada uno como su propio borrador (una llamada de IA por idioma).",
+      "connect": "Conectar al blog de Kitisel"
     }
   },
   "editor": {

@@ -2,8 +2,10 @@
 // kimlik bilgisi şifreleme. Hepsi aynı `Publisher` arayüzünü uygular (Bölüm 4.2).
 import type { HttpClient } from '@upvine/seo';
 import { GhostPublisher } from './ghost';
+import { KitiselBlogPublisher } from './kitisel';
+import type { KitiselBlogSink } from './kitisel';
 import { ShopifyPublisher } from './shopify';
-import type { GhostCredentials, Publisher, ShopifyCredentials, WebflowCredentials, WebhookCredentials, WixCredentials, WordPressCredentials } from './types';
+import type { GhostCredentials, KitiselBlogCredentials, Publisher, ShopifyCredentials, WebflowCredentials, WebhookCredentials, WixCredentials, WordPressCredentials } from './types';
 import { WebflowPublisher } from './webflow';
 import { WebhookPublisher } from './webhook';
 import { WixPublisher } from './wix';
@@ -19,6 +21,8 @@ export { normalizeShopDomain, SHOPIFY_API_VERSION, ShopifyPublisher } from './sh
 export { WEBFLOW_ROLE_TYPES, WebflowPublisher } from './webflow';
 export type { WebflowCollection, WebflowField, WebflowSite } from './webflow';
 export { WixPublisher } from './wix';
+export { KitiselBlogPublisher } from './kitisel';
+export type { KitiselBlogSink } from './kitisel';
 
 export type StoredCredentials =
   | ({ kind: 'wordpress' } & WordPressCredentials)
@@ -26,9 +30,11 @@ export type StoredCredentials =
   | ({ kind: 'ghost' } & GhostCredentials)
   | ({ kind: 'shopify' } & ShopifyCredentials)
   | ({ kind: 'webflow' } & WebflowCredentials)
-  | ({ kind: 'wix' } & WixCredentials);
+  | ({ kind: 'wix' } & WixCredentials)
+  | ({ kind: 'kitisel' } & KitiselBlogCredentials);
 
-export function createPublisher(creds: StoredCredentials, http: HttpClient): Publisher {
+/** `kitiselBlog`: Kitisel blogunun veritabanı hedefi (sadece worker verir) */
+export function createPublisher(creds: StoredCredentials, http: HttpClient, opts: { kitiselBlog?: KitiselBlogSink } = {}): Publisher {
   switch (creds.kind) {
     case 'wordpress':
       return new WordPressPublisher(creds, http);
@@ -42,5 +48,7 @@ export function createPublisher(creds: StoredCredentials, http: HttpClient): Pub
       return new WebflowPublisher(creds, http);
     case 'wix':
       return new WixPublisher(creds, http);
+    case 'kitisel':
+      return new KitiselBlogPublisher(creds, opts.kitiselBlog);
   }
 }

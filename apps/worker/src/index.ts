@@ -8,11 +8,12 @@ import { loadEnv } from '@upvine/config/env';
 import { aiUsageRepository, connectDb, contentWorkflowRepository, freeAnalysesRepository, gscConnectionsRepository, refreshesRepository, sitesRepository, testimonialsRepository } from '@upvine/db';
 import { createMailer } from '@upvine/email';
 import { createSafeHttpClient } from '@upvine/seo';
-import { ASSIST_JOBS, CONTENT_JOBS, GENERATE_JOB_OPTIONS, PUBLISH_JOB_OPTIONS, QUEUES, SITE_JOB_OPTIONS, SITE_JOBS } from '@upvine/shared';
-import type { AssistJobData, AssistJobName, ContentJobData, ContentJobName, FreeAnalysisJobData, RefreshJobData, SiteJobData, SiteJobName, TestimonialJobData } from '@upvine/shared';
+import { ASSIST_JOBS, BLOG_TRANSLATE_JOB_OPTIONS, CONTENT_JOBS, GENERATE_JOB_OPTIONS, PUBLISH_JOB_OPTIONS, QUEUES, SITE_JOB_OPTIONS, SITE_JOBS } from '@upvine/shared';
+import type { AssistJobData, AssistJobName, BlogTranslateJobData, ContentJobData, ContentJobName, FreeAnalysisJobData, RefreshJobData, SiteJobData, SiteJobName, TestimonialJobData } from '@upvine/shared';
 import { rewriteSection } from './jobs/assist-jobs';
 import { generateRefresh } from './jobs/refresh-jobs';
 import { translateTestimonial } from './jobs/testimonial-jobs';
+import { translateBlogPost } from './jobs/internal-blog';
 import { contentTick, generateArticle, publishArticle } from './jobs/content-jobs';
 import type { ContentDeps } from './jobs/content-jobs';
 import { runFreeAnalysis } from './jobs/free-analysis';
@@ -144,6 +145,11 @@ siteWorker.on('error', (err) => logger.error({ err }, 'worker error'));
 const bullConnection = () => new Redis(env.REDIS_URL, { maxRetriesPerRequest: null });
 const siteQueue = new Queue<SiteJobData, void, SiteJobName>(QUEUES.siteAnalysis, { connection: bullConnection(), prefix: env.QUEUE_PREFIX });
 const contentQueue = new Queue<ContentJobData | Record<string, never>, void, ContentJobName>(QUEUES.content, { connection: bullConnection(), prefix: env.QUEUE_PREFIX });
+const assistQueue = new Queue<BlogTranslateJobData, void, AssistJobName>(QUEUES.assist, { connection: bullConnection(), prefix: env.QUEUE_PREFIX });
+// Kitisel blogu: yayında açılan taslağın her dile çevirisi (dil başına bir iş, tekrar eklenmez)
+contentDeps.enqueueBlogTranslation = async (data) => {
+  await assistQueue.add(ASSIST_JOBS.translateBlogPost, data, { ...BLOG_TRANSLATE_JOB_OPTIONS, jobId: `blog-translate-${data.sourcePostId}-${data.locale}` });
+};
 
 // Makale üretimi ve yayın. Üretim pahalı (yapay zekâ çağrıları): eşzamanlılık düşük.
 const contentWorker = new Worker<ContentJobData | Record<string, never>, void, ContentJobName>(
@@ -203,9 +209,9 @@ contentWorker.on('error', (err) => logger.error({ err }, 'content worker error')
 await contentQueue.upsertJobScheduler(CONTENT_JOBS.tick, { every: 60_000 }, { name: CONTENT_JOBS.tick, data: {}, opts: { removeOnComplete: true, removeOnFail: 100 } });
 
 // Editör yardımcısı: kısa, etkileşimli işler (bölüm yeniden yazımı, mevcut yazı için güncelleme önerisi,
-// müşteri yorumu çevirisi).
+// müşteri yorumu ve Kitisel blog yazısı çevirisi).
 // Makale üretiminin arkasında beklemez.
-const assistWorker = new Worker<AssistJobData | RefreshJobData | TestimonialJobData, void, AssistJobName>(
+const assistWorker = new Worker<AssistJobData | RefreshJobData | TestimonialJobData | BlogTranslateJobData, void, AssistJobName>(
   QUEUES.assist,
   async (job) => {
     const finalAttempt = job.attemptsMade + 1 >= (job.opts.attempts ?? 1);
@@ -232,6 +238,11 @@ const assistWorker = new Worker<AssistJobData | RefreshJobData | TestimonialJobD
         if (finalAttempt) await testimonialsRepository.update(data.testimonialId, { translationStatus: 'failed', translationError: 'internal' }).catch(() => {});
         throw err;
       }
+      return;
+    }
+    if (job.name === ASSIST_JOBS.translateBlogPost) {
+      const data = job.data as BlogTranslateJobData;
+      await jobOrg.run(data.orgId, () => translateBlogPost(deps, data, { finalAttempt }));
       return;
     }
     const data = job.data as AssistJobData;
@@ -267,7 +278,7 @@ logger.info({ ai: ai.configured }, 'worker started');
 async function shutdown(signal: string): Promise<void> {
   logger.info({ signal }, 'shutting down');
   clearInterval(timer);
-  await Promise.allSettled([siteWorker.close(), contentWorker.close(), freeWorker.close(), assistWorker.close(), contentQueue.close(), siteQueue.close()]);
+  await Promise.allSettled([siteWorker.close(), contentWorker.close(), freeWorker.close(), assistWorker.close(), contentQueue.close(), siteQueue.close(), assistQueue.close()]);
   await Promise.allSettled([sequelize.close(), redis.quit()]);
   process.exit(0);
 }

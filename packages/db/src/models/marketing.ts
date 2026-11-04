@@ -4,6 +4,8 @@ import { idColumn } from '../ids';
 
 export type ContactMessageStatus = 'new' | 'read' | 'archived';
 export type BlogPostStatus = 'draft' | 'published';
+/** `admin` = panelden yazıldı; `pipeline` = Kitisel'in yazım hattı (ve çevirileri) */
+export type BlogPostOrigin = 'admin' | 'pipeline';
 
 /** İletişim formu mesajı (halka açık site; kiracıya bağlı değil). */
 export class ContactMessage extends Model<InferAttributes<ContactMessage>, InferCreationAttributes<ContactMessage>> {
@@ -57,6 +59,9 @@ export class ContactMessage extends Model<InferAttributes<ContactMessage>, Infer
 export class BlogPost extends Model<InferAttributes<BlogPost>, InferCreationAttributes<BlogPost>> {
   declare id: CreationOptional<string>;
   declare locale: string;
+  /** Aynı yazının dil sürümleri (kaynak yazının kimliği); elle yazılan yazıda boş */
+  declare translationGroupId: CreationOptional<string | null>;
+  declare origin: CreationOptional<BlogPostOrigin>;
   declare slug: string;
   declare title: string;
   declare excerpt: string;
@@ -80,6 +85,8 @@ export class BlogPost extends Model<InferAttributes<BlogPost>, InferCreationAttr
       {
         id: idColumn,
         locale: { type: DataTypes.STRING(5), allowNull: false },
+        translationGroupId: { type: DataTypes.CHAR(36), allowNull: true },
+        origin: { type: DataTypes.ENUM('admin', 'pipeline'), allowNull: false, defaultValue: 'admin' },
         slug: { type: DataTypes.STRING(120), allowNull: false },
         title: { type: DataTypes.STRING(200), allowNull: false },
         excerpt: { type: DataTypes.STRING(320), allowNull: false },

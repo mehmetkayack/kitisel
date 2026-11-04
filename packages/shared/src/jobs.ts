@@ -27,7 +27,7 @@ export interface ContentJobData {
 }
 
 /** Editör yardımcısı (kısa, etkileşimli işler): makale üretiminin arkasında beklemez. */
-export const ASSIST_JOBS = { rewrite: 'rewrite', refresh: 'refresh', translateTestimonial: 'translate-testimonial' } as const;
+export const ASSIST_JOBS = { rewrite: 'rewrite', refresh: 'refresh', translateTestimonial: 'translate-testimonial', translateBlogPost: 'translate-blog-post' } as const;
 export type AssistJobName = (typeof ASSIST_JOBS)[keyof typeof ASSIST_JOBS];
 
 export interface AssistJobData {
@@ -45,6 +45,24 @@ export interface RefreshJobData {
 export interface TestimonialJobData {
   testimonialId: string;
 }
+
+/**
+ * Kitisel blogu: yazım hattının taslağını bir arayüz diline çevirme (`assist` kuyruğu, `translate-blog-post`).
+ * Dil başına ayrı iş; yapay zekâ kullanımı Kitisel'in organizasyonuna yazılır.
+ */
+export interface BlogTranslateJobData {
+  orgId: string;
+  sourcePostId: string;
+  locale: string;
+}
+
+/** Uzun metin çevirisi: yoğunlukta (503/429) dakikalar içinde yeniden denenir */
+export const BLOG_TRANSLATE_JOB_OPTIONS = {
+  attempts: 4,
+  backoff: { type: 'exponential', delay: 60_000 },
+  removeOnComplete: { age: 3600, count: 1000 },
+  removeOnFail: { age: 7 * 24 * 3600 },
+} as const;
 
 export const ASSIST_JOB_OPTIONS = {
   attempts: 2,

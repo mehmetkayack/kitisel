@@ -1,11 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { CheckCircle2, Copy, Link2, Unplug } from 'lucide-react';
+import { CheckCircle2, Copy, Languages, Link2, Unplug } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { webhookConnectSchema, wordpressConnectSchema } from '@upvine/shared';
-import { CONNECTION_KINDS } from '@upvine/shared';
+import { CONNECTION_KINDS, INTERNAL_BLOG_KIND } from '@upvine/shared';
 import type { ConnectionDto, ConnectionKind, SiteDto, WebhookConnectInput, WordpressConnectInput } from '@upvine/shared';
 import { Alert, Badge, Button, Dialog, DialogClose, DialogContent, Field, Input, RadioCards, Skeleton, toast } from '@upvine/ui';
 import { FormError, useFieldError } from '../auth-ui';
@@ -105,6 +105,35 @@ function WebhookForm({ site, onConnected }: { site: SiteDto; onConnected: (c: Co
   );
 }
 
+/** Kitisel'in kendi blogu: gizli bilgi yok; yazılar admin → Blog'a taslak düşer, diğer dillere çevrilir. */
+function KitiselBlogForm({ site, onConnected }: { site: SiteDto; onConnected: (c: ConnectionDto) => void }) {
+  const { t } = useTranslation('content');
+  const toError = useConnectionError();
+  const [serverError, setServerError] = useState<string | null>(null);
+  const connect = useMutation({
+    mutationFn: () => api<ConnectionDto>(`/sites/${site.id}/connection/kitisel`, { method: 'PUT' }),
+    onSuccess: onConnected,
+    onError: (err) => setServerError(toError(err)),
+  });
+  return (
+    <div className="flex flex-col gap-4">
+      <FormError message={serverError} />
+      <Alert tone="info" title={t('connections.kitisel.title')}>
+        <p>{t('connections.kitisel.body')}</p>
+        <p className="mt-2 flex items-start gap-2">
+          <Languages aria-hidden className="mt-0.5 size-4 shrink-0" />
+          {t('connections.kitisel.languages')}
+        </p>
+      </Alert>
+      <div>
+        <Button variant="secondary" loading={connect.isPending} onClick={() => connect.mutate()}>
+          {t('connections.kitisel.connect')}
+        </Button>
+      </div>
+    </div>
+  );
+}
+
 /** Webhook imza anahtarı: sadece bağlantı anında bir kez gösterilir. */
 function SecretBox({ secret }: { secret: string }) {
   const { t } = useTranslation('content');
@@ -137,13 +166,13 @@ export function ConnectionPanel({ site, onConnected }: { site: SiteDto; onConnec
   const qc = useQueryClient();
   const toError = useConnectionError();
   const connection = useConnection(site.id);
-  const [kind, setKind] = useState<ConnectionKind>('wordpress');
+  const [chosen, setChosen] = useState<ConnectionKind | typeof INTERNAL_BLOG_KIND | null>(null);
   const [secret, setSecret] = useState<string | null>(null);
   const [confirm, setConfirm] = useState(false);
 
   const connected = (c: ConnectionDto) => {
     if (c.secret) setSecret(c.secret);
-    qc.setQueryData(connectionKey(site.id), { connection: { ...c, secret: undefined }, oneClickAvailable: connection.data?.oneClickAvailable ?? false });
+    qc.setQueryData(connectionKey(site.id), { ...connection.data, connection: { ...c, secret: undefined } });
     void qc.invalidateQueries({ queryKey: sitesKey });
     void qc.invalidateQueries({ queryKey: ['content'] });
     toast.success(t('connections.tested'));
@@ -153,7 +182,7 @@ export function ConnectionPanel({ site, onConnected }: { site: SiteDto; onConnec
   const test = useMutation({
     mutationFn: () => api<ConnectionDto>(`/sites/${site.id}/connection/test`, { method: 'POST' }),
     onSuccess: (c) => {
-      qc.setQueryData(connectionKey(site.id), { connection: c, oneClickAvailable: connection.data?.oneClickAvailable ?? false });
+      qc.setQueryData(connectionKey(site.id), { ...connection.data, connection: c });
       toast.success(t('connections.tested'));
     },
     onError: (err) => toast.error(toError(err)),
@@ -172,6 +201,10 @@ export function ConnectionPanel({ site, onConnected }: { site: SiteDto; onConnec
 
   if (connection.isPending) return <Skeleton className="h-40 w-full" />;
   const current = connection.data?.connection ?? null;
+  // Kitisel'in kendi sitesinde (superadmin) dahili blog ilk ve varsayılan seçenek
+  const internalBlog = connection.data?.internalBlogAvailable ?? false;
+  const kinds = [...(internalBlog ? [INTERNAL_BLOG_KIND] : []), ...CONNECTION_KINDS];
+  const kind = chosen ?? kinds[0]!;
 
   if (current) {
     const details = Object.entries(current.display).filter(([, v]) => v);
@@ -224,9 +257,10 @@ export function ConnectionPanel({ site, onConnected }: { site: SiteDto; onConnec
         legend={t('connections.choose')}
         columns={2}
         value={kind}
-        onValueChange={(v) => setKind(v as ConnectionKind)}
-        options={CONNECTION_KINDS.map((k) => ({ value: k, label: t(`connections.kinds.${k}.label`), description: t(`connections.kinds.${k}.hint`) }))}
+        onValueChange={(v) => setChosen(v as ConnectionKind | typeof INTERNAL_BLOG_KIND)}
+        options={kinds.map((k) => ({ value: k, label: t(`connections.kinds.${k}.label`), description: t(`connections.kinds.${k}.hint`) }))}
       />
+      {kind === INTERNAL_BLOG_KIND ? <KitiselBlogForm site={site} onConnected={connected} /> : null}
       {kind === 'wordpress' ? <WordPressForm site={site} oneClick={connection.data?.oneClickAvailable ?? false} onConnected={connected} /> : null}
       {kind === 'ghost' ? <GhostForm site={site} onConnected={connected} /> : null}
       {kind === 'shopify' ? <ShopifyForm site={site} onConnected={connected} /> : null}

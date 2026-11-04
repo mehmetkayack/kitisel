@@ -2,7 +2,7 @@ import { createHmac } from 'node:crypto';
 import sharp from 'sharp';
 import type { OutputInfo } from 'sharp';
 import { strToU8, zipSync } from 'fflate';
-import { orgArticleLimit, quotaPeriodStart, REGENERATIONS_PER_ARTICLE, SECTION_REWRITES_PER_ARTICLE } from '@upvine/config';
+import { isLocale, orgArticleLimit, quotaPeriodStart, REGENERATIONS_PER_ARTICLE, SECTION_REWRITES_PER_ARTICLE } from '@upvine/config';
 import type { Env } from '@upvine/config/env';
 import {
   articleRewritesRepository,
@@ -18,6 +18,7 @@ import {
   organizationsRepository,
   publicationsRepository,
   sitesRepository,
+  usersRepository,
 } from '@upvine/db';
 import type { Article, ArticleData, ArticleImage, ArticleRewrite, ArticleVersion, ContentItem, Role } from '@upvine/db';
 import { authorizeUrl, createPublisher, CredentialKeyError, decryptJson, encryptJson, normalizeShopDomain, PublishError, WebflowPublisher, WebhookPublisher, WordPressPublisher } from '@upvine/publishers';
@@ -61,7 +62,7 @@ import type {
   WixConnectInput,
   WordpressConnectInput,
 } from '@upvine/shared';
-import { canSyncPosts, COVER_UPLOAD, MOVABLE_STATUSES, moveToDate, normalizeSiteUrl, SITE_JOBS } from '@upvine/shared';
+import { canSyncPosts, COVER_UPLOAD, MOVABLE_STATUSES, moveToDate, normalizeSiteUrl, sameSite, SITE_JOBS } from '@upvine/shared';
 import { randomToken, safeEqual } from '../../lib/crypto';
 import { AppError } from '../../lib/errors';
 import type { JobQueue } from '../../lib/jobs';
@@ -209,6 +210,12 @@ export function createContentService(deps: ContentDeps) {
       if (err instanceof CredentialKeyError) throw new AppError('encryption_not_configured');
       throw err;
     }
+  }
+
+  /** Kitisel blogu sadece Kitisel'in kendi sitesine (`WEB_URL`) ve sadece superadmin bağlar. */
+  async function internalBlogAllowed(ctx: SiteContext, siteUrl: string): Promise<boolean> {
+    if (!sameSite(siteUrl, env.WEB_URL)) return false;
+    return (await usersRepository.findById(ctx.userId))?.isSuperadmin === true;
   }
 
   async function saveConnection(ctx: SiteContext, siteId: string, input: StoredCredentials, publisher: Publisher): Promise<ConnectionDto> {
@@ -564,7 +571,7 @@ export function createContentService(deps: ContentDeps) {
 
     // --- Bağlantılar ----------------------------------------------------------------------------
 
-    async connection(ctx: SiteContext, siteId: string): Promise<{ connection: ConnectionDto | null; oneClickAvailable: boolean }> {
+    async connection(ctx: SiteContext, siteId: string): Promise<{ connection: ConnectionDto | null; oneClickAvailable: boolean; internalBlogAvailable: boolean }> {
       const site = await sitesRepository.findById(ctx.orgId, siteId);
       if (!site) throw new AppError('not_found');
       const rec = await credentialsRepository.findForSite(ctx.orgId, siteId);
@@ -572,7 +579,19 @@ export function createContentService(deps: ContentDeps) {
         connection: rec ? { kind: rec.kind, display: rec.display, lastVerifiedAt: rec.lastVerifiedAt?.toISOString() ?? null } : null,
         // Application Passwords dönüş adresi HTTPS olmak zorunda (WordPress kuralı)
         oneClickAvailable: env.API_URL.startsWith('https://') || env.WEB_URL.startsWith('https://'),
+        internalBlogAvailable: await internalBlogAllowed(ctx, site.url),
       };
+    },
+
+    /** Kitisel'in kendi blogu: yazılar `/admin/blog`'a taslak düşer, diğer arayüz dillerine çevrilir. */
+    async connectKitiselBlog(ctx: SiteContext, siteId: string): Promise<ConnectionDto> {
+      requireRole(ctx, MANAGE_ROLES);
+      const site = await sitesRepository.findById(ctx.orgId, siteId);
+      if (!site) throw new AppError('not_found');
+      if (!(await internalBlogAllowed(ctx, site.url))) throw new AppError('forbidden');
+      if (!isLocale(site.contentLanguage)) throw new AppError('internal_blog_language', { language: site.contentLanguage ?? '' });
+      const creds: StoredCredentials = { kind: 'kitisel', webUrl: env.WEB_URL, locale: site.contentLanguage };
+      return saveConnection(ctx, siteId, creds, createPublisher(creds, http));
     },
 
     async connectWordPress(ctx: SiteContext, siteId: string, input: WordpressConnectInput): Promise<ConnectionDto> {

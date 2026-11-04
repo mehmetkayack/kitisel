@@ -83,6 +83,22 @@ export function createFakeAI(): FakeAIProvider {
       const locales = [...prompt.matchAll(/\((en|de|es|fr|tr)\)/g)].map((m) => m[1]!);
       return { translations: locales.map((locale) => ({ locale, quote: `[${locale}] ${quote}`, authorTitle: title ? `[${locale}] ${title}` : '' })) };
     },
+    // Kitisel blog yazısı çevirisi: metinler hedef dil önekiyle, HTML etiketleri aynen
+    'blog.translate': (prompt) => {
+      const locale = /\((en|de|es|fr|tr)\)\.$/m.exec(prompt)?.[1] ?? 'xx';
+      const field = (name: string) => new RegExp(`^${name}: (.*)$`, 'm').exec(prompt)?.[1] ?? '';
+      const html = prompt.slice(prompt.indexOf('HTML body:\n') + 'HTML body:\n'.length);
+      const title = `[${locale}] ${field('Title')}`;
+      return {
+        title,
+        slug: title,
+        excerpt: `[${locale}] ${field('Excerpt')}`,
+        metaTitle: field('Meta title') ? `[${locale}] ${field('Meta title')}` : '',
+        metaDescription: field('Meta description') ? `[${locale}] ${field('Meta description')}` : '',
+        coverAlt: field('Cover image alt text') ? `[${locale}] ${field('Cover image alt text')}` : '',
+        html: html.replace(/>([^<>]+)</g, (_m, text: string) => `>[${locale}] ${text}<`),
+      };
+    },
     'article.improve': () => {
       throw new Error('iyileştirme gerekmemeli');
     },

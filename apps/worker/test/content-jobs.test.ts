@@ -8,6 +8,7 @@ import {
   articleRewritesRepository,
   articlesRepository,
   articleVersionsRepository,
+  blogPostsRepository,
   brandProfilesRepository,
   connectDb,
   contentItemsRepository,
@@ -24,10 +25,11 @@ import {
 import { truncateAll } from '@upvine/db/testing';
 import { encryptJson, verifyWebhook } from '@upvine/publishers';
 import type { StoredCredentials } from '@upvine/publishers';
-import type { FreeAnalysisResult, VerificationReport } from '@upvine/shared';
+import type { BlogTranslateJobData, FreeAnalysisResult, VerificationReport } from '@upvine/shared';
 import { applyFactCheck, contentTick, generateArticle, publishArticle } from '../src/jobs/content-jobs';
 import type { ContentDeps } from '../src/jobs/content-jobs';
 import { runFreeAnalysis } from '../src/jobs/free-analysis';
+import { translateBlogPost } from '../src/jobs/internal-blog';
 import { rewriteSection } from '../src/jobs/assist-jobs';
 import { RetryableJobError } from '../src/jobs/site-jobs';
 import { createFakeAI, createFixtureHttpClient, FAKE_WORDPRESS, fakeArticle, fakeOutbox } from '../src/testing/fake-externals';
@@ -284,6 +286,41 @@ describe('publishArticle', () => {
     const { orgId, items } = await scheduledArticle();
     await publishArticle(deps(), { orgId, contentItemId: items[0]!.id }, final);
     expect((await contentWorkflowRepository.findItem(orgId, items[0]!.id))?.status).toBe('scheduled');
+  });
+
+  it('Kitisel blogu: taslak açılır, diğer 4 dile çeviri işi eklenir; çeviri aynı grupta taslak olur', async () => {
+    const kitiselEnv = { ...env, WEB_URL: 'https://klinik.example' } as Env;
+    const { orgId, items } = await scheduledArticle({ kind: 'kitisel', webUrl: kitiselEnv.WEB_URL, locale: 'tr' });
+    const queued: BlogTranslateJobData[] = [];
+    await publishArticle(deps(undefined, { env: kitiselEnv, enqueueBlogTranslation: async (d) => void queued.push(d) }), { orgId, contentItemId: items[0]!.id }, final);
+    expect((await contentWorkflowRepository.findItem(orgId, items[0]!.id))?.status).toBe('published');
+    expect(fakeOutbox).toHaveLength(0);
+
+    const article = (await articlesRepository.findForItem(orgId, items[0]!.id))!;
+    const pub = (await publicationsRepository.latestForArticle(orgId, article.id))!;
+    const source = (await blogPostsRepository.findWithCover(pub.remoteId!))!;
+    expect(source).toMatchObject({ locale: 'tr', status: 'draft', origin: 'pipeline', translationGroupId: source.id, title: article.title });
+    expect(pub.remoteUrl).toBe(`https://klinik.example/tr/blog/${source.slug}`);
+    expect(source.coverData).not.toBeNull();
+    expect(queued.map((q) => q.locale).sort()).toEqual(['de', 'en', 'es', 'fr']);
+    expect(queued.every((q) => q.sourcePostId === source.id && q.orgId === orgId)).toBe(true);
+
+    await translateBlogPost({ ai: createFakeAI(), logger }, queued.find((q) => q.locale === 'en')!, final);
+    const en = (await blogPostsRepository.findInGroup(source.id, 'en'))!;
+    expect(en).toMatchObject({ status: 'draft', origin: 'pipeline', title: `[en] ${source.title}`, coverWidth: source.coverWidth });
+    expect(en.bodyHtml).toContain('[en] ');
+    // Aynı dil yeniden denenirse ikinci kopya açılmaz
+    const ai = createFakeAI();
+    await translateBlogPost({ ai, logger }, queued.find((q) => q.locale === 'en')!, final);
+    expect(ai.calls).toHaveLength(0);
+    expect((await blogPostsRepository.group(source.id)).map((p) => p.locale).sort()).toEqual(['en', 'tr']);
+  });
+
+  it('Kitisel blogu: site Kitisel\'in sitesi değilse yazılmaz', async () => {
+    const { orgId, items } = await scheduledArticle({ kind: 'kitisel', webUrl: 'https://kitisel.example', locale: 'tr' });
+    await publishArticle(deps(undefined, { env: { ...env, WEB_URL: 'https://kitisel.example' } as Env }), { orgId, contentItemId: items[0]!.id }, final);
+    expect(await contentWorkflowRepository.findItem(orgId, items[0]!.id)).toMatchObject({ status: 'failed', errorMessage: 'publish_forbidden' });
+    expect(await blogPostsRepository.adminList({ limit: 10 })).toMatchObject({ items: [] });
   });
 });
 

@@ -1,6 +1,6 @@
 /** Yayın adaptörleri (Bölüm 4.2). Kimlik bilgileri şifreli saklanır, tarayıcıya asla gönderilmez. */
 
-export type PublisherId = 'wordpress' | 'webhook' | 'ghost' | 'shopify' | 'webflow' | 'wix';
+export type PublisherId = 'wordpress' | 'webhook' | 'ghost' | 'shopify' | 'webflow' | 'wix' | 'kitisel';
 
 export interface PublishableImage {
   data: Buffer;
@@ -116,6 +116,12 @@ export interface WordPressCredentials {
   siteUrl: string;
   username: string;
   appPassword: string;
+}
+
+/** Kitisel'in kendi blogu: gizli bilgi yok, sadece blog adresi ve yazının kaynak dili */
+export interface KitiselBlogCredentials {
+  webUrl: string;
+  locale: string;
 }
 
 export interface WebhookCredentials {

@@ -272,6 +272,11 @@
       "saved": "Portada guardada.",
       "removed": "Portada quitada.",
       "saveFirst": "Guarda la entrada primero para añadir una portada."
+    },
+    "translations": {
+      "title": "Versiones por idioma",
+      "description": "Este artículo viene del proceso de redacción de Kitisel; las traducciones se añaden como borradores. Revisa y publica cada idioma por separado.",
+      "pending": "Traducción pendiente"
     }
   },
   "billing": {

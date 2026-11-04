@@ -48,6 +48,7 @@ export const ERROR_CODES = [
   'exchange_rate_unavailable',
   'plan_change_unavailable',
   'lead_exists',
+  'internal_blog_language',
 ] as const;
 
 export type ErrorCode = (typeof ERROR_CODES)[number];

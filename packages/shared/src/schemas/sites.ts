@@ -121,7 +121,8 @@ export interface SiteDto {
   name: string;
   country: string | null;
   contentLanguage: string | null;
-  cmsType: CmsOption;
+  /** `kitisel`: Kitisel'in kendi blogu (dahili bağlantı; kullanıcı seçeneği değil) */
+  cmsType: CmsOption | 'kitisel';
   connectionStatus: 'not_connected' | 'connected' | 'error';
   publishMode: 'approval' | 'auto';
   postsPerWeek: number;

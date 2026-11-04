@@ -122,7 +122,7 @@ export const connectionKey = (siteId: string) => ['sites', siteId, 'connection']
 export function useConnection(siteId: string | undefined) {
   return useQuery({
     queryKey: connectionKey(siteId ?? ''),
-    queryFn: () => api<{ connection: ConnectionDto | null; oneClickAvailable: boolean }>(`/sites/${siteId}/connection`),
+    queryFn: () => api<{ connection: ConnectionDto | null; oneClickAvailable: boolean; internalBlogAvailable: boolean }>(`/sites/${siteId}/connection`),
     enabled: !!siteId,
   });
 }

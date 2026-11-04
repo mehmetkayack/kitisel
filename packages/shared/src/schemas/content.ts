@@ -198,9 +198,11 @@ export type WebhookConnectInput = z.infer<typeof webhookConnectSchema>;
 /** Site bağlantı türleri (Bölüm 7.8) */
 export const CONNECTION_KINDS = ['wordpress', 'webhook', 'ghost', 'shopify', 'webflow', 'wix'] as const;
 export type ConnectionKind = (typeof CONNECTION_KINDS)[number];
+/** Kitisel'in kendi blogu: listede sadece Kitisel'in sitesinde ve superadmin'e görünür */
+export const INTERNAL_BLOG_KIND = 'kitisel' as const;
 
 export interface ConnectionDto {
-  kind: ConnectionKind;
+  kind: ConnectionKind | typeof INTERNAL_BLOG_KIND;
   display: Record<string, string>;
   lastVerifiedAt: string | null;
   /** Sadece webhook oluşturulurken bir kez döner; sonra asla */

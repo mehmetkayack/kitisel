@@ -137,6 +137,10 @@
     "disconnected": "Your site was disconnected.",
     "choose": "How should we publish?",
     "kinds": {
+      "kitisel": {
+        "label": "Kitisel blog (internal)",
+        "hint": "Posts land in kitisel.com/blog as drafts and are translated into 5 languages."
+      },
       "wordpress": {
         "label": "WordPress",
         "hint": "Publishes posts with the cover image as featured image."
@@ -251,6 +255,12 @@
       "siteIdHint": "The long ID after \"/dashboard/\" in the address bar of your site's dashboard.",
       "authorNote": "Wix requires posts to be published by a site member: we use the first member as the author.",
       "connect": "Connect Wix"
+    },
+    "kitisel": {
+      "title": "Kitisel's own blog",
+      "body": "When a post is due, it is added to Admin → Blog as a draft. You read and publish it; nothing goes live on its own.",
+      "languages": "The post is also translated into the other 4 interface languages, each as its own draft (one AI call per language).",
+      "connect": "Connect to the Kitisel blog"
     }
   },
   "editor": {

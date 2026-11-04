@@ -44,5 +44,6 @@
   "payment_provider_error": "Ödeme sayfası açılamadı. Birkaç dakika sonra tekrar deneyin; sorun sürerse havale/EFT ile ödeyebilirsiniz.",
   "exchange_rate_unavailable": "Güncel döviz kuru alınamadı, bu yüzden TL tutarı hesaplanamadı. USD hesabını seçin ya da biraz sonra tekrar deneyin.",
   "plan_change_unavailable": "Ödenmiş döneminiz bitmeden paket değiştirilemez. Aynı paketi yenileyebilir ya da paket değişikliği için bize yazabilirsiniz.",
-  "lead_exists": "Bu alan adıyla bir aday zaten var."
+  "lead_exists": "Bu alan adıyla bir aday zaten var.",
+  "internal_blog_language": "Kitisel blogu sadece içerik dili Türkçe, İngilizce, Almanca, İspanyolca ya da Fransızca olan siteye bağlanabilir. Sitenin içerik dilini Ayarlar'dan değiştirin."
 }

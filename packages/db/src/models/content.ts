@@ -148,7 +148,7 @@ export class ArticleImage extends Model<InferAttributes<ArticleImage>, InferCrea
   }
 }
 
-export const CREDENTIAL_KINDS = ['wordpress', 'webhook', 'ghost', 'shopify', 'webflow', 'wix'] as const;
+export const CREDENTIAL_KINDS = ['wordpress', 'webhook', 'ghost', 'shopify', 'webflow', 'wix', 'kitisel'] as const;
 export type CredentialKind = (typeof CREDENTIAL_KINDS)[number];
 
 export class SiteCredential extends Model<InferAttributes<SiteCredential>, InferCreationAttributes<SiteCredential>> {

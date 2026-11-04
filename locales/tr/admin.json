@@ -272,6 +272,11 @@
       "saved": "Kapak kaydedildi.",
       "removed": "Kapak kaldırıldı.",
       "saveFirst": "Kapak görseli eklemek için önce yazıyı kaydedin."
+    },
+    "translations": {
+      "title": "Dil sürümleri",
+      "description": "Bu yazı Kitisel yazım hattından geldi; diğer dillere çevirisi taslak olarak eklenir. Her dili okuyup ayrı yayınlayın.",
+      "pending": "Çeviri bekleniyor"
     }
   },
   "billing": {

@@ -22,7 +22,7 @@ export { BillingOrder };
 export { SalesLead, SalesLeadEvent, SalesSocialPost };
 export type { SalesChannel, SalesLeadEventType, SalesLeadStatus, SalesPostPillar, SalesPostStatus, SalesSector, SalesSource } from './sales';
 export type { BillingMethod, BillingOrderStatus, TransferCurrency } from './billing';
-export type { BlogPostStatus, ContactMessageStatus, TestimonialStatus, TestimonialTranslation, TestimonialTranslationStatus } from './marketing';
+export type { BlogPostOrigin, BlogPostStatus, ContactMessageStatus, TestimonialStatus, TestimonialTranslation, TestimonialTranslationStatus } from './marketing';
 export type { RefreshChange, RefreshOriginal, RefreshStatus, RefreshSuggestion } from './refresh';
 export { CREDENTIAL_KINDS } from './content';
 export type { ArticleFaq, ArticleVersionSource, CredentialKind, FreeAnalysisStatus, RewriteStatus } from './content';

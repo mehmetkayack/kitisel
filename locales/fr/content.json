@@ -137,6 +137,10 @@
     "disconnected": "Votre site a été déconnecté.",
     "choose": "Comment publier ?",
     "kinds": {
+      "kitisel": {
+        "label": "Blog Kitisel (interne)",
+        "hint": "Les articles arrivent en brouillon dans kitisel.com/blog et sont traduits en 5 langues."
+      },
       "wordpress": {
         "label": "WordPress",
         "hint": "Publie les articles avec l’image de couverture en image mise en avant."
@@ -251,6 +255,12 @@
       "siteIdHint": "Le long identifiant après « /dashboard/ » dans la barre d’adresse du tableau de bord de votre site.",
       "authorNote": "Wix exige que les articles soient publiés par un membre du site : nous utilisons le premier membre comme auteur.",
       "connect": "Connecter Wix"
+    },
+    "kitisel": {
+      "title": "Le blog de Kitisel",
+      "body": "À la date prévue, l’article est ajouté en brouillon dans Admin → Blog. Vous le relisez et le publiez ; rien n’est mis en ligne automatiquement.",
+      "languages": "L’article est aussi traduit dans les 4 autres langues de l’interface, chacune en brouillon séparé (un appel à l’IA par langue).",
+      "connect": "Connecter au blog Kitisel"
     }
   },
   "editor": {

@@ -137,6 +137,10 @@
     "disconnected": "Ihre Website wurde getrennt.",
     "choose": "Wie sollen wir veröffentlichen?",
     "kinds": {
+      "kitisel": {
+        "label": "Kitisel-Blog (intern)",
+        "hint": "Beiträge landen als Entwürfe in kitisel.com/blog und werden in 5 Sprachen übersetzt."
+      },
       "wordpress": {
         "label": "WordPress",
         "hint": "Veröffentlicht Beiträge mit dem Titelbild als Beitragsbild."
@@ -251,6 +255,12 @@
       "siteIdHint": "Die lange ID nach „/dashboard/“ in der Adressleiste Ihres Website-Dashboards.",
       "authorNote": "Wix verlangt, dass Beiträge von einem Website-Mitglied veröffentlicht werden: Wir verwenden das erste Mitglied als Autor.",
       "connect": "Wix verbinden"
+    },
+    "kitisel": {
+      "title": "Kitisels eigener Blog",
+      "body": "Ist ein Beitrag fällig, wird er unter Admin → Blog als Entwurf angelegt. Sie lesen und veröffentlichen ihn; nichts geht von selbst online.",
+      "languages": "Der Beitrag wird außerdem in die anderen 4 Oberflächensprachen übersetzt, jede als eigener Entwurf (ein KI-Aufruf pro Sprache).",
+      "connect": "Mit dem Kitisel-Blog verbinden"
     }
   },
   "editor": {

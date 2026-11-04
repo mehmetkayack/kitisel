@@ -4,7 +4,7 @@ import { idColumn } from '../ids';
 import { applyTenantGuard } from '../tenant-guard';
 import type { Article } from './content';
 
-export const CMS_TYPES = ['none', 'wordpress', 'shopify', 'webflow', 'ghost', 'wix', 'webhook', 'download'] as const;
+export const CMS_TYPES = ['none', 'wordpress', 'shopify', 'webflow', 'ghost', 'wix', 'webhook', 'download', 'kitisel'] as const;
 export type CmsType = (typeof CMS_TYPES)[number];
 export type ConnectionStatus = 'not_connected' | 'connected' | 'error';
 export type PublishMode = 'approval' | 'auto';

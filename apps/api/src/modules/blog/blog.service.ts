@@ -36,8 +36,19 @@ function adminRow(p: BlogPost): AdminBlogPostRow {
   return { id: p.id, locale: p.locale, slug: p.slug, title: p.title, status: p.status, publishedAt: iso(p.publishedAt), updatedAt: p.updatedAt.toISOString() };
 }
 
-function adminDetail(p: BlogPost): AdminBlogPost {
-  return { ...adminRow(p), excerpt: p.excerpt, bodyHtml: p.bodyHtml, metaTitle: p.metaTitle, metaDescription: p.metaDescription, cover: cover(p) };
+/** Ayrıntı: yazım hattının yazısında diğer dil sürümleri de (çeviriler taslak olarak gelir) */
+async function adminDetail(p: BlogPost): Promise<AdminBlogPost> {
+  const group = p.translationGroupId ? await blogPostsRepository.group(p.translationGroupId) : [];
+  return {
+    ...adminRow(p),
+    origin: p.origin,
+    translations: group.filter((x) => x.id !== p.id).map((x) => ({ id: x.id, locale: x.locale, title: x.title, status: x.status })),
+    excerpt: p.excerpt,
+    bodyHtml: p.bodyHtml,
+    metaTitle: p.metaTitle,
+    metaDescription: p.metaDescription,
+    cover: cover(p),
+  };
 }
 
 /** Halka açık blog: sadece yayımlanmış ve yayın zamanı gelmiş yazılar. */

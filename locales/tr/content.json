@@ -137,6 +137,10 @@
     "disconnected": "Site bağlantısı kaldırıldı.",
     "choose": "Nasıl yayınlayalım?",
     "kinds": {
+      "kitisel": {
+        "label": "Kitisel blogu (dahili)",
+        "hint": "Yazılar kitisel.com/blog'a taslak olarak düşer, 5 dile çevrilir."
+      },
       "wordpress": {
         "label": "WordPress",
         "hint": "Yazıları kapak görseli öne çıkan görsel olarak yayınlar."
@@ -251,6 +255,12 @@
       "siteIdHint": "Sitenizin panelindeki adres çubuğunda \"/dashboard/\" sonrasındaki uzun kimlik.",
       "authorNote": "Wix, yazının bir site üyesi adına yayınlanmasını istiyor: ilk üyeyi yazar olarak kullanırız.",
       "connect": "Wix'i bağla"
+    },
+    "kitisel": {
+      "title": "Kitisel'in kendi blogu",
+      "body": "Yayın günü gelen yazı Admin → Blog'a taslak olarak eklenir. Okuyup yayınlamak sizde; kendiliğinden yayına çıkmaz.",
+      "languages": "Yazı diğer 4 arayüz diline de çevrilir ve her dil ayrı taslak olur (dil başına bir yapay zekâ çağrısı).",
+      "connect": "Kitisel bloguna bağla"
     }
   },
   "editor": {

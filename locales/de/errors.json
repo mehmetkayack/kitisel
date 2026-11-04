@@ -44,5 +44,6 @@
   "payment_provider_error": "Die Zahlungsseite konnte nicht geöffnet werden. Versuchen Sie es in ein paar Minuten erneut; alternativ können Sie per Überweisung zahlen.",
   "exchange_rate_unavailable": "Der aktuelle Wechselkurs konnte nicht abgerufen werden, daher ließ sich der TRY-Betrag nicht berechnen. Wählen Sie das USD-Konto oder versuchen Sie es gleich noch einmal.",
   "plan_change_unavailable": "Vor Ende des bezahlten Zeitraums ist kein Paketwechsel möglich. Sie können dasselbe Paket verlängern oder uns für einen Wechsel kontaktieren.",
-  "lead_exists": "Für diese Domain gibt es bereits einen Lead."
+  "lead_exists": "Für diese Domain gibt es bereits einen Lead.",
+  "internal_blog_language": "Der Kitisel-Blog kann nur mit einer Website verbunden werden, deren Inhaltssprache Türkisch, Englisch, Deutsch, Spanisch oder Französisch ist. Ändern Sie die Inhaltssprache in den Einstellungen."
 }

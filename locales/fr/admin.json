@@ -272,6 +272,11 @@
       "saved": "Couverture enregistrée.",
       "removed": "Couverture retirée.",
       "saveFirst": "Enregistrez d’abord l’article pour ajouter une image de couverture."
+    },
+    "translations": {
+      "title": "Versions linguistiques",
+      "description": "Cet article provient du processus de rédaction de Kitisel ; les traductions sont ajoutées en brouillon. Relisez et publiez chaque langue séparément.",
+      "pending": "Traduction en attente"
     }
   },
   "billing": {

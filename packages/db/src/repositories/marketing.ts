@@ -1,5 +1,6 @@
 import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize';
+import { newId } from '../ids';
 import { BlogPost, ContactMessage, Testimonial } from '../models';
 import type { BlogPostStatus, ContactMessageStatus, TestimonialStatus } from '../models';
 
@@ -65,6 +66,54 @@ export const blogPostsRepository = {
 
   async update(id: string, patch: Partial<BlogPostData>): Promise<void> {
     await BlogPost.update(patch, { where: { id } });
+  },
+
+  /**
+   * Yazım hattının taslağı ya da çevirisi, kapağıyla tek satırda. Grup verilmezse yazı kendi grubunun
+   * kaynağıdır (grup = kendi kimliği).
+   */
+  async createFromPipeline(
+    data: BlogPostData & { translationGroupId: string | null; cover: { data: Buffer; alt: string; width: number; height: number } | null },
+  ) {
+    const id = newId();
+    const { cover, ...rest } = data;
+    const post = await BlogPost.create({
+      ...rest,
+      id,
+      translationGroupId: data.translationGroupId ?? id,
+      origin: 'pipeline',
+      authorId: null,
+      ...(cover ? { coverData: cover.data, coverAlt: cover.alt, coverWidth: cover.width, coverHeight: cover.height } : {}),
+    });
+    return post;
+  },
+
+  /** Aynı yazının dil sürümleri (kapaksız) */
+  group(translationGroupId: string) {
+    return BlogPost.findAll({
+      where: { translationGroupId },
+      attributes: ['id', 'locale', 'slug', 'title', 'status', 'publishedAt', 'translationGroupId'],
+      order: [['id', 'ASC']],
+    });
+  },
+
+  findInGroup(translationGroupId: string, locale: string) {
+    return BlogPost.findOne({ where: { translationGroupId, locale }, attributes: WITHOUT_COVER });
+  },
+
+  /** Kapağıyla birlikte (çeviriye kopyalamak için) */
+  findWithCover(id: string) {
+    return BlogPost.findByPk(id);
+  },
+
+  /** Dilde boş adres: `base`, doluysa `base-2`, `base-3`... (silinmemiş yazılar arasında) */
+  async freeSlug(locale: string, base: string): Promise<string> {
+    const root = base.slice(0, 110).replace(/-+$/, '') || 'yazi';
+    for (let n = 1; n < 100; n++) {
+      const slug = n === 1 ? root : `${root}-${n}`;
+      if (!(await BlogPost.findOne({ where: { locale, slug }, attributes: ['id'] }))) return slug;
+    }
+    return `${root}-${newId().slice(-8)}`;
   },
 
   async setCover(id: string, cover: { data: Buffer; alt: string; width: number; height: number } | null): Promise<void> {

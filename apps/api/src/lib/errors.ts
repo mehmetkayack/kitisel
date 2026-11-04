@@ -46,6 +46,7 @@ const STATUS_BY_CODE: Record<ErrorCode, number> = {
   exchange_rate_unavailable: 503,
   plan_change_unavailable: 409,
   lead_exists: 409,
+  internal_blog_language: 422,
 };
 
 /**

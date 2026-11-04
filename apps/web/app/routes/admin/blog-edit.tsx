@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { ArrowLeft, ExternalLink, ImageUp, Save, Trash2 } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Hourglass, ImageUp, Save, Trash2 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -151,6 +151,46 @@ function CoverCard({ post, onSaved }: { post: AdminBlogPost; onSaved: (p: AdminB
             ) : null}
           </div>
         </form>
+      </CardContent>
+    </Card>
+  );
+}
+
+/** Yazım hattının yazısı: aynı yazının diğer dil taslakları (çeviri gelene kadar "bekleniyor") */
+function TranslationsCard({ post }: { post: AdminBlogPost }) {
+  const { t } = useTranslation('admin');
+  const byLocale = new Map(post.translations.map((x) => [x.locale, x]));
+  const others = LOCALES.filter((l) => l !== post.locale);
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle as="h2">{t('blog.translations.title')}</CardTitle>
+        <CardDescription>{t('blog.translations.description')}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ul className="flex flex-col divide-y divide-border">
+          {others.map((locale) => {
+            const x = byLocale.get(locale);
+            return (
+              <li key={locale} className="flex min-h-11 flex-wrap items-center gap-x-3 gap-y-1 py-2">
+                <span className="w-24 shrink-0 text-sm font-medium text-ink">{LOCALE_NATIVE_NAMES[locale]}</span>
+                {x ? (
+                  <>
+                    <Link to={`/admin/blog/${x.id}`} className="min-w-0 flex-1 break-words text-primary hover:underline">
+                      {x.title}
+                    </Link>
+                    <BlogStatusBadge status={x.status} />
+                  </>
+                ) : (
+                  <span className="flex items-center gap-1.5 text-sm text-ink-muted">
+                    <Hourglass aria-hidden className="size-4" />
+                    {t('blog.translations.pending')}
+                  </span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
       </CardContent>
     </Card>
   );
@@ -326,6 +366,7 @@ function PostForm({ post }: { post: AdminBlogPost | null }) {
       </form>
 
       {current ? <CoverCard post={current} onSaved={saved} /> : <Alert tone="info">{t('blog.cover.saveFirst')}</Alert>}
+      {current?.origin === 'pipeline' ? <TranslationsCard post={current} /> : null}
 
       <Dialog open={confirmDelete} onOpenChange={setConfirmDelete}>
         <DialogContent

@@ -272,6 +272,11 @@
       "saved": "Cover saved.",
       "removed": "Cover removed.",
       "saveFirst": "Save the post first to add a cover image."
+    },
+    "translations": {
+      "title": "Language versions",
+      "description": "This post came from the Kitisel writing pipeline; translations are added as drafts. Review and publish each language separately.",
+      "pending": "Translation pending"
     }
   },
   "billing": {

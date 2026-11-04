@@ -43,10 +43,12 @@ import {
   slugify,
 } from '@upvine/seo';
 import type { HttpClient } from '@upvine/seo';
-import type { ContentJobData, GenerationStep, VerificationReport } from '@upvine/shared';
+import { sameSite } from '@upvine/shared';
+import type { BlogTranslateJobData, ContentJobData, GenerationStep, VerificationReport } from '@upvine/shared';
 import type { Logger } from 'pino';
 import type { AIProvider } from '@upvine/ai';
 import { createCover, rankSiteImages, siteImageCover } from './cover';
+import { internalBlogSink } from './internal-blog';
 import { DUPLICATE_SIMILARITY, semanticLinks } from './semantic';
 import { isDuplicateTopic, RetryableJobError } from './site-jobs';
 import type { JobRun } from './site-jobs';
@@ -58,6 +60,8 @@ export interface ContentDeps {
   logger: Logger;
   /** Onay modunda yazı incelemeye düşünce (e-posta bildirimi) */
   onReviewReady?: (data: { orgId: string; siteId: string; contentItemId: string; title: string }) => Promise<void>;
+  /** Kitisel blogu: taslağın diğer dillere çeviri işi (`assist` kuyruğu) */
+  enqueueBlogTranslation?: (data: BlogTranslateJobData) => Promise<void>;
 }
 
 /** Bu kelime sayısının altındaki taslak bir kez genişletilir */
@@ -428,7 +432,14 @@ export async function publishArticle(deps: ContentDeps, data: ContentJobData, ru
       { ciphertext: stored.ciphertext, iv: stored.iv, authTag: stored.authTag, keyVersion: stored.keyVersion },
       { [deps.env.ENCRYPTION_KEY_VERSION]: deps.env.ENCRYPTION_KEY },
     );
-    const publisher = createPublisher(creds, deps.http);
+    let kitiselBlog;
+    if (creds.kind === 'kitisel') {
+      // Dahili hedef sadece Kitisel'in kendi sitesinde: bağlantıdan sonra site adresi değiştiyse yazılmaz
+      const site = await sitesRepository.findById(orgId, item.siteId);
+      if (!site || !sameSite(site.url, deps.env.WEB_URL)) throw new PublishError('forbidden', 'not the Kitisel site');
+      kitiselBlog = internalBlogSink({ orgId, webUrl: deps.env.WEB_URL, enqueueTranslation: deps.enqueueBlogTranslation ?? (async () => {}) });
+    }
+    const publisher = createPublisher(creds, deps.http, { kitiselBlog });
     const result = await publisher.publish(
       {
         title: article.title,

@@ -186,6 +186,9 @@ export function sitesRoutes(deps: AppDeps): Router {
   r.put('/:id/connection/wix', analysisLimit, validateBody(wixConnectSchema), async (req, res) => {
     res.json(await content.connectWix(await context(req), param(req, 'id'), req.body as WixConnectInput));
   });
+  r.put('/:id/connection/kitisel', analysisLimit, async (req, res) => {
+    res.json(await content.connectKitiselBlog(await context(req), param(req, 'id')));
+  });
   r.post('/:id/connection/test', analysisLimit, async (req, res) => {
     res.json(await content.testConnection(await context(req), param(req, 'id')));
   });

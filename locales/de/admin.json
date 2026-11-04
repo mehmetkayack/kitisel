@@ -272,6 +272,11 @@
       "saved": "Titelbild gespeichert.",
       "removed": "Titelbild entfernt.",
       "saveFirst": "Speichern Sie den Beitrag zuerst, um ein Titelbild hinzuzufügen."
+    },
+    "translations": {
+      "title": "Sprachversionen",
+      "description": "Dieser Beitrag stammt aus der Kitisel-Schreibpipeline; Übersetzungen werden als Entwürfe angelegt. Prüfen und veröffentlichen Sie jede Sprache einzeln.",
+      "pending": "Übersetzung ausstehend"
     }
   },
   "billing": {
