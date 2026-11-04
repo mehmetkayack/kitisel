@@ -5,7 +5,7 @@ import { exchangeSearchConsoleCode, matchProperty, refreshSearchConsoleToken, Se
 import { createFixtureHttpClient, FAKE_GSC } from './testing';
 import { CHECK_IDS, runChecks } from './checks';
 import type { FetchResult, HttpClient } from './http';
-import { isPublicAddress } from './http';
+import { caIssuersUrl, isPublicAddress } from './http';
 import { parseRobots } from './robots';
 import { normalizeSiteUrl } from './url';
 import { heuristicBrand } from './brand';
@@ -85,6 +85,17 @@ describe('isPublicAddress (SSRF)', () => {
   });
   it('genel adreslere izin verir', () => {
     for (const ip of ['8.8.8.8', '1.1.1.1', '2606:4700:4700::1111']) expect(isPublicAddress(ip), ip).toBe(true);
+  });
+});
+
+describe('caIssuersUrl (eksik sertifika zinciri)', () => {
+  it('AIA uzantısından ara sertifika adresini alır; http(s) dışını yok sayar', () => {
+    expect(caIssuersUrl('OCSP - URI:http://ocsp.sectigo.com\nCA Issuers - URI:http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVR36.crt')).toBe(
+      'http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVR36.crt',
+    );
+    expect(caIssuersUrl('CA Issuers - URI:ldap://x.example/cert')).toBeNull();
+    expect(caIssuersUrl('OCSP - URI:http://ocsp.example')).toBeNull();
+    expect(caIssuersUrl(undefined)).toBeNull();
   });
 });
 

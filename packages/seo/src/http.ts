@@ -1,8 +1,11 @@
+import { X509Certificate } from 'node:crypto';
 import { lookup as dnsLookup } from 'node:dns';
 import type { LookupAddress, LookupOptions } from 'node:dns';
 import { isIP } from 'node:net';
+import { connect as tlsConnect, rootCertificates } from 'node:tls';
 import ipaddr from 'ipaddr.js';
 import { Agent, fetch } from 'undici';
+import type { RequestInit } from 'undici';
 
 export interface FetchResult {
   /** Yönlendirmelerden sonraki son adres */
@@ -63,6 +66,44 @@ function guardedLookup(hostname: string, options: LookupOptions, callback: Looku
   });
 }
 
+/** Sunucu ara sertifikayı göndermemiş (eksik zincir): tarayıcılar tamamlar, Node tamamlamaz */
+const INCOMPLETE_CHAIN = new Set(['UNABLE_TO_VERIFY_LEAF_SIGNATURE', 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY']);
+
+function tlsErrorCode(err: unknown): string | undefined {
+  const cause = (err as { cause?: { code?: unknown } } | null)?.cause;
+  return typeof cause?.code === 'string' ? cause.code : undefined;
+}
+
+/** Sertifikanın AIA uzantısındaki "CA Issuers" adresi (ara sertifikanın indirileceği yer) */
+export function caIssuersUrl(infoAccess: string | undefined): string | null {
+  const match = /CA Issuers - URI:(\S+)/.exec(infoAccess ?? '');
+  return match && /^https?:\/\//i.test(match[1]!) ? match[1]! : null;
+}
+
+let trustedRoots: X509Certificate[] | null = null;
+/** Sertifikayı Node'un güvendiği köklerden biri mi imzalamış? */
+function issuedByTrustedRoot(cert: X509Certificate): boolean {
+  trustedRoots ??= rootCertificates.map((pem) => new X509Certificate(pem));
+  return trustedRoots.some((root) => cert.checkIssued(root) && cert.verify(root.publicKey));
+}
+
+/** Sunucunun gönderdiği yaprak sertifika. Sadece okunur: doğrulanmamış bağlantıdan veri gönderilmez. */
+function peerLeafCertificate(host: string, port: number): Promise<X509Certificate | null> {
+  return new Promise((resolve) => {
+    const socket = tlsConnect({ host, port, servername: isIP(host) ? undefined : host, rejectUnauthorized: false, lookup: guardedLookup as never, timeout: 10_000 });
+    const done = (cert: X509Certificate | null) => {
+      socket.destroy();
+      resolve(cert);
+    };
+    socket.once('secureConnect', () => {
+      const raw = socket.getPeerCertificate().raw;
+      done(raw ? new X509Certificate(raw) : null);
+    });
+    socket.once('error', () => done(null));
+    socket.once('timeout', () => done(null));
+  });
+}
+
 export interface SafeHttpOptions {
   userAgent: string;
   timeoutMs?: number;
@@ -78,6 +119,57 @@ export function createSafeHttpClient(opts: SafeHttpOptions): HttpClient {
     bodyTimeout: opts.timeoutMs ?? 15_000,
   });
   const maxRedirects = opts.maxRedirects ?? 5;
+
+  /**
+   * Eksik sertifika zinciri: tarayıcılar gibi ara sertifikayı AIA adresinden indirip zinciri tamamlar.
+   * Ara sertifika yaprağı gerçekten imzalamış olmalı; kök doğrulaması yine zorunlu (doğrulama kapatılmaz).
+   * Sonuç alan adı başına saklanır (başarısızsa da: her istekte yeniden denenmez).
+   */
+  const chainAgents = new Map<string, Promise<Agent | null>>();
+  const completeChain = async (host: string, port: number): Promise<Agent | null> => {
+    let cert = await peerLeafCertificate(host, port);
+    if (!cert) return null;
+    const intermediates: string[] = [];
+    try {
+      // Zincir güvenilen bir köke ulaşana kadar yukarı (en fazla 3 ara sertifika)
+      for (let depth = 0; depth < 3 && !issuedByTrustedRoot(cert); depth++) {
+        const issuerUrl = caIssuersUrl(cert.infoAccess);
+        if (!issuerUrl) return null;
+        const res = await client.get(issuerUrl, { binary: true, maxBytes: 64_000 });
+        if (res.status !== 200 || !res.raw) return null;
+        const issuer = new X509Certificate(res.raw);
+        if (!cert.checkIssued(issuer) || !cert.verify(issuer.publicKey)) return null;
+        intermediates.push(issuer.toString());
+        cert = issuer;
+      }
+      if (!intermediates.length || !issuedByTrustedRoot(cert)) return null;
+      return new Agent({
+        connect: { lookup: guardedLookup as never, timeout: 10_000, ca: [...rootCertificates, ...intermediates] },
+        headersTimeout: opts.timeoutMs ?? 15_000,
+        bodyTimeout: opts.timeoutMs ?? 15_000,
+      });
+    } catch {
+      return null;
+    }
+  };
+
+  /** İstek; eksik zincir hatasında bir kez zinciri tamamlayıp yeniden dener */
+  const send = async (url: string, init: () => RequestInit) => {
+    const { hostname, port, protocol } = new URL(url);
+    const key = `${hostname}:${port}`;
+    const known = chainAgents.get(key);
+    const agent = known ? await known : null;
+    try {
+      return await fetch(url, { ...init(), dispatcher: agent ?? dispatcher });
+    } catch (err) {
+      if (protocol !== 'https:' || known || !INCOMPLETE_CHAIN.has(tlsErrorCode(err) ?? '')) throw err;
+      const pending = completeChain(hostname.replace(/^\[|\]$/g, ''), Number(port) || 443);
+      chainAgents.set(key, pending);
+      const fixed = await pending;
+      if (!fixed) throw err;
+      return fetch(url, { ...init(), dispatcher: fixed });
+    }
+  };
 
   const readBody = async (res: Awaited<ReturnType<typeof fetch>>, maxBytes: number) => {
     let bytes = 0;
@@ -103,18 +195,17 @@ export function createSafeHttpClient(opts: SafeHttpOptions): HttpClient {
     if (isIP(host) && !isPublicAddress(host)) throw new BlockedAddressError(url);
   };
 
-  return {
+  const client: HttpClient = {
     async request(url, req) {
       checkTarget(url);
       const started = performance.now();
-      const res = await fetch(url, {
+      const res = await send(url, () => ({
         method: req.method,
         redirect: 'manual',
-        dispatcher,
         headers: { 'user-agent': opts.userAgent, ...req.headers },
         body: req.body,
         signal: AbortSignal.timeout(opts.timeoutMs ?? 30_000),
-      });
+      }));
       const ttfbMs = Math.round(performance.now() - started);
       const { body, bytes } = await readBody(res, req.maxBytes ?? 2_000_000);
       const headers: Record<string, string> = {};
@@ -135,13 +226,12 @@ export function createSafeHttpClient(opts: SafeHttpOptions): HttpClient {
         if (isIP(host) && !isPublicAddress(host)) throw new BlockedAddressError(current);
 
         const started = performance.now();
-        const res = await fetch(current, {
+        const res = await send(current, () => ({
           method,
           redirect: 'manual',
-          dispatcher,
           headers: { 'user-agent': opts.userAgent, accept: binary ? 'image/avif,image/webp,image/*;q=0.9,*/*;q=0.5' : 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' },
           signal: AbortSignal.timeout(opts.timeoutMs ?? 20_000),
-        });
+        }));
         const ttfbMs = Math.round(performance.now() - started);
         const location = res.headers.get('location');
         if (res.status >= 300 && res.status < 400 && location) {
@@ -180,4 +270,5 @@ export function createSafeHttpClient(opts: SafeHttpOptions): HttpClient {
       }
     },
   };
+  return client;
 }
